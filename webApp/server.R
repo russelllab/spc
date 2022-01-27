@@ -245,7 +245,7 @@ shinyServer(
     })
     
     getPage<-function() {
-      return(includeHTML("about2.html"))
+      return(includeHTML("about.html"))
     }
     output$about<-renderUI({getPage()})
     

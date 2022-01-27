@@ -1,6 +1,6 @@
 ## Cryptic cleavage sites in membrane proteins
 
-![Workflow](ppt/spc_diag.png)
+![Workflow](webApp/workflow.svg)
 
 ### Part A
 1. Consider the entire human proteome's first 70aa and run [SignalP](https://services.healthtech.dtu.dk/service.php?SignalP-4.1) with **TM** and **noTM** networks

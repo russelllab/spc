@@ -65,7 +65,7 @@ shinyUI(navbarPage("SPC as a Quality Control Enzyme",
                           div(style="display: inline-block;vertical-align:top; width: 25px;"),
                           div(style="display: inline-block;vertical-align:top; width: 170px;",
                             sliderInput("SignalP_noTM", label = "no TM version", min = 0, 
-                                        max = 1.0, value = c(0.6, 1.0))
+                                        max = 1.0, value = c(0.5, 1.0))
                           ),
                           hr(style = "border: 1px solid;"),
                           
@@ -137,7 +137,7 @@ shinyUI(navbarPage("SPC as a Quality Control Enzyme",
                               
                               ## ---------------------------------------------------
                               div(style="padding-left: 3%; padding-bottom: 5%", strong('Process all proteins?', style="display: inline-block; padding-bottom: 5px; font-size: 18px"),
-                                  div(style="display: inline-block; padding-left: 3%", actionButton("processHelp", "", icon = icon("question-circle"))),
+                                  div(style="display: inline-block; padding-left: 3%", actionButton("processHelp2", "", icon = icon("question-circle"))),
                               ),
                               div(style="display: inline-block; width: 100px;",
                                   switchInput(inputId = "all2", label="All", value = TRUE, onLabel = "Yes", offLabel = "No"),
@@ -151,7 +151,7 @@ shinyUI(navbarPage("SPC as a Quality Control Enzyme",
                               
                               ## ---------------------------------------------------
                               div(style="padding-left: 3%; padding-bottom: 5%", strong('SignalP cutoffs', style="display: inline-block; vertical-align:center; font-size: 18px"),
-                                  div(style="display: inline-block; padding-left: 3%;vertical-align:center", actionButton("signalpHelp", "", icon = icon("question-circle"))),
+                                  div(style="display: inline-block; padding-left: 3%;vertical-align:center", actionButton("signalpHelp2", "", icon = icon("question-circle"))),
                               ),
                               div(style="display: inline-block;vertical-align:top;horizontal-align:center; width: 170px;",
                                   sliderInput("SignalP_TM2", label = "TM version", min = 0,
@@ -160,19 +160,19 @@ shinyUI(navbarPage("SPC as a Quality Control Enzyme",
                               div(style="display: inline-block;vertical-align:top; width: 25px;"),
                               div(style="display: inline-block;vertical-align:top; width: 170px;",
                                   sliderInput("SignalP_noTM2", label = "no TM version", min = 0, 
-                                              max = 1.0, value = c(0.6, 1.0))
+                                              max = 1.0, value = c(0.5, 1.0))
                               ),
                               hr(style = "border: 1px solid;"),
                               
                               ## ---------------------------------------------------
                               div(style="display: inline-block; padding-left: 3%; width: 150px; font-size: 18px", strong('# Mutations >')),
                               div(style="display: inline-block; padding-left: 3%; text-align: left; width: 100px", numericInput('Num_MUT2', '', value = 0)),
-                              div(style="display: inline-block; padding-left: 3%;", actionButton("mutationHelp", "", icon = icon("question-circle"))),
+                              div(style="display: inline-block; padding-left: 3%;", actionButton("mutationHelp2", "", icon = icon("question-circle"))),
                               hr(style = "border: 0.5px solid;"),
                               
                               ## ---------------------------------------------------
                               div(style="display: inline-block; padding-left: 3%; width: 200px; font-size: 18px", strong('N-term localization?')),
-                              div(style="display: inline-block;", actionButton("ntermHelp", "", icon = icon("question-circle"))),
+                              div(style="display: inline-block;", actionButton("ntermHelp2", "", icon = icon("question-circle"))),
                               checkboxGroupInput("local2", label = "", 
                                                  choices = levels(factor(data2$`N_terminus`, exclude=c())),
                                                  #selected = "Cytoplasmic", inline = TRUE,
@@ -187,7 +187,7 @@ shinyUI(navbarPage("SPC as a Quality Control Enzyme",
                               div(style="display: inline-block; width: 100px;",
                                   switchInput(inputId = "TM2", label="Y/N", value = TRUE, onLabel = "Yes", offLabel = "No"),
                               ),
-                              div(style="display: inline-block; padding-left: 3%; width:25px", actionButton("tmHelp", "", icon = icon("question-circle"))),
+                              div(style="display: inline-block; padding-left: 3%; width:25px", actionButton("tmHelp2", "", icon = icon("question-circle"))),
                               hr(style = "border: 1px solid;"),
                               
                               ## ---------------------------------------------------
@@ -195,7 +195,7 @@ shinyUI(navbarPage("SPC as a Quality Control Enzyme",
                               div(style="display: inline-block; width: 100px; vertical-align: center",
                                   switchInput(inputId = "NC2", label="Y/N", value = TRUE, onLabel = "Yes", offLabel = "No"),
                               ),
-                              div(style="display: inline-block; padding-left: 3%; width:25px; vertical-align: top", actionButton("canonicalHelp", "", icon = icon("question-circle"))),
+                              div(style="display: inline-block; padding-left: 3%; width:25px; vertical-align: top", actionButton("canonicalHelp2", "", icon = icon("question-circle"))),
                               #hr(style = "border: 1px solid;"),
                               
                               ## ---------------------------------------------------

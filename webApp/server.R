@@ -118,42 +118,55 @@ spc_table <- function(x, a, b, c, d, e, f, signal_no, signal_yes) {
 # Define server logic required to draw a histogram
 shinyServer(
   function(input, output, session) {
+    ### Help modals
     observeEvent(input$processHelp, {
       showModal(modalDialog(
-        title = "Help",
-        HTML("Either process all proteins (Yes) or only selected proteins (No)"
-        )
+        title = "Process all proteins?",
+        HTML("<div class='text-justify' style='font-size:16px'><p>Choose to process either <strong>All</strong> the proteins (Yes) or only selected proteins (No) using the button on the left. 
+             In case of latter, on the right an input field will be enabled where you can enter one or more proteins (gene names) of your choice.</p></div>"
+            )
       ))
     })
     
     observeEvent(input$signalpHelp, {
       showModal(modalDialog(
-        title = "Help",
-        HTML("Choose the range of two version of SignalP"
+        title = "SignalP Y-scores",
+        HTML("<div class='text-justify' style='font-size:16px'><p>Select the ranges for Y-scores of the two version of <a href='https://services.healthtech.dtu.dk/service.php?SignalP-4.1'>SignalP</a>: <kbd>TM</kbd> and <kbd>no TM</kbd>.</p>
+             <p><kbd>TM version</kbd>: Y-scores derived by running the SignalP program in <i><strong>transmembrane network</strong></i> mode</p>
+             <p><kbd>no TM version</kbd>: Y-scores derived by running the SignalP program in <i><strong>no-transmembrane network</strong></i> mode</p>
+             </div>"
         )
       ))
     })
     
     observeEvent(input$mutationHelp, {
       showModal(modalDialog(
-        title = "Help",
-        HTML("Select the proteins that are known to harbor a minimum nmber of mutations"
+        title = "Number of mutations",
+        HTML("<div class='text-justify' style='font-size:16px'><p>Select proteins that harbor minimum number of total mutations i.e.
+        unique number of mutations found in <a href='https://pubmed.ncbi.nlm.nih.gov/14681372/'>UniProt</a>,
+        <a href='https://pubmed.ncbi.nlm.nih.gov/29165669/'>ClinVar</a>, and <a href='https://pubmed.ncbi.nlm.nih.gov/30371878/'>COSMIC</a>. 
+             </p></div>"
         )
       ))
     })
     
     observeEvent(input$ntermHelp, {
       showModal(modalDialog(
-        title = "Help",
-        HTML("Select the proteins based on localization of their N-terminus"
+        title = "N-terminus localization",
+        HTML("<div class='text-justify' style='font-size:16px'><p>
+              Select the cell compartments in which the protein's N-terminus must lie.
+              </p>
+             </div>"
         )
       ))
     })
     
     observeEvent(input$tmHelp, {
       showModal(modalDialog(
-        title = "Help",
-        HTML("Select only transmembrane proteins"
+        title = "Transmembrane proteins",
+        HTML("<div class='text-justify' style='font-size:16px'><p>Choose to display either only the transmembrane proteins (<strong>Yes</strong>) or
+            otherwise (<strong>No</strong>). 
+             </p></div>"
         )
       ))
     })
@@ -161,7 +174,72 @@ shinyServer(
     observeEvent(input$canonicalHelp, {
       showModal(modalDialog(
         title = "Help",
-        HTML("Select only proteins with canonical signal peptides"
+        HTML("<div class='text-justify' style='font-size:16px'><p>Choose to display either only the proteins with non-canonical signal peptides (<strong>Yes</strong>) or
+            otherwise (<strong>No</strong>). 
+             </p></div>"
+        )
+      ))
+    })
+    
+    ### Help modals
+    observeEvent(input$processHelp2, {
+      showModal(modalDialog(
+        title = "Process all proteins?",
+        HTML("<div class='text-justify' style='font-size:16px'><p>Choose to process either <strong>All</strong> the proteins (Yes) or only selected proteins (No) using the button on the left. 
+             In case of latter, on the right an input field will be enabled where you can enter one or more proteins (gene names) of your choice.</p></div>"
+        )
+      ))
+    })
+    
+    observeEvent(input$signalpHelp2, {
+      showModal(modalDialog(
+        title = "SignalP Y-scores",
+        HTML("<div class='text-justify' style='font-size:16px'><p>Select the ranges for Y-scores of the two version of <a href='https://services.healthtech.dtu.dk/service.php?SignalP-4.1'>SignalP</a>: <kbd>TM</kbd> and <kbd>no TM</kbd>.</p>
+             <p><kbd>TM version</kbd>: Y-scores derived by running the SignalP program in <i><strong>transmembrane network</strong></i> mode</p>
+             <p><kbd>no TM version</kbd>: Y-scores derived by running the SignalP program in <i><strong>no-transmembrane network</strong></i> mode</p>
+             </div>"
+        )
+      ))
+    })
+    
+    observeEvent(input$mutationHelp2, {
+      showModal(modalDialog(
+        title = "Number of mutations",
+        HTML("<div class='text-justify' style='font-size:16px'><p>Select proteins that harbor minimum number of total mutations i.e.
+        unique number of mutations found in <a href='https://pubmed.ncbi.nlm.nih.gov/14681372/'>UniProt</a>,
+        <a href='https://pubmed.ncbi.nlm.nih.gov/29165669/'>ClinVar</a>, and <a href='https://pubmed.ncbi.nlm.nih.gov/30371878/'>COSMIC</a>. 
+             </p></div>"
+        )
+      ))
+    })
+    
+    observeEvent(input$ntermHelp2, {
+      showModal(modalDialog(
+        title = "N-terminus localization",
+        HTML("<div class='text-justify' style='font-size:16px'><p>
+              Select the cell compartments in which the protein's N-terminus must lie.
+              </p>
+             </div>"
+        )
+      ))
+    })
+    
+    observeEvent(input$tmHelp2, {
+      showModal(modalDialog(
+        title = "Transmembrane proteins",
+        HTML("<div class='text-justify' style='font-size:16px'><p>Choose to display either only the transmembrane proteins (<strong>Yes</strong>) or
+            otherwise (<strong>No</strong>). 
+             </p></div>"
+        )
+      ))
+    })
+    
+    observeEvent(input$canonicalHelp2, {
+      showModal(modalDialog(
+        title = "Non-canonical cases",
+        HTML("<div class='text-justify' style='font-size:16px'><p>Choose to display either only the proteins with non-canonical signal peptides (<strong>Yes</strong>) or
+            otherwise (<strong>No</strong>). 
+             </p></div>"
         )
       ))
     })

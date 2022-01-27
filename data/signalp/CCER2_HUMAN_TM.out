@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.532
+  max. Y    24       0.699
+  max. S    21       0.964
+  mean S     1-23    0.891
+       D     1-23    0.775   0.500   YES
+Name=CCER2_HUMAN	SP='YES' Cleavage site between pos. 23 and 24: ATA-AP D=0.775 D-cutoff=0.500 Networks=SignalP-TM

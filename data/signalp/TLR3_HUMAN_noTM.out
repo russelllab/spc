@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.198
+  max. Y    23       0.401
+  max. S     1       0.888
+  mean S     1-22    0.814
+       D     1-22    0.624   0.450   YES
+Name=TLR3_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: LCA-SS D=0.624 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.577
+  max. Y    18       0.670
+  max. S     1       0.885
+  mean S     1-17    0.794
+       D     1-17    0.720   0.500   YES
+Name=PGRP4_HUMAN	SP='YES' Cleavage site between pos. 17 and 18: AWG-DS D=0.720 D-cutoff=0.500 Networks=SignalP-TM

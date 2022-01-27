@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.450
+  max. Y    19       0.648
+  max. S     4       0.978
+  mean S     1-18    0.928
+       D     1-18    0.799   0.450   YES
+Name=LIPN_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: LNA-GG D=0.799 D-cutoff=0.450 Networks=SignalP-noTM

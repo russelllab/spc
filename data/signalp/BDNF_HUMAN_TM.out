@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.639
+  max. Y    19       0.677
+  max. S     4       0.813
+  mean S     1-18    0.733
+       D     1-18    0.700   0.500   YES
+Name=BDNF_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: MKA-AP D=0.700 D-cutoff=0.500 Networks=SignalP-TM

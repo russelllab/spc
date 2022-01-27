@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    50       0.412
+  max. Y    50       0.593
+  max. S    46       0.910
+  mean S     1-49    0.490
+       D     1-49    0.552   0.500   YES
+Name=ASTN2_HUMAN	SP='YES' Cleavage site between pos. 49 and 50: LLA-GA D=0.552 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    31       0.549
+  max. Y    31       0.611
+  max. S    12       0.981
+  mean S     1-30    0.752
+       D     1-30    0.687   0.450   YES
+Name=BMP5_HUMAN	SP='YES' Cleavage site between pos. 30 and 31: GLG-DN D=0.687 D-cutoff=0.450 Networks=SignalP-noTM

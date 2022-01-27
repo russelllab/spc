@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    37       0.375
+  max. Y    37       0.534
+  max. S    33       0.889
+  mean S     1-36    0.617
+       D     1-36    0.567   0.500   YES
+Name=GLTD2_HUMAN	SP='YES' Cleavage site between pos. 36 and 37: SLG-AR D=0.567 D-cutoff=0.500 Networks=SignalP-TM

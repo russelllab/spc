@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    25       0.464
+  max. Y    25       0.551
+  max. S    24       0.889
+  mean S     1-24    0.561
+       D     1-24    0.555   0.500   YES
+Name=TIDC1_HUMAN	SP='YES' Cleavage site between pos. 24 and 25: VFA-AE D=0.555 D-cutoff=0.500 Networks=SignalP-TM

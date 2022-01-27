@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    37       0.846
+  max. Y    37       0.779
+  max. S    34       0.892
+  mean S     1-36    0.678
+       D     1-36    0.739   0.500   YES
+Name=CO5A1_HUMAN	SP='YES' Cleavage site between pos. 36 and 37: SRA-AQ D=0.739 D-cutoff=0.500 Networks=SignalP-TM

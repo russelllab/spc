@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.430
+  max. Y    24       0.622
+  max. S    13       0.940
+  mean S     1-23    0.902
+       D     1-23    0.734   0.500   YES
+Name=RNAS2_HUMAN	SP='YES' Cleavage site between pos. 23 and 24: VEG-SL D=0.734 D-cutoff=0.500 Networks=SignalP-TM

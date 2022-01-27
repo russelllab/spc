@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.350
+  max. Y    22       0.569
+  max. S    13       0.950
+  mean S     1-21    0.925
+       D     1-21    0.711   0.500   YES
+Name=TOR3A_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: GAP-EP D=0.711 D-cutoff=0.500 Networks=SignalP-TM

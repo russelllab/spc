@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    31       0.788
+  max. Y    31       0.864
+  max. S    16       0.997
+  mean S     1-30    0.951
+       D     1-30    0.911   0.450   YES
+Name=GXLT2_HUMAN	SP='YES' Cleavage site between pos. 30 and 31: GRA-EP D=0.911 D-cutoff=0.450 Networks=SignalP-noTM

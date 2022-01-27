@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.338
+  max. Y    24       0.473
+  max. S     4       0.833
+  mean S     1-23    0.695
+       D     1-23    0.562   0.500   YES
+Name=DSG1_HUMAN	SP='YES' Cleavage site between pos. 23 and 24: VNS-EF D=0.562 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.730
+  max. Y    24       0.570
+  max. S     8       0.641
+  mean S     1-23    0.459
+       D     1-23    0.526   0.500   YES
+Name=BMR1A_HUMAN	SP='YES' Cleavage site between pos. 23 and 24: VQG-QN D=0.526 D-cutoff=0.500 Networks=SignalP-TM

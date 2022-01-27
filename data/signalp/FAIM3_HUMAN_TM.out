@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.587
+  max. Y    17       0.611
+  max. S     8       0.690
+  mean S     1-16    0.639
+       D     1-16    0.622   0.500   YES
+Name=FAIM3_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: SGA-LR D=0.622 D-cutoff=0.500 Networks=SignalP-TM

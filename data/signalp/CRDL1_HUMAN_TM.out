@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.429
+  max. Y    28       0.590
+  max. S    15       0.908
+  mean S     1-27    0.800
+       D     1-27    0.674   0.500   YES
+Name=CRDL1_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: GKT-EQ D=0.674 D-cutoff=0.500 Networks=SignalP-TM

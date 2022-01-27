@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    25       0.255
+  max. Y    25       0.433
+  max. S    16       0.839
+  mean S     1-24    0.717
+       D     1-24    0.546   0.500   YES
+Name=CNTP5_HUMAN	SP='YES' Cleavage site between pos. 24 and 25: GLT-AT D=0.546 D-cutoff=0.500 Networks=SignalP-TM

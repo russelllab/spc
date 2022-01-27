@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    31       0.531
+  max. Y    31       0.620
+  max. S    26       0.854
+  mean S     1-30    0.712
+       D     1-30    0.657   0.500   YES
+Name=BOC_HUMAN	SP='YES' Cleavage site between pos. 30 and 31: CFA-DL D=0.657 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.423
+  max. Y    18       0.622
+  max. S    10       0.946
+  mean S     1-17    0.908
+       D     1-17    0.776   0.450   YES
+Name=CLM7_HUMAN	SP='YES' Cleavage site between pos. 17 and 18: CFS-IQ D=0.776 D-cutoff=0.450 Networks=SignalP-noTM

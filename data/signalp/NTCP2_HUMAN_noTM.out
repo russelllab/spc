@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    51       0.457
+  max. Y    51       0.574
+  max. S    37       0.889
+  mean S     1-50    0.393
+       D     1-50    0.476   0.450   YES
+Name=NTCP2_HUMAN	SP='YES' Cleavage site between pos. 50 and 51: SMG-CN D=0.476 D-cutoff=0.450 Networks=SignalP-noTM

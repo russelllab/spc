@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    26       0.435
+  max. Y    26       0.578
+  max. S    11       0.932
+  mean S     1-25    0.824
+       D     1-25    0.676   0.500   YES
+Name=GIPR_HUMAN	SP='YES' Cleavage site between pos. 25 and 26: AET-GS D=0.676 D-cutoff=0.500 Networks=SignalP-TM

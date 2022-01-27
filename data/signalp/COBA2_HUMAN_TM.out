@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.501
+  max. Y    23       0.668
+  max. S    14       0.937
+  mean S     1-22    0.871
+       D     1-22    0.749   0.500   YES
+Name=COBA2_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: LSA-AP D=0.749 D-cutoff=0.500 Networks=SignalP-TM

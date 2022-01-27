@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.804
+  max. Y    21       0.776
+  max. S    13       0.861
+  mean S     1-20    0.750
+       D     1-20    0.765   0.500   YES
+Name=KERA_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: VWS-RS D=0.765 D-cutoff=0.500 Networks=SignalP-TM

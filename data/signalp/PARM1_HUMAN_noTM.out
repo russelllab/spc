@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.522
+  max. Y    21       0.643
+  max. S     5       0.873
+  mean S     1-20    0.787
+       D     1-20    0.721   0.450   YES
+Name=PARM1_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: VQS-LP D=0.721 D-cutoff=0.450 Networks=SignalP-noTM

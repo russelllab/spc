@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    34       0.484
+  max. Y    34       0.676
+  max. S    16       0.988
+  mean S     1-33    0.935
+       D     1-33    0.816   0.450   YES
+Name=BRNP3_HUMAN	SP='YES' Cleavage site between pos. 33 and 34: AVA-AV D=0.816 D-cutoff=0.450 Networks=SignalP-noTM

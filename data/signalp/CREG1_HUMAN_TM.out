@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    32       0.717
+  max. Y    32       0.734
+  max. S    22       0.914
+  mean S     1-31    0.779
+       D     1-31    0.752   0.500   YES
+Name=CREG1_HUMAN	SP='YES' Cleavage site between pos. 31 and 32: ARG-RG D=0.752 D-cutoff=0.500 Networks=SignalP-TM

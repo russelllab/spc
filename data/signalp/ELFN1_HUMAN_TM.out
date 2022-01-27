@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.446
+  max. Y    28       0.538
+  max. S     9       0.896
+  mean S     1-27    0.724
+       D     1-27    0.612   0.500   YES
+Name=ELFN1_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: ARA-DC D=0.612 D-cutoff=0.500 Networks=SignalP-TM

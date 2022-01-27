@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    30       0.864
+  max. Y    30       0.883
+  max. S    19       0.949
+  mean S     1-29    0.868
+       D     1-29    0.877   0.500   YES
+Name=ROR1_HUMAN	SP='YES' Cleavage site between pos. 29 and 30: AAA-QE D=0.877 D-cutoff=0.500 Networks=SignalP-TM

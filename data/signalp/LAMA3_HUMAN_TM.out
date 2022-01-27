@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    37       0.230
+  max. Y    37       0.398
+  max. S    19       0.909
+  mean S     1-36    0.720
+       D     1-36    0.527   0.500   YES
+Name=LAMA3_HUMAN	SP='YES' Cleavage site between pos. 36 and 37: ATA-RD D=0.527 D-cutoff=0.500 Networks=SignalP-TM

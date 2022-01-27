@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.705
+  max. Y    21       0.782
+  max. S    11       0.924
+  mean S     1-20    0.859
+       D     1-20    0.813   0.500   YES
+Name=MMP8_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: SKA-FP D=0.813 D-cutoff=0.500 Networks=SignalP-TM

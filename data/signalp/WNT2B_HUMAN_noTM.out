@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    59       0.521
+  max. Y    59       0.626
+  max. S    47       0.961
+  mean S     1-58    0.445
+       D     1-58    0.528   0.450   YES
+Name=WNT2B_HUMAN	SP='YES' Cleavage site between pos. 58 and 59: VDT-SW D=0.528 D-cutoff=0.450 Networks=SignalP-noTM

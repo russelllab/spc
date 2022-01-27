@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.746
+  max. Y    28       0.717
+  max. S    12       0.929
+  mean S     1-27    0.784
+       D     1-27    0.743   0.500   YES
+Name=ARMD4_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: CLA-FP D=0.743 D-cutoff=0.500 Networks=SignalP-TM

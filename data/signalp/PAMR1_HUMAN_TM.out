@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.178
+  max. Y    22       0.392
+  max. S    19       0.898
+  mean S     1-21    0.844
+       D     1-21    0.573   0.500   YES
+Name=PAMR1_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: ISS-LP D=0.573 D-cutoff=0.500 Networks=SignalP-TM

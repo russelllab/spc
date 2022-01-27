@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.840
+  max. Y    28       0.886
+  max. S    19       0.978
+  mean S     1-27    0.932
+       D     1-27    0.911   0.450   YES
+Name=LTBP4_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: TSA-AS D=0.911 D-cutoff=0.450 Networks=SignalP-noTM

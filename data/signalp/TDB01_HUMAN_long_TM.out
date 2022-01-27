@@ -1,0 +1,14 @@
+# SignalP-4.1 euk predictions
+# Name=TDB01_HUMAN	Length=4	Networks=SignalP-TM
+# pos  aa    C       S       Y
+    1   G   0.103   0.330   0.184
+    2   T   0.101   0.314   0.182
+    3   G   0.105   0.245   0.186
+    4   G   0.102   0.134   0.182
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C     3       0.105
+  max. Y     1       0.000
+  max. S     1       0.330
+  mean S     1-0     0.000
+       D     1-0     0.000   0.500   NO
+Name=TDB01_HUMAN	SP='NO' D=0.000 D-cutoff=0.500 Networks=SignalP-TM

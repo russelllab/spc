@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.515
+  max. Y    28       0.632
+  max. S    13       0.922
+  mean S     1-27    0.759
+       D     1-27    0.700   0.450   YES
+Name=ROS1_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: VQC-TV D=0.700 D-cutoff=0.450 Networks=SignalP-noTM

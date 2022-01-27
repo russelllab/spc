@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    42       0.785
+  max. Y    42       0.746
+  max. S    40       0.964
+  mean S     1-41    0.468
+       D     1-41    0.596   0.450   YES
+Name=CXA8_HUMAN	SP='YES' Cleavage site between pos. 41 and 42: TAA-EF D=0.596 D-cutoff=0.450 Networks=SignalP-noTM

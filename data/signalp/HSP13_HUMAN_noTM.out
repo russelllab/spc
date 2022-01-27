@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.395
+  max. Y    23       0.596
+  max. S    16       0.947
+  mean S     1-22    0.900
+       D     1-22    0.760   0.450   YES
+Name=HSP13_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: YLA-QQ D=0.760 D-cutoff=0.450 Networks=SignalP-noTM

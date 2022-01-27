@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    42       0.334
+  max. Y    42       0.533
+  max. S    30       0.960
+  mean S     1-41    0.719
+       D     1-41    0.634   0.450   YES
+Name=TIG1_HUMAN	SP='YES' Cleavage site between pos. 41 and 42: GSG-DP D=0.634 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    61       0.358
+  max. Y    61       0.387
+  max. S    45       0.803
+  mean S     1-60    0.280
+       D     1-60    0.329   0.450   NO
+Name=ATRN1_HUMAN	SP='NO' D=0.329 D-cutoff=0.450 Networks=SignalP-noTM

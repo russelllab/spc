@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    33       0.637
+  max. Y    33       0.764
+  max. S    25       0.964
+  mean S     1-32    0.862
+       D     1-32    0.817   0.450   YES
+Name=GANAB_HUMAN	SP='YES' Cleavage site between pos. 32 and 33: TLA-VD D=0.817 D-cutoff=0.450 Networks=SignalP-noTM

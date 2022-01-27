@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.477
+  max. Y    18       0.557
+  max. S    16       0.793
+  mean S     1-17    0.639
+       D     1-17    0.590   0.500   YES
+Name=PIGU_HUMAN	SP='YES' Cleavage site between pos. 17 and 18: VRA-AL D=0.590 D-cutoff=0.500 Networks=SignalP-TM

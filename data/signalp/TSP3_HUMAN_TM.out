@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.426
+  max. Y    22       0.571
+  max. S    18       0.869
+  mean S     1-21    0.745
+       D     1-21    0.641   0.500   YES
+Name=TSP3_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: TSA-SQ D=0.641 D-cutoff=0.500 Networks=SignalP-TM

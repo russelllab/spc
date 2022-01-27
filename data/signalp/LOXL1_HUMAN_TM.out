@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    26       0.680
+  max. Y    26       0.745
+  max. S    15       0.899
+  mean S     1-25    0.771
+       D     1-25    0.755   0.500   YES
+Name=LOXL1_HUMAN	SP='YES' Cleavage site between pos. 25 and 26: VHG-QQ D=0.755 D-cutoff=0.500 Networks=SignalP-TM

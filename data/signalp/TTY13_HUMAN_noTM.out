@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    43       0.352
+  max. Y    43       0.501
+  max. S    36       0.931
+  mean S     1-42    0.523
+       D     1-42    0.513   0.450   YES
+Name=TTY13_HUMAN	SP='YES' Cleavage site between pos. 42 and 43: CLP-SP D=0.513 D-cutoff=0.450 Networks=SignalP-noTM

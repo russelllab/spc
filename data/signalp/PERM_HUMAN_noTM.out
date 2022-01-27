@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    49       0.428
+  max. Y    49       0.559
+  max. S    32       0.947
+  mean S     1-48    0.600
+       D     1-48    0.581   0.450   YES
+Name=PERM_HUMAN	SP='YES' Cleavage site between pos. 48 and 49: SEG-AA D=0.581 D-cutoff=0.450 Networks=SignalP-noTM

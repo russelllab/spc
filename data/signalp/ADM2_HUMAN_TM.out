@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    25       0.390
+  max. Y    25       0.507
+  max. S     3       0.800
+  mean S     1-24    0.692
+       D     1-24    0.581   0.500   YES
+Name=ADM2_HUMAN	SP='YES' Cleavage site between pos. 24 and 25: SLS-RS D=0.581 D-cutoff=0.500 Networks=SignalP-TM

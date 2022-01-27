@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.497
+  max. Y    20       0.631
+  max. S     3       0.885
+  mean S     1-19    0.817
+       D     1-19    0.705   0.500   YES
+Name=TENA_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: ALA-TE D=0.705 D-cutoff=0.500 Networks=SignalP-TM

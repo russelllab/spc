@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    26       0.561
+  max. Y    26       0.558
+  max. S     6       0.883
+  mean S     1-25    0.680
+       D     1-25    0.607   0.500   YES
+Name=WFDC6_HUMAN	SP='YES' Cleavage site between pos. 25 and 26: GHA-EG D=0.607 D-cutoff=0.500 Networks=SignalP-TM

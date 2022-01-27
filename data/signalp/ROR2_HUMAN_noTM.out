@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    34       0.481
+  max. Y    34       0.606
+  max. S    20       0.961
+  mean S     1-33    0.787
+       D     1-33    0.704   0.450   YES
+Name=ROR2_HUMAN	SP='YES' Cleavage site between pos. 33 and 34: TSG-EV D=0.704 D-cutoff=0.450 Networks=SignalP-noTM

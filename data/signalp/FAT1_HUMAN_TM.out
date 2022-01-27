@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.799
+  max. Y    22       0.858
+  max. S     9       0.977
+  mean S     1-21    0.934
+       D     1-21    0.889   0.500   YES
+Name=FAT1_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: GDS-DG D=0.889 D-cutoff=0.500 Networks=SignalP-TM

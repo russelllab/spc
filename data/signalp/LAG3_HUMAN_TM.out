@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.295
+  max. Y    23       0.469
+  max. S    16       0.931
+  mean S     1-22    0.778
+       D     1-22    0.593   0.500   YES
+Name=LAG3_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: VKP-LQ D=0.593 D-cutoff=0.500 Networks=SignalP-TM

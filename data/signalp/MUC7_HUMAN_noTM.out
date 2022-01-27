@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.567
+  max. Y    23       0.620
+  max. S     2       0.880
+  mean S     1-22    0.679
+       D     1-22    0.652   0.450   YES
+Name=MUC7_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: SEG-RE D=0.652 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    34       0.292
+  max. Y    34       0.469
+  max. S    21       0.946
+  mean S     1-33    0.777
+       D     1-33    0.592   0.500   YES
+Name=SLIT3_HUMAN	SP='YES' Cleavage site between pos. 33 and 34: AVA-CP D=0.592 D-cutoff=0.500 Networks=SignalP-TM

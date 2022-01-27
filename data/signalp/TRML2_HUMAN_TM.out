@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.840
+  max. Y    19       0.893
+  max. S     7       0.970
+  mean S     1-18    0.950
+       D     1-18    0.916   0.500   YES
+Name=TRML2_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: CVS-GP D=0.916 D-cutoff=0.500 Networks=SignalP-TM

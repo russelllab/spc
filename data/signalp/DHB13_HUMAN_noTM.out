@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.424
+  max. Y    20       0.614
+  max. S     3       0.951
+  mean S     1-19    0.886
+       D     1-19    0.761   0.450   YES
+Name=DHB13_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: SYL-ES D=0.761 D-cutoff=0.450 Networks=SignalP-noTM

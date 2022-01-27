@@ -1,0 +1,32 @@
+# SignalP-4.1 euk predictions
+# Name=JPH1_HUMAN_TRANSMEM1	Length=22	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   I   0.101   0.952   0.310
+    2   M   0.102   0.964   0.311
+    3   I   0.104   0.954   0.315
+    4   V   0.101   0.928   0.310
+    5   L   0.103   0.876   0.313
+    6   V   0.103   0.833   0.313
+    7   M   0.100   0.804   0.306
+    8   L   0.106   0.718   0.315
+    9   L   0.102   0.656   0.306
+   10   N   0.102   0.651   0.305
+   11   I   0.107   0.559   0.310
+   12   G   0.100   0.533   0.297
+   13   L   0.103   0.424   0.297
+   14   A   0.103   0.359   0.294
+   15   I   0.173   0.208   0.374
+   16   L   0.098   0.210   0.276
+   17   F   0.128   0.169   0.308
+   18   V   0.103   0.138   0.269
+   19   H   0.103   0.117   0.263
+   20   F   0.096   0.129   0.247
+   21   L   0.105   0.102   0.250
+   22   T   0.103   0.110   0.240
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    15       0.173
+  max. Y    15       0.374
+  max. S     2       0.964
+  mean S     1-14    0.729
+       D     1-14    0.566   0.450   YES
+Name=JPH1_HUMAN_TRANSMEM1	SP='YES' Cleavage site between pos. 14 and 15: GLA-IL D=0.566 D-cutoff=0.450 Networks=SignalP-noTM

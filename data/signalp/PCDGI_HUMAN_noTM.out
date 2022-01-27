@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    31       0.502
+  max. Y    31       0.530
+  max. S    10       0.798
+  mean S     1-30    0.584
+       D     1-30    0.559   0.450   YES
+Name=PCDGI_HUMAN	SP='YES' Cleavage site between pos. 30 and 31: TLS-EP D=0.559 D-cutoff=0.450 Networks=SignalP-noTM

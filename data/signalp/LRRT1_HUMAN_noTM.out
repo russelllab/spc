@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.347
+  max. Y    20       0.562
+  max. S    15       0.957
+  mean S     1-19    0.912
+       D     1-19    0.751   0.450   YES
+Name=LRRT1_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: PSG-VV D=0.751 D-cutoff=0.450 Networks=SignalP-noTM

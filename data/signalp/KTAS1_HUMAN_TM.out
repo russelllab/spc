@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.122
+  max. Y    49       0.107
+  max. S    40       0.125
+  mean S     1-48    0.096
+       D     1-48    0.103   0.500   NO
+Name=KTAS1_HUMAN	SP='NO' D=0.103 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.735
+  max. Y    17       0.821
+  max. S    10       0.953
+  mean S     1-16    0.909
+       D     1-16    0.868   0.450   YES
+Name=ITAM_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: CHG-FN D=0.868 D-cutoff=0.450 Networks=SignalP-noTM

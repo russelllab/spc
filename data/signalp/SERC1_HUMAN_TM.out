@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.214
+  max. Y    20       0.426
+  max. S    18       0.906
+  mean S     1-19    0.823
+       D     1-19    0.585   0.500   YES
+Name=SERC1_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: LCG-SA D=0.585 D-cutoff=0.500 Networks=SignalP-TM

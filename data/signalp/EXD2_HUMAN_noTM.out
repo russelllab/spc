@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.338
+  max. Y    21       0.525
+  max. S     5       0.891
+  mean S     1-20    0.821
+       D     1-20    0.685   0.450   YES
+Name=EXD2_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: AVG-GF D=0.685 D-cutoff=0.450 Networks=SignalP-noTM

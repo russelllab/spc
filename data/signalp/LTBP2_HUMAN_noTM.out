@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    36       0.650
+  max. Y    36       0.668
+  max. S    32       0.843
+  mean S     1-35    0.634
+       D     1-35    0.650   0.450   YES
+Name=LTBP2_HUMAN	SP='YES' Cleavage site between pos. 35 and 36: GHA-QR D=0.650 D-cutoff=0.450 Networks=SignalP-noTM

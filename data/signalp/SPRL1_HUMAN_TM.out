@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.785
+  max. Y    17       0.827
+  max. S    12       0.932
+  mean S     1-16    0.873
+       D     1-16    0.846   0.500   YES
+Name=SPRL1_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: AAA-IP D=0.846 D-cutoff=0.500 Networks=SignalP-TM

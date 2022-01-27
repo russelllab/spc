@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    25       0.169
+  max. Y    19       0.335
+  max. S     6       0.883
+  mean S     1-18    0.762
+       D     1-18    0.505   0.500   YES
+Name=GRM1_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: VSL-LP D=0.505 D-cutoff=0.500 Networks=SignalP-TM

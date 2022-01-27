@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    16       0.287
+  max. Y    16       0.527
+  max. S     2       0.983
+  mean S     1-15    0.960
+       D     1-15    0.761   0.450   YES
+Name=FCRL6_HUMAN	SP='YES' Cleavage site between pos. 15 and 16: CVG-KT D=0.761 D-cutoff=0.450 Networks=SignalP-noTM

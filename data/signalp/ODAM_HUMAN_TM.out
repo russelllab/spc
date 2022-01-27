@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    16       0.512
+  max. Y    16       0.617
+  max. S     1       0.833
+  mean S     1-15    0.750
+       D     1-15    0.670   0.500   YES
+Name=ODAM_HUMAN	SP='YES' Cleavage site between pos. 15 and 16: TLS-AP D=0.670 D-cutoff=0.500 Networks=SignalP-TM

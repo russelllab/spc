@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    43       0.767
+  max. Y    43       0.732
+  max. S    29       0.894
+  mean S     1-42    0.577
+       D     1-42    0.648   0.450   YES
+Name=RAMP2_HUMAN	SP='YES' Cleavage site between pos. 42 and 43: ALA-QP D=0.648 D-cutoff=0.450 Networks=SignalP-noTM

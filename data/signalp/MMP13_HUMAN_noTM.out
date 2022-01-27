@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.840
+  max. Y    20       0.852
+  max. S    17       0.904
+  mean S     1-19    0.866
+       D     1-19    0.860   0.450   YES
+Name=MMP13_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: CRA-LP D=0.860 D-cutoff=0.450 Networks=SignalP-noTM

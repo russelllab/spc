@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.576
+  max. Y    23       0.704
+  max. S    18       0.927
+  mean S     1-22    0.854
+       D     1-22    0.764   0.500   YES
+Name=FSTL4_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: ALG-WM D=0.764 D-cutoff=0.500 Networks=SignalP-TM

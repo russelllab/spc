@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.552
+  max. Y    21       0.662
+  max. S    11       0.886
+  mean S     1-20    0.789
+       D     1-20    0.730   0.450   YES
+Name=EPHA3_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: SFG-EL D=0.730 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,31 @@
+# SignalP-4.1 euk predictions
+# Name=S39A1_HUMAN_TRANSMEM8	Length=21	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   L   0.100   0.970   0.312
+    2   K   0.102   0.962   0.315
+    3   V   0.102   0.943   0.314
+    4   I   0.106   0.902   0.320
+    5   L   0.105   0.857   0.318
+    6   L   0.103   0.825   0.314
+    7   L   0.105   0.764   0.317
+    8   A   0.106   0.709   0.316
+    9   G   0.097   0.689   0.301
+   10   F   0.104   0.608   0.309
+   11   A   0.103   0.515   0.305
+   12   L   0.100   0.440   0.297
+   13   L   0.100   0.353   0.292
+   14   T   0.095   0.251   0.281
+   15   G   0.103   0.260   0.287
+   16   L   0.117   0.162   0.300
+   17   L   0.104   0.137   0.275
+   18   F   0.101   0.138   0.264
+   19   I   0.114   0.107   0.273
+   20   Q   0.105   0.097   0.254
+   21   I   0.102   0.100   0.242
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    16       0.117
+  max. Y    11       0.305
+  max. S     1       0.970
+  mean S     1-10    0.823
+       D     1-10    0.585   0.450   YES
+Name=S39A1_HUMAN_TRANSMEM8	SP='YES' Cleavage site between pos. 10 and 11: AGF-AL D=0.585 D-cutoff=0.450 Networks=SignalP-noTM

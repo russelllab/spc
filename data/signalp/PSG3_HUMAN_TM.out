@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    35       0.659
+  max. Y    35       0.693
+  max. S    25       0.817
+  mean S     1-34    0.664
+       D     1-34    0.682   0.500   YES
+Name=PSG3_HUMAN	SP='YES' Cleavage site between pos. 34 and 35: TTA-QV D=0.682 D-cutoff=0.500 Networks=SignalP-TM

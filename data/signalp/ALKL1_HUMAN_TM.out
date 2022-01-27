@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.868
+  max. Y    28       0.772
+  max. S     9       0.849
+  mean S     1-27    0.743
+       D     1-27    0.760   0.500   YES
+Name=ALKL1_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: AHG-RP D=0.760 D-cutoff=0.500 Networks=SignalP-TM

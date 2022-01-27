@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    41       0.354
+  max. Y    41       0.499
+  max. S    32       0.944
+  mean S     1-40    0.563
+       D     1-40    0.534   0.450   YES
+Name=GALR3_HUMAN	SP='YES' Cleavage site between pos. 40 and 41: VLA-VL D=0.534 D-cutoff=0.450 Networks=SignalP-noTM

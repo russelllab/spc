@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.876
+  max. Y    19       0.868
+  max. S     1       0.931
+  mean S     1-18    0.844
+       D     1-18    0.855   0.450   YES
+Name=BPIB6_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: TRA-DP D=0.855 D-cutoff=0.450 Networks=SignalP-noTM

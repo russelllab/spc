@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.269
+  max. Y    28       0.413
+  max. S    13       0.788
+  mean S     1-27    0.639
+       D     1-27    0.535   0.450   YES
+Name=SGMR2_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: TLF-MD D=0.535 D-cutoff=0.450 Networks=SignalP-noTM

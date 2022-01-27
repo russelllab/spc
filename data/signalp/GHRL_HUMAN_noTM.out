@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.699
+  max. Y    24       0.809
+  max. S    16       0.979
+  mean S     1-23    0.936
+       D     1-23    0.877   0.450   YES
+Name=GHRL_HUMAN	SP='YES' Cleavage site between pos. 23 and 24: AMA-GS D=0.877 D-cutoff=0.450 Networks=SignalP-noTM

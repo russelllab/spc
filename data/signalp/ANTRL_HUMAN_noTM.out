@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.756
+  max. Y    28       0.830
+  max. S    18       0.959
+  mean S     1-27    0.911
+       D     1-27    0.874   0.450   YES
+Name=ANTRL_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: FRA-GS D=0.874 D-cutoff=0.450 Networks=SignalP-noTM

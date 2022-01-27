@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.820
+  max. Y    19       0.858
+  max. S    16       0.939
+  mean S     1-18    0.889
+       D     1-18    0.871   0.500   YES
+Name=LECT2_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: ALA-GP D=0.871 D-cutoff=0.500 Networks=SignalP-TM

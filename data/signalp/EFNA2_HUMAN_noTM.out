@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    27       0.675
+  max. Y    27       0.743
+  max. S    23       0.917
+  mean S     1-26    0.822
+       D     1-26    0.786   0.450   YES
+Name=EFNA2_HUMAN	SP='YES' Cleavage site between pos. 26 and 27: ARA-ED D=0.786 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    38       0.260
+  max. Y    38       0.447
+  max. S    34       0.924
+  mean S     1-37    0.633
+       D     1-37    0.547   0.450   YES
+Name=NLGN3_HUMAN	SP='YES' Cleavage site between pos. 37 and 38: AST-QA D=0.547 D-cutoff=0.450 Networks=SignalP-noTM

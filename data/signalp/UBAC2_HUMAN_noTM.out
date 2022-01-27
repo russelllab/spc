@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    40       0.193
+  max. Y    40       0.376
+  max. S    31       0.894
+  mean S     1-39    0.627
+       D     1-39    0.512   0.450   YES
+Name=UBAC2_HUMAN	SP='YES' Cleavage site between pos. 39 and 40: CQK-LF D=0.512 D-cutoff=0.450 Networks=SignalP-noTM

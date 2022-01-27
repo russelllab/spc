@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    45       0.605
+  max. Y    45       0.666
+  max. S    43       0.809
+  mean S     1-44    0.659
+       D     1-44    0.662   0.450   YES
+Name=LMAN2_HUMAN	SP='YES' Cleavage site between pos. 44 and 45: VTA-DI D=0.662 D-cutoff=0.450 Networks=SignalP-noTM

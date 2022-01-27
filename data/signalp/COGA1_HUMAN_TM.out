@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.741
+  max. Y    22       0.812
+  max. S     9       0.937
+  mean S     1-21    0.864
+       D     1-21    0.832   0.500   YES
+Name=COGA1_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: GHG-AN D=0.832 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    34       0.788
+  max. Y    34       0.853
+  max. S    26       0.970
+  mean S     1-33    0.896
+       D     1-33    0.870   0.500   YES
+Name=AGRA2_HUMAN	SP='YES' Cleavage site between pos. 33 and 34: ARG-AP D=0.870 D-cutoff=0.500 Networks=SignalP-TM

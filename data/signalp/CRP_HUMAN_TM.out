@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.564
+  max. Y    17       0.655
+  max. S    13       0.839
+  mean S     1-16    0.762
+       D     1-16    0.698   0.500   YES
+Name=CRP_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: SHA-FG D=0.698 D-cutoff=0.500 Networks=SignalP-TM

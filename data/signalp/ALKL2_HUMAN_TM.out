@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    25       0.417
+  max. Y    25       0.570
+  max. S    18       0.902
+  mean S     1-24    0.799
+       D     1-24    0.662   0.500   YES
+Name=ALKL2_HUMAN	SP='YES' Cleavage site between pos. 24 and 25: GRG-GA D=0.662 D-cutoff=0.500 Networks=SignalP-TM

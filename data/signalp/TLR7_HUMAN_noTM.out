@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.441
+  max. Y    28       0.619
+  max. S    21       0.921
+  mean S     1-27    0.857
+       D     1-27    0.748   0.450   YES
+Name=TLR7_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: LGA-RW D=0.748 D-cutoff=0.450 Networks=SignalP-noTM

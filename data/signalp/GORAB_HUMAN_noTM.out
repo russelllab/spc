@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.329
+  max. Y    20       0.449
+  max. S     2       0.724
+  mean S     1-19    0.598
+       D     1-19    0.529   0.450   YES
+Name=GORAB_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: FWG-CR D=0.529 D-cutoff=0.450 Networks=SignalP-noTM

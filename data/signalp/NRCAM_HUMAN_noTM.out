@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    30       0.441
+  max. Y    30       0.521
+  max. S    29       0.811
+  mean S     1-29    0.569
+       D     1-29    0.547   0.450   YES
+Name=NRCAM_HUMAN	SP='YES' Cleavage site between pos. 29 and 30: ISA-LE D=0.547 D-cutoff=0.450 Networks=SignalP-noTM

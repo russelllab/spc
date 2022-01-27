@@ -1,0 +1,10 @@
+# SignalP-4.1 euk predictions
+# Name=	Length=	Networks=SignalP-TM
+# pos  aa    C       S       Y
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C     1       0.000
+  max. Y     1       0.000
+  max. S     1       0.000
+  mean S     1-0     0.000
+       D     1-0     0.000   0.500   NO
+Name=	SP='NO' D=0.000 D-cutoff=0.500 Networks=SignalP-TM

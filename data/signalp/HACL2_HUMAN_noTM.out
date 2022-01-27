@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    29       0.272
+  max. Y    29       0.495
+  max. S    13       0.963
+  mean S     1-28    0.885
+       D     1-28    0.706   0.450   YES
+Name=HACL2_HUMAN	SP='YES' Cleavage site between pos. 28 and 29: VAA-LL D=0.706 D-cutoff=0.450 Networks=SignalP-noTM

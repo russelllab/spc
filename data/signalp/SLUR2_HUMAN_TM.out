@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.709
+  max. Y    23       0.793
+  max. S    17       0.962
+  mean S     1-22    0.902
+       D     1-22    0.837   0.500   YES
+Name=SLUR2_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: AEA-IW D=0.837 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,31 @@
+# SignalP-4.1 euk predictions
+# Name=PPY2_HUMAN	Length=21	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   M   0.104   0.958   0.315
+    2   A   0.106   0.927   0.319
+    3   A   0.101   0.932   0.311
+    4   A   0.100   0.930   0.309
+    5   C   0.099   0.941   0.307
+    6   R   0.100   0.930   0.309
+    7   C   0.103   0.901   0.313
+    8   L   0.101   0.859   0.310
+    9   S   0.103   0.790   0.313
+   10   L   0.098   0.777   0.303
+   11   L   0.104   0.723   0.311
+   12   L   0.102   0.709   0.306
+   13   L   0.103   0.639   0.305
+   14   S   0.106   0.563   0.307
+   15   T   0.101   0.482   0.297
+   16   C   0.105   0.412   0.300
+   17   V   0.102   0.349   0.291
+   18   A   0.095   0.310   0.275
+   19   L   0.133   0.184   0.320
+   20   L   0.101   0.152   0.273
+   21   L   0.105   0.152   0.271
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.133
+  max. Y    19       0.320
+  max. S     1       0.958
+  mean S     1-18    0.730
+       D     1-18    0.541   0.450   YES
+Name=PPY2_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: CVA-LL D=0.541 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,32 @@
+# SignalP-4.1 euk predictions
+# Name=NU5M_HUMAN_TRANSMEM15	Length=22	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   G   0.101   0.931   0.307
+    2   M   0.100   0.940   0.305
+    3   I   0.105   0.937   0.313
+    4   K   0.101   0.936   0.307
+    5   L   0.101   0.916   0.308
+    6   Y   0.100   0.905   0.305
+    7   F   0.103   0.857   0.309
+    8   L   0.105   0.798   0.312
+    9   S   0.103   0.766   0.308
+   10   F   0.098   0.739   0.300
+   11   F   0.101   0.729   0.302
+   12   F   0.102   0.744   0.303
+   13   P   0.102   0.644   0.301
+   14   L   0.101   0.616   0.298
+   15   I   0.101   0.500   0.295
+   16   L   0.099   0.496   0.288
+   17   T   0.101   0.490   0.288
+   18   L   0.140   0.314   0.335
+   19   L   0.103   0.279   0.282
+   20   L   0.103   0.242   0.276
+   21   I   0.096   0.167   0.261
+   22   T   0.099   0.166   0.259
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.140
+  max. Y    18       0.335
+  max. S     2       0.940
+  mean S     1-17    0.761
+       D     1-17    0.565   0.450   YES
+Name=NU5M_HUMAN_TRANSMEM15	SP='YES' Cleavage site between pos. 17 and 18: ILT-LL D=0.565 D-cutoff=0.450 Networks=SignalP-noTM

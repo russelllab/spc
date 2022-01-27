@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.479
+  max. Y    20       0.654
+  max. S     2       0.954
+  mean S     1-19    0.884
+       D     1-19    0.778   0.450   YES
+Name=PLXB2_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: GAS-LR D=0.778 D-cutoff=0.450 Networks=SignalP-noTM

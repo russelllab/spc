@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    25       0.310
+  max. Y    25       0.479
+  max. S     6       0.903
+  mean S     1-24    0.761
+       D     1-24    0.592   0.500   YES
+Name=TLR1_HUMAN	SP='YES' Cleavage site between pos. 24 and 25: SEE-SE D=0.592 D-cutoff=0.500 Networks=SignalP-TM

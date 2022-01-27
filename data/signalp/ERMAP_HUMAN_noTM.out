@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    30       0.340
+  max. Y    30       0.513
+  max. S     3       0.871
+  mean S     1-29    0.789
+       D     1-29    0.662   0.450   YES
+Name=ERMAP_HUMAN	SP='YES' Cleavage site between pos. 29 and 30: VSG-HA D=0.662 D-cutoff=0.450 Networks=SignalP-noTM

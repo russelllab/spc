@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    32       0.712
+  max. Y    32       0.605
+  max. S    12       0.693
+  mean S     1-31    0.562
+       D     1-31    0.588   0.500   YES
+Name=MALR1_HUMAN	SP='YES' Cleavage site between pos. 31 and 32: TLA-QQ D=0.588 D-cutoff=0.500 Networks=SignalP-TM

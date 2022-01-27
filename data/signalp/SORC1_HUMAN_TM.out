@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    34       0.351
+  max. Y    34       0.497
+  max. S    18       0.839
+  mean S     1-33    0.629
+       D     1-33    0.550   0.500   YES
+Name=SORC1_HUMAN	SP='YES' Cleavage site between pos. 33 and 34: VCG-GG D=0.550 D-cutoff=0.500 Networks=SignalP-TM

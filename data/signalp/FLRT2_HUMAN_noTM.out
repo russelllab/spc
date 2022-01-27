@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    36       0.439
+  max. Y    36       0.582
+  max. S    25       0.931
+  mean S     1-35    0.753
+       D     1-35    0.674   0.450   YES
+Name=FLRT2_HUMAN	SP='YES' Cleavage site between pos. 35 and 36: LLA-CP D=0.674 D-cutoff=0.450 Networks=SignalP-noTM

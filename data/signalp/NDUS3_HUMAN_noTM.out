@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.277
+  max. Y    17       0.443
+  max. S    16       0.844
+  mean S     1-16    0.663
+       D     1-16    0.562   0.450   YES
+Name=NDUS3_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: ILG-AS D=0.562 D-cutoff=0.450 Networks=SignalP-noTM

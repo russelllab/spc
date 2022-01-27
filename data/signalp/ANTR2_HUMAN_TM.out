@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    34       0.318
+  max. Y    34       0.456
+  max. S    25       0.887
+  mean S     1-33    0.668
+       D     1-33    0.541   0.500   YES
+Name=ANTR2_HUMAN	SP='YES' Cleavage site between pos. 33 and 34: LRA-QE D=0.541 D-cutoff=0.500 Networks=SignalP-TM

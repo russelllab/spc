@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    31       0.487
+  max. Y    31       0.600
+  max. S    11       0.849
+  mean S     1-30    0.766
+       D     1-30    0.667   0.500   YES
+Name=PTK7_HUMAN	SP='YES' Cleavage site between pos. 30 and 31: TQT-AI D=0.667 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.192
+  max. Y    17       0.427
+  max. S    11       0.974
+  mean S     1-16    0.950
+       D     1-16    0.636   0.500   YES
+Name=BPIA3_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: LLA-LP D=0.636 D-cutoff=0.500 Networks=SignalP-TM

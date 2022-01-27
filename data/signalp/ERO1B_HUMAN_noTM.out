@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    34       0.635
+  max. Y    34       0.685
+  max. S    27       0.827
+  mean S     1-33    0.691
+       D     1-33    0.688   0.450   YES
+Name=ERO1B_HUMAN	SP='YES' Cleavage site between pos. 33 and 34: VEA-QV D=0.688 D-cutoff=0.450 Networks=SignalP-noTM

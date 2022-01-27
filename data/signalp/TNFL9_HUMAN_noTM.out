@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    47       0.581
+  max. Y    47       0.754
+  max. S    41       0.998
+  mean S     1-46    0.688
+       D     1-46    0.718   0.450   YES
+Name=TNFL9_HUMAN	SP='YES' Cleavage site between pos. 46 and 47: ACA-VF D=0.718 D-cutoff=0.450 Networks=SignalP-noTM

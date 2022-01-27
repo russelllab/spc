@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.298
+  max. Y    21       0.473
+  max. S     1       0.869
+  mean S     1-20    0.777
+       D     1-20    0.595   0.500   YES
+Name=AGRE1_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: WEG-HI D=0.595 D-cutoff=0.500 Networks=SignalP-TM

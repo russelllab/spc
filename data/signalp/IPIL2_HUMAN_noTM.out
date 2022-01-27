@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.448
+  max. Y    19       0.613
+  max. S    18       0.950
+  mean S     1-18    0.867
+       D     1-18    0.750   0.450   YES
+Name=IPIL2_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: VTG-LC D=0.750 D-cutoff=0.450 Networks=SignalP-noTM

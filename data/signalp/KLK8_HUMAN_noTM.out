@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    29       0.844
+  max. Y    29       0.844
+  max. S    19       0.950
+  mean S     1-28    0.860
+       D     1-28    0.853   0.450   YES
+Name=KLK8_HUMAN	SP='YES' Cleavage site between pos. 28 and 29: SRA-QE D=0.853 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.531
+  max. Y    19       0.701
+  max. S    10       0.959
+  mean S     1-18    0.928
+       D     1-18    0.824   0.450   YES
+Name=SLAF9_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: GSQ-RR D=0.824 D-cutoff=0.450 Networks=SignalP-noTM

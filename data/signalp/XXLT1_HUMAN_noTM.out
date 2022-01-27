@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    45       0.346
+  max. Y    45       0.480
+  max. S    29       0.918
+  mean S     1-44    0.601
+       D     1-44    0.545   0.450   YES
+Name=XXLT1_HUMAN	SP='YES' Cleavage site between pos. 44 and 45: GSG-RE D=0.545 D-cutoff=0.450 Networks=SignalP-noTM

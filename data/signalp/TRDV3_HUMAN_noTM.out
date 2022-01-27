@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.817
+  max. Y    19       0.776
+  max. S     8       0.846
+  mean S     1-18    0.724
+       D     1-18    0.748   0.450   YES
+Name=TRDV3_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: TLC-DK D=0.748 D-cutoff=0.450 Networks=SignalP-noTM

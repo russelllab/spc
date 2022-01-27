@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.315
+  max. Y    21       0.513
+  max. S     3       0.943
+  mean S     1-20    0.851
+       D     1-20    0.648   0.500   YES
+Name=RDH11_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: YMA-AP D=0.648 D-cutoff=0.500 Networks=SignalP-TM

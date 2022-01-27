@@ -1,0 +1,31 @@
+# SignalP-4.1 euk predictions
+# Name=YIPF7_HUMAN_TRANSMEM5	Length=21	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   Q   0.101   0.817   0.287
+    2   L   0.102   0.718   0.288
+    3   L   0.103   0.567   0.289
+    4   V   0.104   0.488   0.289
+    5   A   0.103   0.377   0.284
+    6   Y   0.101   0.340   0.278
+    7   P   0.102   0.304   0.275
+    8   C   0.105   0.252   0.276
+    9   A   0.106   0.206   0.271
+   10   I   0.093   0.199   0.250
+   11   L   0.095   0.196   0.246
+   12   Y   0.099   0.164   0.246
+   13   G   0.098   0.165   0.239
+   14   L   0.101   0.149   0.236
+   15   F   0.104   0.133   0.233
+   16   A   0.107   0.126   0.229
+   17   L   0.109   0.114   0.223
+   18   L   0.099   0.124   0.206
+   19   T   0.101   0.128   0.200
+   20   I   0.109   0.114   0.199
+   21   F   0.104   0.102   0.186
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.109
+  max. Y    11       0.246
+  max. S     1       0.817
+  mean S     1-10    0.427
+       D     1-10    0.344   0.450   NO
+Name=YIPF7_HUMAN_TRANSMEM5	SP='NO' D=0.344 D-cutoff=0.450 Networks=SignalP-noTM

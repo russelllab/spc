@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.792
+  max. Y    22       0.841
+  max. S    21       0.949
+  mean S     1-21    0.892
+       D     1-21    0.869   0.450   YES
+Name=GBRR1_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: VLA-TE D=0.869 D-cutoff=0.450 Networks=SignalP-noTM

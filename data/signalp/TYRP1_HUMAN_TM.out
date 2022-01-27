@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    25       0.820
+  max. Y    25       0.829
+  max. S    18       0.935
+  mean S     1-24    0.839
+       D     1-24    0.833   0.500   YES
+Name=TYRP1_HUMAN	SP='YES' Cleavage site between pos. 24 and 25: ARA-QF D=0.833 D-cutoff=0.500 Networks=SignalP-TM

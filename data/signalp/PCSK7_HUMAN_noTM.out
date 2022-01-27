@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    38       0.533
+  max. Y    38       0.670
+  max. S    37       0.923
+  mean S     1-37    0.751
+       D     1-37    0.713   0.450   YES
+Name=PCSK7_HUMAN	SP='YES' Cleavage site between pos. 37 and 38: VMG-LA D=0.713 D-cutoff=0.450 Networks=SignalP-noTM

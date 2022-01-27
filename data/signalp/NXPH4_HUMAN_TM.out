@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.703
+  max. Y    24       0.719
+  max. S    17       0.890
+  mean S     1-23    0.763
+       D     1-23    0.737   0.500   YES
+Name=NXPH4_HUMAN	SP='YES' Cleavage site between pos. 23 and 24: VSA-QI D=0.737 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    26       0.322
+  max. Y    26       0.479
+  max. S    13       0.943
+  mean S     1-25    0.737
+       D     1-25    0.618   0.450   YES
+Name=DHR13_HUMAN	SP='YES' Cleavage site between pos. 25 and 26: VKA-PP D=0.618 D-cutoff=0.450 Networks=SignalP-noTM

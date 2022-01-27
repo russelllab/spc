@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.415
+  max. Y    20       0.456
+  max. S     1       0.847
+  mean S     1-19    0.568
+       D     1-19    0.501   0.500   YES
+Name=CO4A_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: SLQ-KP D=0.501 D-cutoff=0.500 Networks=SignalP-TM

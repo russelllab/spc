@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.671
+  max. Y    21       0.755
+  max. S     3       0.936
+  mean S     1-20    0.869
+       D     1-20    0.801   0.500   YES
+Name=AGRE5_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: AET-QD D=0.801 D-cutoff=0.500 Networks=SignalP-TM

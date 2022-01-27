@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    27       0.701
+  max. Y    27       0.735
+  max. S     1       0.921
+  mean S     1-26    0.789
+       D     1-26    0.764   0.450   YES
+Name=SMOC1_HUMAN	SP='YES' Cleavage site between pos. 26 and 27: ARG-HR D=0.764 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.609
+  max. Y    21       0.741
+  max. S    11       0.948
+  mean S     1-20    0.914
+       D     1-20    0.810   0.500   YES
+Name=TIKI1_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: GAA-SR D=0.810 D-cutoff=0.500 Networks=SignalP-TM

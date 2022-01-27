@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    45       0.597
+  max. Y    45       0.598
+  max. S    37       0.815
+  mean S     1-44    0.416
+       D     1-44    0.525   0.500   YES
+Name=LRC4C_HUMAN	SP='YES' Cleavage site between pos. 44 and 45: VRA-QT D=0.525 D-cutoff=0.500 Networks=SignalP-TM

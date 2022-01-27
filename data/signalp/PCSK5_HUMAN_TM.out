@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    33       0.396
+  max. Y    33       0.419
+  max. S    10       0.871
+  mean S     1-32    0.629
+       D     1-32    0.503   0.500   YES
+Name=PCSK5_HUMAN	SP='YES' Cleavage site between pos. 32 and 33: CRT-RV D=0.503 D-cutoff=0.500 Networks=SignalP-TM

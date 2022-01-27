@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.732
+  max. Y    22       0.672
+  max. S     6       0.757
+  mean S     1-21    0.633
+       D     1-21    0.656   0.500   YES
+Name=CH3L1_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: CSA-YK D=0.656 D-cutoff=0.500 Networks=SignalP-TM

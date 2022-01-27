@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.856
+  max. Y    28       0.882
+  max. S    21       0.932
+  mean S     1-27    0.881
+       D     1-27    0.882   0.500   YES
+Name=CRAC1_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: TEG-SQ D=0.882 D-cutoff=0.500 Networks=SignalP-TM

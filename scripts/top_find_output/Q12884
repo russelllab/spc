@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Topfind 4.1</title>
+  <link rel="stylesheet" media="all" href="/assets/application-858af69cb01fabcb6739c5a9f3b408dc5cab04a41204d359455faa9a1c71fe4f.css" data-turbolinks-track="true" />
+  <script src="/assets/application-81d2bdfbc75607a7faecaf7abdf4676ceac4fd65d3aa8930b8177b5f7a641d9c.js" data-turbolinks-track="true"></script>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="FVo1NzdO8bIJ387Z7eOQF+IsY13Kz+Z0asHvvPRiRBMJ6feYcToyEUnZYW6vrXmolWtaJe3t5xV1vPgolNerSw==" />
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://code.highcharts.com/6.0.6/highcharts.js"></script>
+<script src="https://code.highcharts.com/6.0.6/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/js/modules/xrange.js"></script>
+<script src="https://code.highcharts.com/js/modules/exporting.js"></script>
+<link rel="stylesheet" type="text/css" href="assets/stylesheets/defaultcontentslider.css" />
+<link rel="stylesheet" type="text/css" href="assets/stylesheets/componentcontentslider.css" />
+<script src="assets/javascripts/modernizr.custom.js"></script>
+
+
+<style>
+
+@import 'https://code.highcharts.com/css/highcharts.css';
+
+#protshow {
+  font-family: "Lato", "Ubuntu", sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#protshow td, #protshow th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#protshow tr:nth-child(even){background-color: #f2f2f2;}
+
+#protshow tr:hover {background-color: #ddd;}
+
+#protshow th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0C0E28;
+  color: white;
+}
+
+
+#container_chart {
+min-width: 300px;
+max-width: 800px;
+height: 300px;
+margin: 1em auto;
+}
+
+
+/* Exporting module */
+.highcharts-contextbutton {
+fill: #ffffff;
+    /* needed to capture hover */
+stroke: none;
+    stroke-linecap: round;
+}
+
+.highcharts-contextbutton:hover {
+fill: #e6e6e6;
+stroke: #e6e6e6;
+}
+
+.highcharts-button-symbol {
+stroke: #666666;
+    stroke-width: 3px;
+}
+
+.highcharts-menu {
+border: 1px solid #999999;
+background: #ffffff;
+padding: 5px 0;
+    box-shadow: 3px 3px 10px #888;
+}
+
+.highcharts-menu-item {
+padding: 0.5em 1em;
+background: none;
+color: #333333;
+cursor: pointer;
+transition: background 250ms, color 250ms;
+}
+
+.highcharts-menu-item:hover {
+background: #335cad;
+color: #ffffff;
+}
+
+
+h1 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 25px;
+	line-height: 25px;
+	color: #444;
+}
+
+h2 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 20px;
+	color: #444;
+}
+
+h3 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 15px;
+	color: #444;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", "Ubuntu", sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #e3e2e0;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+
+p.seq {font-family: 'Courier New', Courier, monospace; font-size: 12px;}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>TopFIND 4.0</title>
+
+		<!-- meta -->
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	    <!-- css -->
+<!--
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/ionicons.min.css">
+		<link rel="stylesheet" type="text/css" href="css/pace.css">
+	    <link rel="stylesheet" type="text/css" href="css/custom.css">-->
+
+	    <!-- js -->
+<!--
+	    <script src="js/jquery-2.1.3.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+	    <script src="js/pace.min.js"></script>
+	    <script src="js/modernizr.custom.js"></script>-->
+	</head>
+
+
+	<body>		
+
+		<div class="container">
+            <header id="site-header">
+				<div class="row">
+					<div class="col-md-4 col-sm-5 col-xs-8">
+						<div class="logo">
+							<h1 style="font-size: 40px;"><a href="/home/index">Top<b style="color: red;">FIND</b></a></h1>
+						</div>
+					</div><!-- col-md-4 -->
+					<div class="col-md-8 col-sm-7 col-xs-12">
+						<nav class="main-nav" role="navigation">
+							<div class="navbar-header">
+  								<button type="button" id="trigger-overlay" class="navbar-toggle">
+    								<span class="ion-navicon"></span>
+  								</button>
+							</div>
+
+							<div class="navbar" id="navbar-main">
+  								<ul class="nav navbar-nav navbar-right">
+    								<li class="cl-effect-11"><a href="/proteins/protsearch" data-hover="Proteins">Proteins<b style="color: red;">+</b></a></li>
+    								<li class="cl-effect-11"><a href="/topfinder" data-hover="TopFINDer">Top<b style="color: red;">FINDer</b></a></li>
+    								<li class="cl-effect-11"><a href="/pathfinder" data-hover="PathFINDer">Path<b style="color: red;">FINDer</b></a></li>
+    								<li class="cl-effect-11"><a href="/contribute/index" data-hover="Contribute">Contribute</a></li>
+  								</ul>
+							</div><!-- /.navbar-collapse -->
+						</nav>
+				</div>
+			</header>
+		</div>
+
+</body>
+
+
+
+<!-- RUBY DOESN'T DISPLAY TOOLTIPS, if I put he same code in a .html file tooltips are displayed -->
+<!-- If the values are integers, one has to start from 0 -->
+
+<!-- PARSE RUBY DATA FOR JAVASCRIPT-->
+
+<div id="container_chart" style="width:100%; height:400px;"></div>
+
+<script type="text/javascript">
+
+    var dataarr = [];
+    var catarr = [];
+
+
+    $(document).ready(
+
+        function makeArr() {
+
+        var domainElem = [["Sequence","1-760",0,760],["Chains","1-760",1,760],["N-Terms","1",1,2],["N-Terms","522",522,523],["C-Terms","760",759,760],["Topology","TURN (50-52)",50,52],["Topology","TURN (97-99)",97,99],["Topology","TURN (135-138)",135,138],["Topology","TURN (189-191)",189,191],["Topology","TURN (441-447)",441,447],["Topology","TURN (653-655)",653,655],["Topology","TURN (670-673)",670,673],["Features","ACT_SITE (624-624)",624,624],["Features","ACT_SITE (702-702)",702,702],["Features","ACT_SITE (734-734)",734,734],["Topology","HELIX (44-49)",44,49],["Topology","HELIX (92-96)",92,96],["Topology","HELIX (199-204)",199,204],["Topology","HELIX (272-275)",272,275],["Topology","HELIX (284-287)",284,287],["Topology","HELIX (334-336)",334,336],["Topology","HELIX (415-417)",415,417],["Topology","HELIX (457-459)",457,459],["Topology","HELIX (492-497)",492,497],["Topology","HELIX (557-563)",557,563],["Topology","HELIX (582-585)",582,585],["Topology","HELIX (586-588)",586,588],["Topology","HELIX (594-608)",594,608],["Topology","HELIX (625-634)",625,634],["Topology","HELIX (658-665)",658,665],["Topology","HELIX (674-679)",674,679],["Topology","HELIX (683-689)",683,689],["Topology","HELIX (708-719)",708,719],["Topology","HELIX (739-756)",739,756],["Features","BINDING (203-203)",203,203],["Features","BINDING (204-204)",204,204],["Topology","TOPO_DOM (1-4)",1,4],["Topology","TOPO_DOM (26-760)",26,760],["Topology","STRAND (60-70)",60,70],["Topology","STRAND (76-83)",76,83],["Topology","STRAND (86-90)",86,90],["Topology","STRAND (101-105)",101,105],["Topology","STRAND (109-120)",109,120],["Topology","STRAND (122-124)",122,124],["Topology","STRAND (126-134)",126,134],["Topology","STRAND (148-150)",148,150],["Topology","STRAND (153-155)",153,155],["Topology","STRAND (162-166)",162,166],["Topology","STRAND (169-175)",169,175],["Topology","STRAND (192-196)",192,196],["Topology","STRAND (212-214)",212,214],["Topology","STRAND (218-227)",218,227],["Topology","STRAND (233-238)",233,238],["Topology","STRAND (241-244)",241,244],["Topology","STRAND (246-251)",246,251],["Topology","STRAND (261-270)",261,270],["Topology","STRAND (291-312)",291,312],["Topology","STRAND (315-323)",315,323],["Topology","STRAND (325-331)",325,331],["Topology","STRAND (337-341)",337,341],["Topology","STRAND (343-345)",343,345],["Topology","STRAND (347-351)",347,351],["Topology","STRAND (364-369)",364,369],["Topology","STRAND (375-382)",375,382],["Topology","STRAND (393-395)",393,395],["Topology","STRAND (397-403)",397,403],["Topology","STRAND (405-413)",405,413],["Topology","STRAND (422-428)",422,428],["Topology","STRAND (430-433)",430,433],["Topology","STRAND (436-440)",436,440],["Topology","STRAND (450-455)",450,455],["Topology","STRAND (460-466)",460,466],["Topology","STRAND (469-471)",469,471],["Topology","STRAND (473-477)",473,477],["Topology","STRAND (479-481)",479,481],["Topology","STRAND (484-489)",484,489],["Topology","STRAND (505-513)",505,513],["Topology","STRAND (516-524)",516,524],["Topology","STRAND (530-532)",530,532],["Topology","STRAND (534-540)",534,540],["Topology","STRAND (568-573)",568,573],["Topology","STRAND (577-580)",577,580],["Topology","STRAND (613-623)",613,623],["Topology","STRAND (637-639)",637,639],["Topology","STRAND (642-648)",642,648],["Topology","STRAND (692-699)",692,699],["Topology","STRAND (703-705)",703,705],["Topology","STRAND (725-729)",725,729],["Topology","TRANSMEM (5-25)",5,25],["Variants","CONFLICT (207-207)",207,207],["Variants","CONFLICT (229-229)",229,229],["Variants","CONFLICT (354-354)",354,354],["Variants","VAR_SEQ (1-521)",1,521],["Topology","TOPO_DOM (1-4)",1,4],["Topology","TOPO_DOM (26-760)",26,760],["Topology","TRANSMEM (5-25)",5,25],["Features","ACT_SITE (624-624)",624,624],["Features","ACT_SITE (702-702)",702,702],["Features","ACT_SITE (734-734)",734,734],["Features","BINDING (203-203)",203,203],["Features","BINDING (204-204)",204,204],["Domains","SITE (23-24)",23,24],["Variants","VAR_SEQ (1-521)",1,521],["Variants","VARIANT (363-363)",363,363],["Variants","MUTAGEN (123-123)",123,123],["Variants","MUTAGEN (203-203)",203,203],["Variants","MUTAGEN (204-204)",204,204],["Variants","MUTAGEN (624-624)",624,624],["Variants","MUTAGEN (656-656)",656,656],["Variants","MUTAGEN (657-657)",657,657],["Variants","MUTAGEN (657-657)",657,657],["Variants","MUTAGEN (657-657)",657,657],["Variants","MUTAGEN (657-657)",657,657],["Variants","MUTAGEN (704-704)",704,704],["Variants","CONFLICT (207-207)",207,207],["Variants","CONFLICT (229-229)",229,229],["Variants","CONFLICT (354-354)",354,354],["Topology","HELIX (44-49)",44,49],["Topology","HELIX (92-96)",92,96],["Topology","HELIX (199-204)",199,204],["Topology","HELIX (272-275)",272,275],["Topology","HELIX (284-287)",284,287],["Topology","HELIX (334-336)",334,336],["Topology","HELIX (415-417)",415,417],["Topology","HELIX (457-459)",457,459],["Topology","HELIX (492-497)",492,497],["Topology","HELIX (557-563)",557,563],["Topology","HELIX (582-585)",582,585],["Topology","HELIX (586-588)",586,588],["Topology","HELIX (594-608)",594,608],["Topology","HELIX (625-634)",625,634],["Topology","HELIX (658-665)",658,665],["Topology","HELIX (674-679)",674,679],["Topology","HELIX (683-689)",683,689],["Topology","HELIX (708-719)",708,719],["Topology","HELIX (739-756)",739,756],["Topology","TURN (50-52)",50,52],["Topology","TURN (97-99)",97,99],["Topology","TURN (135-138)",135,138],["Topology","TURN (189-191)",189,191],["Topology","TURN (441-447)",441,447],["Topology","TURN (653-655)",653,655],["Topology","TURN (670-673)",670,673],["Topology","STRAND (60-70)",60,70],["Topology","STRAND (76-83)",76,83],["Topology","STRAND (86-90)",86,90],["Topology","STRAND (101-105)",101,105],["Topology","STRAND (109-120)",109,120],["Topology","STRAND (122-124)",122,124],["Topology","STRAND (126-134)",126,134],["Topology","STRAND (148-150)",148,150],["Topology","STRAND (153-155)",153,155],["Topology","STRAND (162-166)",162,166],["Topology","STRAND (169-175)",169,175],["Topology","STRAND (192-196)",192,196],["Topology","STRAND (212-214)",212,214],["Topology","STRAND (218-227)",218,227],["Topology","STRAND (233-238)",233,238],["Topology","STRAND (241-244)",241,244],["Topology","STRAND (246-251)",246,251],["Topology","STRAND (261-270)",261,270],["Topology","STRAND (291-312)",291,312],["Topology","STRAND (315-323)",315,323],["Topology","STRAND (325-331)",325,331],["Topology","STRAND (337-341)",337,341],["Topology","STRAND (343-345)",343,345],["Topology","STRAND (347-351)",347,351],["Topology","STRAND (364-369)",364,369],["Topology","STRAND (375-382)",375,382],["Topology","STRAND (393-395)",393,395],["Topology","STRAND (397-403)",397,403],["Topology","STRAND (405-413)",405,413],["Topology","STRAND (422-428)",422,428],["Topology","STRAND (430-433)",430,433],["Topology","STRAND (436-440)",436,440],["Topology","STRAND (450-455)",450,455],["Topology","STRAND (460-466)",460,466],["Topology","STRAND (469-471)",469,471],["Topology","STRAND (473-477)",473,477],["Topology","STRAND (479-481)",479,481],["Topology","STRAND (484-489)",484,489],["Topology","STRAND (505-513)",505,513],["Topology","STRAND (516-524)",516,524],["Topology","STRAND (530-532)",530,532],["Topology","STRAND (534-540)",534,540],["Topology","STRAND (568-573)",568,573],["Topology","STRAND (577-580)",577,580],["Topology","STRAND (613-623)",613,623],["Topology","STRAND (637-639)",637,639],["Topology","STRAND (642-648)",642,648],["Topology","STRAND (692-699)",692,699],["Topology","STRAND (703-705)",703,705],["Topology","STRAND (725-729)",725,729]];
+
+        var dataarr = [];
+        var catarr = [];
+        var i;
+
+        for (i = 0; i < domainElem.length ; i++ )
+        {
+        switch(domainElem[i][0]) {
+            
+          case "Sequence":
+                catarr[0] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:0,
+                color: '#e41a1c',
+                key: (domainElem[i][1])
+                });
+                break;
+
+            
+            case "Chains":
+                catarr[1] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:1,
+                color: '#377eb8',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Topology":
+                catarr[2] = (domainElem[i][0]);
+                dataarr.push({
+                x: parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:2,
+                color: '#4daf4a',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "N-Terms":
+                catarr[3] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:3,
+                color: '#984ea3',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "C-Terms":
+                catarr[4] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:4,
+                color: '#ff7f00',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Cleavages":
+                catarr[5] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:5,
+                color: '#CCCC00',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Modifications":
+                catarr[6] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:6,
+                color: '#a65628',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Variants":
+                catarr[7] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:7,
+                color: '#f781bf',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Domains":
+                catarr[8] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:8,
+                color: '#999999',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+        }
+        }
+
+
+    
+
+    (function (H) {
+    var defaultPlotOptions = H.getOptions().plotOptions,
+    columnType = H.seriesTypes.column,
+    each = H.each,
+    extendClass = H.extendClass,
+    pick = H.pick,
+    Point = H.Point,
+    Series = H.Series;
+    
+    defaultPlotOptions.xrange = H.merge(defaultPlotOptions.column, {
+    tooltip: {
+    headerFormat: '<span style="font-size: 0.85em">{point.x} - {point.x2}</span><br/>',
+    pointFormat: '<span style="color:{point.color}">\u25CF</span> {point.yCategory}: <b>{point.key}</b><br/>',
+    footerFormat: '<span style="color:{point.color}">{series.name}</span><br/>'
+    }
+    });
+    H.seriesTypes.xrange = H.extendClass(columnType, {
+    pointClass: extendClass(Point, {
+        // Add x2 and yCategory to the available properties for tooltip formats
+    getLabelConfig: function () {
+        var cfg = Point.prototype.getLabelConfig.call(this);
+        
+        cfg.x2 = this.x2;
+        cfg.yCategory = this.yCategory = this.series.yAxis.categories && this.series.yAxis.categories[this.y];
+        return cfg;
+    }
+    }),
+    type: 'xrange',
+    forceDL: true,
+    parallelArrays: ['x', 'x2', 'y'],
+    requireSorting: false,
+    animate: H.seriesTypes.line.prototype.animate,
+        
+        /**
+         * Borrow the column series metrics, but with swapped axes. This gives free access
+         * to features like groupPadding, grouping, pointWidth etc.
+         */
+    getColumnMetrics: function () {
+        var metrics,
+        chart = this.chart;
+        
+        function swapAxes() {
+            each(chart.series, function (s) {
+                var xAxis = s.xAxis;
+                s.xAxis = s.yAxis;
+                s.yAxis = xAxis;
+            });
+        }
+        
+        swapAxes();
+        
+        this.yAxis.closestPointRange = 1;
+        metrics = columnType.prototype.getColumnMetrics.call(this);
+        
+        swapAxes();
+        
+        return metrics;
+    },
+        
+        /**
+         * Override cropData to show a point where x is outside visible range
+         * but x2 is outside.
+         */
+    cropData: function (xData, yData, min, max) {
+        
+        // Replace xData with x2Data to find the appropriate cropStart
+        var crop = Series.prototype.cropData.call(this, this.x2Data, yData, min, max);
+        
+        // Re-insert the cropped xData
+        crop.xData = xData.slice(crop.start, crop.end);
+        
+        return crop;
+    },
+        
+    translate: function () {
+        columnType.prototype.translate.apply(this, arguments);
+        var series = this,
+        xAxis = series.xAxis,
+        metrics = series.columnMetrics,
+        minPointLength = series.options.minPointLength || 0;
+        
+        H.each(series.points, function (point) {
+            var plotX = point.plotX,
+            plotX2 = xAxis.toPixels(H.pick(point.x2, point.x + (point.len || 0)), true),
+            width = plotX2 - plotX,
+            widthDifference;
+            
+            if (minPointLength) {
+                widthDifference = width < minPointLength ? minPointLength - width : 0;
+                plotX -= widthDifference / 2;
+                plotX2 += widthDifference / 2;
+            }
+            
+            plotX = Math.max(plotX, -10);
+            plotX2 = Math.min(Math.max(plotX2, -10), xAxis.len + 10);
+            
+            point.shapeArgs = {
+            x: plotX,
+            y: point.plotY + metrics.offset,
+            width: plotX2 - plotX,
+            height: metrics.width
+            };
+            point.tooltipPos[0] += width / 2;
+            point.tooltipPos[1] -= metrics.width / 2;
+        });
+    }
+    });
+    
+    /**
+     * Max x2 should be considered in xAxis extremes
+     */
+    H.wrap(H.Axis.prototype, 'getSeriesExtremes', function (proceed) {
+        var axis = this,
+        dataMax,
+        modMax;
+        
+        proceed.call(this);
+        if (this.isXAxis) {
+            dataMax = pick(axis.dataMax, Number.MIN_VALUE);
+            each(this.series, function (series) {
+                each(series.x2Data || [], function (val) {
+                    if (val > dataMax) {
+                        dataMax = val;
+                        modMax = true;
+                    }
+                });
+            });
+            if (modMax) {
+                axis.dataMax = dataMax;
+            }
+        }
+    });
+}(Highcharts));
+
+Highcharts.chart('container_chart', {
+    chart: {
+    type: 'xrange'
+    },
+    title: {
+    text: 'Summary'
+    },
+    xAxis: {
+    type: 'linear'
+    },
+    yAxis: {
+    title: {
+    text: ''
+    },
+    categories: [catarr[0], catarr[1], catarr[2], catarr[3], catarr[4], catarr[5], catarr[6], catarr[7], catarr[8]],
+    reversed: true
+    },
+    series: [{
+    name: 'Q12884',
+    pointWidth: 20,
+    colorByPoint: true,
+    data: dataarr,
+    point: {
+    events: {
+    }
+    }
+        
+    }]
+    });
+
+
+    });
+
+</script>
+
+
+<p id="demo"></p>
+<p id="demo2"></p>
+
+
+
+<div class="content-body">
+		<div class ="container">
+			<div class="row">
+
+<h2> </h2>
+
+<def tag='general-protein-information'>
+
+	<section class="left">
+	  <section class="block">
+	  
+	    <h1>Q12884: Prolyl endopeptidase FAP {ECO:0000305}</h1>
+	    <table class="protein-summary annotation">
+                <h3> General Information </h3> 
+                
+	      <tr> 
+	        <th>Protein names</th> 
+	        <td><br>
+	        		- Prolyl endopeptidase FAP {ECO:0000305}<br>
+	        		- 3.4.21.26 {ECO:0000269|PubMed:16223769}<br>
+	        		- 170 kDa melanoma membrane-bound gelatinase {ECO:0000303|PubMed:2172980, ECO:0000303|PubMed:9065413}<br>
+	        		- Dipeptidyl peptidase FAP {ECO:0000305}<br>
+	        		- 3.4.14.5 {ECO:0000269|PubMed:10347120}<br>
+	        		- Fibroblast activation protein alpha {ECO:0000303|PubMed:7911242}<br>
+	        		- FAPalpha {ECO:0000250|UniProtKB:P97321}<br>
+	        		- Gelatine degradation protease FAP {ECO:0000305}<br>
+	        		- 3.4.21.- {ECO:0000269|PubMed:9065413}<br>
+	        		- Integral membrane serine protease {ECO:0000303|PubMed:9247085}<br>
+	        		- Post-proline cleaving enzyme {ECO:0000305}<br>
+	        		- Serine integral membrane protease {ECO:0000303|PubMed:9247085}<br>
+	        		- SIMP {ECO:0000303|PubMed:9247085}<br>
+	        		- Surface-expressed protease {ECO:0000303|PubMed:2172980}<br>
+	        		- Seprase {ECO:0000303|PubMed:7923219}<br>
+	        		- Antiplasmin-cleaving enzyme FAP, soluble form {ECO:0000303|PubMed:14751930}<br>
+	        		- APCE {ECO:0000303|PubMed:14751930}<br>
+	        		- 3.4.14.5 {ECO:0000269|PubMed:14751930, ECO:0000269|PubMed:16223769}<br>
+	        		- 3.4.21.- {ECO:0000269|PubMed:14751930, ECO:0000269|PubMed:16223769}<br>
+	        		- 3.4.21.26 {ECO:0000269|PubMed:14751930, ECO:0000269|PubMed:16223769}<br>
+	        </br></td>
+	      </tr><tr> 
+	        <th>Gene names</th> 
+	        <td>FAP </td>
+	      </tr><tr>
+	        <th>Organism</th>
+	        <td>Homo sapiens</td>
+	      </tr><tr>
+	        <th>Protease Family</th>
+	        <td> 
+	        	<a href="https://www.ebi.ac.uk/merops/cgi-bin/famsum?family=S09">S09.007</a>
+	        	</td>
+	      </tr><tr>
+	        <th>Protease ID</th>
+	        <td>
+	        		<a href="https://www.ebi.ac.uk/merops/cgi-bin/pepsum?id=S09.007">S09.007</a>
+	        	</td>
+	      </tr><tr if="&@protein.chromosome.present?">
+	        <th>Chromosome location</th>
+	        <td><a href="/topfind/proteins?query=&chromosome=#{@protein.chromosome}"><view:chromosome/></a> <a href="/proteins/index?query=&chromosome=#{@protein.chromosome}&arm=#{@band.first}&band=#{@band.delete 'pq'}"></a></td>
+	      </tr><tr>
+	      	<th> UniProt ID</th>
+	      	<td><a href="http://www.uniprot.org/uniprot/Q12884"> Q12884</a></td>
+	      </tr>
+	    </table>
+	  </section>
+	  	  <section class="block">
+	  	  			<div class="row">
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 2</h2>
+    	<h2> N-termini </h2>
+
+   </div>
+  </div>
+
+ 	<div class="column">
+    <div class="card">
+    	
+    	<h2> 1</h2>
+    	<h2> C-termini </h2>
+
+   </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 0</h2>
+    	<h2> Cleavages </h2>
+
+   </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 4</h2>
+    	<h2> Substrates </h2>
+
+   </div>
+  </div>
+
+</div>
+
+	    <h3>Sequence</h3> 
+	    	<p class="seq">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60&nbsp;<br/>MKTWVKIVFG&nbsp;VATSAVLALL&nbsp;VMCIVLRPSR&nbsp;VHNSEENTMR&nbsp;ALTLKDILNG&nbsp;TFSYKTFFPN&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120&nbsp;<br/>WISGQEYLHQ&nbsp;SADNNIVLYN&nbsp;IETGQSYTIL&nbsp;SNRTMKSVNA&nbsp;SNYGLSPDRQ&nbsp;FVYLESDYSK&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180&nbsp;<br/>LWRYSYTATY&nbsp;YIYDLSNGEF&nbsp;VRGNELPRPI&nbsp;QYLCWSPVGS&nbsp;KLAYVYQNNI&nbsp;YLKQRPGDPP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;240&nbsp;<br/>FQITFNGREN&nbsp;KIFNGIPDWV&nbsp;YEEEMLATKY&nbsp;ALWWSPNGKF&nbsp;LAYAEFNDTD&nbsp;IPVIAYSYYG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300&nbsp;<br/>DEQYPRTINI&nbsp;PYPKAGAKNP&nbsp;VVRIFIIDTT&nbsp;YPAYVGPQEV&nbsp;PVPAMIASSD&nbsp;YYFSWLTWVT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;360&nbsp;<br/>DERVCLQWLK&nbsp;RVQNVSVLSI&nbsp;CDFREDWQTW&nbsp;DCPKTQEHIE&nbsp;ESRTGWAGGF&nbsp;FVSTPVFSYD&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;420&nbsp;<br/>AISYYKIFSD&nbsp;KDGYKHIHYI&nbsp;KDTVENAIQI&nbsp;TSGKWEAINI&nbsp;FRVTQDSLFY&nbsp;SSNEFEEYPG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;480&nbsp;<br/>RRNIYRISIG&nbsp;SYPPSKKCVT&nbsp;CHLRKERCQY&nbsp;YTASFSDYAK&nbsp;YYALVCYGPG&nbsp;IPISTLHDGR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;540&nbsp;<br/>TDQEIKILEE&nbsp;NKELENALKN&nbsp;IQLPKEEIKK&nbsp;LEVDEITLWY&nbsp;KMILPPQFDR&nbsp;SKKYPLLIQV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;600&nbsp;<br/>YGGPCSQSVR&nbsp;SVFAVNWISY&nbsp;LASKEGMVIA&nbsp;LVDGRGTAFQ&nbsp;GDKLLYAVYR&nbsp;KLGVYEVEDQ&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;660&nbsp;<br/>ITAVRKFIEM&nbsp;GFIDEKRIAI&nbsp;WGWSYGGYVS&nbsp;SLALASGTGL&nbsp;FKCGIAVAPV&nbsp;SSWEYYASVY&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;720&nbsp;<br/>TERFMGLPTK&nbsp;DDNLEHYKNS&nbsp;TVMARAEYFR&nbsp;NVDYLLIHGT&nbsp;ADDNVHFQNS&nbsp;AQIAKALVNA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;740&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;760&nbsp;&nbsp;&nbsp;&nbsp;<br/>QVDFQAMWYS&nbsp;DQNHGLSGLS&nbsp;TNHLYTHMTH&nbsp;FLKQCFSLSD&nbsp;<p>
+	  </section>             
+	  <section class="block" if= true>
+	    <h3>Isoforms</h3>
+            - Isoform 2 of Seprase
+            - Isoform 2 of Prolyl endopeptidase FAP
+	  <br>
+      <br>
+	      Sequence View <p class="seq">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60&nbsp;<br/>MKTWVKIVFG&nbsp;VATSAVLALL&nbsp;VMCIVLRPSR&nbsp;VHNSEENTMR&nbsp;ALTLKDILNG&nbsp;TFSYKTFFPN&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120&nbsp;<br/>WISGQEYLHQ&nbsp;SADNNIVLYN&nbsp;IETGQSYTIL&nbsp;SNRTMKSVNA&nbsp;SNYGLSPDRQ&nbsp;FVYLESDYSK&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180&nbsp;<br/>LWRYSYTATY&nbsp;YIYDLSNGEF&nbsp;VRGNELPRPI&nbsp;QYLCWSPVGS&nbsp;KLAYVYQNNI&nbsp;YLKQRPGDPP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;240&nbsp;<br/>FQITFNGREN&nbsp;KIFNGIPDWV&nbsp;YEEEMLATKY&nbsp;ALWWSPNGKF&nbsp;LAYAEFNDTD&nbsp;IPVIAYSYYG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300&nbsp;<br/>DEQYPRTINI&nbsp;PYPKAGAKNP&nbsp;VVRIFIIDTT&nbsp;YPAYVGPQEV&nbsp;PVPAMIASSD&nbsp;YYFSWLTWVT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;360&nbsp;<br/>DERVCLQWLK&nbsp;RVQNVSVLSI&nbsp;CDFREDWQTW&nbsp;DCPKTQEHIE&nbsp;ESRTGWAGGF&nbsp;FVSTPVFSYD&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;420&nbsp;<br/>AISYYKIFSD&nbsp;KDGYKHIHYI&nbsp;KDTVENAIQI&nbsp;TSGKWEAINI&nbsp;FRVTQDSLFY&nbsp;SSNEFEEYPG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;480&nbsp;<br/>RRNIYRISIG&nbsp;SYPPSKKCVT&nbsp;CHLRKERCQY&nbsp;YTASFSDYAK&nbsp;YYALVCYGPG&nbsp;IPISTLHDGR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;540&nbsp;<br/>TDQEIKILEE&nbsp;NKELENALKN&nbsp;IQLPKEEIKK&nbsp;LEVDEITLWY&nbsp;KMILPPQFDR&nbsp;SKKYPLLIQV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;600&nbsp;<br/>YGGPCSQSVR&nbsp;SVFAVNWISY&nbsp;LASKEGMVIA&nbsp;LVDGRGTAFQ&nbsp;GDKLLYAVYR&nbsp;KLGVYEVEDQ&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;660&nbsp;<br/>ITAVRKFIEM&nbsp;GFIDEKRIAI&nbsp;WGWSYGGYVS&nbsp;SLALASGTGL&nbsp;FKCGIAVAPV&nbsp;SSWEYYASVY&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;720&nbsp;<br/>TERFMGLPTK&nbsp;DDNLEHYKNS&nbsp;TVMARAEYFR&nbsp;NVDYLLIHGT&nbsp;ADDNVHFQNS&nbsp;AQIAKALVNA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;740&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;760&nbsp;&nbsp;&nbsp;&nbsp;<br/>QVDFQAMWYS&nbsp;DQNHGLSGLS&nbsp;TNHLYTHMTH&nbsp;FLKQCFSLSD&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60&nbsp;<br/>MKTWVKIVFG&nbsp;VATSAVLALL&nbsp;VMCIVLRPSR&nbsp;VHNSEENTMR&nbsp;ALTLKDILNG&nbsp;TFSYKTFFPN&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120&nbsp;<br/>WISGQEYLHQ&nbsp;SADNNIVLYN&nbsp;IETGQSYTIL&nbsp;SNRTMKSVNA&nbsp;SNYGLSPDRQ&nbsp;FVYLESDYSK&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180&nbsp;<br/>LWRYSYTATY&nbsp;YIYDLSNGEF&nbsp;VRGNELPRPI&nbsp;QYLCWSPVGS&nbsp;KLAYVYQNNI&nbsp;YLKQRPGDPP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;240&nbsp;<br/>FQITFNGREN&nbsp;KIFNGIPDWV&nbsp;YEEEMLATKY&nbsp;ALWWSPNGKF&nbsp;LAYAEFNDTD&nbsp;IPVIAYSYYG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300&nbsp;<br/>DEQYPRTINI&nbsp;PYPKAGAKNP&nbsp;VVRIFIIDTT&nbsp;YPAYVGPQEV&nbsp;PVPAMIASSD&nbsp;YYFSWLTWVT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;360&nbsp;<br/>DERVCLQWLK&nbsp;RVQNVSVLSI&nbsp;CDFREDWQTW&nbsp;DCPKTQEHIE&nbsp;ESRTGWAGGF&nbsp;FVSTPVFSYD&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;420&nbsp;<br/>AISYYKIFSD&nbsp;KDGYKHIHYI&nbsp;KDTVENAIQI&nbsp;TSGKWEAINI&nbsp;FRVTQDSLFY&nbsp;SSNEFEEYPG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;480&nbsp;<br/>RRNIYRISIG&nbsp;SYPPSKKCVT&nbsp;CHLRKERCQY&nbsp;YTASFSDYAK&nbsp;YYALVCYGPG&nbsp;IPISTLHDGR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;540&nbsp;<br/>TDQEIKILEE&nbsp;NKELENALKN&nbsp;IQLPKEEIKK&nbsp;LEVDEITLWY&nbsp;KMILPPQFDR&nbsp;SKKYPLLIQV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;600&nbsp;<br/>YGGPCSQSVR&nbsp;SVFAVNWISY&nbsp;LASKEGMVIA&nbsp;LVDGRGTAFQ&nbsp;GDKLLYAVYR&nbsp;KLGVYEVEDQ&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;660&nbsp;<br/>ITAVRKFIEM&nbsp;GFIDEKRIAI&nbsp;WGWSYGGYVS&nbsp;SLALASGTGL&nbsp;FKCGIAVAPV&nbsp;SSWEYYASVY&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;720&nbsp;<br/>TERFMGLPTK&nbsp;DDNLEHYKNS&nbsp;TVMARAEYFR&nbsp;NVDYLLIHGT&nbsp;ADDNVHFQNS&nbsp;AQIAKALVNA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;740&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;760&nbsp;&nbsp;&nbsp;&nbsp;<br/>QVDFQAMWYS&nbsp;DQNHGLSGLS&nbsp;TNHLYTHMTH&nbsp;FLKQCFSLSD&nbsp;
+          </p>
+
+	   <br><br>
+	
+     
+	      
+	
+	  </section> 
+	</section>
+
+
+
+	  <section class="right" width="20px">
+
+	  		<center>
+			<form action="/proteins/show/Q12884" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="3mZwpkX5u8uvKGCbxckRv5bVwWOrlvJoUaBnGSLVlnlbdTWBTECLKk9/Jx0pdrKr1jZa/kBMOnwWtjaZemo8qQ==" />
+				
+				<!-- To go back from dropdown to multiple selection box, type :multiple => true into the last set of {} brackets -->
+
+				<h2>Filter Information:</h2>
+				<br>
+				(<a href="/proteins/show/Q12884">REFRESH</a>)
+				<br></br>
+				<h3>Directness: </h3>
+				<select name="directness" id="directness"><option value="unknown">unknown</option>
+<option value="indirect">indirect</option></select>
+				<br><h3>Physiological Relevance: </h3>
+				<select name="phys_rel" id="phys_rel"><option value="unknown">unknown</option>
+<option value="yes">yes</option></select>
+				<br><h3>Evidence Codes: </h3>
+				<select name="evidencecodes" id="evidencecodes"><option value="inferred from electronic annotation">inferred from electronic annotation</option>
+<option value="inferred from isoform by sequence similarity">inferred from isoform by sequence similarity</option>
+<option value="inferred from experiment">inferred from experiment</option></select>
+				<br><h3>Methodology: </h3>
+				<select name="methodology" id="methodology"><option value="electronic annotation">electronic annotation</option>
+<option value="unknown">unknown</option></select>
+				<br><h3>Perturbation of System: </h3>
+				<select name="perturbations" id="perturbations"><option value=""></option>
+<option value="none">none</option></select>
+				<br><h3>Biological System: </h3>
+				<select name="methodsystems" id="methodsystems"><option value="unknown">unknown</option></select>
+				<br><h3>Protease Assignment Confidence: </h3>
+				<select name="proteaseassignmentconfidences" id="proteaseassignmentconfidences"><option value="unknown">unknown</option></select>
+				<br><h3>Evidence Names: </h3>
+				<select name="evidences" id="evidences"><option value="inferred from uniprot">inferred from uniprot</option>
+<option value="inferred from TNt89273">inferred from TNt89273</option>
+<option value="inferred from TCt84891">inferred from TCt84891</option>
+<option value="Lee KN et al.:Antiplasmin-cleaving enzyme is ... (S09.007)">Lee KN et al.:Antiplasmin-cleaving enzyme is ... (S09.007)</option>
+<option value="inferred from TC31593">inferred from TC31593</option>
+<option value="inferred from TC31595">inferred from TC31595</option></select>
+				<br><h3>Database: </h3>
+				<select name="repository" id="repository"><option value=""></option>
+<option value=""></option></select>
+				<br><h3>Lab: </h3>
+				<select name="labs" id="labs"><option value=""></option>
+<option value=""></option>
+<option value="McKee PA">McKee PA</option></select>
+				<br><br>
+				<input type="submit" name="commit" value="Search" data-disable-with="Search" />
+</form>
+		</center>
+
+	  </section>
+         	
+	
+
+	</section> 	  
+
+</def>
+
+
+
+
+<section class="full category">
+</section>
+<def tag='Protein_Neighborhood'>
+	<a name="Protein_Neighborhood"/>
+	<h2>Protein Neighborhood</h2>
+		<img src="/assets/protein_neighborhood/Q12884_pw_graphviz-dc466bf6e10b68d76e707eca64e85f06e13d4241fe52cb2581c1191af177e106.svg" />
+</def>
+	
+	        <section class="full category">
+              <pagenav/>
+              <a name="features"/><h2>Domains &amp; Features</h2>
+            </section>
+
+            <h2><center>2 N-termini - 1 C-termini - 0 Cleavages - 4 Substrates</center></h2>
+			
+<!-- N-TERMINI  -->
+
+              <a name="features"/><h2>N-termini</h2></a>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Name</th>
+					<th>Sequence</th>
+					<th>Position</th>
+					<th>Modification</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMID)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td>Q12884-1-unknown</td>
+							<td>MKTWVK...</td>
+							<td>1</td>
+							<td></td>
+							<td>inferred from electronic annotation</td>
+							<td>electronic annotation</td>
+							<td><a target="_blank" href="http://www.uniprot.org">UniProtKB</a></td>
+							<td></td>
+							<td><a href="/evidences/show/1">inferred from uniprot</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q12884-522-unknown</td>
+							<td>MILPPQ...</td>
+							<td>522</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q12884-2#TNt89273">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/25004">inferred from TNt89273</a></td>
+							<td>
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>
+
+
+
+<!-- C-TERMINI  -->
+
+
+              <a name="features"/><h2>C-termini</h2>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Name</th>
+					<th>Sequence</th>
+					<th>Position</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td></td>
+							<td>...FSLSD </td>
+							<td>760</td>
+							<td>inferred from electronic annotation</td>
+							<td>electronic annotation</td>
+							<td><a target="_blank" href="http://www.uniprot.org">UniProtKB</a></td>
+							<td></td>
+							<td><a href="/evidences/show/1">inferred from uniprot</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...FSLSD </td>
+							<td>760</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q12884-2#TCt84891">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/42905">inferred from TCt84891</a></td>
+							<td>
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>
+
+<!-- CLEAVAGES -->
+
+
+              <a name="features"/><h2>Cleavages</h2>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Protease</th>
+					<th>Position</th>
+					<th>Sequence</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+				</tbody>
+			  </table>
+			</ul>
+
+
+<!-- SUBSTRATES -->
+
+              <a name="features"/><h2>Substrates</h2>
+              <ul id="protshow">
+			  <table id="protshow" class="substrates-table">
+				<thead>
+					<th>Substrate</th>
+					<th>Position</th>
+					<th>Sequence</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td><a href="/proteins/show/P08697">A2AP_HUMAN</a></td>
+							<td>30</td>
+							<td>MEPL.|.LGRQ</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>McKee PA</td>
+							<td><a href="/evidences/show/94478">Lee KN et al.:Antiplasmin-cleaving enzyme is ... (S09.007)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/16223769">16223769</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P08697-2">A2AP-Isoform2_HUMAN</a></td>
+							<td>30</td>
+							<td>MEPL.|.LGRQ</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P08697#TC31593">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/94480">inferred from TC31593</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P08697">A2AP_HUMAN</a></td>
+							<td>39</td>
+							<td>SGPN.|.NQEQ</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>McKee PA</td>
+							<td><a href="/evidences/show/94478">Lee KN et al.:Antiplasmin-cleaving enzyme is ... (S09.007)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/16223769">16223769</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P08697-2">A2AP-Isoform2_HUMAN</a></td>
+							<td>39</td>
+							<td>SGPN.|.NQEQ</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P08697#TC31595">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/94482">inferred from TC31595</a></td>
+							<td>
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>	
+
+			
+			
+			<section class="full">
+              
+            </section>
+	
+</def>
+
+
+<br>
+<br>
+
+
+</div>
+</div>
+</div>
+
+<footer>
+
+        
+    <div id="publication">
+
+        <div id="pics">
+        <img alt="UBC Logo" src="/assets/UBClogoupdated-76d10b067dddb96b9cf35c63b9db6f8ddd48959cffd588df9598f89d124f7279.png" width="372" height="117" />
+        <a href="http://clip.ubc.ca" target="_blank"><img alt="Lab Logo" src="/assets/Optimized_LabLogo-6b774b6428c587573bbe04397e0d610398524d5693571f497b59df22be3789d1.png" width="400" height="169" /></a>
+        </div>
+    </div>
+
+
+
+<div id="links">
+<br>
+<br>
+<center>
+<a href="/documentations/about">About |</a>
+<a href="/documentations/license">License &amp; Disclaimer |</a>
+<a href="mailto:topfind.clip@gmail.com">Contact |</a>
+<a href="/documentations/download">Download</a> 
+</center>
+
+<br>
+<center>
+        <h3> Developed by: Philipp F. Lange, Nikolaus Fortelny, Simran Rai </h3>
+        <a href="http://nar.oxfordjournals.org/content/early/2014/10/20/nar.gku1012.full" target="_blank">Nikolaus Fortelny, Sharon Yang, Paul Pavlidis, Philipp F. Lange*, Christopher M. Overall*, <b>Nucleic Acids Research</b> doi: 10.1093/nar/gku1012 (2014)</a><a href="http://nar.oxfordjournals.org/content/early/2014/10/20/nar.gku1012.full.pdf+html" target="_blank">[pdf]</a><br>
+        <a href="http://nar.oxfordjournals.org/content/40/D1/D351.full" target="_blank">Philipp F. Lange, Pitter F. Huesgen, Christopher M. Overall, <b>Nucleic Acids Research</b> 40 (D1), D351-D361 (2012)</a> <a href="https://www.researchgate.net/profile/Philipp_Lange/publication/51816705_TopFIND_2.0--linking_protein_termini_with_proteolytic_processing_and_modifications_altering_protein_function/links/0fcfd50574d434aac9000000?ev=pub_int_doc_dl&origin=publication_detail&inViewer=true" target="_blank">[pdf]</a><br>
+        <a href="http://www.nature.com/nmeth/journal/v8/n9/full/nmeth.1669.html" target="_blank">Philipp F. Lange &amp; Christopher M. Overall, <b>Nature Methods</b> 8, 703&minus;704 (2011)</a> <a href="/topfind/downloads/2011-NMeth-Lange_and_Overall.pdf" target="_blank">[pdf]</a>
+    <div class="bottom">&nbsp;</div>
+</center>
+
+</div>
+
+
+    </footer>
+
+
+
+</body>
+
+
+
+
+
+</body>
+</html>

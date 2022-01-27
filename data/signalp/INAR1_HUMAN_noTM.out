@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    27       0.214
+  max. Y    27       0.431
+  max. S    11       0.986
+  mean S     1-26    0.883
+       D     1-26    0.675   0.450   YES
+Name=INAR1_HUMAN	SP='YES' Cleavage site between pos. 26 and 27: AAG-GK D=0.675 D-cutoff=0.450 Networks=SignalP-noTM

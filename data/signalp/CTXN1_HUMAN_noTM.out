@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    50       0.296
+  max. Y    50       0.506
+  max. S    42       0.982
+  mean S     1-49    0.502
+       D     1-49    0.504   0.450   YES
+Name=CTXN1_HUMAN	SP='YES' Cleavage site between pos. 49 and 50: VRC-VR D=0.504 D-cutoff=0.450 Networks=SignalP-noTM

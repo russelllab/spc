@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.355
+  max. Y    22       0.403
+  max. S     3       0.622
+  mean S     1-21    0.490
+       D     1-21    0.438   0.500   NO
+Name=CADH6_HUMAN	SP='NO' D=0.438 D-cutoff=0.500 Networks=SignalP-TM

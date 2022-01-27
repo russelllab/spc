@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    25       0.342
+  max. Y    25       0.545
+  max. S    15       0.954
+  mean S     1-24    0.870
+       D     1-24    0.720   0.450   YES
+Name=PMEL_HUMAN	SP='YES' Cleavage site between pos. 24 and 25: GAT-KV D=0.720 D-cutoff=0.450 Networks=SignalP-noTM

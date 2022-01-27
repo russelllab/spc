@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.748
+  max. Y    23       0.834
+  max. S    11       0.978
+  mean S     1-22    0.931
+       D     1-22    0.887   0.450   YES
+Name=REEP4_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: AYA-SY D=0.887 D-cutoff=0.450 Networks=SignalP-noTM

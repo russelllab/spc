@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    25       0.867
+  max. Y    25       0.884
+  max. S    19       0.968
+  mean S     1-24    0.907
+       D     1-24    0.893   0.500   YES
+Name=CCL22_HUMAN	SP='YES' Cleavage site between pos. 24 and 25: TEA-GP D=0.893 D-cutoff=0.500 Networks=SignalP-TM

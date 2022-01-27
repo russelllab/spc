@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    40       0.177
+  max. Y    37       0.330
+  max. S    12       0.875
+  mean S     1-36    0.672
+       D     1-36    0.515   0.450   YES
+Name=OR6M1_HUMAN	SP='YES' Cleavage site between pos. 36 and 37: TLT-AT D=0.515 D-cutoff=0.450 Networks=SignalP-noTM

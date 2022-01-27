@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    32       0.887
+  max. Y    32       0.885
+  max. S     5       0.946
+  mean S     1-31    0.874
+       D     1-31    0.879   0.450   YES
+Name=CELR2_HUMAN	SP='YES' Cleavage site between pos. 31 and 32: LLG-DQ D=0.879 D-cutoff=0.450 Networks=SignalP-noTM

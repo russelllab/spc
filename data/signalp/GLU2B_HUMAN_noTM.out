@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    15       0.579
+  max. Y    15       0.728
+  max. S     7       0.945
+  mean S     1-14    0.908
+       D     1-14    0.825   0.450   YES
+Name=GLU2B_HUMAN	SP='YES' Cleavage site between pos. 14 and 15: CWA-VE D=0.825 D-cutoff=0.450 Networks=SignalP-noTM

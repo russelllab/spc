@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.226
+  max. Y    21       0.425
+  max. S     8       0.862
+  mean S     1-20    0.774
+       D     1-20    0.565   0.500   YES
+Name=BRNP1_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: ISV-QP D=0.565 D-cutoff=0.500 Networks=SignalP-TM

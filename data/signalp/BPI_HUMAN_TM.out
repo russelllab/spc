@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    32       0.429
+  max. Y    32       0.512
+  max. S    26       0.764
+  mean S     1-31    0.582
+       D     1-31    0.540   0.500   YES
+Name=BPI_HUMAN	SP='YES' Cleavage site between pos. 31 and 32: TAA-VN D=0.540 D-cutoff=0.500 Networks=SignalP-TM

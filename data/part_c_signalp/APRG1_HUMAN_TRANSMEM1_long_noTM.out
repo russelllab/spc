@@ -1,0 +1,31 @@
+# SignalP-4.1 euk predictions
+# Name=APRG1_HUMAN_TRANSMEM1	Length=21	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   I   0.104   0.846   0.297
+    2   A   0.103   0.757   0.296
+    3   L   0.099   0.664   0.289
+    4   A   0.106   0.502   0.298
+    5   L   0.099   0.419   0.284
+    6   A   0.109   0.324   0.295
+    7   G   0.101   0.271   0.280
+    8   P   0.105   0.187   0.281
+    9   G   0.107   0.151   0.277
+   10   A   0.102   0.138   0.265
+   11   I   0.100   0.140   0.256
+   12   L   0.097   0.147   0.245
+   13   I   0.100   0.114   0.243
+   14   L   0.098   0.121   0.233
+   15   E   0.107   0.107   0.237
+   16   L   0.099   0.107   0.220
+   17   S   0.106   0.102   0.220
+   18   W   0.096   0.101   0.201
+   19   F   0.102   0.105   0.200
+   20   L   0.098   0.104   0.187
+   21   G   0.105   0.105   0.184
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C     6       0.109
+  max. Y    11       0.256
+  max. S     1       0.846
+  mean S     1-10    0.426
+       D     1-10    0.348   0.450   NO
+Name=APRG1_HUMAN_TRANSMEM1	SP='NO' D=0.348 D-cutoff=0.450 Networks=SignalP-noTM

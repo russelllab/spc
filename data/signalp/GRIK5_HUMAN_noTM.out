@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.239
+  max. Y    23       0.440
+  max. S     4       0.941
+  mean S     1-22    0.808
+       D     1-22    0.639   0.450   YES
+Name=GRIK5_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: VLS-SL D=0.639 D-cutoff=0.450 Networks=SignalP-noTM

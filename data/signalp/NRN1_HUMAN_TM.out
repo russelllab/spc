@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.603
+  max. Y    28       0.624
+  max. S    24       0.784
+  mean S     1-27    0.596
+       D     1-27    0.613   0.500   YES
+Name=NRN1_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: VRA-AG D=0.613 D-cutoff=0.500 Networks=SignalP-TM

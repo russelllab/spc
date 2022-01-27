@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.333
+  max. Y    28       0.529
+  max. S    15       0.949
+  mean S     1-27    0.838
+       D     1-27    0.653   0.500   YES
+Name=COFA1_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: AVT-QT D=0.653 D-cutoff=0.500 Networks=SignalP-TM

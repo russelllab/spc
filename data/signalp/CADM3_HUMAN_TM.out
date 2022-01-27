@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    25       0.789
+  max. Y    25       0.858
+  max. S    12       0.983
+  mean S     1-24    0.945
+       D     1-24    0.892   0.500   YES
+Name=CADM3_HUMAN	SP='YES' Cleavage site between pos. 24 and 25: GGA-NL D=0.892 D-cutoff=0.500 Networks=SignalP-TM

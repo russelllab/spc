@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    34       0.625
+  max. Y    34       0.585
+  max. S    30       0.680
+  mean S     1-33    0.513
+       D     1-33    0.556   0.500   YES
+Name=ANGT_HUMAN	SP='YES' Cleavage site between pos. 33 and 34: AAG-DR D=0.556 D-cutoff=0.500 Networks=SignalP-TM

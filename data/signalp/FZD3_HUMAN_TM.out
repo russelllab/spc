@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.231
+  max. Y    18       0.424
+  max. S    17       0.850
+  mean S     1-17    0.780
+       D     1-17    0.566   0.500   YES
+Name=FZD3_HUMAN	SP='YES' Cleavage site between pos. 17 and 18: VFM-GH D=0.566 D-cutoff=0.500 Networks=SignalP-TM

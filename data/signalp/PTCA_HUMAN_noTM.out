@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    54       0.767
+  max. Y    54       0.830
+  max. S    44       0.988
+  mean S     1-53    0.848
+       D     1-53    0.840   0.450   YES
+Name=PTCA_HUMAN	SP='YES' Cleavage site between pos. 53 and 54: ALA-WR D=0.840 D-cutoff=0.450 Networks=SignalP-noTM

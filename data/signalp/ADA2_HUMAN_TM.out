@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    30       0.656
+  max. Y    30       0.548
+  max. S    25       0.647
+  mean S     1-29    0.452
+       D     1-29    0.510   0.500   YES
+Name=ADA2_HUMAN	SP='YES' Cleavage site between pos. 29 and 30: ALS-ID D=0.510 D-cutoff=0.500 Networks=SignalP-TM

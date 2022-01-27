@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.661
+  max. Y    19       0.801
+  max. S    11       0.989
+  mean S     1-18    0.972
+       D     1-18    0.893   0.450   YES
+Name=ISLR2_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: VAG-SC D=0.893 D-cutoff=0.450 Networks=SignalP-noTM

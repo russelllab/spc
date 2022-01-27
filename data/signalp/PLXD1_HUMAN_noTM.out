@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    47       0.490
+  max. Y    47       0.612
+  max. S    40       0.922
+  mean S     1-46    0.512
+       D     1-46    0.558   0.450   YES
+Name=PLXD1_HUMAN	SP='YES' Cleavage site between pos. 46 and 47: AGA-LE D=0.558 D-cutoff=0.450 Networks=SignalP-noTM

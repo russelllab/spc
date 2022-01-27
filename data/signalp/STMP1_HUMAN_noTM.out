@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.267
+  max. Y    20       0.388
+  max. S     6       0.757
+  mean S     1-19    0.541
+       D     1-19    0.471   0.450   YES
+Name=STMP1_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: YLA-QN D=0.471 D-cutoff=0.450 Networks=SignalP-noTM

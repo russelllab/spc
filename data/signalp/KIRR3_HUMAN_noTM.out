@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.187
+  max. Y    22       0.383
+  max. S     2       0.872
+  mean S     1-21    0.783
+       D     1-21    0.599   0.450   YES
+Name=KIRR3_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: ELG-LQ D=0.599 D-cutoff=0.450 Networks=SignalP-noTM

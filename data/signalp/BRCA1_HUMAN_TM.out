@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    40       0.110
+  max. Y    40       0.120
+  max. S    36       0.188
+  mean S     1-39    0.117
+       D     1-39    0.119   0.500   NO
+Name=BRCA1_HUMAN	SP='NO' D=0.119 D-cutoff=0.500 Networks=SignalP-TM

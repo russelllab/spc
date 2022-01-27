@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    26       0.672
+  max. Y    26       0.760
+  max. S    10       0.950
+  mean S     1-25    0.866
+       D     1-25    0.817   0.450   YES
+Name=AGRF3_HUMAN	SP='YES' Cleavage site between pos. 25 and 26: AQA-SQ D=0.817 D-cutoff=0.450 Networks=SignalP-noTM

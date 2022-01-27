@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    16       0.295
+  max. Y    16       0.386
+  max. S     1       0.741
+  mean S     1-15    0.522
+       D     1-15    0.441   0.500   NO
+Name=LIPI_HUMAN	SP='NO' D=0.441 D-cutoff=0.500 Networks=SignalP-TM

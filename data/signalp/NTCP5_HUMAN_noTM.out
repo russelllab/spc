@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.589
+  max. Y    22       0.727
+  max. S    11       0.967
+  mean S     1-21    0.896
+       D     1-21    0.818   0.450   YES
+Name=NTCP5_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: ARM-SS D=0.818 D-cutoff=0.450 Networks=SignalP-noTM

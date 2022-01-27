@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.467
+  max. Y    22       0.654
+  max. S     4       0.970
+  mean S     1-21    0.918
+       D     1-21    0.797   0.450   YES
+Name=AFAM_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: SLT-LP D=0.797 D-cutoff=0.450 Networks=SignalP-noTM

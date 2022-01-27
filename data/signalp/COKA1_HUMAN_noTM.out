@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.547
+  max. Y    23       0.655
+  max. S     1       0.901
+  mean S     1-22    0.785
+       D     1-22    0.725   0.450   YES
+Name=COKA1_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: TLG-RE D=0.725 D-cutoff=0.450 Networks=SignalP-noTM

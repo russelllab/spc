@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.360
+  max. Y    23       0.588
+  max. S     5       0.988
+  mean S     1-22    0.960
+       D     1-22    0.789   0.450   YES
+Name=CRLF2_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: ALG-QG D=0.789 D-cutoff=0.450 Networks=SignalP-noTM

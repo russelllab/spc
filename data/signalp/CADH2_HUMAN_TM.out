@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    26       0.382
+  max. Y    26       0.574
+  max. S     8       0.939
+  mean S     1-25    0.883
+       D     1-25    0.698   0.500   YES
+Name=CADH2_HUMAN	SP='YES' Cleavage site between pos. 25 and 26: VEA-SG D=0.698 D-cutoff=0.500 Networks=SignalP-TM

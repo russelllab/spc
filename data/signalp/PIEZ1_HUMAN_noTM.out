@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    51       0.463
+  max. Y    51       0.623
+  max. S    16       0.993
+  mean S     1-50    0.892
+       D     1-50    0.768   0.450   YES
+Name=PIEZ1_HUMAN	SP='YES' Cleavage site between pos. 50 and 51: TRC-GL D=0.768 D-cutoff=0.450 Networks=SignalP-noTM

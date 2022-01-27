@@ -1,0 +1,26 @@
+# SignalP-4.1 euk predictions
+# Name=TJB13_HUMAN	Length=16	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   S   0.101   0.163   0.129
+    2   G   0.101   0.158   0.128
+    3   N   0.098   0.135   0.126
+    4   T   0.104   0.138   0.129
+    5   I   0.101   0.133   0.127
+    6   Y   0.102   0.123   0.128
+    7   F   0.100   0.112   0.126
+    8   G   0.104   0.101   0.127
+    9   E   0.099   0.095   0.123
+   10   G   0.106   0.090   0.126
+   11   S   0.098   0.098   0.120
+   12   W   0.101   0.088   0.120
+   13   L   0.097   0.092   0.116
+   14   T   0.101   0.096   0.117
+   15   V   0.101   0.096   0.116
+   16   V   0.104   0.095   0.116
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    10       0.106
+  max. Y    12       0.120
+  max. S     1       0.163
+  mean S     1-11    0.122
+       D     1-11    0.121   0.450   NO
+Name=TJB13_HUMAN	SP='NO' D=0.121 D-cutoff=0.450 Networks=SignalP-noTM

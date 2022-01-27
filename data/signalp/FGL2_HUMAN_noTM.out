@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.322
+  max. Y    24       0.509
+  max. S    12       0.929
+  mean S     1-23    0.804
+       D     1-23    0.668   0.450   YES
+Name=FGL2_HUMAN	SP='YES' Cleavage site between pos. 23 and 24: VVA-NN D=0.668 D-cutoff=0.450 Networks=SignalP-noTM

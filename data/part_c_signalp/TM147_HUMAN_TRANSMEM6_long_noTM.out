@@ -1,0 +1,33 @@
+# SignalP-4.1 euk predictions
+# Name=TM147_HUMAN_TRANSMEM6	Length=23	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   A   0.103   0.926   0.309
+    2   V   0.097   0.934   0.300
+    3   V   0.103   0.917   0.309
+    4   T   0.103   0.856   0.308
+    5   G   0.104   0.775   0.310
+    6   L   0.098   0.778   0.300
+    7   L   0.107   0.708   0.312
+    8   A   0.104   0.668   0.306
+    9   L   0.097   0.615   0.294
+   10   S   0.106   0.484   0.305
+   11   T   0.102   0.344   0.295
+   12   L   0.111   0.268   0.303
+   13   A   0.101   0.234   0.284
+   14   L   0.099   0.165   0.275
+   15   Y   0.103   0.145   0.274
+   16   V   0.098   0.125   0.261
+   17   A   0.104   0.138   0.262
+   18   V   0.107   0.122   0.258
+   19   V   0.105   0.107   0.249
+   20   N   0.103   0.105   0.238
+   21   V   0.103   0.103   0.230
+   22   H   0.106   0.098   0.224
+   23   S   0.104   0.101   0.213
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    12       0.111
+  max. Y    12       0.303
+  max. S     2       0.934
+  mean S     1-11    0.728
+       D     1-11    0.532   0.450   YES
+Name=TM147_HUMAN_TRANSMEM6	SP='YES' Cleavage site between pos. 11 and 12: LST-LA D=0.532 D-cutoff=0.450 Networks=SignalP-noTM

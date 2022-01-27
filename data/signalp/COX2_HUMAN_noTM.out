@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    42       0.286
+  max. Y    42       0.472
+  max. S    37       0.987
+  mean S     1-41    0.487
+       D     1-41    0.480   0.450   YES
+Name=COX2_HUMAN	SP='YES' Cleavage site between pos. 41 and 42: LYA-LF D=0.480 D-cutoff=0.450 Networks=SignalP-noTM

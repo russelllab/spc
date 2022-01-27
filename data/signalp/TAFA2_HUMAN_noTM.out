@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    30       0.516
+  max. Y    30       0.649
+  max. S    11       0.892
+  mean S     1-29    0.761
+       D     1-29    0.709   0.450   YES
+Name=TAFA2_HUMAN	SP='YES' Cleavage site between pos. 29 and 30: VVS-SA D=0.709 D-cutoff=0.450 Networks=SignalP-noTM

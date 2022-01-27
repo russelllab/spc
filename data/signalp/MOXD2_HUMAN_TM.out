@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.235
+  max. Y    17       0.420
+  max. S    14       0.820
+  mean S     1-16    0.755
+       D     1-16    0.554   0.500   YES
+Name=MOXD2_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: ALG-VP D=0.554 D-cutoff=0.500 Networks=SignalP-TM

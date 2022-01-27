@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.808
+  max. Y    20       0.862
+  max. S    18       0.951
+  mean S     1-19    0.916
+       D     1-19    0.883   0.500   YES
+Name=CDHR1_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: CLA-QA D=0.883 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    35       0.347
+  max. Y    35       0.547
+  max. S    28       0.943
+  mean S     1-34    0.831
+       D     1-34    0.661   0.500   YES
+Name=GROA_HUMAN	SP='YES' Cleavage site between pos. 34 and 35: AAG-AS D=0.661 D-cutoff=0.500 Networks=SignalP-TM

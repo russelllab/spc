@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    33       0.672
+  max. Y    33       0.708
+  max. S    30       0.883
+  mean S     1-32    0.689
+       D     1-32    0.698   0.450   YES
+Name=GPR82_HUMAN	SP='YES' Cleavage site between pos. 32 and 33: VFG-NT D=0.698 D-cutoff=0.450 Networks=SignalP-noTM

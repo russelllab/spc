@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.757
+  max. Y    18       0.843
+  max. S    11       0.955
+  mean S     1-17    0.936
+       D     1-17    0.893   0.450   YES
+Name=ILRL1_HUMAN	SP='YES' Cleavage site between pos. 17 and 18: STA-AK D=0.893 D-cutoff=0.450 Networks=SignalP-noTM

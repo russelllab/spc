@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    43       0.375
+  max. Y    43       0.523
+  max. S    33       0.953
+  mean S     1-42    0.496
+       D     1-42    0.508   0.450   YES
+Name=CXD2_HUMAN	SP='YES' Cleavage site between pos. 42 and 43: IVG-ET D=0.508 D-cutoff=0.450 Networks=SignalP-noTM

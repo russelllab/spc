@@ -1,0 +1,20 @@
+# SignalP-4.1 euk predictions
+# Name=GAJU_HUMAN	Length=10	Networks=SignalP-TM
+# pos  aa    C       S       Y
+    1   L   0.103   0.106   0.105
+    2   A   0.105   0.107   0.105
+    3   A   0.099   0.103   0.102
+    4   G   0.100   0.105   0.103
+    5   K   0.100   0.093   0.103
+    6   V   0.103   0.077   0.104
+    7   E   0.103   0.069   0.103
+    8   D   0.103   0.063   0.101
+    9   S   0.098   0.056   0.097
+   10   D   0.103   0.059   0.098
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C     2       0.105
+  max. Y     1       0.000
+  max. S     2       0.107
+  mean S     1-0     0.000
+       D     1-0     0.000   0.500   NO
+Name=GAJU_HUMAN	SP='NO' D=0.000 D-cutoff=0.500 Networks=SignalP-TM

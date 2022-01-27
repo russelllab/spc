@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    30       0.687
+  max. Y    30       0.692
+  max. S    14       0.884
+  mean S     1-29    0.717
+       D     1-29    0.706   0.450   YES
+Name=MOT6_HUMAN	SP='YES' Cleavage site between pos. 29 and 30: TLG-FP D=0.706 D-cutoff=0.450 Networks=SignalP-noTM

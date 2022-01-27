@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Topfind 4.1</title>
+  <link rel="stylesheet" media="all" href="/assets/application-858af69cb01fabcb6739c5a9f3b408dc5cab04a41204d359455faa9a1c71fe4f.css" data-turbolinks-track="true" />
+  <script src="/assets/application-81d2bdfbc75607a7faecaf7abdf4676ceac4fd65d3aa8930b8177b5f7a641d9c.js" data-turbolinks-track="true"></script>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="Z8SMzWTP8J9zM8WmLB2eRRqmkiwH5GIwoiXY8sr7JMm1s2V3y8T9XSIezGkPYRgTtLMeeIAjgIXYLfg9OI5WmQ==" />
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://code.highcharts.com/6.0.6/highcharts.js"></script>
+<script src="https://code.highcharts.com/6.0.6/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/js/modules/xrange.js"></script>
+<script src="https://code.highcharts.com/js/modules/exporting.js"></script>
+<link rel="stylesheet" type="text/css" href="assets/stylesheets/defaultcontentslider.css" />
+<link rel="stylesheet" type="text/css" href="assets/stylesheets/componentcontentslider.css" />
+<script src="assets/javascripts/modernizr.custom.js"></script>
+
+
+<style>
+
+@import 'https://code.highcharts.com/css/highcharts.css';
+
+#protshow {
+  font-family: "Lato", "Ubuntu", sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#protshow td, #protshow th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#protshow tr:nth-child(even){background-color: #f2f2f2;}
+
+#protshow tr:hover {background-color: #ddd;}
+
+#protshow th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0C0E28;
+  color: white;
+}
+
+
+#container_chart {
+min-width: 300px;
+max-width: 800px;
+height: 300px;
+margin: 1em auto;
+}
+
+
+/* Exporting module */
+.highcharts-contextbutton {
+fill: #ffffff;
+    /* needed to capture hover */
+stroke: none;
+    stroke-linecap: round;
+}
+
+.highcharts-contextbutton:hover {
+fill: #e6e6e6;
+stroke: #e6e6e6;
+}
+
+.highcharts-button-symbol {
+stroke: #666666;
+    stroke-width: 3px;
+}
+
+.highcharts-menu {
+border: 1px solid #999999;
+background: #ffffff;
+padding: 5px 0;
+    box-shadow: 3px 3px 10px #888;
+}
+
+.highcharts-menu-item {
+padding: 0.5em 1em;
+background: none;
+color: #333333;
+cursor: pointer;
+transition: background 250ms, color 250ms;
+}
+
+.highcharts-menu-item:hover {
+background: #335cad;
+color: #ffffff;
+}
+
+
+h1 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 25px;
+	line-height: 25px;
+	color: #444;
+}
+
+h2 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 20px;
+	color: #444;
+}
+
+h3 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 15px;
+	color: #444;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", "Ubuntu", sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #e3e2e0;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+
+p.seq {font-family: 'Courier New', Courier, monospace; font-size: 12px;}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>TopFIND 4.0</title>
+
+		<!-- meta -->
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	    <!-- css -->
+<!--
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/ionicons.min.css">
+		<link rel="stylesheet" type="text/css" href="css/pace.css">
+	    <link rel="stylesheet" type="text/css" href="css/custom.css">-->
+
+	    <!-- js -->
+<!--
+	    <script src="js/jquery-2.1.3.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+	    <script src="js/pace.min.js"></script>
+	    <script src="js/modernizr.custom.js"></script>-->
+	</head>
+
+
+	<body>		
+
+		<div class="container">
+            <header id="site-header">
+				<div class="row">
+					<div class="col-md-4 col-sm-5 col-xs-8">
+						<div class="logo">
+							<h1 style="font-size: 40px;"><a href="/home/index">Top<b style="color: red;">FIND</b></a></h1>
+						</div>
+					</div><!-- col-md-4 -->
+					<div class="col-md-8 col-sm-7 col-xs-12">
+						<nav class="main-nav" role="navigation">
+							<div class="navbar-header">
+  								<button type="button" id="trigger-overlay" class="navbar-toggle">
+    								<span class="ion-navicon"></span>
+  								</button>
+							</div>
+
+							<div class="navbar" id="navbar-main">
+  								<ul class="nav navbar-nav navbar-right">
+    								<li class="cl-effect-11"><a href="/proteins/protsearch" data-hover="Proteins">Proteins<b style="color: red;">+</b></a></li>
+    								<li class="cl-effect-11"><a href="/topfinder" data-hover="TopFINDer">Top<b style="color: red;">FINDer</b></a></li>
+    								<li class="cl-effect-11"><a href="/pathfinder" data-hover="PathFINDer">Path<b style="color: red;">FINDer</b></a></li>
+    								<li class="cl-effect-11"><a href="/contribute/index" data-hover="Contribute">Contribute</a></li>
+  								</ul>
+							</div><!-- /.navbar-collapse -->
+						</nav>
+				</div>
+			</header>
+		</div>
+
+</body>
+
+
+
+<!-- RUBY DOESN'T DISPLAY TOOLTIPS, if I put he same code in a .html file tooltips are displayed -->
+<!-- If the values are integers, one has to start from 0 -->
+
+<!-- PARSE RUBY DATA FOR JAVASCRIPT-->
+
+<div id="container_chart" style="width:100%; height:400px;"></div>
+
+<script type="text/javascript">
+
+    var dataarr = [];
+    var catarr = [];
+
+
+    $(document).ready(
+
+        function makeArr() {
+
+        var domainElem = [["Sequence","1-784",0,784],["Chains","48-784",48,784],["N-Terms","1",1,2],["N-Terms","26",26,27],["N-Terms","48",48,49],["N-Terms","138",138,139],["N-Terms","140",140,141],["N-Terms","141",141,142],["N-Terms","247",247,248],["N-Terms","250",250,251],["N-Terms","251",251,252],["N-Terms","562",562,563],["C-Terms","47",46,47],["C-Terms","76",75,76],["C-Terms","131",130,131],["C-Terms","137",136,137],["C-Terms","139",138,139],["C-Terms","140",139,140],["C-Terms","246",245,246],["C-Terms","249",248,249],["C-Terms","250",249,250],["C-Terms","406",405,406],["C-Terms","784",783,784],["Cleavages","47",46,47],["Cleavages","137",136,137],["Cleavages","139",138,139],["Cleavages","140",139,140],["Cleavages","246",245,246],["Cleavages","249",248,249],["Cleavages","250",249,250],["Variants","VAR_SEQ (380-494)",380,494],["Topology","TOPO_DOM (48-599)",48,599],["Topology","TOPO_DOM (621-784)",621,784],["Variants","CONFLICT (602-602)",602,602],["Domains","DOMAIN (48-151)",48,151],["Domains","DOMAIN (152-258)",152,258],["Domains","DOMAIN (259-372)",259,372],["Domains","DOMAIN (373-477)",373,477],["Domains","DOMAIN (478-593)",478,593],["Topology","TRANSMEM (600-620)",600,620],["Domains","SIGNAL (1-25)",1,25],["Features","METAL (58-58)",58,58],["Features","METAL (58-58)",58,58],["Features","METAL (59-59)",59,59],["Features","METAL (109-109)",109,109],["Features","METAL (111-111)",111,111],["Features","METAL (111-111)",111,111],["Features","METAL (143-143)",143,143],["Features","METAL (144-144)",144,144],["Features","METAL (145-145)",145,145],["Features","METAL (146-146)",146,146],["Features","METAL (146-146)",146,146],["Features","METAL (147-147)",147,147],["Features","METAL (177-177)",177,177],["Features","METAL (179-179)",179,179],["Features","METAL (179-179)",179,179],["Features","METAL (186-186)",186,186],["Features","METAL (231-231)",231,231],["Variants","VARIANT (503-503)",503,503],["Variants","VARIANT (517-517)",517,517],["Domains","PROPEP (26-47)",26,47],["Domains","SIGNAL (1-25)",1,25],["Domains","PROPEP (26-47)",26,47],["Topology","TOPO_DOM (48-599)",48,599],["Topology","TOPO_DOM (621-784)",621,784],["Topology","TRANSMEM (600-620)",600,620],["Domains","DOMAIN (48-151)",48,151],["Domains","DOMAIN (152-258)",152,258],["Domains","DOMAIN (259-372)",259,372],["Domains","DOMAIN (373-477)",373,477],["Domains","DOMAIN (478-593)",478,593],["Domains","REGION (621-660)",621,660],["Features","METAL (58-58)",58,58],["Features","METAL (58-58)",58,58],["Features","METAL (59-59)",59,59],["Features","METAL (109-109)",109,109],["Features","METAL (111-111)",111,111],["Features","METAL (111-111)",111,111],["Features","METAL (143-143)",143,143],["Features","METAL (144-144)",144,144],["Features","METAL (145-145)",145,145],["Features","METAL (146-146)",146,146],["Features","METAL (146-146)",146,146],["Features","METAL (147-147)",147,147],["Features","METAL (177-177)",177,177],["Features","METAL (179-179)",179,179],["Features","METAL (179-179)",179,179],["Features","METAL (186-186)",186,186],["Features","METAL (231-231)",231,231],["Variants","VAR_SEQ (380-494)",380,494],["Variants","VARIANT (503-503)",503,503],["Variants","VARIANT (517-517)",517,517],["Variants","CONFLICT (602-602)",602,602]];
+
+        var dataarr = [];
+        var catarr = [];
+        var i;
+
+        for (i = 0; i < domainElem.length ; i++ )
+        {
+        switch(domainElem[i][0]) {
+            
+          case "Sequence":
+                catarr[0] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:0,
+                color: '#e41a1c',
+                key: (domainElem[i][1])
+                });
+                break;
+
+            
+            case "Chains":
+                catarr[1] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:1,
+                color: '#377eb8',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Topology":
+                catarr[2] = (domainElem[i][0]);
+                dataarr.push({
+                x: parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:2,
+                color: '#4daf4a',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "N-Terms":
+                catarr[3] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:3,
+                color: '#984ea3',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "C-Terms":
+                catarr[4] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:4,
+                color: '#ff7f00',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Cleavages":
+                catarr[5] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:5,
+                color: '#CCCC00',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Modifications":
+                catarr[6] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:6,
+                color: '#a65628',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Variants":
+                catarr[7] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:7,
+                color: '#f781bf',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Domains":
+                catarr[8] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:8,
+                color: '#999999',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+        }
+        }
+
+
+    
+
+    (function (H) {
+    var defaultPlotOptions = H.getOptions().plotOptions,
+    columnType = H.seriesTypes.column,
+    each = H.each,
+    extendClass = H.extendClass,
+    pick = H.pick,
+    Point = H.Point,
+    Series = H.Series;
+    
+    defaultPlotOptions.xrange = H.merge(defaultPlotOptions.column, {
+    tooltip: {
+    headerFormat: '<span style="font-size: 0.85em">{point.x} - {point.x2}</span><br/>',
+    pointFormat: '<span style="color:{point.color}">\u25CF</span> {point.yCategory}: <b>{point.key}</b><br/>',
+    footerFormat: '<span style="color:{point.color}">{series.name}</span><br/>'
+    }
+    });
+    H.seriesTypes.xrange = H.extendClass(columnType, {
+    pointClass: extendClass(Point, {
+        // Add x2 and yCategory to the available properties for tooltip formats
+    getLabelConfig: function () {
+        var cfg = Point.prototype.getLabelConfig.call(this);
+        
+        cfg.x2 = this.x2;
+        cfg.yCategory = this.yCategory = this.series.yAxis.categories && this.series.yAxis.categories[this.y];
+        return cfg;
+    }
+    }),
+    type: 'xrange',
+    forceDL: true,
+    parallelArrays: ['x', 'x2', 'y'],
+    requireSorting: false,
+    animate: H.seriesTypes.line.prototype.animate,
+        
+        /**
+         * Borrow the column series metrics, but with swapped axes. This gives free access
+         * to features like groupPadding, grouping, pointWidth etc.
+         */
+    getColumnMetrics: function () {
+        var metrics,
+        chart = this.chart;
+        
+        function swapAxes() {
+            each(chart.series, function (s) {
+                var xAxis = s.xAxis;
+                s.xAxis = s.yAxis;
+                s.yAxis = xAxis;
+            });
+        }
+        
+        swapAxes();
+        
+        this.yAxis.closestPointRange = 1;
+        metrics = columnType.prototype.getColumnMetrics.call(this);
+        
+        swapAxes();
+        
+        return metrics;
+    },
+        
+        /**
+         * Override cropData to show a point where x is outside visible range
+         * but x2 is outside.
+         */
+    cropData: function (xData, yData, min, max) {
+        
+        // Replace xData with x2Data to find the appropriate cropStart
+        var crop = Series.prototype.cropData.call(this, this.x2Data, yData, min, max);
+        
+        // Re-insert the cropped xData
+        crop.xData = xData.slice(crop.start, crop.end);
+        
+        return crop;
+    },
+        
+    translate: function () {
+        columnType.prototype.translate.apply(this, arguments);
+        var series = this,
+        xAxis = series.xAxis,
+        metrics = series.columnMetrics,
+        minPointLength = series.options.minPointLength || 0;
+        
+        H.each(series.points, function (point) {
+            var plotX = point.plotX,
+            plotX2 = xAxis.toPixels(H.pick(point.x2, point.x + (point.len || 0)), true),
+            width = plotX2 - plotX,
+            widthDifference;
+            
+            if (minPointLength) {
+                widthDifference = width < minPointLength ? minPointLength - width : 0;
+                plotX -= widthDifference / 2;
+                plotX2 += widthDifference / 2;
+            }
+            
+            plotX = Math.max(plotX, -10);
+            plotX2 = Math.min(Math.max(plotX2, -10), xAxis.len + 10);
+            
+            point.shapeArgs = {
+            x: plotX,
+            y: point.plotY + metrics.offset,
+            width: plotX2 - plotX,
+            height: metrics.width
+            };
+            point.tooltipPos[0] += width / 2;
+            point.tooltipPos[1] -= metrics.width / 2;
+        });
+    }
+    });
+    
+    /**
+     * Max x2 should be considered in xAxis extremes
+     */
+    H.wrap(H.Axis.prototype, 'getSeriesExtremes', function (proceed) {
+        var axis = this,
+        dataMax,
+        modMax;
+        
+        proceed.call(this);
+        if (this.isXAxis) {
+            dataMax = pick(axis.dataMax, Number.MIN_VALUE);
+            each(this.series, function (series) {
+                each(series.x2Data || [], function (val) {
+                    if (val > dataMax) {
+                        dataMax = val;
+                        modMax = true;
+                    }
+                });
+            });
+            if (modMax) {
+                axis.dataMax = dataMax;
+            }
+        }
+    });
+}(Highcharts));
+
+Highcharts.chart('container_chart', {
+    chart: {
+    type: 'xrange'
+    },
+    title: {
+    text: 'Summary'
+    },
+    xAxis: {
+    type: 'linear'
+    },
+    yAxis: {
+    title: {
+    text: ''
+    },
+    categories: [catarr[0], catarr[1], catarr[2], catarr[3], catarr[4], catarr[5], catarr[6], catarr[7], catarr[8]],
+    reversed: true
+    },
+    series: [{
+    name: 'P33151',
+    pointWidth: 20,
+    colorByPoint: true,
+    data: dataarr,
+    point: {
+    events: {
+    }
+    }
+        
+    }]
+    });
+
+
+    });
+
+</script>
+
+
+<p id="demo"></p>
+<p id="demo2"></p>
+
+
+
+<div class="content-body">
+		<div class ="container">
+			<div class="row">
+
+<h2> </h2>
+
+<def tag='general-protein-information'>
+
+	<section class="left">
+	  <section class="block">
+	  
+	    <h1>P33151: Cadherin-5</h1>
+	    <table class="protein-summary annotation">
+                <h3> General Information </h3> 
+                
+	      <tr> 
+	        <th>Protein names</th> 
+	        <td><br>
+	        		- Cadherin-5<br>
+	        		- 7B4 antigen<br>
+	        		- Vascular endothelial cadherin<br>
+	        		- VE-cadherin<br>
+	        		- CD144<br>
+	        </br></td>
+	      </tr><tr> 
+	        <th>Gene names</th> 
+	        <td>CDH5 </td>
+	      </tr><tr>
+	        <th>Organism</th>
+	        <td>Homo sapiens</td>
+	      </tr><tr>
+	        <th>Protease Family</th>
+	        <td> 	        	</td>
+	      </tr><tr>
+	        <th>Protease ID</th>
+	        <td>
+	        	</td>
+	      </tr><tr if="&@protein.chromosome.present?">
+	        <th>Chromosome location</th>
+	        <td><a href="/topfind/proteins?query=&chromosome=#{@protein.chromosome}"><view:chromosome/></a> <a href="/proteins/index?query=&chromosome=#{@protein.chromosome}&arm=#{@band.first}&band=#{@band.delete 'pq'}"></a></td>
+	      </tr><tr>
+	      	<th> UniProt ID</th>
+	      	<td><a href="http://www.uniprot.org/uniprot/P33151"> P33151</a></td>
+	      </tr>
+	    </table>
+	  </section>
+	  	  <section class="block">
+	  	  			<div class="row">
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 10</h2>
+    	<h2> N-termini </h2>
+
+   </div>
+  </div>
+
+ 	<div class="column">
+    <div class="card">
+    	
+    	<h2> 11</h2>
+    	<h2> C-termini </h2>
+
+   </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 7</h2>
+    	<h2> Cleavages </h2>
+
+   </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 0</h2>
+    	<h2> Substrates </h2>
+
+   </div>
+  </div>
+
+</div>
+
+	    <h3>Sequence</h3> 
+	    	<p class="seq">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60&nbsp;<br/>MQRLMMLLAT&nbsp;SGACLGLLAV&nbsp;AAVAAAGANP&nbsp;AQRDTHSLLP&nbsp;THRRQKRDWI&nbsp;WNQMHIDEEK&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120&nbsp;<br/>NTSLPHHVGK&nbsp;IKSSVSRKNA&nbsp;KYLLKGEYVG&nbsp;KVFRVDAETG&nbsp;DVFAIERLDR&nbsp;ENISEYHLTA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180&nbsp;<br/>VIVDKDTGEN&nbsp;LETPSSFTIK&nbsp;VHDVNDNWPV&nbsp;FTHRLFNASV&nbsp;PESSAVGTSV&nbsp;ISVTAVDADD&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;240&nbsp;<br/>PTVGDHASVM&nbsp;YQILKGKEYF&nbsp;AIDNSGRIIT&nbsp;ITKSLDREKQ&nbsp;ARYEIVVEAR&nbsp;DAQGLRGDSG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300&nbsp;<br/>TATVLVTLQD&nbsp;INDNFPFFTQ&nbsp;TKYTFVVPED&nbsp;TRVGTSVGSL&nbsp;FVEDPDEPQN&nbsp;RMTKYSILRG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;360&nbsp;<br/>DYQDAFTIET&nbsp;NPAHNEGIIK&nbsp;PMKPLDYEYI&nbsp;QQYSFIVEAT&nbsp;DPTIDLRYMS&nbsp;PPAGNRAQVI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;420&nbsp;<br/>INITDVDEPP&nbsp;IFQQPFYHFQ&nbsp;LKENQKKPLI&nbsp;GTVLAMDPDA&nbsp;ARHSIGYSIR&nbsp;RTSDKGQFFR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;480&nbsp;<br/>VTKKGDIYNE&nbsp;KELDREVYPW&nbsp;YNLTVEAKEL&nbsp;DSTGTPTGKE&nbsp;SIVQVHIEVL&nbsp;DENDNAPEFA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;540&nbsp;<br/>KPYQPKVCEN&nbsp;AVHGQLVLQI&nbsp;SAIDKDITPR&nbsp;NVKFKFILNT&nbsp;ENNFTLTDNH&nbsp;DNTANITVKY&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;600&nbsp;<br/>GQFDREHTKV&nbsp;HFLPVVISDN&nbsp;GMPSRTGTST&nbsp;LTVAVCKCNE&nbsp;QGEFTFCEDM&nbsp;AAQVGVSIQA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;660&nbsp;<br/>VVAILLCILT&nbsp;ITVITLLIFL&nbsp;RRRLRKQARA&nbsp;HGKSVPEIHE&nbsp;QLVTYDEEGG&nbsp;GEMDTTSYDV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;720&nbsp;<br/>SVLNSVRRGG&nbsp;AKPPRPALDA&nbsp;RPSLYAQVQK&nbsp;PPRHAPGAHG&nbsp;GPGEMAAMIE&nbsp;VKKDEADHDG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;740&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;780&nbsp;<br/>DGPPYDTLHI&nbsp;YGYEGSESIA&nbsp;ESLSSLGTDS&nbsp;SDSDVDYDFL&nbsp;NDWGPRFKML&nbsp;AELYGSDPRE&nbsp;<br/>&nbsp;&nbsp;&nbsp;<br/>ELLY<p>
+	  </section>             
+	  <section class="block" if= true>
+	    <h3>Isoforms</h3>
+            - Isoform 2 of Cadherin-5
+	  <br>
+      <br>
+	      Sequence View <p class="seq">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60&nbsp;<br/>MQRLMMLLAT&nbsp;SGACLGLLAV&nbsp;AAVAAAGANP&nbsp;AQRDTHSLLP&nbsp;THRRQKRDWI&nbsp;WNQMHIDEEK&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120&nbsp;<br/>NTSLPHHVGK&nbsp;IKSSVSRKNA&nbsp;KYLLKGEYVG&nbsp;KVFRVDAETG&nbsp;DVFAIERLDR&nbsp;ENISEYHLTA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180&nbsp;<br/>VIVDKDTGEN&nbsp;LETPSSFTIK&nbsp;VHDVNDNWPV&nbsp;FTHRLFNASV&nbsp;PESSAVGTSV&nbsp;ISVTAVDADD&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;240&nbsp;<br/>PTVGDHASVM&nbsp;YQILKGKEYF&nbsp;AIDNSGRIIT&nbsp;ITKSLDREKQ&nbsp;ARYEIVVEAR&nbsp;DAQGLRGDSG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300&nbsp;<br/>TATVLVTLQD&nbsp;INDNFPFFTQ&nbsp;TKYTFVVPED&nbsp;TRVGTSVGSL&nbsp;FVEDPDEPQN&nbsp;RMTKYSILRG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;360&nbsp;<br/>DYQDAFTIET&nbsp;NPAHNEGIIK&nbsp;PMKPLDYEYI&nbsp;QQYSFIVEAT&nbsp;DPTIDLRYMS&nbsp;PPAGNRAQVI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;420&nbsp;<br/>INITDVDEPP&nbsp;IFQQPFYHFQ&nbsp;LKENQKKPLI&nbsp;GTVLAMDPDA&nbsp;ARHSIGYSIR&nbsp;RTSDKGQFFR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;480&nbsp;<br/>VTKKGDIYNE&nbsp;KELDREVYPW&nbsp;YNLTVEAKEL&nbsp;DSTGTPTGKE&nbsp;SIVQVHIEVL&nbsp;DENDNAPEFA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;540&nbsp;<br/>KPYQPKVCEN&nbsp;AVHGQLVLQI&nbsp;SAIDKDITPR&nbsp;NVKFKFILNT&nbsp;ENNFTLTDNH&nbsp;DNTANITVKY&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;600&nbsp;<br/>GQFDREHTKV&nbsp;HFLPVVISDN&nbsp;GMPSRTGTST&nbsp;LTVAVCKCNE&nbsp;QGEFTFCEDM&nbsp;AAQVGVSIQA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;660&nbsp;<br/>VVAILLCILT&nbsp;ITVITLLIFL&nbsp;RRRLRKQARA&nbsp;HGKSVPEIHE&nbsp;QLVTYDEEGG&nbsp;GEMDTTSYDV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;720&nbsp;<br/>SVLNSVRRGG&nbsp;AKPPRPALDA&nbsp;RPSLYAQVQK&nbsp;PPRHAPGAHG&nbsp;GPGEMAAMIE&nbsp;VKKDEADHDG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;740&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;780&nbsp;<br/>DGPPYDTLHI&nbsp;YGYEGSESIA&nbsp;ESLSSLGTDS&nbsp;SDSDVDYDFL&nbsp;NDWGPRFKML&nbsp;AELYGSDPRE&nbsp;<br/>&nbsp;&nbsp;&nbsp;<br/>ELLY
+          </p>
+
+	   <br><br>
+	
+     
+	      
+	
+	  </section> 
+	</section>
+
+
+
+	  <section class="right" width="20px">
+
+	  		<center>
+			<form action="/proteins/show/P33151" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="rIktFH4H5IruVnDcYl+R5v7+1C3NPPNfXlX7asxxScqKdODLIMKxUeflv5vag9K4WEaH4Yvf++v60vq4ImVgdw==" />
+				
+				<!-- To go back from dropdown to multiple selection box, type :multiple => true into the last set of {} brackets -->
+
+				<h2>Filter Information:</h2>
+				<br>
+				(<a href="/proteins/show/P33151">REFRESH</a>)
+				<br></br>
+				<h3>Directness: </h3>
+				<select name="directness" id="directness"><option value="unknown">unknown</option>
+<option value="indirect">indirect</option></select>
+				<br><h3>Physiological Relevance: </h3>
+				<select name="phys_rel" id="phys_rel"><option value="unknown">unknown</option>
+<option value="yes">yes</option></select>
+				<br><h3>Evidence Codes: </h3>
+				<select name="evidencecodes" id="evidencecodes"><option value="inferred from electronic annotation">inferred from electronic annotation</option>
+<option value="inferred from cleavage">inferred from cleavage</option>
+<option value="inferred from isoform by sequence similarity">inferred from isoform by sequence similarity</option>
+<option value="inferred from experiment">inferred from experiment</option></select>
+				<br><h3>Methodology: </h3>
+				<select name="methodology" id="methodology"><option value="electronic annotation">electronic annotation</option>
+<option value="unknown">unknown</option></select>
+				<br><h3>Perturbation of System: </h3>
+				<select name="perturbations" id="perturbations"><option value=""></option>
+<option value="none">none</option></select>
+				<br><h3>Biological System: </h3>
+				<select name="methodsystems" id="methodsystems"><option value="unknown">unknown</option></select>
+				<br><h3>Protease Assignment Confidence: </h3>
+				<select name="proteaseassignmentconfidences" id="proteaseassignmentconfidences"><option value="unknown">unknown</option></select>
+				<br><h3>Evidence Names: </h3>
+				<select name="evidences" id="evidences"><option value="inferred from uniprot">inferred from uniprot</option>
+<option value="Inferred from cleavage TC16342">Inferred from cleavage TC16342</option>
+<option value="inferred from TNt115605">inferred from TNt115605</option>
+<option value="inferred from TNt114120">inferred from TNt114120</option>
+<option value="inferred from TNt69146">inferred from TNt69146</option>
+<option value="inferred from ensembl protein ENSP00000461880">inferred from ensembl protein ENSP00000461880</option>
+<option value="inferred from TNt129703">inferred from TNt129703</option>
+<option value="Inferred from cleavage TC9423">Inferred from cleavage TC9423</option>
+<option value="inferred from TNt144228">inferred from TNt144228</option>
+<option value="Inferred from cleavage TC4861">Inferred from cleavage TC4861</option>
+<option value="inferred from TNt144332">inferred from TNt144332</option>
+<option value="Inferred from cleavage TC9425">Inferred from cleavage TC9425</option>
+<option value="inferred from TNt144381">inferred from TNt144381</option>
+<option value="Inferred from cleavage TC4863">Inferred from cleavage TC4863</option>
+<option value="inferred from TNt148306">inferred from TNt148306</option>
+<option value="Inferred from cleavage TC9427">Inferred from cleavage TC9427</option>
+<option value="inferred from TNt148413">inferred from TNt148413</option>
+<option value="Inferred from cleavage TC9429">Inferred from cleavage TC9429</option>
+<option value="inferred from TNt148454">inferred from TNt148454</option>
+<option value="inferred from TCt64764">inferred from TCt64764</option>
+<option value="inferred from ensembl protein ENSP00000455302">inferred from ensembl protein ENSP00000455302</option>
+<option value="inferred from TCt108174">inferred from TCt108174</option>
+<option value="inferred from ensembl protein ENSP00000456093">inferred from ensembl protein ENSP00000456093</option>
+<option value="inferred from TCt108176">inferred from TCt108176</option>
+<option value="inferred from ensembl protein ENSP00000458878">inferred from ensembl protein ENSP00000458878</option>
+<option value="inferred from TCt122103">inferred from TCt122103</option>
+<option value="inferred from TCt127481">inferred from TCt127481</option>
+<option value="inferred from TCt127594">inferred from TCt127594</option>
+<option value="inferred from TCt127644">inferred from TCt127644</option>
+<option value="inferred from TCt131676">inferred from TCt131676</option>
+<option value="inferred from TCt131786">inferred from TCt131786</option>
+<option value="inferred from TCt131827">inferred from TCt131827</option>
+<option value="Hermant B et al.:Identification of proteases inv... (S01.133)">Hermant B et al.:Identification of proteases inv... (S01.133)</option>
+<option value="Matsumura M et al.:Substrates of the prostate-spec... (S01.251)">Matsumura M et al.:Substrates of the prostate-spec... (S01.251)</option></select>
+				<br><h3>Database: </h3>
+				<select name="repository" id="repository"><option value=""></option>
+<option value=""></option>
+<option value="http://ensembl.org/Homo_sapiens/Transcript/Summary?db=core;g=ENSG00000179776;p=ENSP00000461880">http://ensembl.org/Homo_sapiens/Transcript/Summary?db=core;g=ENSG00000179776;p=ENSP00000461880</option>
+<option value="http://ensembl.org/Homo_sapiens/Transcript/Summary?db=core;g=ENSG00000179776;p=ENSP00000455302">http://ensembl.org/Homo_sapiens/Transcript/Summary?db=core;g=ENSG00000179776;p=ENSP00000455302</option>
+<option value="http://ensembl.org/Homo_sapiens/Transcript/Summary?db=core;g=ENSG00000179776;p=ENSP00000456093">http://ensembl.org/Homo_sapiens/Transcript/Summary?db=core;g=ENSG00000179776;p=ENSP00000456093</option>
+<option value="http://ensembl.org/Homo_sapiens/Transcript/Summary?db=core;g=ENSG00000179776;p=ENSP00000458878">http://ensembl.org/Homo_sapiens/Transcript/Summary?db=core;g=ENSG00000179776;p=ENSP00000458878</option></select>
+				<br><h3>Lab: </h3>
+				<select name="labs" id="labs"><option value=""></option>
+<option value=""></option>
+<option value="Gulino-Debrac D">Gulino-Debrac D</option>
+<option value="Nelson PS">Nelson PS</option></select>
+				<br><br>
+				<input type="submit" name="commit" value="Search" data-disable-with="Search" />
+</form>
+		</center>
+
+	  </section>
+         	
+	
+
+	</section> 	  
+
+</def>
+
+
+
+
+<section class="full category">
+</section>
+<def tag='Protein_Neighborhood'>
+	<a name="Protein_Neighborhood"/>
+	<h2>Protein Neighborhood</h2>
+		<img src="/assets/protein_neighborhood/P33151_pw_graphviz-a9c75c57d791c70cfb17975120aa0be91b042fa1b63fa9fadcd2802b2c8b1262.svg" />
+</def>
+	
+	        <section class="full category">
+              <pagenav/>
+              <a name="features"/><h2>Domains &amp; Features</h2>
+            </section>
+
+            <h2><center>10 N-termini - 11 C-termini - 7 Cleavages - 0 Substrates</center></h2>
+			
+<!-- N-TERMINI  -->
+
+              <a name="features"/><h2>N-termini</h2></a>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Name</th>
+					<th>Sequence</th>
+					<th>Position</th>
+					<th>Modification</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMID)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td>P33151-1-unknown</td>
+							<td>MQRLMM...</td>
+							<td>1</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TNt69146">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/3504">inferred from TNt69146</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P33151-26-unknown</td>
+							<td>AGANPA...</td>
+							<td>26</td>
+							<td></td>
+							<td>inferred from electronic annotation</td>
+							<td>electronic annotation</td>
+							<td><a target="_blank" href="http://www.uniprot.org">UniProtKB</a></td>
+							<td></td>
+							<td><a href="/evidences/show/1">inferred from uniprot</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P33151-26-unknown</td>
+							<td>AGANPA...</td>
+							<td>26</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TNt114120">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/166831">inferred from TNt114120</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P33151-48-unknown</td>
+							<td>DWIWNQ...</td>
+							<td>48</td>
+							<td></td>
+							<td>inferred from electronic annotation</td>
+							<td>electronic annotation</td>
+							<td><a target="_blank" href="http://www.uniprot.org">UniProtKB</a></td>
+							<td></td>
+							<td><a href="/evidences/show/1">inferred from uniprot</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P33151-48-unknown</td>
+							<td>DWIWNQ...</td>
+							<td>48</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151#TC16342">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/118673">Inferred from cleavage TC16342</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P33151-48-unknown</td>
+							<td>DWIWNQ...</td>
+							<td>48</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TNt115605">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/171054">inferred from TNt115605</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P33151-138-unknown</td>
+							<td>TIKVHD...</td>
+							<td>138</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151#TC9423">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/126152">Inferred from cleavage TC9423</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P33151-138-unknown</td>
+							<td>TIKVHD...</td>
+							<td>138</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TNt144228">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/179398">inferred from TNt144228</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P33151-140-unknown</td>
+							<td>KVHDVN...</td>
+							<td>140</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151#TC4861">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/126298">Inferred from cleavage TC4861</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P33151-140-unknown</td>
+							<td>KVHDVN...</td>
+							<td>140</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TNt144332">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/179552">inferred from TNt144332</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P33151-141-unknown</td>
+							<td>VHDVND...</td>
+							<td>141</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151#TC9425">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/126359">Inferred from cleavage TC9425</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P33151-141-unknown</td>
+							<td>VHDVND...</td>
+							<td>141</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TNt144381">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/179630">inferred from TNt144381</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P33151-247-unknown</td>
+							<td>TLQDIN...</td>
+							<td>247</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151#TC4863">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/131704">Inferred from cleavage TC4863</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P33151-247-unknown</td>
+							<td>TLQDIN...</td>
+							<td>247</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TNt148306">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/185169">inferred from TNt148306</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P33151-250-unknown</td>
+							<td>DINDNF...</td>
+							<td>250</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151#TC9427">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/131789">Inferred from cleavage TC9427</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P33151-250-unknown</td>
+							<td>DINDNF...</td>
+							<td>250</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TNt148413">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/185320">inferred from TNt148413</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P33151-251-unknown</td>
+							<td>INDNFP...</td>
+							<td>251</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151#TC9429">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/131835">Inferred from cleavage TC9429</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P33151-251-unknown</td>
+							<td>INDNFP...</td>
+							<td>251</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TNt148454">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/185377">inferred from TNt148454</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P33151-562-unknown</td>
+							<td>MPSRTG...</td>
+							<td>562</td>
+							<td></td>
+							<td>inferred from electronic annotation</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://www.ensembl.org">Ensembl</a></td>
+							<td></td>
+							<td><a href="/evidences/show/98371">inferred from ensembl protein ENSP00000461880</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P33151-562-unknown</td>
+							<td>MPSRTG...</td>
+							<td>562</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TNt129703">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/191104">inferred from TNt129703</a></td>
+							<td>
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>
+
+
+
+<!-- C-TERMINI  -->
+
+
+              <a name="features"/><h2>C-termini</h2>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Name</th>
+					<th>Sequence</th>
+					<th>Position</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td></td>
+							<td>...RRQKRD </td>
+							<td>47</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151#TC16342">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/118673">Inferred from cleavage TC16342</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...RRQKRD </td>
+							<td>47</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TCt122103">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/201233">inferred from TCt122103</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...KSSVSR </td>
+							<td>76</td>
+							<td>inferred from electronic annotation</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://www.ensembl.org">Ensembl</a></td>
+							<td></td>
+							<td><a href="/evidences/show/103798">inferred from ensembl protein ENSP00000456093</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...KSSVSR </td>
+							<td>76</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TCt108176">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/202587">inferred from TCt108176</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...TGENLE </td>
+							<td>131</td>
+							<td>inferred from electronic annotation</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://www.ensembl.org">Ensembl</a></td>
+							<td></td>
+							<td><a href="/evidences/show/103797">inferred from ensembl protein ENSP00000455302</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...TGENLE </td>
+							<td>131</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TCt108174">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/204838">inferred from TCt108174</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...TPSSFT </td>
+							<td>137</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151#TC9423">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/126152">Inferred from cleavage TC9423</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...TPSSFT </td>
+							<td>137</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TCt127481">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/205083">inferred from TCt127481</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...SSFTIK </td>
+							<td>139</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151#TC4861">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/126298">Inferred from cleavage TC4861</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...SSFTIK </td>
+							<td>139</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TCt127594">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/205170">inferred from TCt127594</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...SFTIKV </td>
+							<td>140</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151#TC9425">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/126359">Inferred from cleavage TC9425</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...SFTIKV </td>
+							<td>140</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TCt127644">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/205225">inferred from TCt127644</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...ATVLVT </td>
+							<td>246</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151#TC4863">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/131704">Inferred from cleavage TC4863</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...ATVLVT </td>
+							<td>246</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TCt131676">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/221541">inferred from TCt131676</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...LVTLQD </td>
+							<td>249</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151#TC9427">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/131789">Inferred from cleavage TC9427</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...LVTLQD </td>
+							<td>249</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TCt131786">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/221666">inferred from TCt131786</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...VTLQDI </td>
+							<td>250</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151#TC9429">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/131835">Inferred from cleavage TC9429</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...VTLQDI </td>
+							<td>250</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TCt131827">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/221715">inferred from TCt131827</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...RHSIGY </td>
+							<td>406</td>
+							<td>inferred from electronic annotation</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://www.ensembl.org">Ensembl</a></td>
+							<td></td>
+							<td><a href="/evidences/show/103799">inferred from ensembl protein ENSP00000458878</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...EELLY </td>
+							<td>784</td>
+							<td>inferred from electronic annotation</td>
+							<td>electronic annotation</td>
+							<td><a target="_blank" href="http://www.uniprot.org">UniProtKB</a></td>
+							<td></td>
+							<td><a href="/evidences/show/1">inferred from uniprot</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...EELLY </td>
+							<td>784</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P33151-2#TCt64764">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/59407">inferred from TCt64764</a></td>
+							<td>
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>
+
+<!-- CLEAVAGES -->
+
+
+              <a name="features"/><h2>Cleavages</h2>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Protease</th>
+					<th>Position</th>
+					<th>Sequence</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td><a href="/proteins/show/Q9Y5K2">KLK4_HUMAN</a></td>
+							<td>47</td>
+							<td>QKRD.|.DWIW</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Nelson PS</td>
+							<td><a href="/evidences/show/82273">Matsumura M et al.:Substrates of the prostate-spec... (S01.251)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15389820">15389820</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P08246">ELNE_HUMAN</a></td>
+							<td>137</td>
+							<td>SSFT.|.TIKV</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Gulino-Debrac D</td>
+							<td><a href="/evidences/show/73834">Hermant B et al.:Identification of proteases inv... (S01.133)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12584200">12584200</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P08311">CATG_HUMAN</a></td>
+							<td>139</td>
+							<td>FTIK.|.KVHD</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Gulino-Debrac D</td>
+							<td><a href="/evidences/show/73834">Hermant B et al.:Identification of proteases inv... (S01.133)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12584200">12584200</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P08246">ELNE_HUMAN</a></td>
+							<td>140</td>
+							<td>TIKV.|.VHDV</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Gulino-Debrac D</td>
+							<td><a href="/evidences/show/73834">Hermant B et al.:Identification of proteases inv... (S01.133)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12584200">12584200</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P08311">CATG_HUMAN</a></td>
+							<td>246</td>
+							<td>VLVT.|.TLQD</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Gulino-Debrac D</td>
+							<td><a href="/evidences/show/73834">Hermant B et al.:Identification of proteases inv... (S01.133)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12584200">12584200</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P08246">ELNE_HUMAN</a></td>
+							<td>249</td>
+							<td>TLQD.|.DIND</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Gulino-Debrac D</td>
+							<td><a href="/evidences/show/73834">Hermant B et al.:Identification of proteases inv... (S01.133)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12584200">12584200</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P08246">ELNE_HUMAN</a></td>
+							<td>250</td>
+							<td>LQDI.|.INDN</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Gulino-Debrac D</td>
+							<td><a href="/evidences/show/73834">Hermant B et al.:Identification of proteases inv... (S01.133)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12584200">12584200</a>,
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>
+
+
+<!-- SUBSTRATES -->
+
+              <a name="features"/><h2>Substrates</h2>
+              <ul id="protshow">
+			  <table id="protshow" class="substrates-table">
+				<thead>
+					<th>Substrate</th>
+					<th>Position</th>
+					<th>Sequence</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+				</tbody>
+			  </table>
+			</ul>	
+
+			
+			
+			<section class="full">
+              
+            </section>
+	
+</def>
+
+
+<br>
+<br>
+
+
+</div>
+</div>
+</div>
+
+<footer>
+
+        
+    <div id="publication">
+
+        <div id="pics">
+        <img alt="UBC Logo" src="/assets/UBClogoupdated-76d10b067dddb96b9cf35c63b9db6f8ddd48959cffd588df9598f89d124f7279.png" width="372" height="117" />
+        <a href="http://clip.ubc.ca" target="_blank"><img alt="Lab Logo" src="/assets/Optimized_LabLogo-6b774b6428c587573bbe04397e0d610398524d5693571f497b59df22be3789d1.png" width="400" height="169" /></a>
+        </div>
+    </div>
+
+
+
+<div id="links">
+<br>
+<br>
+<center>
+<a href="/documentations/about">About |</a>
+<a href="/documentations/license">License &amp; Disclaimer |</a>
+<a href="mailto:topfind.clip@gmail.com">Contact |</a>
+<a href="/documentations/download">Download</a> 
+</center>
+
+<br>
+<center>
+        <h3> Developed by: Philipp F. Lange, Nikolaus Fortelny, Simran Rai </h3>
+        <a href="http://nar.oxfordjournals.org/content/early/2014/10/20/nar.gku1012.full" target="_blank">Nikolaus Fortelny, Sharon Yang, Paul Pavlidis, Philipp F. Lange*, Christopher M. Overall*, <b>Nucleic Acids Research</b> doi: 10.1093/nar/gku1012 (2014)</a><a href="http://nar.oxfordjournals.org/content/early/2014/10/20/nar.gku1012.full.pdf+html" target="_blank">[pdf]</a><br>
+        <a href="http://nar.oxfordjournals.org/content/40/D1/D351.full" target="_blank">Philipp F. Lange, Pitter F. Huesgen, Christopher M. Overall, <b>Nucleic Acids Research</b> 40 (D1), D351-D361 (2012)</a> <a href="https://www.researchgate.net/profile/Philipp_Lange/publication/51816705_TopFIND_2.0--linking_protein_termini_with_proteolytic_processing_and_modifications_altering_protein_function/links/0fcfd50574d434aac9000000?ev=pub_int_doc_dl&origin=publication_detail&inViewer=true" target="_blank">[pdf]</a><br>
+        <a href="http://www.nature.com/nmeth/journal/v8/n9/full/nmeth.1669.html" target="_blank">Philipp F. Lange &amp; Christopher M. Overall, <b>Nature Methods</b> 8, 703&minus;704 (2011)</a> <a href="/topfind/downloads/2011-NMeth-Lange_and_Overall.pdf" target="_blank">[pdf]</a>
+    <div class="bottom">&nbsp;</div>
+</center>
+
+</div>
+
+
+    </footer>
+
+
+
+</body>
+
+
+
+
+
+</body>
+</html>

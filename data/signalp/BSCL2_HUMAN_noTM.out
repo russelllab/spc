@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.283
+  max. Y    51       0.460
+  max. S    41       0.990
+  mean S     1-50    0.564
+       D     1-50    0.516   0.450   YES
+Name=BSCL2_HUMAN	SP='YES' Cleavage site between pos. 50 and 51: LYG-SF D=0.516 D-cutoff=0.450 Networks=SignalP-noTM

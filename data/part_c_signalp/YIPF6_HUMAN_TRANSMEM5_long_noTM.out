@@ -1,0 +1,34 @@
+# SignalP-4.1 euk predictions
+# Name=YIPF6_HUMAN_TRANSMEM5	Length=24	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   A   0.104   0.808   0.289
+    2   L   0.099   0.827   0.283
+    3   A   0.106   0.789   0.293
+    4   V   0.099   0.793   0.283
+    5   Y   0.106   0.696   0.293
+    6   P   0.102   0.598   0.286
+    7   V   0.102   0.570   0.284
+    8   F   0.106   0.569   0.288
+    9   L   0.104   0.496   0.283
+   10   F   0.095   0.468   0.269
+   11   Y   0.104   0.371   0.277
+   12   F   0.103   0.222   0.272
+   13   V   0.102   0.201   0.267
+   14   I   0.105   0.164   0.264
+   15   S   0.105   0.146   0.259
+   16   W   0.106   0.128   0.254
+   17   M   0.099   0.132   0.239
+   18   I   0.108   0.122   0.243
+   19   L   0.093   0.141   0.219
+   20   T   0.107   0.131   0.228
+   21   F   0.113   0.114   0.227
+   22   T   0.107   0.119   0.213
+   23   P   0.108   0.118   0.206
+   24   Q   0.104   0.107   0.193
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.113
+  max. Y    11       0.277
+  max. S     2       0.827
+  mean S     1-10    0.661
+       D     1-10    0.485   0.450   YES
+Name=YIPF6_HUMAN_TRANSMEM5	SP='YES' Cleavage site between pos. 10 and 11: FLF-YF D=0.485 D-cutoff=0.450 Networks=SignalP-noTM

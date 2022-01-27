@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    27       0.204
+  max. Y    27       0.352
+  max. S    13       0.859
+  mean S     1-26    0.632
+       D     1-26    0.503   0.450   YES
+Name=MOSMO_HUMAN	SP='YES' Cleavage site between pos. 26 and 27: ANP-DW D=0.503 D-cutoff=0.450 Networks=SignalP-noTM

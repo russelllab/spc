@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    50       0.226
+  max. Y    50       0.455
+  max. S    42       0.985
+  mean S     1-49    0.554
+       D     1-49    0.508   0.450   YES
+Name=FBCD1_HUMAN	SP='YES' Cleavage site between pos. 49 and 50: VTG-AV D=0.508 D-cutoff=0.450 Networks=SignalP-noTM

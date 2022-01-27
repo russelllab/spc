@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    34       0.829
+  max. Y    34       0.890
+  max. S    31       0.971
+  mean S     1-33    0.882
+       D     1-33    0.887   0.500   YES
+Name=LRIG1_HUMAN	SP='YES' Cleavage site between pos. 33 and 34: VTA-AA D=0.887 D-cutoff=0.500 Networks=SignalP-TM

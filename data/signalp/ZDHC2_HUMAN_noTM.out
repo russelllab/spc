@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    39       0.800
+  max. Y    39       0.824
+  max. S    30       0.952
+  mean S     1-38    0.768
+       D     1-38    0.794   0.450   YES
+Name=ZDHC2_HUMAN	SP='YES' Cleavage site between pos. 38 and 39: AYA-IQ D=0.794 D-cutoff=0.450 Networks=SignalP-noTM

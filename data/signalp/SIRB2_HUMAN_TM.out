@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    33       0.669
+  max. Y    33       0.730
+  max. S    15       0.931
+  mean S     1-32    0.825
+       D     1-32    0.768   0.500   YES
+Name=SIRB2_HUMAN	SP='YES' Cleavage site between pos. 32 and 33: ASG-QS D=0.768 D-cutoff=0.500 Networks=SignalP-TM

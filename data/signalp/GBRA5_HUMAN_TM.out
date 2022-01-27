@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    32       0.173
+  max. Y    27       0.326
+  max. S    19       0.790
+  mean S     1-26    0.644
+       D     1-26    0.453   0.500   NO
+Name=GBRA5_HUMAN	SP='NO' D=0.453 D-cutoff=0.500 Networks=SignalP-TM

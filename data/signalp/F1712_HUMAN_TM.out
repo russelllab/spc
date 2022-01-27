@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    30       0.190
+  max. Y    27       0.392
+  max. S    22       0.901
+  mean S     1-26    0.821
+       D     1-26    0.563   0.500   YES
+Name=F1712_HUMAN	SP='YES' Cleavage site between pos. 26 and 27: ASR-AP D=0.563 D-cutoff=0.500 Networks=SignalP-TM

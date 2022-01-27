@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    39       0.264
+  max. Y    39       0.482
+  max. S    37       0.992
+  mean S     1-38    0.581
+       D     1-38    0.535   0.450   YES
+Name=MMEL1_HUMAN	SP='YES' Cleavage site between pos. 38 and 39: VTA-AL D=0.535 D-cutoff=0.450 Networks=SignalP-noTM

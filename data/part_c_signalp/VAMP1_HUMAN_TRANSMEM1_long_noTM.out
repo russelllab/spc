@@ -1,0 +1,32 @@
+# SignalP-4.1 euk predictions
+# Name=VAMP1_HUMAN_TRANSMEM1	Length=22	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   M   0.101   0.953   0.310
+    2   M   0.103   0.957   0.313
+    3   I   0.103   0.950   0.313
+    4   M   0.102   0.922   0.312
+    5   L   0.105   0.881   0.317
+    6   G   0.105   0.833   0.315
+    7   A   0.101   0.808   0.309
+    8   I   0.102   0.719   0.309
+    9   C   0.104   0.625   0.310
+   10   A   0.102   0.575   0.304
+   11   I   0.099   0.608   0.297
+   12   I   0.103   0.556   0.301
+   13   V   0.097   0.431   0.289
+   14   V   0.099   0.321   0.288
+   15   V   0.099   0.258   0.283
+   16   I   0.100   0.245   0.278
+   17   V   0.102   0.210   0.275
+   18   I   0.107   0.141   0.276
+   19   Y   0.106   0.145   0.267
+   20   F   0.095   0.140   0.246
+   21   F   0.100   0.124   0.245
+   22   T   0.105   0.123   0.243
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.107
+  max. Y    12       0.301
+  max. S     2       0.957
+  mean S     1-11    0.803
+       D     1-11    0.572   0.450   YES
+Name=VAMP1_HUMAN_TRANSMEM1	SP='YES' Cleavage site between pos. 11 and 12: CAI-IV D=0.572 D-cutoff=0.450 Networks=SignalP-noTM

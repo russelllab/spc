@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.570
+  max. Y    17       0.657
+  max. S    16       0.827
+  mean S     1-16    0.755
+       D     1-16    0.696   0.500   YES
+Name=PMGT2_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: VLA-AV D=0.696 D-cutoff=0.500 Networks=SignalP-TM

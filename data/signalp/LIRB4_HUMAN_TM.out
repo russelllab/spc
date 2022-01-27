@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.208
+  max. Y    22       0.367
+  max. S     2       0.846
+  mean S     1-21    0.709
+       D     1-21    0.504   0.500   YES
+Name=LIRB4_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: THM-QA D=0.504 D-cutoff=0.500 Networks=SignalP-TM

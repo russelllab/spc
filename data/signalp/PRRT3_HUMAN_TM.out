@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.742
+  max. Y    28       0.770
+  max. S    21       0.959
+  mean S     1-27    0.854
+       D     1-27    0.804   0.500   YES
+Name=PRRT3_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: ALG-RG D=0.804 D-cutoff=0.500 Networks=SignalP-TM

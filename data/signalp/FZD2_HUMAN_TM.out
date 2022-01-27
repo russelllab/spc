@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.290
+  max. Y    23       0.508
+  max. S     4       0.933
+  mean S     1-22    0.892
+       D     1-22    0.662   0.500   YES
+Name=FZD2_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: AGP-AQ D=0.662 D-cutoff=0.500 Networks=SignalP-TM

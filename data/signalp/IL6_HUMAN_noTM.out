@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.257
+  max. Y    28       0.477
+  max. S    19       0.963
+  mean S     1-27    0.887
+       D     1-27    0.699   0.450   YES
+Name=IL6_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: AFP-AP D=0.699 D-cutoff=0.450 Networks=SignalP-noTM

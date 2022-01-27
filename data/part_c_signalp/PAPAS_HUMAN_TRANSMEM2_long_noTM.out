@@ -1,0 +1,31 @@
+# SignalP-4.1 euk predictions
+# Name=PAPAS_HUMAN_TRANSMEM2	Length=21	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   I   0.103   0.924   0.308
+    2   G   0.101   0.891   0.306
+    3   S   0.099   0.874   0.302
+    4   D   0.102   0.866   0.307
+    5   I   0.103   0.846   0.308
+    6   I   0.101   0.819   0.303
+    7   W   0.097   0.784   0.298
+    8   W   0.101   0.783   0.302
+    9   F   0.100   0.735   0.300
+   10   L   0.102   0.701   0.302
+   11   K   0.101   0.667   0.298
+   12   L   0.099   0.667   0.292
+   13   F   0.101   0.621   0.294
+   14   L   0.104   0.517   0.296
+   15   V   0.106   0.404   0.295
+   16   S   0.099   0.349   0.281
+   17   F   0.098   0.302   0.274
+   18   F   0.100   0.251   0.272
+   19   F   0.103   0.210   0.271
+   20   F   0.100   0.169   0.261
+   21   F   0.103   0.115   0.258
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    15       0.106
+  max. Y    11       0.298
+  max. S     1       0.924
+  mean S     1-10    0.822
+       D     1-10    0.581   0.450   YES
+Name=PAPAS_HUMAN_TRANSMEM2	SP='YES' Cleavage site between pos. 10 and 11: WFL-KL D=0.581 D-cutoff=0.450 Networks=SignalP-noTM

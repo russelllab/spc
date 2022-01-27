@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.477
+  max. Y    23       0.648
+  max. S    11       0.927
+  mean S     1-22    0.819
+       D     1-22    0.716   0.500   YES
+Name=NETO2_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: VEG-IA D=0.716 D-cutoff=0.500 Networks=SignalP-TM

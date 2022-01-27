@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    32       0.701
+  max. Y    32       0.666
+  max. S    29       0.835
+  mean S     1-31    0.641
+       D     1-31    0.652   0.450   YES
+Name=GRIK2_HUMAN	SP='YES' Cleavage site between pos. 31 and 32: SQG-TT D=0.652 D-cutoff=0.450 Networks=SignalP-noTM

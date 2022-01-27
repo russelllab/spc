@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.195
+  max. Y    23       0.352
+  max. S    47       0.933
+  mean S     1-22    0.633
+       D     1-22    0.504   0.450   YES
+Name=TM6S1_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: TYV-FN D=0.504 D-cutoff=0.450 Networks=SignalP-noTM

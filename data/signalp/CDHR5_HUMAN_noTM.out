@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    26       0.569
+  max. Y    26       0.682
+  max. S    13       0.969
+  mean S     1-25    0.828
+       D     1-25    0.761   0.450   YES
+Name=CDHR5_HUMAN	SP='YES' Cleavage site between pos. 25 and 26: TMA-QA D=0.761 D-cutoff=0.450 Networks=SignalP-noTM

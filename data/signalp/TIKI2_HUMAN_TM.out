@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.775
+  max. Y    20       0.787
+  max. S     9       0.876
+  mean S     1-19    0.802
+       D     1-19    0.793   0.500   YES
+Name=TIKI2_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: ARA-RP D=0.793 D-cutoff=0.500 Networks=SignalP-TM

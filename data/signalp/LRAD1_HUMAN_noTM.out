@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    53       0.241
+  max. Y    53       0.471
+  max. S    50       0.995
+  mean S     1-52    0.469
+       D     1-52    0.470   0.450   YES
+Name=LRAD1_HUMAN	SP='YES' Cleavage site between pos. 52 and 53: VAA-LI D=0.470 D-cutoff=0.450 Networks=SignalP-noTM

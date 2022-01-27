@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.715
+  max. Y    21       0.797
+  max. S    11       0.946
+  mean S     1-20    0.886
+       D     1-20    0.833   0.500   YES
+Name=TGFB2_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: ALS-LS D=0.833 D-cutoff=0.500 Networks=SignalP-TM

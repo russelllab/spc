@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    42       0.376
+  max. Y    42       0.544
+  max. S    34       0.925
+  mean S     1-41    0.634
+       D     1-41    0.580   0.500   YES
+Name=GABR2_HUMAN	SP='YES' Cleavage site between pos. 41 and 42: AWG-WA D=0.580 D-cutoff=0.500 Networks=SignalP-TM

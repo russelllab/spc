@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    37       0.197
+  max. Y    37       0.410
+  max. S    24       0.968
+  mean S     1-36    0.792
+       D     1-36    0.616   0.450   YES
+Name=GCNT4_HUMAN	SP='YES' Cleavage site between pos. 36 and 37: VRR-LF D=0.616 D-cutoff=0.450 Networks=SignalP-noTM

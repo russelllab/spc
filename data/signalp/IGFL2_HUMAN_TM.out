@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    30       0.287
+  max. Y    30       0.436
+  max. S    10       0.910
+  mean S     1-29    0.745
+       D     1-29    0.560   0.500   YES
+Name=IGFL2_HUMAN	SP='YES' Cleavage site between pos. 29 and 30: AGS-EP D=0.560 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,31 @@
+# SignalP-4.1 euk predictions
+# Name=TM256_HUMAN_TRANSMEM2	Length=21	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   I   0.103   0.941   0.311
+    2   Q   0.100   0.908   0.306
+    3   T   0.104   0.876   0.313
+    4   L   0.102   0.841   0.309
+    5   A   0.105   0.791   0.313
+    6   P   0.096   0.784   0.299
+    7   A   0.107   0.752   0.313
+    8   G   0.094   0.675   0.293
+    9   G   0.105   0.558   0.307
+   10   T   0.098   0.524   0.294
+   11   L   0.103   0.490   0.298
+   12   L   0.101   0.458   0.292
+   13   L   0.098   0.500   0.284
+   14   L   0.102   0.364   0.286
+   15   G   0.107   0.310   0.288
+   16   W   0.103   0.283   0.276
+   17   L   0.108   0.238   0.278
+   18   A   0.103   0.256   0.265
+   19   L   0.095   0.188   0.248
+   20   A   0.098   0.154   0.246
+   21   L   0.129   0.117   0.274
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.129
+  max. Y    11       0.298
+  max. S     1       0.941
+  mean S     1-10    0.765
+       D     1-10    0.550   0.450   YES
+Name=TM256_HUMAN_TRANSMEM2	SP='YES' Cleavage site between pos. 10 and 11: GGT-LL D=0.550 D-cutoff=0.450 Networks=SignalP-noTM

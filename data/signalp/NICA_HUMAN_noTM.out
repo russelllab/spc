@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    34       0.506
+  max. Y    34       0.632
+  max. S    11       0.872
+  mean S     1-33    0.734
+       D     1-33    0.687   0.450   YES
+Name=NICA_HUMAN	SP='YES' Cleavage site between pos. 33 and 34: CRG-NS D=0.687 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    27       0.815
+  max. Y    27       0.850
+  max. S    22       0.958
+  mean S     1-26    0.854
+       D     1-26    0.852   0.500   YES
+Name=MXRA5_HUMAN	SP='YES' Cleavage site between pos. 26 and 27: ALA-CP D=0.852 D-cutoff=0.500 Networks=SignalP-TM

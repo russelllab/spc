@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    25       0.435
+  max. Y    25       0.602
+  max. S    11       0.947
+  mean S     1-24    0.856
+       D     1-24    0.703   0.500   YES
+Name=BMP4_HUMAN	SP='YES' Cleavage site between pos. 24 and 25: SHA-SL D=0.703 D-cutoff=0.500 Networks=SignalP-TM

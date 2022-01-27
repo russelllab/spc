@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    27       0.756
+  max. Y    27       0.763
+  max. S    12       0.934
+  mean S     1-26    0.777
+       D     1-26    0.771   0.450   YES
+Name=PCD15_HUMAN	SP='YES' Cleavage site between pos. 26 and 27: CLG-QY D=0.771 D-cutoff=0.450 Networks=SignalP-noTM

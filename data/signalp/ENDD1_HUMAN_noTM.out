@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.480
+  max. Y    22       0.660
+  max. S    14       0.961
+  mean S     1-21    0.906
+       D     1-21    0.793   0.450   YES
+Name=ENDD1_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: LEG-RL D=0.793 D-cutoff=0.450 Networks=SignalP-noTM

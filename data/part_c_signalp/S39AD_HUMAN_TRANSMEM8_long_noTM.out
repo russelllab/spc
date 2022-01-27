@@ -1,0 +1,32 @@
+# SignalP-4.1 euk predictions
+# Name=S39AD_HUMAN_TRANSMEM8	Length=22	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   L   0.103   0.944   0.312
+    2   Q   0.103   0.956   0.313
+    3   Q   0.102   0.942   0.310
+    4   L   0.104   0.902   0.314
+    5   L   0.102   0.854   0.311
+    6   L   0.103   0.786   0.311
+    7   L   0.104   0.782   0.311
+    8   C   0.105   0.708   0.311
+    9   A   0.103   0.557   0.307
+   10   G   0.097   0.505   0.295
+   11   I   0.097   0.531   0.292
+   12   V   0.097   0.425   0.288
+   13   V   0.095   0.314   0.281
+   14   M   0.095   0.246   0.277
+   15   V   0.094   0.215   0.270
+   16   L   0.097   0.191   0.267
+   17   F   0.103   0.191   0.270
+   18   S   0.107   0.142   0.268
+   19   L   0.113   0.134   0.268
+   20   F   0.102   0.122   0.246
+   21   V   0.104   0.105   0.241
+   22   D   0.105   0.106   0.234
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.113
+  max. Y    11       0.292
+  max. S     2       0.956
+  mean S     1-10    0.794
+       D     1-10    0.563   0.450   YES
+Name=S39AD_HUMAN_TRANSMEM8	SP='YES' Cleavage site between pos. 10 and 11: CAG-IV D=0.563 D-cutoff=0.450 Networks=SignalP-noTM

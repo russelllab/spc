@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.633
+  max. Y    19       0.712
+  max. S     2       0.859
+  mean S     1-18    0.808
+       D     1-18    0.751   0.500   YES
+Name=TREM2_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: SGA-HN D=0.751 D-cutoff=0.500 Networks=SignalP-TM

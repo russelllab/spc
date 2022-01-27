@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.411
+  max. Y    20       0.612
+  max. S     5       0.952
+  mean S     1-19    0.916
+       D     1-19    0.777   0.450   YES
+Name=CNTN3_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: LGG-EL D=0.777 D-cutoff=0.450 Networks=SignalP-noTM

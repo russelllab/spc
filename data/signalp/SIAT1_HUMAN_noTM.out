@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.322
+  max. Y    28       0.538
+  max. S    18       0.967
+  mean S     1-27    0.899
+       D     1-27    0.733   0.450   YES
+Name=SIAT1_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: VWK-EK D=0.733 D-cutoff=0.450 Networks=SignalP-noTM

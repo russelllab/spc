@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.838
+  max. Y    19       0.892
+  max. S     8       0.978
+  mean S     1-18    0.949
+       D     1-18    0.915   0.500   YES
+Name=ADM5_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: AQG-DL D=0.915 D-cutoff=0.500 Networks=SignalP-TM

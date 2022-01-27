@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    45       0.339
+  max. Y    45       0.491
+  max. S    28       0.973
+  mean S     1-44    0.558
+       D     1-44    0.527   0.450   YES
+Name=SMIM3_HUMAN	SP='YES' Cleavage site between pos. 44 and 45: ATA-VI D=0.527 D-cutoff=0.450 Networks=SignalP-noTM

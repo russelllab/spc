@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.435
+  max. Y    20       0.583
+  max. S    14       0.944
+  mean S     1-19    0.785
+       D     1-19    0.692   0.450   YES
+Name=MBOA4_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: GAA-FP D=0.692 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,31 @@
+# SignalP-4.1 euk predictions
+# Name=FATE1_HUMAN_TRANSMEM1	Length=21	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   T   0.102   0.839   0.292
+    2   L   0.102   0.689   0.293
+    3   I   0.105   0.561   0.295
+    4   I   0.103   0.533   0.291
+    5   A   0.105   0.474   0.291
+    6   V   0.095   0.401   0.273
+    7   L   0.105   0.275   0.284
+    8   V   0.103   0.179   0.276
+    9   S   0.101   0.163   0.268
+   10   A   0.102   0.134   0.263
+   11   S   0.096   0.167   0.249
+   12   I   0.102   0.165   0.252
+   13   A   0.099   0.152   0.242
+   14   N   0.099   0.121   0.235
+   15   L   0.101   0.110   0.230
+   16   W   0.100   0.108   0.222
+   17   L   0.100   0.103   0.214
+   18   W   0.098   0.103   0.204
+   19   M   0.102   0.104   0.200
+   20   N   0.102   0.106   0.191
+   21   Q   0.106   0.110   0.186
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.106
+  max. Y    12       0.252
+  max. S     1       0.839
+  mean S     1-11    0.401
+       D     1-11    0.333   0.450   NO
+Name=FATE1_HUMAN_TRANSMEM1	SP='NO' D=0.333 D-cutoff=0.450 Networks=SignalP-noTM

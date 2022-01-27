@@ -1,0 +1,31 @@
+# SignalP-4.1 euk predictions
+# Name=RN185_HUMAN_TRANSMEM2	Length=21	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   Q   0.101   0.963   0.312
+    2   F   0.102   0.960   0.313
+    3   L   0.102   0.958   0.313
+    4   S   0.104   0.956   0.316
+    5   R   0.099   0.956   0.309
+    6   L   0.105   0.955   0.317
+    7   F   0.101   0.929   0.311
+    8   L   0.102   0.899   0.313
+    9   F   0.105   0.840   0.317
+   10   V   0.102   0.831   0.311
+   11   A   0.105   0.801   0.316
+   12   L   0.097   0.782   0.302
+   13   V   0.096   0.764   0.299
+   14   I   0.099   0.652   0.303
+   15   M   0.102   0.576   0.304
+   16   F   0.098   0.498   0.295
+   17   W   0.097   0.545   0.291
+   18   L   0.099   0.501   0.290
+   19   L   0.100   0.368   0.288
+   20   I   0.105   0.421   0.289
+   21   A   0.102   0.425   0.282
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    11       0.105
+  max. Y    11       0.316
+  max. S     1       0.963
+  mean S     1-10    0.925
+       D     1-10    0.645   0.450   YES
+Name=RN185_HUMAN_TRANSMEM2	SP='YES' Cleavage site between pos. 10 and 11: LFV-AL D=0.645 D-cutoff=0.450 Networks=SignalP-noTM

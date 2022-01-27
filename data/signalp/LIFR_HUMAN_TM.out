@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    45       0.672
+  max. Y    45       0.519
+  max. S    44       0.623
+  mean S     1-44    0.256
+       D     1-44    0.414   0.500   NO
+Name=LIFR_HUMAN	SP='NO' D=0.414 D-cutoff=0.500 Networks=SignalP-TM

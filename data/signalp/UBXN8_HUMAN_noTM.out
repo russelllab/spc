@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    58       0.373
+  max. Y    58       0.512
+  max. S    45       0.964
+  mean S     1-57    0.656
+       D     1-57    0.590   0.450   YES
+Name=UBXN8_HUMAN	SP='YES' Cleavage site between pos. 57 and 58: TTS-WL D=0.590 D-cutoff=0.450 Networks=SignalP-noTM

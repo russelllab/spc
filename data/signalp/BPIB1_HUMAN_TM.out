@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.588
+  max. Y    22       0.673
+  max. S     8       0.896
+  mean S     1-21    0.801
+       D     1-21    0.724   0.500   YES
+Name=BPIB1_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: IQA-TL D=0.724 D-cutoff=0.500 Networks=SignalP-TM

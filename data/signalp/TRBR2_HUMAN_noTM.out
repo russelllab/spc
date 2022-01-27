@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.376
+  max. Y    22       0.505
+  max. S    15       0.846
+  mean S     1-21    0.672
+       D     1-21    0.595   0.450   YES
+Name=TRBR2_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: MEA-DI D=0.595 D-cutoff=0.450 Networks=SignalP-noTM

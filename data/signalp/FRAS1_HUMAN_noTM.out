@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    27       0.552
+  max. Y    27       0.641
+  max. S    11       0.985
+  mean S     1-26    0.776
+       D     1-26    0.714   0.450   YES
+Name=FRAS1_HUMAN	SP='YES' Cleavage site between pos. 26 and 27: SEG-AC D=0.714 D-cutoff=0.450 Networks=SignalP-noTM

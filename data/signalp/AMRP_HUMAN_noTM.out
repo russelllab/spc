@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    31       0.531
+  max. Y    31       0.704
+  max. S    19       0.981
+  mean S     1-30    0.934
+       D     1-30    0.828   0.450   YES
+Name=AMRP_HUMAN	SP='YES' Cleavage site between pos. 30 and 31: AAS-HG D=0.828 D-cutoff=0.450 Networks=SignalP-noTM

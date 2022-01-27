@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    40       0.388
+  max. Y    40       0.506
+  max. S    16       0.930
+  mean S     1-39    0.701
+       D     1-39    0.611   0.450   YES
+Name=GOLM1_HUMAN	SP='YES' Cleavage site between pos. 39 and 40: SRS-VD D=0.611 D-cutoff=0.450 Networks=SignalP-noTM

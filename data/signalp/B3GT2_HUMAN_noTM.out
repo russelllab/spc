@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    47       0.121
+  max. Y    47       0.316
+  max. S    36       0.952
+  mean S     1-46    0.687
+       D     1-46    0.517   0.450   YES
+Name=B3GT2_HUMAN	SP='YES' Cleavage site between pos. 46 and 47: NHH-DW D=0.517 D-cutoff=0.450 Networks=SignalP-noTM

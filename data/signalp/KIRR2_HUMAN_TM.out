@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.411
+  max. Y    21       0.579
+  max. S     4       0.900
+  mean S     1-20    0.828
+       D     1-20    0.679   0.500   YES
+Name=KIRR2_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: GRA-GP D=0.679 D-cutoff=0.500 Networks=SignalP-TM

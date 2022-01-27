@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.800
+  max. Y    21       0.863
+  max. S     3       0.962
+  mean S     1-20    0.932
+       D     1-20    0.900   0.450   YES
+Name=APOC3_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: ARA-SE D=0.900 D-cutoff=0.450 Networks=SignalP-noTM

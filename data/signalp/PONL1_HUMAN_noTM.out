@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    27       0.803
+  max. Y    27       0.849
+  max. S     7       0.961
+  mean S     1-26    0.897
+       D     1-26    0.875   0.450   YES
+Name=PONL1_HUMAN	SP='YES' Cleavage site between pos. 26 and 27: VAG-LE D=0.875 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.634
+  max. Y    24       0.773
+  max. S    18       0.975
+  mean S     1-23    0.940
+       D     1-23    0.863   0.450   YES
+Name=CNTP2_HUMAN	SP='YES' Cleavage site between pos. 23 and 24: CLC-RA D=0.863 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,32 @@
+# SignalP-4.1 euk predictions
+# Name=AL3A2_HUMAN_TRANSMEM1	Length=22	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   L   0.102   0.976   0.315
+    2   G   0.104   0.962   0.318
+    3   L   0.099   0.925   0.311
+    4   L   0.107   0.894   0.323
+    5   L   0.103   0.886   0.315
+    6   L   0.104   0.889   0.317
+    7   T   0.104   0.840   0.315
+    8   F   0.105   0.755   0.317
+    9   L   0.105   0.600   0.315
+   10   G   0.101   0.463   0.307
+   11   I   0.095   0.370   0.294
+   12   V   0.100   0.402   0.297
+   13   A   0.098   0.482   0.289
+   14   A   0.102   0.307   0.291
+   15   V   0.210   0.123   0.409
+   16   L   0.096   0.133   0.269
+   17   V   0.099   0.138   0.267
+   18   K   0.108   0.109   0.271
+   19   A   0.105   0.106   0.260
+   20   E   0.181   0.100   0.331
+   21   Y   0.105   0.103   0.244
+   22   Y   0.111   0.101   0.241
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    15       0.210
+  max. Y    15       0.409
+  max. S     1       0.976
+  mean S     1-14    0.697
+       D     1-14    0.565   0.450   YES
+Name=AL3A2_HUMAN_TRANSMEM1	SP='YES' Cleavage site between pos. 14 and 15: VAA-VL D=0.565 D-cutoff=0.450 Networks=SignalP-noTM

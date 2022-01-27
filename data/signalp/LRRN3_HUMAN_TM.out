@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.684
+  max. Y    23       0.752
+  max. S    19       0.909
+  mean S     1-22    0.778
+       D     1-22    0.762   0.500   YES
+Name=LRRN3_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: VQA-VD D=0.762 D-cutoff=0.500 Networks=SignalP-TM

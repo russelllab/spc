@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Topfind 4.1</title>
+  <link rel="stylesheet" media="all" href="/assets/application-858af69cb01fabcb6739c5a9f3b408dc5cab04a41204d359455faa9a1c71fe4f.css" data-turbolinks-track="true" />
+  <script src="/assets/application-81d2bdfbc75607a7faecaf7abdf4676ceac4fd65d3aa8930b8177b5f7a641d9c.js" data-turbolinks-track="true"></script>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="3+JhK9JSt9js+HBesiX6/wre2FMfWoHCmil3w7OEwqfwWIFBPO+ywz827EjaK5+QVjWP8zFZptKEkYw0dKEXQg==" />
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://code.highcharts.com/6.0.6/highcharts.js"></script>
+<script src="https://code.highcharts.com/6.0.6/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/js/modules/xrange.js"></script>
+<script src="https://code.highcharts.com/js/modules/exporting.js"></script>
+<link rel="stylesheet" type="text/css" href="assets/stylesheets/defaultcontentslider.css" />
+<link rel="stylesheet" type="text/css" href="assets/stylesheets/componentcontentslider.css" />
+<script src="assets/javascripts/modernizr.custom.js"></script>
+
+
+<style>
+
+@import 'https://code.highcharts.com/css/highcharts.css';
+
+#protshow {
+  font-family: "Lato", "Ubuntu", sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#protshow td, #protshow th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#protshow tr:nth-child(even){background-color: #f2f2f2;}
+
+#protshow tr:hover {background-color: #ddd;}
+
+#protshow th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0C0E28;
+  color: white;
+}
+
+
+#container_chart {
+min-width: 300px;
+max-width: 800px;
+height: 300px;
+margin: 1em auto;
+}
+
+
+/* Exporting module */
+.highcharts-contextbutton {
+fill: #ffffff;
+    /* needed to capture hover */
+stroke: none;
+    stroke-linecap: round;
+}
+
+.highcharts-contextbutton:hover {
+fill: #e6e6e6;
+stroke: #e6e6e6;
+}
+
+.highcharts-button-symbol {
+stroke: #666666;
+    stroke-width: 3px;
+}
+
+.highcharts-menu {
+border: 1px solid #999999;
+background: #ffffff;
+padding: 5px 0;
+    box-shadow: 3px 3px 10px #888;
+}
+
+.highcharts-menu-item {
+padding: 0.5em 1em;
+background: none;
+color: #333333;
+cursor: pointer;
+transition: background 250ms, color 250ms;
+}
+
+.highcharts-menu-item:hover {
+background: #335cad;
+color: #ffffff;
+}
+
+
+h1 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 25px;
+	line-height: 25px;
+	color: #444;
+}
+
+h2 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 20px;
+	color: #444;
+}
+
+h3 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 15px;
+	color: #444;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", "Ubuntu", sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #e3e2e0;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+
+p.seq {font-family: 'Courier New', Courier, monospace; font-size: 12px;}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>TopFIND 4.0</title>
+
+		<!-- meta -->
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	    <!-- css -->
+<!--
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/ionicons.min.css">
+		<link rel="stylesheet" type="text/css" href="css/pace.css">
+	    <link rel="stylesheet" type="text/css" href="css/custom.css">-->
+
+	    <!-- js -->
+<!--
+	    <script src="js/jquery-2.1.3.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+	    <script src="js/pace.min.js"></script>
+	    <script src="js/modernizr.custom.js"></script>-->
+	</head>
+
+
+	<body>		
+
+		<div class="container">
+            <header id="site-header">
+				<div class="row">
+					<div class="col-md-4 col-sm-5 col-xs-8">
+						<div class="logo">
+							<h1 style="font-size: 40px;"><a href="/home/index">Top<b style="color: red;">FIND</b></a></h1>
+						</div>
+					</div><!-- col-md-4 -->
+					<div class="col-md-8 col-sm-7 col-xs-12">
+						<nav class="main-nav" role="navigation">
+							<div class="navbar-header">
+  								<button type="button" id="trigger-overlay" class="navbar-toggle">
+    								<span class="ion-navicon"></span>
+  								</button>
+							</div>
+
+							<div class="navbar" id="navbar-main">
+  								<ul class="nav navbar-nav navbar-right">
+    								<li class="cl-effect-11"><a href="/proteins/protsearch" data-hover="Proteins">Proteins<b style="color: red;">+</b></a></li>
+    								<li class="cl-effect-11"><a href="/topfinder" data-hover="TopFINDer">Top<b style="color: red;">FINDer</b></a></li>
+    								<li class="cl-effect-11"><a href="/pathfinder" data-hover="PathFINDer">Path<b style="color: red;">FINDer</b></a></li>
+    								<li class="cl-effect-11"><a href="/contribute/index" data-hover="Contribute">Contribute</a></li>
+  								</ul>
+							</div><!-- /.navbar-collapse -->
+						</nav>
+				</div>
+			</header>
+		</div>
+
+</body>
+
+
+
+<!-- RUBY DOESN'T DISPLAY TOOLTIPS, if I put he same code in a .html file tooltips are displayed -->
+<!-- If the values are integers, one has to start from 0 -->
+
+<!-- PARSE RUBY DATA FOR JAVASCRIPT-->
+
+<div id="container_chart" style="width:100%; height:400px;"></div>
+
+<script type="text/javascript">
+
+    var dataarr = [];
+    var catarr = [];
+
+
+    $(document).ready(
+
+        function makeArr() {
+
+        var domainElem = [["Sequence","1-1980",0,1980],["Chains","1-1980",1,1980],["N-Terms","1",1,2],["C-Terms","1980",1979,1980],["Modifications","MOD_RES (1497-1497)",1497,1497],["Features","NP_BIND (893-900)",893,900],["Domains","DOMAIN (1895-1924)",1895,1924],["Topology","TOPO_DOM (1-127)",1,127],["Topology","TOPO_DOM (152-159)",152,159],["Topology","TOPO_DOM (180-192)",180,192],["Topology","TOPO_DOM (212-217)",212,217],["Topology","TOPO_DOM (238-252)",238,252],["Topology","TOPO_DOM (278-387)",278,387],["Topology","TOPO_DOM (414-747)",414,747],["Topology","TOPO_DOM (773-783)",773,783],["Topology","TOPO_DOM (808-815)",808,815],["Topology","TOPO_DOM (836-841)",836,841],["Topology","TOPO_DOM (863-877)",863,877],["Topology","TOPO_DOM (899-951)",899,951],["Topology","TOPO_DOM (978-1193)",978,1193],["Topology","TOPO_DOM (1218-1230)",1218,1230],["Topology","TOPO_DOM (1257-1262)",1257,1262],["Topology","TOPO_DOM (1285-1288)",1285,1288],["Topology","TOPO_DOM (1311-1329)",1311,1329],["Topology","TOPO_DOM (1352-1437)",1352,1437],["Topology","TOPO_DOM (1465-1517)",1465,1517],["Topology","TOPO_DOM (1542-1552)",1542,1552],["Topology","TOPO_DOM (1577-1582)",1577,1582],["Topology","TOPO_DOM (1607-1616)",1607,1616],["Topology","TOPO_DOM (1639-1653)",1639,1653],["Topology","TOPO_DOM (1677-1741)",1677,1741],["Topology","TOPO_DOM (1767-1980)",1767,1980],["Topology","TRANSMEM (128-151)",128,151],["Topology","TRANSMEM (160-179)",160,179],["Topology","TRANSMEM (193-211)",193,211],["Topology","TRANSMEM (218-237)",218,237],["Topology","TRANSMEM (253-277)",253,277],["Topology","TRANSMEM (388-413)",388,413],["Topology","TRANSMEM (748-772)",748,772],["Topology","TRANSMEM (784-807)",784,807],["Topology","TRANSMEM (816-835)",816,835],["Topology","TRANSMEM (842-862)",842,862],["Topology","TRANSMEM (878-898)",878,898],["Topology","TRANSMEM (952-977)",952,977],["Topology","TRANSMEM (1194-1217)",1194,1217],["Topology","TRANSMEM (1231-1256)",1231,1256],["Topology","TRANSMEM (1263-1284)",1263,1284],["Topology","TRANSMEM (1289-1310)",1289,1310],["Topology","TRANSMEM (1330-1351)",1330,1351],["Topology","TRANSMEM (1438-1464)",1438,1464],["Topology","TRANSMEM (1518-1541)",1518,1541],["Topology","TRANSMEM (1553-1576)",1553,1576],["Topology","TRANSMEM (1583-1606)",1583,1606],["Topology","TRANSMEM (1617-1638)",1617,1638],["Topology","TRANSMEM (1654-1676)",1654,1676],["Topology","TRANSMEM (1742-1766)",1742,1766],["Variants","VARIANT (1768-1768)",1768,1768],["Variants","CONFLICT (5-5)",5,5],["Variants","CONFLICT (133-133)",133,133],["Variants","CONFLICT (257-257)",257,257],["Variants","CONFLICT (273-273)",273,273],["Variants","CONFLICT (274-278)",274,278],["Variants","CONFLICT (453-453)",453,453],["Variants","CONFLICT (477-477)",477,477],["Variants","CONFLICT (483-483)",483,483],["Variants","CONFLICT (492-492)",492,492],["Variants","CONFLICT (504-504)",504,504],["Variants","CONFLICT (547-548)",547,548],["Variants","CONFLICT (1416-1416)",1416,1416],["Variants","CONFLICT (1445-1445)",1445,1445],["Variants","CONFLICT (1519-1519)",1519,1519],["Variants","CONFLICT (1702-1702)",1702,1702],["Variants","VAR_SEQ (207-207)",207,207],["Variants","VAR_SEQ (212-212)",212,212],["Variants","VAR_SEQ (666-666)",666,666],["Variants","VAR_SEQ (1275-1315)",1275,1315],["Variants","VAR_SEQ (1275-1283)",1275,1283],["Variants","VAR_SEQ (1284-1980)",1284,1980],["Topology","REPEAT (114-442)",114,442],["Topology","REPEAT (735-1007)",735,1007],["Topology","REPEAT (1180-1495)",1180,1495],["Topology","REPEAT (1504-1801)",1504,1801],["Topology","TOPO_DOM (1-132)",1,132],["Topology","TOPO_DOM (152-158)",152,158],["Topology","TOPO_DOM (180-193)",180,193],["Topology","TOPO_DOM (212-217)",212,217],["Topology","TOPO_DOM (235-253)",235,253],["Topology","TOPO_DOM (274-355)",274,355],["Topology","TOPO_DOM (381-387)",381,387],["Topology","TOPO_DOM (409-753)",409,753],["Topology","TOPO_DOM (773-783)",773,783],["Topology","TOPO_DOM (804-817)",804,817],["Topology","TOPO_DOM (838-839)",838,839],["Topology","TOPO_DOM (858-873)",858,873],["Topology","TOPO_DOM (893-921)",893,921],["Topology","TOPO_DOM (943-955)",943,955],["Topology","TOPO_DOM (977-1199)",977,1199],["Topology","TOPO_DOM (1218-1230)",1218,1230],["Topology","TOPO_DOM (1250-1263)",1250,1263],["Topology","TOPO_DOM (1283-1290)",1283,1290],["Topology","TOPO_DOM (1310-1326)",1310,1326],["Topology","TOPO_DOM (1347-1399)",1347,1399],["Topology","TOPO_DOM (1422-1438)",1422,1438],["Topology","TOPO_DOM (1461-1523)",1461,1523],["Topology","TOPO_DOM (1542-1552)",1542,1552],["Topology","TOPO_DOM (1572-1583)",1572,1583],["Topology","TOPO_DOM (1602-1614)",1602,1614],["Topology","TOPO_DOM (1632-1650)",1632,1650],["Topology","TOPO_DOM (1669-1690)",1669,1690],["Topology","TOPO_DOM (1714-1742)",1714,1742],["Topology","TOPO_DOM (1766-1980)",1766,1980],["Topology","TRANSMEM (133-151)",133,151],["Topology","TRANSMEM (159-179)",159,179],["Topology","TRANSMEM (194-211)",194,211],["Topology","TRANSMEM (218-234)",218,234],["Topology","TRANSMEM (254-273)",254,273],["Topology","TRANSMEM (388-408)",388,408],["Topology","TRANSMEM (754-772)",754,772],["Topology","TRANSMEM (784-803)",784,803],["Topology","TRANSMEM (818-837)",818,837],["Topology","TRANSMEM (840-857)",840,857],["Topology","TRANSMEM (874-892)",874,892],["Topology","TRANSMEM (956-976)",956,976],["Topology","TRANSMEM (1200-1217)",1200,1217],["Topology","TRANSMEM (1231-1249)",1231,1249],["Topology","TRANSMEM (1264-1282)",1264,1282],["Topology","TRANSMEM (1291-1309)",1291,1309],["Topology","TRANSMEM (1327-1346)",1327,1346],["Topology","TRANSMEM (1439-1460)",1439,1460],["Topology","TRANSMEM (1524-1541)",1524,1541],["Topology","TRANSMEM (1553-1571)",1553,1571],["Topology","TRANSMEM (1584-1601)",1584,1601],["Topology","TRANSMEM (1615-1631)",1615,1631],["Topology","TRANSMEM (1651-1668)",1651,1668],["Topology","TRANSMEM (1743-1765)",1743,1765],["Topology","INTRAMEM (356-380)",356,380],["Topology","INTRAMEM (922-942)",922,942],["Topology","INTRAMEM (1400-1421)",1400,1421],["Topology","INTRAMEM (1691-1713)",1691,1713],["Topology","REPEAT (114-442)",114,442],["Topology","REPEAT (735-1007)",735,1007],["Topology","REPEAT (1180-1495)",1180,1495],["Topology","REPEAT (1504-1801)",1504,1801],["Domains","DOMAIN (1895-1924)",1895,1924],["Features","NP_BIND (893-900)",893,900],["Modifications","MOD_RES (518-518)",518,518],["Modifications","MOD_RES (520-520)",520,520],["Modifications","MOD_RES (1497-1497)",1497,1497],["Variants","VAR_SEQ (207-207)",207,207],["Variants","VAR_SEQ (212-212)",212,212],["Variants","VAR_SEQ (666-666)",666,666],["Variants","VAR_SEQ (1275-1315)",1275,1315],["Variants","VAR_SEQ (1275-1283)",1275,1283],["Variants","VAR_SEQ (1284-1980)",1284,1980],["Variants","VARIANT (58-58)",58,58],["Variants","VARIANT (210-210)",210,210],["Variants","VARIANT (215-215)",215,215],["Variants","VARIANT (216-216)",216,216],["Variants","VARIANT (223-223)",223,223],["Variants","VARIANT (232-232)",232,232],["Variants","VARIANT (260-260)",260,260],["Variants","VARIANT (307-307)",307,307],["Variants","VARIANT (407-407)",407,407],["Variants","VARIANT (408-408)",408,408],["Variants","VARIANT (410-410)",410,410],["Variants","VARIANT (479-479)",479,479],["Variants","VARIANT (662-662)",662,662],["Variants","VARIANT (767-767)",767,767],["Variants","VARIANT (846-846)",846,846],["Variants","VARIANT (850-850)",850,850],["Variants","VARIANT (850-850)",850,850],["Variants","VARIANT (890-890)",890,890],["Variants","VARIANT (891-891)",891,891],["Variants","VARIANT (960-960)",960,960],["Variants","VARIANT (978-978)",978,978],["Variants","VARIANT (984-984)",984,984],["Variants","VARIANT (1279-1279)",1279,1279],["Variants","VARIANT (1323-1323)",1323,1323],["Variants","VARIANT (1327-1327)",1327,1327],["Variants","VARIANT (1331-1331)",1331,1331],["Variants","VARIANT (1451-1451)",1451,1451],["Variants","VARIANT (1466-1466)",1466,1466],["Variants","VARIANT (1466-1466)",1466,1466],["Variants","VARIANT (1475-1475)",1475,1475],["Variants","VARIANT (1479-1479)",1479,1479],["Variants","VARIANT (1483-1483)",1483,1483],["Variants","VARIANT (1592-1592)",1592,1592],["Variants","VARIANT (1596-1596)",1596,1596],["Variants","VARIANT (1598-1598)",1598,1598],["Variants","VARIANT (1605-1605)",1605,1605],["Variants","VARIANT (1617-1617)",1617,1617],["Variants","VARIANT (1650-1650)",1650,1650],["Variants","VARIANT (1754-1754)",1754,1754],["Variants","VARIANT (1768-1768)",1768,1768],["Variants","VARIANT (1801-1801)",1801,1801],["Variants","VARIANT (1865-1865)",1865,1865],["Variants","VARIANT (1872-1872)",1872,1872],["Variants","VARIANT (1872-1872)",1872,1872],["Variants","VARIANT (1872-1872)",1872,1872],["Variants","VARIANT (1877-1877)",1877,1877],["Variants","CONFLICT (5-5)",5,5],["Variants","CONFLICT (133-133)",133,133],["Variants","CONFLICT (257-257)",257,257],["Variants","CONFLICT (273-273)",273,273],["Variants","CONFLICT (274-278)",274,278],["Variants","CONFLICT (453-453)",453,453],["Variants","CONFLICT (477-477)",477,477],["Variants","CONFLICT (483-483)",483,483],["Variants","CONFLICT (492-492)",492,492],["Variants","CONFLICT (504-504)",504,504],["Variants","CONFLICT (547-548)",547,548],["Variants","CONFLICT (1416-1416)",1416,1416],["Variants","CONFLICT (1445-1445)",1445,1445],["Variants","CONFLICT (1519-1519)",1519,1519],["Variants","CONFLICT (1702-1702)",1702,1702]];
+
+        var dataarr = [];
+        var catarr = [];
+        var i;
+
+        for (i = 0; i < domainElem.length ; i++ )
+        {
+        switch(domainElem[i][0]) {
+            
+          case "Sequence":
+                catarr[0] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:0,
+                color: '#e41a1c',
+                key: (domainElem[i][1])
+                });
+                break;
+
+            
+            case "Chains":
+                catarr[1] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:1,
+                color: '#377eb8',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Topology":
+                catarr[2] = (domainElem[i][0]);
+                dataarr.push({
+                x: parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:2,
+                color: '#4daf4a',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "N-Terms":
+                catarr[3] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:3,
+                color: '#984ea3',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "C-Terms":
+                catarr[4] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:4,
+                color: '#ff7f00',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Cleavages":
+                catarr[5] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:5,
+                color: '#CCCC00',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Modifications":
+                catarr[6] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:6,
+                color: '#a65628',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Variants":
+                catarr[7] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:7,
+                color: '#f781bf',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Domains":
+                catarr[8] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:8,
+                color: '#999999',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+        }
+        }
+
+
+    
+
+    (function (H) {
+    var defaultPlotOptions = H.getOptions().plotOptions,
+    columnType = H.seriesTypes.column,
+    each = H.each,
+    extendClass = H.extendClass,
+    pick = H.pick,
+    Point = H.Point,
+    Series = H.Series;
+    
+    defaultPlotOptions.xrange = H.merge(defaultPlotOptions.column, {
+    tooltip: {
+    headerFormat: '<span style="font-size: 0.85em">{point.x} - {point.x2}</span><br/>',
+    pointFormat: '<span style="color:{point.color}">\u25CF</span> {point.yCategory}: <b>{point.key}</b><br/>',
+    footerFormat: '<span style="color:{point.color}">{series.name}</span><br/>'
+    }
+    });
+    H.seriesTypes.xrange = H.extendClass(columnType, {
+    pointClass: extendClass(Point, {
+        // Add x2 and yCategory to the available properties for tooltip formats
+    getLabelConfig: function () {
+        var cfg = Point.prototype.getLabelConfig.call(this);
+        
+        cfg.x2 = this.x2;
+        cfg.yCategory = this.yCategory = this.series.yAxis.categories && this.series.yAxis.categories[this.y];
+        return cfg;
+    }
+    }),
+    type: 'xrange',
+    forceDL: true,
+    parallelArrays: ['x', 'x2', 'y'],
+    requireSorting: false,
+    animate: H.seriesTypes.line.prototype.animate,
+        
+        /**
+         * Borrow the column series metrics, but with swapped axes. This gives free access
+         * to features like groupPadding, grouping, pointWidth etc.
+         */
+    getColumnMetrics: function () {
+        var metrics,
+        chart = this.chart;
+        
+        function swapAxes() {
+            each(chart.series, function (s) {
+                var xAxis = s.xAxis;
+                s.xAxis = s.yAxis;
+                s.yAxis = xAxis;
+            });
+        }
+        
+        swapAxes();
+        
+        this.yAxis.closestPointRange = 1;
+        metrics = columnType.prototype.getColumnMetrics.call(this);
+        
+        swapAxes();
+        
+        return metrics;
+    },
+        
+        /**
+         * Override cropData to show a point where x is outside visible range
+         * but x2 is outside.
+         */
+    cropData: function (xData, yData, min, max) {
+        
+        // Replace xData with x2Data to find the appropriate cropStart
+        var crop = Series.prototype.cropData.call(this, this.x2Data, yData, min, max);
+        
+        // Re-insert the cropped xData
+        crop.xData = xData.slice(crop.start, crop.end);
+        
+        return crop;
+    },
+        
+    translate: function () {
+        columnType.prototype.translate.apply(this, arguments);
+        var series = this,
+        xAxis = series.xAxis,
+        metrics = series.columnMetrics,
+        minPointLength = series.options.minPointLength || 0;
+        
+        H.each(series.points, function (point) {
+            var plotX = point.plotX,
+            plotX2 = xAxis.toPixels(H.pick(point.x2, point.x + (point.len || 0)), true),
+            width = plotX2 - plotX,
+            widthDifference;
+            
+            if (minPointLength) {
+                widthDifference = width < minPointLength ? minPointLength - width : 0;
+                plotX -= widthDifference / 2;
+                plotX2 += widthDifference / 2;
+            }
+            
+            plotX = Math.max(plotX, -10);
+            plotX2 = Math.min(Math.max(plotX2, -10), xAxis.len + 10);
+            
+            point.shapeArgs = {
+            x: plotX,
+            y: point.plotY + metrics.offset,
+            width: plotX2 - plotX,
+            height: metrics.width
+            };
+            point.tooltipPos[0] += width / 2;
+            point.tooltipPos[1] -= metrics.width / 2;
+        });
+    }
+    });
+    
+    /**
+     * Max x2 should be considered in xAxis extremes
+     */
+    H.wrap(H.Axis.prototype, 'getSeriesExtremes', function (proceed) {
+        var axis = this,
+        dataMax,
+        modMax;
+        
+        proceed.call(this);
+        if (this.isXAxis) {
+            dataMax = pick(axis.dataMax, Number.MIN_VALUE);
+            each(this.series, function (series) {
+                each(series.x2Data || [], function (val) {
+                    if (val > dataMax) {
+                        dataMax = val;
+                        modMax = true;
+                    }
+                });
+            });
+            if (modMax) {
+                axis.dataMax = dataMax;
+            }
+        }
+    });
+}(Highcharts));
+
+Highcharts.chart('container_chart', {
+    chart: {
+    type: 'xrange'
+    },
+    title: {
+    text: 'Summary'
+    },
+    xAxis: {
+    type: 'linear'
+    },
+    yAxis: {
+    title: {
+    text: ''
+    },
+    categories: [catarr[0], catarr[1], catarr[2], catarr[3], catarr[4], catarr[5], catarr[6], catarr[7], catarr[8]],
+    reversed: true
+    },
+    series: [{
+    name: 'Q9UQD0',
+    pointWidth: 20,
+    colorByPoint: true,
+    data: dataarr,
+    point: {
+    events: {
+    }
+    }
+        
+    }]
+    });
+
+
+    });
+
+</script>
+
+
+<p id="demo"></p>
+<p id="demo2"></p>
+
+
+
+<div class="content-body">
+		<div class ="container">
+			<div class="row">
+
+<h2> </h2>
+
+<def tag='general-protein-information'>
+
+	<section class="left">
+	  <section class="block">
+	  
+	    <h1>Q9UQD0: Sodium channel protein type 8 subunit alpha</h1>
+	    <table class="protein-summary annotation">
+                <h3> General Information </h3> 
+                
+	      <tr> 
+	        <th>Protein names</th> 
+	        <td><br>
+	        		- Sodium channel protein type 8 subunit alpha<br>
+	        		- Sodium channel protein type VIII subunit alpha<br>
+	        		- Voltage-gated sodium channel subunit alpha Nav1.6<br>
+	        </br></td>
+	      </tr><tr> 
+	        <th>Gene names</th> 
+	        <td>SCN8A </td>
+	      </tr><tr>
+	        <th>Organism</th>
+	        <td>Homo sapiens</td>
+	      </tr><tr>
+	        <th>Protease Family</th>
+	        <td> 	        	</td>
+	      </tr><tr>
+	        <th>Protease ID</th>
+	        <td>
+	        	</td>
+	      </tr><tr if="&@protein.chromosome.present?">
+	        <th>Chromosome location</th>
+	        <td><a href="/topfind/proteins?query=&chromosome=#{@protein.chromosome}"><view:chromosome/></a> <a href="/proteins/index?query=&chromosome=#{@protein.chromosome}&arm=#{@band.first}&band=#{@band.delete 'pq'}"></a></td>
+	      </tr><tr>
+	      	<th> UniProt ID</th>
+	      	<td><a href="http://www.uniprot.org/uniprot/Q9UQD0"> Q9UQD0</a></td>
+	      </tr>
+	    </table>
+	  </section>
+	  	  <section class="block">
+	  	  			<div class="row">
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 1</h2>
+    	<h2> N-termini </h2>
+
+   </div>
+  </div>
+
+ 	<div class="column">
+    <div class="card">
+    	
+    	<h2> 1</h2>
+    	<h2> C-termini </h2>
+
+   </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 0</h2>
+    	<h2> Cleavages </h2>
+
+   </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 0</h2>
+    	<h2> Substrates </h2>
+
+   </div>
+  </div>
+
+</div>
+
+	    <h3>Sequence</h3> 
+	    	<p class="seq">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60&nbsp;<br/>MAARLLAPPG&nbsp;PDSFKPFTPE&nbsp;SLANIERRIA&nbsp;ESKLKKPPKA&nbsp;DGSHREDDED&nbsp;SKPKPNSDLE&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120&nbsp;<br/>AGKSLPFIYG&nbsp;DIPQGLVAVP&nbsp;LEDFDPYYLT&nbsp;QKTFVVLNRG&nbsp;KTLFRFSATP&nbsp;ALYILSPFNL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180&nbsp;<br/>IRRIAIKILI&nbsp;HSVFSMIIMC&nbsp;TILTNCVFMT&nbsp;FSNPPDWSKN&nbsp;VEYTFTGIYT&nbsp;FESLVKIIAR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;240&nbsp;<br/>GFCIDGFTFL&nbsp;RDPWNWLDFS&nbsp;VIMMAYITEF&nbsp;VNLGNVSALR&nbsp;TFRVLRALKT&nbsp;ISVIPGLKTI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300&nbsp;<br/>VGALIQSVKK&nbsp;LSDVMILTVF&nbsp;CLSVFALIGL&nbsp;QLFMGNLRNK&nbsp;CVVWPINFNE&nbsp;SYLENGTKGF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;360&nbsp;<br/>DWEEYINNKT&nbsp;NFYTVPGMLE&nbsp;PLLCGNSSDA&nbsp;GQCPEGYQCM&nbsp;KAGRNPNYGY&nbsp;TSFDTFSWAF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;420&nbsp;<br/>LALFRLMTQD&nbsp;YWENLYQLTL&nbsp;RAAGKTYMIF&nbsp;FVLVIFVGSF&nbsp;YLVNLILAVV&nbsp;AMAYEEQNQA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;480&nbsp;<br/>TLEEAEQKEA&nbsp;EFKAMLEQLK&nbsp;KQQEEAQAAA&nbsp;MATSAGTVSE&nbsp;DAIEEEGEEG&nbsp;GGSPRSSSEI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;540&nbsp;<br/>SKLSSKSAKE&nbsp;RRNRRKKRKQ&nbsp;KELSEGEEKG&nbsp;DPEKVFKSES&nbsp;EDGMRRKAFR&nbsp;LPDNRIGRKF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;600&nbsp;<br/>SIMNQSLLSI&nbsp;PGSPFLSRHN&nbsp;SKSSIFSFRG&nbsp;PGRFRDPGSE&nbsp;NEFADDEHST&nbsp;VEESEGRRDS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;660&nbsp;<br/>LFIPIRARER&nbsp;RSSYSGYSGY&nbsp;SQGSRSSRIF&nbsp;PSLRRSVKRN&nbsp;STVDCNGVVS&nbsp;LIGGPGSHIG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;720&nbsp;<br/>GRLLPEATTE&nbsp;VEIKKKGPGS&nbsp;LLVSMDQLAS&nbsp;YGRKDRINSI&nbsp;MSVVTNTLVE&nbsp;ELEESQRKCP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;740&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;780&nbsp;<br/>PCWYKFANTF&nbsp;LIWECHPYWI&nbsp;KLKEIVNLIV&nbsp;MDPFVDLAIT&nbsp;ICIVLNTLFM&nbsp;AMEHHPMTPQ&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;840&nbsp;<br/>FEHVLAVGNL&nbsp;VFTGIFTAEM&nbsp;FLKLIAMDPY&nbsp;YYFQEGWNIF&nbsp;DGFIVSLSLM&nbsp;ELSLADVEGL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;860&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;900&nbsp;<br/>SVLRSFRLLR&nbsp;VFKLAKSWPT&nbsp;LNMLIKIIGN&nbsp;SVGALGNLTL&nbsp;VLAIIVFIFA&nbsp;VVGMQLFGKS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;920&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;960&nbsp;<br/>YKECVCKINQ&nbsp;DCELPRWHMH&nbsp;DFFHSFLIVF&nbsp;RVLCGEWIET&nbsp;MWDCMEVAGQ&nbsp;AMCLIVFMMV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;980&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;990&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1020&nbsp;<br/>MVIGNLVVLN&nbsp;LFLALLLSSF&nbsp;SADNLAATDD&nbsp;DGEMNNLQIS&nbsp;VIRIKKGVAW&nbsp;TKLKVHAFMQ&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1080&nbsp;<br/>AHFKQREADE&nbsp;VKPLDELYEK&nbsp;KANCIANHTG&nbsp;ADIHRNGDFQ&nbsp;KNGNGTTSGI&nbsp;GSSVEKYIID&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1140&nbsp;<br/>EDHMSFINNP&nbsp;NLTVRVPIAV&nbsp;GESDFENLNT&nbsp;EDVSSESDPE&nbsp;GSKDKLDDTS&nbsp;SSEGSTIDIK&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1180&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1200&nbsp;<br/>PEVEEVPVEQ&nbsp;PEEYLDPDAC&nbsp;FTEGCVQRFK&nbsp;CCQVNIEEGL&nbsp;GKSWWILRKT&nbsp;CFLIVEHNWF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1240&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1260&nbsp;<br/>ETFIIFMILL&nbsp;SSGALAFEDI&nbsp;YIEQRKTIRT&nbsp;ILEYADKVFT&nbsp;YIFILEMLLK&nbsp;WTAYGFVKFF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1320&nbsp;<br/>TNAWCWLDFL&nbsp;IVAVSLVSLI&nbsp;ANALGYSELG&nbsp;AIKSLRTLRA&nbsp;LRPLRALSRF&nbsp;EGMRVVVNAL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1360&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1380&nbsp;<br/>VGAIPSIMNV&nbsp;LLVCLIFWLI&nbsp;FSIMGVNLFA&nbsp;GKYHYCFNET&nbsp;SEIRFEIEDV&nbsp;NNKTECEKLM&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1420&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1440&nbsp;<br/>EGNNTEIRWK&nbsp;NVKINFDNVG&nbsp;AGYLALLQVA&nbsp;TFKGWMDIMY&nbsp;AAVDSRKPDE&nbsp;QPKYEDNIYM&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1480&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1500&nbsp;<br/>YIYFVIFIIF&nbsp;GSFFTLNLFI&nbsp;GVIIDNFNQQ&nbsp;KKKFGGQDIF&nbsp;MTEEQKKYYN&nbsp;AMKKLGSKKP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1540&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1560&nbsp;<br/>QKPIPRPLNK&nbsp;IQGIVFDFVT&nbsp;QQAFDIVIMM&nbsp;LICLNMVTMM&nbsp;VETDTQSKQM&nbsp;ENILYWINLV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1600&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1620&nbsp;<br/>FVIFFTCECV&nbsp;LKMFALRHYY&nbsp;FTIGWNIFDF&nbsp;VVVILSIVGM&nbsp;FLADIIEKYF&nbsp;VSPTLFRVIR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1660&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1680&nbsp;<br/>LARIGRILRL&nbsp;IKGAKGIRTL&nbsp;LFALMMSLPA&nbsp;LFNIGLLLFL&nbsp;VMFIFSIFGM&nbsp;SNFAYVKHEA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1720&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1740&nbsp;<br/>GIDDMFNFET&nbsp;FGNSMICLFQ&nbsp;ITTSAGWDGL&nbsp;LLPILNRPPD&nbsp;CSLDKEHPGS&nbsp;GFKGDCGNPS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1780&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1800&nbsp;<br/>VGIFFFVSYI&nbsp;IISFLIVVNM&nbsp;YIAIILENFS&nbsp;VATEESADPL&nbsp;SEDDFETFYE&nbsp;IWEKFDPDAT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1840&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1860&nbsp;<br/>QFIEYCKLAD&nbsp;FADALEHPLR&nbsp;VPKPNTIELI&nbsp;AMDLPMVSGD&nbsp;RIHCLDILFA&nbsp;FTKRVLGDSG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1920&nbsp;<br/>ELDILRQQME&nbsp;ERFVASNPSK&nbsp;VSYEPITTTL&nbsp;RRKQEEVSAV&nbsp;VLQRAYRGHL&nbsp;ARRGFICKKT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1960&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1980&nbsp;<br/>TSNKLENGGT&nbsp;HREKKESTPS&nbsp;TASLPSYDSV&nbsp;TKPEKEKQQR&nbsp;AEEGRRERAK&nbsp;RQKEVRESKC&nbsp;<br/>&nbsp;&nbsp;&nbsp;<br/><p>
+	  </section>             
+	  <section class="block" if= true>
+	    <h3>Isoforms</h3>
+            - Isoform 2 of Sodium channel protein type 8 subunit alpha
+            - Isoform 3 of Sodium channel protein type 8 subunit alpha
+            - Isoform 4 of Sodium channel protein type 8 subunit alpha
+            - Isoform 5 of Sodium channel protein type 8 subunit alpha
+	  <br>
+      <br>
+	      Sequence View <p class="seq">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60&nbsp;<br/>MAARLLAPPG&nbsp;PDSFKPFTPE&nbsp;SLANIERRIA&nbsp;ESKLKKPPKA&nbsp;DGSHREDDED&nbsp;SKPKPNSDLE&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120&nbsp;<br/>AGKSLPFIYG&nbsp;DIPQGLVAVP&nbsp;LEDFDPYYLT&nbsp;QKTFVVLNRG&nbsp;KTLFRFSATP&nbsp;ALYILSPFNL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180&nbsp;<br/>IRRIAIKILI&nbsp;HSVFSMIIMC&nbsp;TILTNCVFMT&nbsp;FSNPPDWSKN&nbsp;VEYTFTGIYT&nbsp;FESLVKIIAR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;240&nbsp;<br/>GFCIDGFTFL&nbsp;RDPWNWLDFS&nbsp;VIMMAYITEF&nbsp;VNLGNVSALR&nbsp;TFRVLRALKT&nbsp;ISVIPGLKTI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300&nbsp;<br/>VGALIQSVKK&nbsp;LSDVMILTVF&nbsp;CLSVFALIGL&nbsp;QLFMGNLRNK&nbsp;CVVWPINFNE&nbsp;SYLENGTKGF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;360&nbsp;<br/>DWEEYINNKT&nbsp;NFYTVPGMLE&nbsp;PLLCGNSSDA&nbsp;GQCPEGYQCM&nbsp;KAGRNPNYGY&nbsp;TSFDTFSWAF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;420&nbsp;<br/>LALFRLMTQD&nbsp;YWENLYQLTL&nbsp;RAAGKTYMIF&nbsp;FVLVIFVGSF&nbsp;YLVNLILAVV&nbsp;AMAYEEQNQA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;480&nbsp;<br/>TLEEAEQKEA&nbsp;EFKAMLEQLK&nbsp;KQQEEAQAAA&nbsp;MATSAGTVSE&nbsp;DAIEEEGEEG&nbsp;GGSPRSSSEI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;540&nbsp;<br/>SKLSSKSAKE&nbsp;RRNRRKKRKQ&nbsp;KELSEGEEKG&nbsp;DPEKVFKSES&nbsp;EDGMRRKAFR&nbsp;LPDNRIGRKF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;600&nbsp;<br/>SIMNQSLLSI&nbsp;PGSPFLSRHN&nbsp;SKSSIFSFRG&nbsp;PGRFRDPGSE&nbsp;NEFADDEHST&nbsp;VEESEGRRDS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;660&nbsp;<br/>LFIPIRARER&nbsp;RSSYSGYSGY&nbsp;SQGSRSSRIF&nbsp;PSLRRSVKRN&nbsp;STVDCNGVVS&nbsp;LIGGPGSHIG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;720&nbsp;<br/>GRLLPEATTE&nbsp;VEIKKKGPGS&nbsp;LLVSMDQLAS&nbsp;YGRKDRINSI&nbsp;MSVVTNTLVE&nbsp;ELEESQRKCP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;740&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;780&nbsp;<br/>PCWYKFANTF&nbsp;LIWECHPYWI&nbsp;KLKEIVNLIV&nbsp;MDPFVDLAIT&nbsp;ICIVLNTLFM&nbsp;AMEHHPMTPQ&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;840&nbsp;<br/>FEHVLAVGNL&nbsp;VFTGIFTAEM&nbsp;FLKLIAMDPY&nbsp;YYFQEGWNIF&nbsp;DGFIVSLSLM&nbsp;ELSLADVEGL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;860&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;900&nbsp;<br/>SVLRSFRLLR&nbsp;VFKLAKSWPT&nbsp;LNMLIKIIGN&nbsp;SVGALGNLTL&nbsp;VLAIIVFIFA&nbsp;VVGMQLFGKS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;920&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;960&nbsp;<br/>YKECVCKINQ&nbsp;DCELPRWHMH&nbsp;DFFHSFLIVF&nbsp;RVLCGEWIET&nbsp;MWDCMEVAGQ&nbsp;AMCLIVFMMV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;980&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;990&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1020&nbsp;<br/>MVIGNLVVLN&nbsp;LFLALLLSSF&nbsp;SADNLAATDD&nbsp;DGEMNNLQIS&nbsp;VIRIKKGVAW&nbsp;TKLKVHAFMQ&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1080&nbsp;<br/>AHFKQREADE&nbsp;VKPLDELYEK&nbsp;KANCIANHTG&nbsp;ADIHRNGDFQ&nbsp;KNGNGTTSGI&nbsp;GSSVEKYIID&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1140&nbsp;<br/>EDHMSFINNP&nbsp;NLTVRVPIAV&nbsp;GESDFENLNT&nbsp;EDVSSESDPE&nbsp;GSKDKLDDTS&nbsp;SSEGSTIDIK&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1180&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1200&nbsp;<br/>PEVEEVPVEQ&nbsp;PEEYLDPDAC&nbsp;FTEGCVQRFK&nbsp;CCQVNIEEGL&nbsp;GKSWWILRKT&nbsp;CFLIVEHNWF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1240&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1260&nbsp;<br/>ETFIIFMILL&nbsp;SSGALAFEDI&nbsp;YIEQRKTIRT&nbsp;ILEYADKVFT&nbsp;YIFILEMLLK&nbsp;WTAYGFVKFF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1320&nbsp;<br/>TNAWCWLDFL&nbsp;IVAVSLVSLI&nbsp;ANALGYSELG&nbsp;AIKSLRTLRA&nbsp;LRPLRALSRF&nbsp;EGMRVVVNAL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1360&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1380&nbsp;<br/>VGAIPSIMNV&nbsp;LLVCLIFWLI&nbsp;FSIMGVNLFA&nbsp;GKYHYCFNET&nbsp;SEIRFEIEDV&nbsp;NNKTECEKLM&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1420&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1440&nbsp;<br/>EGNNTEIRWK&nbsp;NVKINFDNVG&nbsp;AGYLALLQVA&nbsp;TFKGWMDIMY&nbsp;AAVDSRKPDE&nbsp;QPKYEDNIYM&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1480&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1500&nbsp;<br/>YIYFVIFIIF&nbsp;GSFFTLNLFI&nbsp;GVIIDNFNQQ&nbsp;KKKFGGQDIF&nbsp;MTEEQKKYYN&nbsp;AMKKLGSKKP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1540&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1560&nbsp;<br/>QKPIPRPLNK&nbsp;IQGIVFDFVT&nbsp;QQAFDIVIMM&nbsp;LICLNMVTMM&nbsp;VETDTQSKQM&nbsp;ENILYWINLV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1600&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1620&nbsp;<br/>FVIFFTCECV&nbsp;LKMFALRHYY&nbsp;FTIGWNIFDF&nbsp;VVVILSIVGM&nbsp;FLADIIEKYF&nbsp;VSPTLFRVIR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1660&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1680&nbsp;<br/>LARIGRILRL&nbsp;IKGAKGIRTL&nbsp;LFALMMSLPA&nbsp;LFNIGLLLFL&nbsp;VMFIFSIFGM&nbsp;SNFAYVKHEA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1720&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1740&nbsp;<br/>GIDDMFNFET&nbsp;FGNSMICLFQ&nbsp;ITTSAGWDGL&nbsp;LLPILNRPPD&nbsp;CSLDKEHPGS&nbsp;GFKGDCGNPS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1780&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1800&nbsp;<br/>VGIFFFVSYI&nbsp;IISFLIVVNM&nbsp;YIAIILENFS&nbsp;VATEESADPL&nbsp;SEDDFETFYE&nbsp;IWEKFDPDAT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1840&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1860&nbsp;<br/>QFIEYCKLAD&nbsp;FADALEHPLR&nbsp;VPKPNTIELI&nbsp;AMDLPMVSGD&nbsp;RIHCLDILFA&nbsp;FTKRVLGDSG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1920&nbsp;<br/>ELDILRQQME&nbsp;ERFVASNPSK&nbsp;VSYEPITTTL&nbsp;RRKQEEVSAV&nbsp;VLQRAYRGHL&nbsp;ARRGFICKKT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1960&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1980&nbsp;<br/>TSNKLENGGT&nbsp;HREKKESTPS&nbsp;TASLPSYDSV&nbsp;TKPEKEKQQR&nbsp;AEEGRRERAK&nbsp;RQKEVRESKC&nbsp;<br/>&nbsp;&nbsp;&nbsp;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60&nbsp;<br/>MAARLLAPPG&nbsp;PDSFKPFTPE&nbsp;SLANIERRIA&nbsp;ESKLKKPPKA&nbsp;DGSHREDDED&nbsp;SKPKPNSDLE&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120&nbsp;<br/>AGKSLPFIYG&nbsp;DIPQGLVAVP&nbsp;LEDFDPYYLT&nbsp;QKTFVVLNRG&nbsp;KTLFRFSATP&nbsp;ALYILSPFNL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180&nbsp;<br/>IRRIAIKILI&nbsp;HSVFSMIIMC&nbsp;TILTNCVFMT&nbsp;FSNPPDWSKN&nbsp;VEYTFTGIYT&nbsp;FESLVKIIAR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;240&nbsp;<br/>GFCIDGFTFL&nbsp;RDPWNWLDFS&nbsp;VIMMAYITEF&nbsp;VNLGNVSALR&nbsp;TFRVLRALKT&nbsp;ISVIPGLKTI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300&nbsp;<br/>VGALIQSVKK&nbsp;LSDVMILTVF&nbsp;CLSVFALIGL&nbsp;QLFMGNLRNK&nbsp;CVVWPINFNE&nbsp;SYLENGTKGF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;360&nbsp;<br/>DWEEYINNKT&nbsp;NFYTVPGMLE&nbsp;PLLCGNSSDA&nbsp;GQCPEGYQCM&nbsp;KAGRNPNYGY&nbsp;TSFDTFSWAF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;420&nbsp;<br/>LALFRLMTQD&nbsp;YWENLYQLTL&nbsp;RAAGKTYMIF&nbsp;FVLVIFVGSF&nbsp;YLVNLILAVV&nbsp;AMAYEEQNQA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;480&nbsp;<br/>TLEEAEQKEA&nbsp;EFKAMLEQLK&nbsp;KQQEEAQAAA&nbsp;MATSAGTVSE&nbsp;DAIEEEGEEG&nbsp;GGSPRSSSEI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;540&nbsp;<br/>SKLSSKSAKE&nbsp;RRNRRKKRKQ&nbsp;KELSEGEEKG&nbsp;DPEKVFKSES&nbsp;EDGMRRKAFR&nbsp;LPDNRIGRKF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;600&nbsp;<br/>SIMNQSLLSI&nbsp;PGSPFLSRHN&nbsp;SKSSIFSFRG&nbsp;PGRFRDPGSE&nbsp;NEFADDEHST&nbsp;VEESEGRRDS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;660&nbsp;<br/>LFIPIRARER&nbsp;RSSYSGYSGY&nbsp;SQGSRSSRIF&nbsp;PSLRRSVKRN&nbsp;STVDCNGVVS&nbsp;LIGGPGSHIG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;720&nbsp;<br/>GRLLPEATTE&nbsp;VEIKKKGPGS&nbsp;LLVSMDQLAS&nbsp;YGRKDRINSI&nbsp;MSVVTNTLVE&nbsp;ELEESQRKCP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;740&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;780&nbsp;<br/>PCWYKFANTF&nbsp;LIWECHPYWI&nbsp;KLKEIVNLIV&nbsp;MDPFVDLAIT&nbsp;ICIVLNTLFM&nbsp;AMEHHPMTPQ&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;840&nbsp;<br/>FEHVLAVGNL&nbsp;VFTGIFTAEM&nbsp;FLKLIAMDPY&nbsp;YYFQEGWNIF&nbsp;DGFIVSLSLM&nbsp;ELSLADVEGL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;860&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;900&nbsp;<br/>SVLRSFRLLR&nbsp;VFKLAKSWPT&nbsp;LNMLIKIIGN&nbsp;SVGALGNLTL&nbsp;VLAIIVFIFA&nbsp;VVGMQLFGKS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;920&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;960&nbsp;<br/>YKECVCKINQ&nbsp;DCELPRWHMH&nbsp;DFFHSFLIVF&nbsp;RVLCGEWIET&nbsp;MWDCMEVAGQ&nbsp;AMCLIVFMMV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;980&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;990&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1020&nbsp;<br/>MVIGNLVVLN&nbsp;LFLALLLSSF&nbsp;SADNLAATDD&nbsp;DGEMNNLQIS&nbsp;VIRIKKGVAW&nbsp;TKLKVHAFMQ&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1080&nbsp;<br/>AHFKQREADE&nbsp;VKPLDELYEK&nbsp;KANCIANHTG&nbsp;ADIHRNGDFQ&nbsp;KNGNGTTSGI&nbsp;GSSVEKYIID&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1140&nbsp;<br/>EDHMSFINNP&nbsp;NLTVRVPIAV&nbsp;GESDFENLNT&nbsp;EDVSSESDPE&nbsp;GSKDKLDDTS&nbsp;SSEGSTIDIK&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1180&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1200&nbsp;<br/>PEVEEVPVEQ&nbsp;PEEYLDPDAC&nbsp;FTEGCVQRFK&nbsp;CCQVNIEEGL&nbsp;GKSWWILRKT&nbsp;CFLIVEHNWF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1240&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1260&nbsp;<br/>ETFIIFMILL&nbsp;SSGALAFEDI&nbsp;YIEQRKTIRT&nbsp;ILEYADKVFT&nbsp;YIFILEMLLK&nbsp;WTAYGFVKFF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1320&nbsp;<br/>TNAWCWLDFL&nbsp;IVAVSLVSLI&nbsp;ANALGYSELG&nbsp;AIKSLRTLRA&nbsp;LRPLRALSRF&nbsp;EGMRVVVNAL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1360&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1380&nbsp;<br/>VGAIPSIMNV&nbsp;LLVCLIFWLI&nbsp;FSIMGVNLFA&nbsp;GKYHYCFNET&nbsp;SEIRFEIEDV&nbsp;NNKTECEKLM&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1420&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1440&nbsp;<br/>EGNNTEIRWK&nbsp;NVKINFDNVG&nbsp;AGYLALLQVA&nbsp;TFKGWMDIMY&nbsp;AAVDSRKPDE&nbsp;QPKYEDNIYM&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1480&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1500&nbsp;<br/>YIYFVIFIIF&nbsp;GSFFTLNLFI&nbsp;GVIIDNFNQQ&nbsp;KKKFGGQDIF&nbsp;MTEEQKKYYN&nbsp;AMKKLGSKKP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1540&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1560&nbsp;<br/>QKPIPRPLNK&nbsp;IQGIVFDFVT&nbsp;QQAFDIVIMM&nbsp;LICLNMVTMM&nbsp;VETDTQSKQM&nbsp;ENILYWINLV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1600&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1620&nbsp;<br/>FVIFFTCECV&nbsp;LKMFALRHYY&nbsp;FTIGWNIFDF&nbsp;VVVILSIVGM&nbsp;FLADIIEKYF&nbsp;VSPTLFRVIR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1660&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1680&nbsp;<br/>LARIGRILRL&nbsp;IKGAKGIRTL&nbsp;LFALMMSLPA&nbsp;LFNIGLLLFL&nbsp;VMFIFSIFGM&nbsp;SNFAYVKHEA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1720&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1740&nbsp;<br/>GIDDMFNFET&nbsp;FGNSMICLFQ&nbsp;ITTSAGWDGL&nbsp;LLPILNRPPD&nbsp;CSLDKEHPGS&nbsp;GFKGDCGNPS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1780&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1800&nbsp;<br/>VGIFFFVSYI&nbsp;IISFLIVVNM&nbsp;YIAIILENFS&nbsp;VATEESADPL&nbsp;SEDDFETFYE&nbsp;IWEKFDPDAT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1840&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1860&nbsp;<br/>QFIEYCKLAD&nbsp;FADALEHPLR&nbsp;VPKPNTIELI&nbsp;AMDLPMVSGD&nbsp;RIHCLDILFA&nbsp;FTKRVLGDSG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1920&nbsp;<br/>ELDILRQQME&nbsp;ERFVASNPSK&nbsp;VSYEPITTTL&nbsp;RRKQEEVSAV&nbsp;VLQRAYRGHL&nbsp;ARRGFICKKT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1960&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1980&nbsp;<br/>TSNKLENGGT&nbsp;HREKKESTPS&nbsp;TASLPSYDSV&nbsp;TKPEKEKQQR&nbsp;AEEGRRERAK&nbsp;RQKEVRESKC&nbsp;<br/>&nbsp;&nbsp;&nbsp;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60&nbsp;<br/>MAARLLAPPG&nbsp;PDSFKPFTPE&nbsp;SLANIERRIA&nbsp;ESKLKKPPKA&nbsp;DGSHREDDED&nbsp;SKPKPNSDLE&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120&nbsp;<br/>AGKSLPFIYG&nbsp;DIPQGLVAVP&nbsp;LEDFDPYYLT&nbsp;QKTFVVLNRG&nbsp;KTLFRFSATP&nbsp;ALYILSPFNL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180&nbsp;<br/>IRRIAIKILI&nbsp;HSVFSMIIMC&nbsp;TILTNCVFMT&nbsp;FSNPPDWSKN&nbsp;VEYTFTGIYT&nbsp;FESLVKIIAR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;240&nbsp;<br/>GFCIDGFTFL&nbsp;RDPWNWLDFS&nbsp;VIMMAYITEF&nbsp;VNLGNVSALR&nbsp;TFRVLRALKT&nbsp;ISVIPGLKTI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300&nbsp;<br/>VGALIQSVKK&nbsp;LSDVMILTVF&nbsp;CLSVFALIGL&nbsp;QLFMGNLRNK&nbsp;CVVWPINFNE&nbsp;SYLENGTKGF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;360&nbsp;<br/>DWEEYINNKT&nbsp;NFYTVPGMLE&nbsp;PLLCGNSSDA&nbsp;GQCPEGYQCM&nbsp;KAGRNPNYGY&nbsp;TSFDTFSWAF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;420&nbsp;<br/>LALFRLMTQD&nbsp;YWENLYQLTL&nbsp;RAAGKTYMIF&nbsp;FVLVIFVGSF&nbsp;YLVNLILAVV&nbsp;AMAYEEQNQA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;480&nbsp;<br/>TLEEAEQKEA&nbsp;EFKAMLEQLK&nbsp;KQQEEAQAAA&nbsp;MATSAGTVSE&nbsp;DAIEEEGEEG&nbsp;GGSPRSSSEI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;540&nbsp;<br/>SKLSSKSAKE&nbsp;RRNRRKKRKQ&nbsp;KELSEGEEKG&nbsp;DPEKVFKSES&nbsp;EDGMRRKAFR&nbsp;LPDNRIGRKF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;600&nbsp;<br/>SIMNQSLLSI&nbsp;PGSPFLSRHN&nbsp;SKSSIFSFRG&nbsp;PGRFRDPGSE&nbsp;NEFADDEHST&nbsp;VEESEGRRDS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;660&nbsp;<br/>LFIPIRARER&nbsp;RSSYSGYSGY&nbsp;SQGSRSSRIF&nbsp;PSLRRSVKRN&nbsp;STVDCNGVVS&nbsp;LIGGPGSHIG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;720&nbsp;<br/>GRLLPEATTE&nbsp;VEIKKKGPGS&nbsp;LLVSMDQLAS&nbsp;YGRKDRINSI&nbsp;MSVVTNTLVE&nbsp;ELEESQRKCP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;740&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;780&nbsp;<br/>PCWYKFANTF&nbsp;LIWECHPYWI&nbsp;KLKEIVNLIV&nbsp;MDPFVDLAIT&nbsp;ICIVLNTLFM&nbsp;AMEHHPMTPQ&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;840&nbsp;<br/>FEHVLAVGNL&nbsp;VFTGIFTAEM&nbsp;FLKLIAMDPY&nbsp;YYFQEGWNIF&nbsp;DGFIVSLSLM&nbsp;ELSLADVEGL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;860&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;900&nbsp;<br/>SVLRSFRLLR&nbsp;VFKLAKSWPT&nbsp;LNMLIKIIGN&nbsp;SVGALGNLTL&nbsp;VLAIIVFIFA&nbsp;VVGMQLFGKS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;920&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;960&nbsp;<br/>YKECVCKINQ&nbsp;DCELPRWHMH&nbsp;DFFHSFLIVF&nbsp;RVLCGEWIET&nbsp;MWDCMEVAGQ&nbsp;AMCLIVFMMV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;980&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;990&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1020&nbsp;<br/>MVIGNLVVLN&nbsp;LFLALLLSSF&nbsp;SADNLAATDD&nbsp;DGEMNNLQIS&nbsp;VIRIKKGVAW&nbsp;TKLKVHAFMQ&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1080&nbsp;<br/>AHFKQREADE&nbsp;VKPLDELYEK&nbsp;KANCIANHTG&nbsp;ADIHRNGDFQ&nbsp;KNGNGTTSGI&nbsp;GSSVEKYIID&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1140&nbsp;<br/>EDHMSFINNP&nbsp;NLTVRVPIAV&nbsp;GESDFENLNT&nbsp;EDVSSESDPE&nbsp;GSKDKLDDTS&nbsp;SSEGSTIDIK&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1180&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1200&nbsp;<br/>PEVEEVPVEQ&nbsp;PEEYLDPDAC&nbsp;FTEGCVQRFK&nbsp;CCQVNIEEGL&nbsp;GKSWWILRKT&nbsp;CFLIVEHNWF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1240&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1260&nbsp;<br/>ETFIIFMILL&nbsp;SSGALAFEDI&nbsp;YIEQRKTIRT&nbsp;ILEYADKVFT&nbsp;YIFILEMLLK&nbsp;WTAYGFVKFF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1320&nbsp;<br/>TNAWCWLDFL&nbsp;IVAVSLVSLI&nbsp;ANALGYSELG&nbsp;AIKSLRTLRA&nbsp;LRPLRALSRF&nbsp;EGMRVVVNAL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1360&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1380&nbsp;<br/>VGAIPSIMNV&nbsp;LLVCLIFWLI&nbsp;FSIMGVNLFA&nbsp;GKYHYCFNET&nbsp;SEIRFEIEDV&nbsp;NNKTECEKLM&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1420&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1440&nbsp;<br/>EGNNTEIRWK&nbsp;NVKINFDNVG&nbsp;AGYLALLQVA&nbsp;TFKGWMDIMY&nbsp;AAVDSRKPDE&nbsp;QPKYEDNIYM&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1480&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1500&nbsp;<br/>YIYFVIFIIF&nbsp;GSFFTLNLFI&nbsp;GVIIDNFNQQ&nbsp;KKKFGGQDIF&nbsp;MTEEQKKYYN&nbsp;AMKKLGSKKP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1540&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1560&nbsp;<br/>QKPIPRPLNK&nbsp;IQGIVFDFVT&nbsp;QQAFDIVIMM&nbsp;LICLNMVTMM&nbsp;VETDTQSKQM&nbsp;ENILYWINLV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1600&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1620&nbsp;<br/>FVIFFTCECV&nbsp;LKMFALRHYY&nbsp;FTIGWNIFDF&nbsp;VVVILSIVGM&nbsp;FLADIIEKYF&nbsp;VSPTLFRVIR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1660&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1680&nbsp;<br/>LARIGRILRL&nbsp;IKGAKGIRTL&nbsp;LFALMMSLPA&nbsp;LFNIGLLLFL&nbsp;VMFIFSIFGM&nbsp;SNFAYVKHEA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1720&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1740&nbsp;<br/>GIDDMFNFET&nbsp;FGNSMICLFQ&nbsp;ITTSAGWDGL&nbsp;LLPILNRPPD&nbsp;CSLDKEHPGS&nbsp;GFKGDCGNPS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1780&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1800&nbsp;<br/>VGIFFFVSYI&nbsp;IISFLIVVNM&nbsp;YIAIILENFS&nbsp;VATEESADPL&nbsp;SEDDFETFYE&nbsp;IWEKFDPDAT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1840&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1860&nbsp;<br/>QFIEYCKLAD&nbsp;FADALEHPLR&nbsp;VPKPNTIELI&nbsp;AMDLPMVSGD&nbsp;RIHCLDILFA&nbsp;FTKRVLGDSG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1920&nbsp;<br/>ELDILRQQME&nbsp;ERFVASNPSK&nbsp;VSYEPITTTL&nbsp;RRKQEEVSAV&nbsp;VLQRAYRGHL&nbsp;ARRGFICKKT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1960&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1980&nbsp;<br/>TSNKLENGGT&nbsp;HREKKESTPS&nbsp;TASLPSYDSV&nbsp;TKPEKEKQQR&nbsp;AEEGRRERAK&nbsp;RQKEVRESKC&nbsp;<br/>&nbsp;&nbsp;&nbsp;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60&nbsp;<br/>MAARLLAPPG&nbsp;PDSFKPFTPE&nbsp;SLANIERRIA&nbsp;ESKLKKPPKA&nbsp;DGSHREDDED&nbsp;SKPKPNSDLE&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120&nbsp;<br/>AGKSLPFIYG&nbsp;DIPQGLVAVP&nbsp;LEDFDPYYLT&nbsp;QKTFVVLNRG&nbsp;KTLFRFSATP&nbsp;ALYILSPFNL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180&nbsp;<br/>IRRIAIKILI&nbsp;HSVFSMIIMC&nbsp;TILTNCVFMT&nbsp;FSNPPDWSKN&nbsp;VEYTFTGIYT&nbsp;FESLVKIIAR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;240&nbsp;<br/>GFCIDGFTFL&nbsp;RDPWNWLDFS&nbsp;VIMMAYITEF&nbsp;VNLGNVSALR&nbsp;TFRVLRALKT&nbsp;ISVIPGLKTI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300&nbsp;<br/>VGALIQSVKK&nbsp;LSDVMILTVF&nbsp;CLSVFALIGL&nbsp;QLFMGNLRNK&nbsp;CVVWPINFNE&nbsp;SYLENGTKGF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;360&nbsp;<br/>DWEEYINNKT&nbsp;NFYTVPGMLE&nbsp;PLLCGNSSDA&nbsp;GQCPEGYQCM&nbsp;KAGRNPNYGY&nbsp;TSFDTFSWAF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;420&nbsp;<br/>LALFRLMTQD&nbsp;YWENLYQLTL&nbsp;RAAGKTYMIF&nbsp;FVLVIFVGSF&nbsp;YLVNLILAVV&nbsp;AMAYEEQNQA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;480&nbsp;<br/>TLEEAEQKEA&nbsp;EFKAMLEQLK&nbsp;KQQEEAQAAA&nbsp;MATSAGTVSE&nbsp;DAIEEEGEEG&nbsp;GGSPRSSSEI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;540&nbsp;<br/>SKLSSKSAKE&nbsp;RRNRRKKRKQ&nbsp;KELSEGEEKG&nbsp;DPEKVFKSES&nbsp;EDGMRRKAFR&nbsp;LPDNRIGRKF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;600&nbsp;<br/>SIMNQSLLSI&nbsp;PGSPFLSRHN&nbsp;SKSSIFSFRG&nbsp;PGRFRDPGSE&nbsp;NEFADDEHST&nbsp;VEESEGRRDS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;660&nbsp;<br/>LFIPIRARER&nbsp;RSSYSGYSGY&nbsp;SQGSRSSRIF&nbsp;PSLRRSVKRN&nbsp;STVDCNGVVS&nbsp;LIGGPGSHIG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;720&nbsp;<br/>GRLLPEATTE&nbsp;VEIKKKGPGS&nbsp;LLVSMDQLAS&nbsp;YGRKDRINSI&nbsp;MSVVTNTLVE&nbsp;ELEESQRKCP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;740&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;780&nbsp;<br/>PCWYKFANTF&nbsp;LIWECHPYWI&nbsp;KLKEIVNLIV&nbsp;MDPFVDLAIT&nbsp;ICIVLNTLFM&nbsp;AMEHHPMTPQ&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;840&nbsp;<br/>FEHVLAVGNL&nbsp;VFTGIFTAEM&nbsp;FLKLIAMDPY&nbsp;YYFQEGWNIF&nbsp;DGFIVSLSLM&nbsp;ELSLADVEGL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;860&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;900&nbsp;<br/>SVLRSFRLLR&nbsp;VFKLAKSWPT&nbsp;LNMLIKIIGN&nbsp;SVGALGNLTL&nbsp;VLAIIVFIFA&nbsp;VVGMQLFGKS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;920&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;960&nbsp;<br/>YKECVCKINQ&nbsp;DCELPRWHMH&nbsp;DFFHSFLIVF&nbsp;RVLCGEWIET&nbsp;MWDCMEVAGQ&nbsp;AMCLIVFMMV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;980&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;990&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1020&nbsp;<br/>MVIGNLVVLN&nbsp;LFLALLLSSF&nbsp;SADNLAATDD&nbsp;DGEMNNLQIS&nbsp;VIRIKKGVAW&nbsp;TKLKVHAFMQ&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1080&nbsp;<br/>AHFKQREADE&nbsp;VKPLDELYEK&nbsp;KANCIANHTG&nbsp;ADIHRNGDFQ&nbsp;KNGNGTTSGI&nbsp;GSSVEKYIID&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1140&nbsp;<br/>EDHMSFINNP&nbsp;NLTVRVPIAV&nbsp;GESDFENLNT&nbsp;EDVSSESDPE&nbsp;GSKDKLDDTS&nbsp;SSEGSTIDIK&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1180&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1200&nbsp;<br/>PEVEEVPVEQ&nbsp;PEEYLDPDAC&nbsp;FTEGCVQRFK&nbsp;CCQVNIEEGL&nbsp;GKSWWILRKT&nbsp;CFLIVEHNWF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1240&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1260&nbsp;<br/>ETFIIFMILL&nbsp;SSGALAFEDI&nbsp;YIEQRKTIRT&nbsp;ILEYADKVFT&nbsp;YIFILEMLLK&nbsp;WTAYGFVKFF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1320&nbsp;<br/>TNAWCWLDFL&nbsp;IVAVSLVSLI&nbsp;ANALGYSELG&nbsp;AIKSLRTLRA&nbsp;LRPLRALSRF&nbsp;EGMRVVVNAL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1360&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1380&nbsp;<br/>VGAIPSIMNV&nbsp;LLVCLIFWLI&nbsp;FSIMGVNLFA&nbsp;GKYHYCFNET&nbsp;SEIRFEIEDV&nbsp;NNKTECEKLM&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1420&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1440&nbsp;<br/>EGNNTEIRWK&nbsp;NVKINFDNVG&nbsp;AGYLALLQVA&nbsp;TFKGWMDIMY&nbsp;AAVDSRKPDE&nbsp;QPKYEDNIYM&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1480&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1500&nbsp;<br/>YIYFVIFIIF&nbsp;GSFFTLNLFI&nbsp;GVIIDNFNQQ&nbsp;KKKFGGQDIF&nbsp;MTEEQKKYYN&nbsp;AMKKLGSKKP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1540&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1560&nbsp;<br/>QKPIPRPLNK&nbsp;IQGIVFDFVT&nbsp;QQAFDIVIMM&nbsp;LICLNMVTMM&nbsp;VETDTQSKQM&nbsp;ENILYWINLV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1600&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1620&nbsp;<br/>FVIFFTCECV&nbsp;LKMFALRHYY&nbsp;FTIGWNIFDF&nbsp;VVVILSIVGM&nbsp;FLADIIEKYF&nbsp;VSPTLFRVIR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1660&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1680&nbsp;<br/>LARIGRILRL&nbsp;IKGAKGIRTL&nbsp;LFALMMSLPA&nbsp;LFNIGLLLFL&nbsp;VMFIFSIFGM&nbsp;SNFAYVKHEA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1720&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1740&nbsp;<br/>GIDDMFNFET&nbsp;FGNSMICLFQ&nbsp;ITTSAGWDGL&nbsp;LLPILNRPPD&nbsp;CSLDKEHPGS&nbsp;GFKGDCGNPS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1780&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1800&nbsp;<br/>VGIFFFVSYI&nbsp;IISFLIVVNM&nbsp;YIAIILENFS&nbsp;VATEESADPL&nbsp;SEDDFETFYE&nbsp;IWEKFDPDAT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1840&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1860&nbsp;<br/>QFIEYCKLAD&nbsp;FADALEHPLR&nbsp;VPKPNTIELI&nbsp;AMDLPMVSGD&nbsp;RIHCLDILFA&nbsp;FTKRVLGDSG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1920&nbsp;<br/>ELDILRQQME&nbsp;ERFVASNPSK&nbsp;VSYEPITTTL&nbsp;RRKQEEVSAV&nbsp;VLQRAYRGHL&nbsp;ARRGFICKKT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1960&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1980&nbsp;<br/>TSNKLENGGT&nbsp;HREKKESTPS&nbsp;TASLPSYDSV&nbsp;TKPEKEKQQR&nbsp;AEEGRRERAK&nbsp;RQKEVRESKC&nbsp;<br/>&nbsp;&nbsp;&nbsp;<br/>
+          </p>
+
+	   <br><br>
+	
+     
+	      
+	
+	  </section> 
+	</section>
+
+
+
+	  <section class="right" width="20px">
+
+	  		<center>
+			<form action="/proteins/show/Q9UQD0" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="ENpveHL2rDvlT50AaLasXqgNrWiQsJu02o/6EjLDF2EtlGxpf3GUHvsc7V7Nwt8n+kxLUWim7cFH+xdPmRLwAQ==" />
+				
+				<!-- To go back from dropdown to multiple selection box, type :multiple => true into the last set of {} brackets -->
+
+				<h2>Filter Information:</h2>
+				<br>
+				(<a href="/proteins/show/Q9UQD0">REFRESH</a>)
+				<br></br>
+				<h3>Directness: </h3>
+				<select name="directness" id="directness"><option value="unknown">unknown</option>
+<option value="indirect">indirect</option></select>
+				<br><h3>Physiological Relevance: </h3>
+				<select name="phys_rel" id="phys_rel"><option value="unknown">unknown</option></select>
+				<br><h3>Evidence Codes: </h3>
+				<select name="evidencecodes" id="evidencecodes"><option value="inferred from electronic annotation">inferred from electronic annotation</option>
+<option value="inferred from isoform by sequence similarity">inferred from isoform by sequence similarity</option></select>
+				<br><h3>Methodology: </h3>
+				<select name="methodology" id="methodology"><option value="electronic annotation">electronic annotation</option>
+<option value="unknown">unknown</option></select>
+				<br><h3>Perturbation of System: </h3>
+				<select name="perturbations" id="perturbations"><option value=""></option>
+<option value="none">none</option></select>
+				<br><h3>Biological System: </h3>
+				<select name="methodsystems" id="methodsystems"><option value="unknown">unknown</option></select>
+				<br><h3>Protease Assignment Confidence: </h3>
+				<select name="proteaseassignmentconfidences" id="proteaseassignmentconfidences"><option value="unknown">unknown</option></select>
+				<br><h3>Evidence Names: </h3>
+				<select name="evidences" id="evidences"><option value="inferred from uniprot">inferred from uniprot</option>
+<option value="inferred from TNt89070">inferred from TNt89070</option>
+<option value="inferred from TNt89071">inferred from TNt89071</option>
+<option value="inferred from TNt89072">inferred from TNt89072</option>
+<option value="inferred from TNt89073">inferred from TNt89073</option>
+<option value="inferred from TCt84691">inferred from TCt84691</option>
+<option value="inferred from TCt84688">inferred from TCt84688</option>
+<option value="inferred from TCt84689">inferred from TCt84689</option></select>
+				<br><h3>Database: </h3>
+				<select name="repository" id="repository"><option value=""></option>
+<option value=""></option></select>
+				<br><h3>Lab: </h3>
+				<select name="labs" id="labs"><option value=""></option>
+<option value=""></option></select>
+				<br><br>
+				<input type="submit" name="commit" value="Search" data-disable-with="Search" />
+</form>
+		</center>
+
+	  </section>
+         	
+	
+
+	</section> 	  
+
+</def>
+
+
+
+
+<section class="full category">
+</section>
+<def tag='Protein_Neighborhood'>
+	<a name="Protein_Neighborhood"/>
+	<h2>Protein Neighborhood</h2>
+		<img src="/assets/protein_neighborhood/Q9UQD0_pw_graphviz-63b2796d454f806db6310cd3428609317a8fbca567fb2270f92e3fa08ac2b2ce.svg" />
+</def>
+	
+	        <section class="full category">
+              <pagenav/>
+              <a name="features"/><h2>Domains &amp; Features</h2>
+            </section>
+
+            <h2><center>1 N-termini - 1 C-termini - 0 Cleavages - 0 Substrates</center></h2>
+			
+<!-- N-TERMINI  -->
+
+              <a name="features"/><h2>N-termini</h2></a>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Name</th>
+					<th>Sequence</th>
+					<th>Position</th>
+					<th>Modification</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMID)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td>Q9UQD0-1-unknown</td>
+							<td>MAARLL...</td>
+							<td>1</td>
+							<td></td>
+							<td>inferred from electronic annotation</td>
+							<td>electronic annotation</td>
+							<td><a target="_blank" href="http://www.uniprot.org">UniProtKB</a></td>
+							<td></td>
+							<td><a href="/evidences/show/1">inferred from uniprot</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q9UQD0-1-unknown</td>
+							<td>MAARLL...</td>
+							<td>1</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9UQD0-2#TNt89070">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/32177">inferred from TNt89070</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q9UQD0-1-unknown</td>
+							<td>MAARLL...</td>
+							<td>1</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9UQD0-3#TNt89071">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/32331">inferred from TNt89071</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q9UQD0-1-unknown</td>
+							<td>MAARLL...</td>
+							<td>1</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9UQD0-4#TNt89072">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/32471">inferred from TNt89072</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q9UQD0-1-unknown</td>
+							<td>MAARLL...</td>
+							<td>1</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9UQD0-5#TNt89073">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/32626">inferred from TNt89073</a></td>
+							<td>
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>
+
+
+
+<!-- C-TERMINI  -->
+
+
+              <a name="features"/><h2>C-termini</h2>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Name</th>
+					<th>Sequence</th>
+					<th>Position</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td></td>
+							<td>...RESKC </td>
+							<td>1980</td>
+							<td>inferred from electronic annotation</td>
+							<td>electronic annotation</td>
+							<td><a target="_blank" href="http://www.uniprot.org">UniProtKB</a></td>
+							<td></td>
+							<td><a href="/evidences/show/1">inferred from uniprot</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...RESKC </td>
+							<td>1980</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9UQD0-5#TCt84691">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/68957">inferred from TCt84691</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...RESKC </td>
+							<td>1980</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9UQD0-2#TCt84688">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/69028">inferred from TCt84688</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...RESKC </td>
+							<td>1980</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9UQD0-3#TCt84689">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/69047">inferred from TCt84689</a></td>
+							<td>
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>
+
+<!-- CLEAVAGES -->
+
+
+              <a name="features"/><h2>Cleavages</h2>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Protease</th>
+					<th>Position</th>
+					<th>Sequence</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+				</tbody>
+			  </table>
+			</ul>
+
+
+<!-- SUBSTRATES -->
+
+              <a name="features"/><h2>Substrates</h2>
+              <ul id="protshow">
+			  <table id="protshow" class="substrates-table">
+				<thead>
+					<th>Substrate</th>
+					<th>Position</th>
+					<th>Sequence</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+				</tbody>
+			  </table>
+			</ul>	
+
+			
+			
+			<section class="full">
+              
+            </section>
+	
+</def>
+
+
+<br>
+<br>
+
+
+</div>
+</div>
+</div>
+
+<footer>
+
+        
+    <div id="publication">
+
+        <div id="pics">
+        <img alt="UBC Logo" src="/assets/UBClogoupdated-76d10b067dddb96b9cf35c63b9db6f8ddd48959cffd588df9598f89d124f7279.png" width="372" height="117" />
+        <a href="http://clip.ubc.ca" target="_blank"><img alt="Lab Logo" src="/assets/Optimized_LabLogo-6b774b6428c587573bbe04397e0d610398524d5693571f497b59df22be3789d1.png" width="400" height="169" /></a>
+        </div>
+    </div>
+
+
+
+<div id="links">
+<br>
+<br>
+<center>
+<a href="/documentations/about">About |</a>
+<a href="/documentations/license">License &amp; Disclaimer |</a>
+<a href="mailto:topfind.clip@gmail.com">Contact |</a>
+<a href="/documentations/download">Download</a> 
+</center>
+
+<br>
+<center>
+        <h3> Developed by: Philipp F. Lange, Nikolaus Fortelny, Simran Rai </h3>
+        <a href="http://nar.oxfordjournals.org/content/early/2014/10/20/nar.gku1012.full" target="_blank">Nikolaus Fortelny, Sharon Yang, Paul Pavlidis, Philipp F. Lange*, Christopher M. Overall*, <b>Nucleic Acids Research</b> doi: 10.1093/nar/gku1012 (2014)</a><a href="http://nar.oxfordjournals.org/content/early/2014/10/20/nar.gku1012.full.pdf+html" target="_blank">[pdf]</a><br>
+        <a href="http://nar.oxfordjournals.org/content/40/D1/D351.full" target="_blank">Philipp F. Lange, Pitter F. Huesgen, Christopher M. Overall, <b>Nucleic Acids Research</b> 40 (D1), D351-D361 (2012)</a> <a href="https://www.researchgate.net/profile/Philipp_Lange/publication/51816705_TopFIND_2.0--linking_protein_termini_with_proteolytic_processing_and_modifications_altering_protein_function/links/0fcfd50574d434aac9000000?ev=pub_int_doc_dl&origin=publication_detail&inViewer=true" target="_blank">[pdf]</a><br>
+        <a href="http://www.nature.com/nmeth/journal/v8/n9/full/nmeth.1669.html" target="_blank">Philipp F. Lange &amp; Christopher M. Overall, <b>Nature Methods</b> 8, 703&minus;704 (2011)</a> <a href="/topfind/downloads/2011-NMeth-Lange_and_Overall.pdf" target="_blank">[pdf]</a>
+    <div class="bottom">&nbsp;</div>
+</center>
+
+</div>
+
+
+    </footer>
+
+
+
+</body>
+
+
+
+
+
+</body>
+</html>

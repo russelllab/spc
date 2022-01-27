@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    46       0.239
+  max. Y    46       0.438
+  max. S    36       0.950
+  mean S     1-45    0.564
+       D     1-45    0.506   0.450   YES
+Name=KCT2_HUMAN	SP='YES' Cleavage site between pos. 45 and 46: ALS-SV D=0.506 D-cutoff=0.450 Networks=SignalP-noTM

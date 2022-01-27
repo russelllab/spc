@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.190
+  max. Y    21       0.142
+  max. S    38       0.142
+  mean S     1-20    0.107
+       D     1-20    0.128   0.500   NO
+Name=FEZF1_HUMAN	SP='NO' D=0.128 D-cutoff=0.500 Networks=SignalP-TM

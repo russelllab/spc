@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.777
+  max. Y    22       0.860
+  max. S     4       0.983
+  mean S     1-21    0.953
+       D     1-21    0.911   0.450   YES
+Name=OXLA_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: VAS-QD D=0.911 D-cutoff=0.450 Networks=SignalP-noTM

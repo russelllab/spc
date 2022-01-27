@@ -1,0 +1,34 @@
+# SignalP-4.1 euk predictions
+# Name=NAC3_HUMAN_TRANSMEM11	Length=24	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   L   0.101   0.973   0.313
+    2   F   0.102   0.955   0.315
+    3   V   0.101   0.943   0.313
+    4   S   0.105   0.932   0.320
+    5   L   0.103   0.880   0.315
+    6   W   0.098   0.896   0.308
+    7   L   0.102   0.874   0.313
+    8   L   0.100   0.822   0.309
+    9   Y   0.100   0.708   0.308
+   10   I   0.102   0.502   0.310
+   11   L   0.101   0.410   0.304
+   12   F   0.102   0.441   0.301
+   13   A   0.102   0.390   0.297
+   14   T   0.103   0.216   0.294
+   15   L   0.100   0.200   0.284
+   16   E   0.102   0.170   0.280
+   17   A   0.115   0.122   0.290
+   18   Y   0.221   0.095   0.392
+   19   C   0.104   0.100   0.261
+   20   Y   0.147   0.094   0.301
+   21   I   0.100   0.100   0.239
+   22   K   0.136   0.103   0.270
+   23   G   0.095   0.103   0.217
+   24   F   0.134   0.099   0.248
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.221
+  max. Y    18       0.392
+  max. S     1       0.973
+  mean S     1-17    0.614
+       D     1-17    0.512   0.450   YES
+Name=NAC3_HUMAN_TRANSMEM11	SP='YES' Cleavage site between pos. 17 and 18: LEA-YC D=0.512 D-cutoff=0.450 Networks=SignalP-noTM

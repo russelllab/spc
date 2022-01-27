@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    34       0.344
+  max. Y    34       0.567
+  max. S    17       0.999
+  mean S     1-33    0.950
+       D     1-33    0.774   0.450   YES
+Name=CGAT1_HUMAN	SP='YES' Cleavage site between pos. 33 and 34: MLA-CT D=0.774 D-cutoff=0.450 Networks=SignalP-noTM

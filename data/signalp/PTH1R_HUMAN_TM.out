@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    29       0.705
+  max. Y    23       0.718
+  max. S    20       0.915
+  mean S     1-22    0.852
+       D     1-22    0.772   0.500   YES
+Name=PTH1R_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: SSA-YA D=0.772 D-cutoff=0.500 Networks=SignalP-TM

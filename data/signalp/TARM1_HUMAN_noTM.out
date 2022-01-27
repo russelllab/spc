@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.334
+  max. Y    17       0.507
+  max. S    16       0.873
+  mean S     1-16    0.755
+       D     1-16    0.641   0.450   YES
+Name=TARM1_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: CVG-QG D=0.641 D-cutoff=0.450 Networks=SignalP-noTM

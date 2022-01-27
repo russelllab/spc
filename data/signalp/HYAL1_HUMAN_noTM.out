@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.859
+  max. Y    22       0.875
+  max. S     4       0.955
+  mean S     1-21    0.890
+       D     1-21    0.883   0.450   YES
+Name=HYAL1_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: AQG-FR D=0.883 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    27       0.329
+  max. Y    27       0.472
+  max. S     4       0.776
+  mean S     1-26    0.684
+       D     1-26    0.557   0.500   YES
+Name=ACHA4_HUMAN	SP='YES' Cleavage site between pos. 26 and 27: LRA-SS D=0.557 D-cutoff=0.500 Networks=SignalP-TM

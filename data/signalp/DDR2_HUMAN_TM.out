@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.881
+  max. Y    24       0.893
+  max. S    11       0.973
+  mean S     1-23    0.918
+       D     1-23    0.903   0.500   YES
+Name=DDR2_HUMAN	SP='YES' Cleavage site between pos. 23 and 24: AKA-QV D=0.903 D-cutoff=0.500 Networks=SignalP-TM

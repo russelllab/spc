@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.166
+  max. Y    21       0.319
+  max. S     5       0.760
+  mean S     1-20    0.618
+       D     1-20    0.481   0.450   YES
+Name=ARMX6_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: AGA-CY D=0.481 D-cutoff=0.450 Networks=SignalP-noTM

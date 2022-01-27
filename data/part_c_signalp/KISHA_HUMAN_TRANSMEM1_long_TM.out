@@ -1,0 +1,29 @@
+# SignalP-4.1 euk predictions
+# Name=KISHA_HUMAN_TRANSMEM1	Length=19	Networks=SignalP-TM
+# pos  aa    C       S       Y
+    1   S   0.101   0.530   0.232
+    2   P   0.101   0.546   0.231
+    3   Y   0.103   0.524   0.234
+    4   V   0.103   0.458   0.234
+    5   A   0.103   0.445   0.233
+    6   V   0.097   0.368   0.225
+    7   C   0.101   0.288   0.226
+    8   C   0.103   0.279   0.225
+    9   I   0.102   0.234   0.220
+   10   V   0.101   0.213   0.213
+   11   M   0.105   0.160   0.212
+   12   A   0.104   0.159   0.205
+   13   F   0.097   0.180   0.191
+   14   S   0.105   0.189   0.192
+   15   I   0.102   0.173   0.182
+   16   L   0.102   0.181   0.175
+   17   F   0.103   0.144   0.168
+   18   I   0.101   0.136   0.158
+   19   Q   0.103   0.113   0.152
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    14       0.105
+  max. Y    11       0.212
+  max. S     2       0.546
+  mean S     1-10    0.388
+       D     1-10    0.283   0.500   NO
+Name=KISHA_HUMAN_TRANSMEM1	SP='NO' D=0.283 D-cutoff=0.500 Networks=SignalP-TM

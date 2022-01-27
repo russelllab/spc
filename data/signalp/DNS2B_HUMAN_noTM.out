@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.473
+  max. Y    28       0.676
+  max. S    20       0.991
+  mean S     1-27    0.958
+       D     1-27    0.828   0.450   YES
+Name=DNS2B_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: LGA-AT D=0.828 D-cutoff=0.450 Networks=SignalP-noTM

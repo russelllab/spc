@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    32       0.672
+  max. Y    32       0.701
+  max. S    19       0.808
+  mean S     1-31    0.695
+       D     1-31    0.698   0.500   YES
+Name=LRFN1_HUMAN	SP='YES' Cleavage site between pos. 31 and 32: SRG-QP D=0.698 D-cutoff=0.500 Networks=SignalP-TM

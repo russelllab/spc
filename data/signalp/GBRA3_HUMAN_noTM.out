@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    29       0.678
+  max. Y    29       0.693
+  max. S    27       0.826
+  mean S     1-28    0.675
+       D     1-28    0.683   0.450   YES
+Name=GBRA3_HUMAN	SP='YES' Cleavage site between pos. 28 and 29: TTG-QG D=0.683 D-cutoff=0.450 Networks=SignalP-noTM

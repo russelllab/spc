@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    46       0.366
+  max. Y    46       0.498
+  max. S    28       0.970
+  mean S     1-45    0.682
+       D     1-45    0.598   0.450   YES
+Name=GPR42_HUMAN	SP='YES' Cleavage site between pos. 45 and 46: LRC-RP D=0.598 D-cutoff=0.450 Networks=SignalP-noTM

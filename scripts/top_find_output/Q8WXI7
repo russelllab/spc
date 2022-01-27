@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Topfind 4.1</title>
+  <link rel="stylesheet" media="all" href="/assets/application-858af69cb01fabcb6739c5a9f3b408dc5cab04a41204d359455faa9a1c71fe4f.css" data-turbolinks-track="true" />
+  <script src="/assets/application-81d2bdfbc75607a7faecaf7abdf4676ceac4fd65d3aa8930b8177b5f7a641d9c.js" data-turbolinks-track="true"></script>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="dwPeCFhpeoNRIP/FZzC0OWIZShr3OC1rosXmGpUeYpqoJq+UdzJRPeHVNSkm+7zyIpHaZ6urlMKs4dtmbNM8Bw==" />
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://code.highcharts.com/6.0.6/highcharts.js"></script>
+<script src="https://code.highcharts.com/6.0.6/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/js/modules/xrange.js"></script>
+<script src="https://code.highcharts.com/js/modules/exporting.js"></script>
+<link rel="stylesheet" type="text/css" href="assets/stylesheets/defaultcontentslider.css" />
+<link rel="stylesheet" type="text/css" href="assets/stylesheets/componentcontentslider.css" />
+<script src="assets/javascripts/modernizr.custom.js"></script>
+
+
+<style>
+
+@import 'https://code.highcharts.com/css/highcharts.css';
+
+#protshow {
+  font-family: "Lato", "Ubuntu", sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#protshow td, #protshow th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#protshow tr:nth-child(even){background-color: #f2f2f2;}
+
+#protshow tr:hover {background-color: #ddd;}
+
+#protshow th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0C0E28;
+  color: white;
+}
+
+
+#container_chart {
+min-width: 300px;
+max-width: 800px;
+height: 300px;
+margin: 1em auto;
+}
+
+
+/* Exporting module */
+.highcharts-contextbutton {
+fill: #ffffff;
+    /* needed to capture hover */
+stroke: none;
+    stroke-linecap: round;
+}
+
+.highcharts-contextbutton:hover {
+fill: #e6e6e6;
+stroke: #e6e6e6;
+}
+
+.highcharts-button-symbol {
+stroke: #666666;
+    stroke-width: 3px;
+}
+
+.highcharts-menu {
+border: 1px solid #999999;
+background: #ffffff;
+padding: 5px 0;
+    box-shadow: 3px 3px 10px #888;
+}
+
+.highcharts-menu-item {
+padding: 0.5em 1em;
+background: none;
+color: #333333;
+cursor: pointer;
+transition: background 250ms, color 250ms;
+}
+
+.highcharts-menu-item:hover {
+background: #335cad;
+color: #ffffff;
+}
+
+
+h1 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 25px;
+	line-height: 25px;
+	color: #444;
+}
+
+h2 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 20px;
+	color: #444;
+}
+
+h3 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 15px;
+	color: #444;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", "Ubuntu", sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #e3e2e0;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+
+p.seq {font-family: 'Courier New', Courier, monospace; font-size: 12px;}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>TopFIND 4.0</title>
+
+		<!-- meta -->
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	    <!-- css -->
+<!--
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/ionicons.min.css">
+		<link rel="stylesheet" type="text/css" href="css/pace.css">
+	    <link rel="stylesheet" type="text/css" href="css/custom.css">-->
+
+	    <!-- js -->
+<!--
+	    <script src="js/jquery-2.1.3.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+	    <script src="js/pace.min.js"></script>
+	    <script src="js/modernizr.custom.js"></script>-->
+	</head>
+
+
+	<body>		
+
+		<div class="container">
+            <header id="site-header">
+				<div class="row">
+					<div class="col-md-4 col-sm-5 col-xs-8">
+						<div class="logo">
+							<h1 style="font-size: 40px;"><a href="/home/index">Top<b style="color: red;">FIND</b></a></h1>
+						</div>
+					</div><!-- col-md-4 -->
+					<div class="col-md-8 col-sm-7 col-xs-12">
+						<nav class="main-nav" role="navigation">
+							<div class="navbar-header">
+  								<button type="button" id="trigger-overlay" class="navbar-toggle">
+    								<span class="ion-navicon"></span>
+  								</button>
+							</div>
+
+							<div class="navbar" id="navbar-main">
+  								<ul class="nav navbar-nav navbar-right">
+    								<li class="cl-effect-11"><a href="/proteins/protsearch" data-hover="Proteins">Proteins<b style="color: red;">+</b></a></li>
+    								<li class="cl-effect-11"><a href="/topfinder" data-hover="TopFINDer">Top<b style="color: red;">FINDer</b></a></li>
+    								<li class="cl-effect-11"><a href="/pathfinder" data-hover="PathFINDer">Path<b style="color: red;">FINDer</b></a></li>
+    								<li class="cl-effect-11"><a href="/contribute/index" data-hover="Contribute">Contribute</a></li>
+  								</ul>
+							</div><!-- /.navbar-collapse -->
+						</nav>
+				</div>
+			</header>
+		</div>
+
+</body>
+
+
+
+<!-- RUBY DOESN'T DISPLAY TOOLTIPS, if I put he same code in a .html file tooltips are displayed -->
+<!-- If the values are integers, one has to start from 0 -->
+
+<!-- PARSE RUBY DATA FOR JAVASCRIPT-->
+
+<div id="container_chart" style="width:100%; height:400px;"></div>
+
+<script type="text/javascript">
+
+    var dataarr = [];
+    var catarr = [];
+
+
+    $(document).ready(
+
+        function makeArr() {
+
+        var domainElem = [["Sequence","1-14507",0,14507],["Chains","1-22152",1,22152],["N-Terms","1",1,2],["C-Terms","22152",22151,22152],["Variants","CONFLICT (8346-8346)",8346,8346],["Variants","CONFLICT (8580-8580)",8580,8580],["Variants","CONFLICT (9061-9061)",9061,9061],["Variants","CONFLICT (9074-9074)",9074,9074],["Variants","CONFLICT (9131-9131)",9131,9131],["Variants","CONFLICT (9407-9407)",9407,9407],["Variants","CONFLICT (9504-9504)",9504,9504],["Variants","CONFLICT (9610-9610)",9610,9610],["Variants","CONFLICT (9852-9852)",9852,9852],["Variants","CONFLICT (9901-9901)",9901,9901],["Variants","CONFLICT (10171-10171)",10171,10171],["Variants","CONFLICT (10396-10396)",10396,10396],["Variants","CONFLICT (10515-10515)",10515,10515],["Variants","CONFLICT (10522-10522)",10522,10522],["Variants","CONFLICT (10563-10563)",10563,10563],["Variants","CONFLICT (10830-10830)",10830,10830],["Variants","CONFLICT (11156-11156)",11156,11156],["Variants","CONFLICT (11201-11201)",11201,11201],["Variants","CONFLICT (11457-11457)",11457,11457],["Variants","CONFLICT (11506-11506)",11506,11506],["Variants","CONFLICT (11577-11577)",11577,11577],["Variants","CONFLICT (11783-11783)",11783,11783],["Variants","CONFLICT (12142-12142)",12142,12142],["Variants","CONFLICT (12226-12226)",12226,12226],["Variants","CONFLICT (12582-12582)",12582,12582],["Variants","CONFLICT (12629-12629)",12629,12629],["Variants","CONFLICT (12695-12695)",12695,12695],["Variants","CONFLICT (12713-12713)",12713,12713],["Variants","CONFLICT (12720-12720)",12720,12720],["Variants","CONFLICT (12735-12735)",12735,12735],["Variants","CONFLICT (12744-12899)",12744,12899],["Variants","CONFLICT (13352-13352)",13352,13352],["Variants","CONFLICT (13519-14924)",13519,14924],["Variants","CONFLICT (15053-15053)",15053,15053],["Variants","CONFLICT (15215-20515)",15215,20515],["Variants","CONFLICT (20515-20515)",20515,20515],["Variants","CONFLICT (20760-21071)",20760,21071],["Variants","CONFLICT (20839-20839)",20839,20839],["Variants","CONFLICT (20842-20842)",20842,20842],["Variants","CONFLICT (20977-20977)",20977,20977],["Variants","CONFLICT (21384-21384)",21384,21384],["Variants","CONFLICT (21487-21487)",21487,21487],["Variants","CONFLICT (21602-21602)",21602,21602],["Variants","CONFLICT (21686-21695)",21686,21695],["Variants","CONFLICT (21691-21691)",21691,21691],["Topology","TOPO_DOM (1-22096)",1,22096],["Topology","TOPO_DOM (22118-22152)",22118,22152],["Topology","TRANSMEM (22097-22117)",22097,22117],["Topology","REPEAT (13767-13801)",13767,13801],["Topology","REPEAT (18915-18949)",18915,18949],["Domains","DOMAIN (12070-12190)",12070,12190],["Domains","DOMAIN (12229-12339)",12229,12339],["Domains","DOMAIN (12386-12504)",12386,12504],["Domains","DOMAIN (12539-12660)",12539,12660],["Domains","DOMAIN (12697-12815)",12697,12815],["Domains","DOMAIN (12853-12971)",12853,12971],["Domains","DOMAIN (13009-13127)",13009,13127],["Domains","DOMAIN (13165-13283)",13165,13283],["Domains","DOMAIN (13315-13439)",13315,13439],["Domains","DOMAIN (13477-13595)",13477,13595],["Domains","DOMAIN (13633-13751)",13633,13751],["Domains","DOMAIN (13789-13907)",13789,13907],["Domains","DOMAIN (13939-14063)",13939,14063],["Domains","DOMAIN (14101-14219)",14101,14219],["Domains","DOMAIN (14251-14375)",14251,14375],["Domains","DOMAIN (14410-14531)",14410,14531],["Domains","DOMAIN (14567-14689)",14567,14689],["Domains","DOMAIN (14723-14845)",14723,14845],["Domains","DOMAIN (14877-15001)",14877,15001],["Domains","DOMAIN (15039-15157)",15039,15157],["Domains","DOMAIN (15195-15313)",15195,15313],["Domains","DOMAIN (15348-15469)",15348,15469],["Domains","DOMAIN (15507-15625)",15507,15625],["Domains","DOMAIN (15664-15774)",15664,15774],["Domains","DOMAIN (15812-15936)",15812,15936],["Domains","DOMAIN (16123-16247)",16123,16247],["Domains","DOMAIN (16279-16403)",16279,16403],["Domains","DOMAIN (16437-16559)",16437,16559],["Domains","DOMAIN (16591-16715)",16591,16715],["Domains","DOMAIN (16750-16871)",16750,16871],["Domains","DOMAIN (16905-17027)",16905,17027],["Domains","DOMAIN (17065-17183)",17065,17183],["Domains","DOMAIN (17221-17339)",17221,17339],["Domains","DOMAIN (17378-17488)",17378,17488],["Domains","DOMAIN (17534-17644)",17534,17644],["Domains","DOMAIN (17689-17807)",17689,17807],["Domains","DOMAIN (18001-18119)",18001,18119],["Domains","DOMAIN (18313-18431)",18313,18431],["Domains","DOMAIN (18625-18743)",18625,18743],["Domains","DOMAIN (18937-19055)",18937,19055],["Domains","DOMAIN (19243-19367)",19243,19367],["Domains","DOMAIN (19555-19679)",19555,19679],["Domains","DOMAIN (19866-19990)",19866,19990],["Domains","DOMAIN (20184-20302)",20184,20302],["Domains","DOMAIN (20340-20458)",20340,20458],["Domains","DOMAIN (20496-20614)",20496,20614],["Domains","DOMAIN (20652-20770)",20652,20770],["Domains","DOMAIN (20804-20926)",20804,20926],["Domains","DOMAIN (20964-21082)",20964,21082],["Domains","DOMAIN (21117-21238)",21117,21238],["Domains","DOMAIN (21273-21394)",21273,21394],["Domains","DOMAIN (21433-21542)",21433,21542],["Domains","DOMAIN (21565-21683)",21565,21683],["Domains","DOMAIN (21717-21826)",21717,21826],["Domains","DOMAIN (21836-21957)",21836,21957],["Domains","DOMAIN (21959-22080)",21959,22080],["Variants","VARIANT (545-545)",545,545],["Variants","VARIANT (1015-1015)",1015,1015],["Variants","VARIANT (1032-1032)",1032,1032],["Variants","VARIANT (1041-1041)",1041,1041],["Variants","VARIANT (1162-1162)",1162,1162],["Variants","VARIANT (1266-1266)",1266,1266],["Variants","VARIANT (1353-1353)",1353,1353],["Variants","VARIANT (1400-1400)",1400,1400],["Variants","VARIANT (1833-1833)",1833,1833],["Variants","VARIANT (1953-1953)",1953,1953],["Variants","VARIANT (2058-2058)",2058,2058],["Variants","VARIANT (2150-2150)",2150,2150],["Variants","VARIANT (2271-2271)",2271,2271],["Variants","VARIANT (2288-2288)",2288,2288],["Variants","VARIANT (2356-2356)",2356,2356],["Variants","VARIANT (2747-2747)",2747,2747],["Variants","VARIANT (2786-2786)",2786,2786],["Variants","VARIANT (2834-2834)",2834,2834],["Variants","VARIANT (3574-3574)",3574,3574],["Variants","VARIANT (5743-5743)",5743,5743],["Variants","VARIANT (5756-5756)",5756,5756],["Variants","VARIANT (5854-5854)",5854,5854],["Variants","VARIANT (7065-7065)",7065,7065],["Variants","VARIANT (7274-7274)",7274,7274],["Variants","VARIANT (10509-10509)",10509,10509],["Topology","TOPO_DOM (1-14451)",1,14451],["Topology","TOPO_DOM (14473-14507)",14473,14507],["Topology","TRANSMEM (14452-14472)",14452,14472],["Topology","REPEAT (12067-12223)",12067,12223],["Topology","REPEAT (12224-12381)",12224,12381],["Topology","REPEAT (12382-12537)",12382,12537],["Topology","REPEAT (12538-12692)",12538,12692],["Topology","REPEAT (12693-12848)",12693,12848],["Topology","REPEAT (12849-13004)",12849,13004],["Topology","REPEAT (13005-13160)",13005,13160],["Topology","REPEAT (13161-13316)",13161,13316],["Topology","REPEAT (13317-13472)",13317,13472],["Topology","REPEAT (13473-13628)",13473,13628],["Topology","REPEAT (13629-13784)",13629,13784],["Topology","REPEAT (13785-13939)",13785,13939],["Domains","DOMAIN (12072-12193)",12072,12193],["Domains","DOMAIN (12228-12349)",12228,12349],["Domains","DOMAIN (12386-12507)",12386,12507],["Domains","DOMAIN (12542-12663)",12542,12663],["Domains","DOMAIN (12697-12818)",12697,12818],["Domains","DOMAIN (12853-12974)",12853,12974],["Domains","DOMAIN (13009-13130)",13009,13130],["Domains","DOMAIN (13165-13286)",13165,13286],["Domains","DOMAIN (13321-13442)",13321,13442],["Domains","DOMAIN (13477-13598)",13477,13598],["Domains","DOMAIN (13633-13754)",13633,13754],["Domains","DOMAIN (13789-13909)",13789,13909],["Domains","DOMAIN (13922-14043)",13922,14043],["Domains","DOMAIN (14073-14193)",14073,14193],["Domains","DOMAIN (14198-14309)",14198,14309],["Domains","DOMAIN (14319-14438)",14319,14438],["Domains","REGION (12067-13939)",12067,13939],["Variants","VARIANT (545-545)",545,545],["Variants","VARIANT (1015-1015)",1015,1015],["Variants","VARIANT (1032-1032)",1032,1032],["Variants","VARIANT (1041-1041)",1041,1041],["Variants","VARIANT (1162-1162)",1162,1162],["Variants","VARIANT (1266-1266)",1266,1266],["Variants","VARIANT (1353-1353)",1353,1353],["Variants","VARIANT (1400-1400)",1400,1400],["Variants","VARIANT (1833-1833)",1833,1833],["Variants","VARIANT (1953-1953)",1953,1953],["Variants","VARIANT (2058-2058)",2058,2058],["Variants","VARIANT (2150-2150)",2150,2150],["Variants","VARIANT (2271-2271)",2271,2271],["Variants","VARIANT (2288-2288)",2288,2288],["Variants","VARIANT (2356-2356)",2356,2356],["Variants","VARIANT (2747-2747)",2747,2747],["Variants","VARIANT (2786-2786)",2786,2786],["Variants","VARIANT (2834-2834)",2834,2834],["Variants","VARIANT (3573-3573)",3573,3573],["Variants","VARIANT (5741-5741)",5741,5741],["Variants","VARIANT (5754-5754)",5754,5754],["Variants","VARIANT (5852-5852)",5852,5852],["Variants","VARIANT (7063-7063)",7063,7063],["Variants","VARIANT (7272-7272)",7272,7272],["Variants","VARIANT (10507-10507)",10507,10507],["Variants","CONFLICT (1898-1898)",1898,1898],["Variants","CONFLICT (2506-2506)",2506,2506],["Variants","CONFLICT (3190-3190)",3190,3190],["Variants","CONFLICT (3202-3202)",3202,3202],["Variants","CONFLICT (3932-3932)",3932,3932],["Variants","CONFLICT (4440-4440)",4440,4440],["Variants","CONFLICT (5682-5682)",5682,5682],["Variants","CONFLICT (6303-6303)",6303,6303],["Variants","CONFLICT (6655-6655)",6655,6655],["Variants","CONFLICT (6866-6866)",6866,6866],["Variants","CONFLICT (6895-6895)",6895,6895],["Variants","CONFLICT (6906-6906)",6906,6906],["Variants","CONFLICT (7191-7191)",7191,7191],["Variants","CONFLICT (7425-7425)",7425,7425],["Variants","CONFLICT (7475-7475)",7475,7475],["Variants","CONFLICT (7923-7923)",7923,7923],["Variants","CONFLICT (8301-8301)",8301,8301],["Variants","CONFLICT (8344-8344)",8344,8344],["Variants","CONFLICT (8578-8578)",8578,8578],["Variants","CONFLICT (9059-9059)",9059,9059],["Variants","CONFLICT (9072-9072)",9072,9072],["Variants","CONFLICT (9129-9129)",9129,9129],["Variants","CONFLICT (9213-9213)",9213,9213],["Variants","CONFLICT (9405-9405)",9405,9405],["Variants","CONFLICT (9502-9502)",9502,9502],["Variants","CONFLICT (9608-9608)",9608,9608],["Variants","CONFLICT (9850-9850)",9850,9850],["Variants","CONFLICT (9899-9899)",9899,9899],["Variants","CONFLICT (9920-9920)",9920,9920],["Variants","CONFLICT (10013-10013)",10013,10013],["Variants","CONFLICT (10169-10169)",10169,10169],["Variants","CONFLICT (10394-10394)",10394,10394],["Variants","CONFLICT (10828-10828)",10828,10828],["Variants","CONFLICT (11154-11154)",11154,11154],["Variants","CONFLICT (11199-11199)",11199,11199],["Variants","CONFLICT (11455-11455)",11455,11455],["Variants","CONFLICT (12514-12514)",12514,12514],["Variants","CONFLICT (12580-12580)",12580,12580],["Variants","CONFLICT (12692-12692)",12692,12692],["Variants","CONFLICT (12832-12832)",12832,12832],["Variants","CONFLICT (12834-12834)",12834,12834],["Variants","CONFLICT (12836-12836)",12836,12836],["Variants","CONFLICT (12842-12842)",12842,12842],["Variants","CONFLICT (12846-12847)",12846,12847],["Variants","CONFLICT (12849-12850)",12849,12850],["Variants","CONFLICT (12873-12873)",12873,12873],["Variants","CONFLICT (12892-12894)",12892,12894],["Variants","CONFLICT (12897-12897)",12897,12897],["Variants","CONFLICT (12902-12902)",12902,12902],["Variants","CONFLICT (12917-12917)",12917,12917],["Variants","CONFLICT (12923-12925)",12923,12925],["Variants","CONFLICT (12928-12928)",12928,12928],["Variants","CONFLICT (12934-12935)",12934,12935],["Variants","CONFLICT (12939-12939)",12939,12939],["Variants","CONFLICT (12949-12949)",12949,12949],["Variants","CONFLICT (12952-12952)",12952,12952],["Variants","CONFLICT (12955-12955)",12955,12955],["Variants","CONFLICT (12961-12961)",12961,12961],["Variants","CONFLICT (12965-12965)",12965,12965],["Variants","CONFLICT (12976-12977)",12976,12977],["Variants","CONFLICT (12979-12980)",12979,12980],["Variants","CONFLICT (12990-12990)",12990,12990],["Variants","CONFLICT (12995-12995)",12995,12995],["Variants","CONFLICT (13002-13007)",13002,13007],["Variants","CONFLICT (13025-13027)",13025,13027],["Variants","CONFLICT (13048-13048)",13048,13048],["Variants","CONFLICT (13054-13056)",13054,13056],["Variants","CONFLICT (13062-13062)",13062,13062],["Variants","CONFLICT (13332-13332)",13332,13332],["Variants","CONFLICT (13341-13341)",13341,13341],["Variants","CONFLICT (13386-13386)",13386,13386],["Variants","CONFLICT (13394-13394)",13394,13394],["Variants","CONFLICT (13398-13398)",13398,13398],["Variants","CONFLICT (13402-13402)",13402,13402],["Variants","CONFLICT (13407-13407)",13407,13407],["Variants","CONFLICT (13410-13410)",13410,13410],["Variants","CONFLICT (13414-13414)",13414,13414],["Variants","CONFLICT (13472-13472)",13472,13472],["Variants","CONFLICT (14041-14050)",14041,14050],["Variants","CONFLICT (14466-14466)",14466,14466]];
+
+        var dataarr = [];
+        var catarr = [];
+        var i;
+
+        for (i = 0; i < domainElem.length ; i++ )
+        {
+        switch(domainElem[i][0]) {
+            
+          case "Sequence":
+                catarr[0] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:0,
+                color: '#e41a1c',
+                key: (domainElem[i][1])
+                });
+                break;
+
+            
+            case "Chains":
+                catarr[1] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:1,
+                color: '#377eb8',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Topology":
+                catarr[2] = (domainElem[i][0]);
+                dataarr.push({
+                x: parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:2,
+                color: '#4daf4a',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "N-Terms":
+                catarr[3] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:3,
+                color: '#984ea3',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "C-Terms":
+                catarr[4] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:4,
+                color: '#ff7f00',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Cleavages":
+                catarr[5] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:5,
+                color: '#CCCC00',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Modifications":
+                catarr[6] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:6,
+                color: '#a65628',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Variants":
+                catarr[7] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:7,
+                color: '#f781bf',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Domains":
+                catarr[8] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:8,
+                color: '#999999',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+        }
+        }
+
+
+    
+
+    (function (H) {
+    var defaultPlotOptions = H.getOptions().plotOptions,
+    columnType = H.seriesTypes.column,
+    each = H.each,
+    extendClass = H.extendClass,
+    pick = H.pick,
+    Point = H.Point,
+    Series = H.Series;
+    
+    defaultPlotOptions.xrange = H.merge(defaultPlotOptions.column, {
+    tooltip: {
+    headerFormat: '<span style="font-size: 0.85em">{point.x} - {point.x2}</span><br/>',
+    pointFormat: '<span style="color:{point.color}">\u25CF</span> {point.yCategory}: <b>{point.key}</b><br/>',
+    footerFormat: '<span style="color:{point.color}">{series.name}</span><br/>'
+    }
+    });
+    H.seriesTypes.xrange = H.extendClass(columnType, {
+    pointClass: extendClass(Point, {
+        // Add x2 and yCategory to the available properties for tooltip formats
+    getLabelConfig: function () {
+        var cfg = Point.prototype.getLabelConfig.call(this);
+        
+        cfg.x2 = this.x2;
+        cfg.yCategory = this.yCategory = this.series.yAxis.categories && this.series.yAxis.categories[this.y];
+        return cfg;
+    }
+    }),
+    type: 'xrange',
+    forceDL: true,
+    parallelArrays: ['x', 'x2', 'y'],
+    requireSorting: false,
+    animate: H.seriesTypes.line.prototype.animate,
+        
+        /**
+         * Borrow the column series metrics, but with swapped axes. This gives free access
+         * to features like groupPadding, grouping, pointWidth etc.
+         */
+    getColumnMetrics: function () {
+        var metrics,
+        chart = this.chart;
+        
+        function swapAxes() {
+            each(chart.series, function (s) {
+                var xAxis = s.xAxis;
+                s.xAxis = s.yAxis;
+                s.yAxis = xAxis;
+            });
+        }
+        
+        swapAxes();
+        
+        this.yAxis.closestPointRange = 1;
+        metrics = columnType.prototype.getColumnMetrics.call(this);
+        
+        swapAxes();
+        
+        return metrics;
+    },
+        
+        /**
+         * Override cropData to show a point where x is outside visible range
+         * but x2 is outside.
+         */
+    cropData: function (xData, yData, min, max) {
+        
+        // Replace xData with x2Data to find the appropriate cropStart
+        var crop = Series.prototype.cropData.call(this, this.x2Data, yData, min, max);
+        
+        // Re-insert the cropped xData
+        crop.xData = xData.slice(crop.start, crop.end);
+        
+        return crop;
+    },
+        
+    translate: function () {
+        columnType.prototype.translate.apply(this, arguments);
+        var series = this,
+        xAxis = series.xAxis,
+        metrics = series.columnMetrics,
+        minPointLength = series.options.minPointLength || 0;
+        
+        H.each(series.points, function (point) {
+            var plotX = point.plotX,
+            plotX2 = xAxis.toPixels(H.pick(point.x2, point.x + (point.len || 0)), true),
+            width = plotX2 - plotX,
+            widthDifference;
+            
+            if (minPointLength) {
+                widthDifference = width < minPointLength ? minPointLength - width : 0;
+                plotX -= widthDifference / 2;
+                plotX2 += widthDifference / 2;
+            }
+            
+            plotX = Math.max(plotX, -10);
+            plotX2 = Math.min(Math.max(plotX2, -10), xAxis.len + 10);
+            
+            point.shapeArgs = {
+            x: plotX,
+            y: point.plotY + metrics.offset,
+            width: plotX2 - plotX,
+            height: metrics.width
+            };
+            point.tooltipPos[0] += width / 2;
+            point.tooltipPos[1] -= metrics.width / 2;
+        });
+    }
+    });
+    
+    /**
+     * Max x2 should be considered in xAxis extremes
+     */
+    H.wrap(H.Axis.prototype, 'getSeriesExtremes', function (proceed) {
+        var axis = this,
+        dataMax,
+        modMax;
+        
+        proceed.call(this);
+        if (this.isXAxis) {
+            dataMax = pick(axis.dataMax, Number.MIN_VALUE);
+            each(this.series, function (series) {
+                each(series.x2Data || [], function (val) {
+                    if (val > dataMax) {
+                        dataMax = val;
+                        modMax = true;
+                    }
+                });
+            });
+            if (modMax) {
+                axis.dataMax = dataMax;
+            }
+        }
+    });
+}(Highcharts));
+
+Highcharts.chart('container_chart', {
+    chart: {
+    type: 'xrange'
+    },
+    title: {
+    text: 'Summary'
+    },
+    xAxis: {
+    type: 'linear'
+    },
+    yAxis: {
+    title: {
+    text: ''
+    },
+    categories: [catarr[0], catarr[1], catarr[2], catarr[3], catarr[4], catarr[5], catarr[6], catarr[7], catarr[8]],
+    reversed: true
+    },
+    series: [{
+    name: 'Q8WXI7',
+    pointWidth: 20,
+    colorByPoint: true,
+    data: dataarr,
+    point: {
+    events: {
+    }
+    }
+        
+    }]
+    });
+
+
+    });
+
+</script>
+
+
+<p id="demo"></p>
+<p id="demo2"></p>
+
+
+
+<div class="content-body">
+		<div class ="container">
+			<div class="row">
+
+<h2> </h2>
+
+<def tag='general-protein-information'>
+
+	<section class="left">
+	  <section class="block">
+	  
+	    <h1>Q8WXI7: Mucin-16 {ECO:0000305}</h1>
+	    <table class="protein-summary annotation">
+                <h3> General Information </h3> 
+                
+	      <tr> 
+	        <th>Protein names</th> 
+	        <td><br>
+	        		- Mucin-16 {ECO:0000305}<br>
+	        		- MUC-16<br>
+	        		- Ovarian cancer-related tumor marker CA125 {ECO:0000303|PubMed:12218296}<br>
+	        		- CA-125 {ECO:0000303|PubMed:12218296}<br>
+	        		- Ovarian carcinoma antigen CA125 {ECO:0000303|PubMed:11369781}<br>
+	        </br></td>
+	      </tr><tr> 
+	        <th>Gene names</th> 
+	        <td>MUC16 </td>
+	      </tr><tr>
+	        <th>Organism</th>
+	        <td>Homo sapiens</td>
+	      </tr><tr>
+	        <th>Protease Family</th>
+	        <td> 	        	</td>
+	      </tr><tr>
+	        <th>Protease ID</th>
+	        <td>
+	        	</td>
+	      </tr><tr if="&@protein.chromosome.present?">
+	        <th>Chromosome location</th>
+	        <td><a href="/topfind/proteins?query=&chromosome=#{@protein.chromosome}"><view:chromosome/></a> <a href="/proteins/index?query=&chromosome=#{@protein.chromosome}&arm=#{@band.first}&band=#{@band.delete 'pq'}"></a></td>
+	      </tr><tr>
+	      	<th> UniProt ID</th>
+	      	<td><a href="http://www.uniprot.org/uniprot/Q8WXI7"> Q8WXI7</a></td>
+	      </tr>
+	    </table>
+	  </section>
+	  	  <section class="block">
+	  	  			<div class="row">
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 1</h2>
+    	<h2> N-termini </h2>
+
+   </div>
+  </div>
+
+ 	<div class="column">
+    <div class="card">
+    	
+    	<h2> 1</h2>
+    	<h2> C-termini </h2>
+
+   </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 0</h2>
+    	<h2> Cleavages </h2>
+
+   </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 0</h2>
+    	<h2> Substrates </h2>
+
+   </div>
+  </div>
+
+</div>
+
+	    <h3>Sequence</h3> 
+	    	<p class="seq">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60&nbsp;<br/>MLKPSGLPGS&nbsp;SSPTRSLMTG&nbsp;SRSTKATPEM&nbsp;DSGLTGATLS&nbsp;PKTSTGAIVV&nbsp;TEHTLPFTSP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120&nbsp;<br/>DKTLASPTSS&nbsp;VVGRTTQSLG&nbsp;VMSSALPEST&nbsp;SRGMTHSEQR&nbsp;TSPSLSPQVN&nbsp;GTPSRNYPAT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180&nbsp;<br/>SMVSGLSSPR&nbsp;TRTSSTEGNF&nbsp;TKEASTYTLT&nbsp;VETTSGPVTE&nbsp;KYTVPTETST&nbsp;TEGDSTETPW&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;240&nbsp;<br/>DTRYIPVKIT&nbsp;SPMKTFADST&nbsp;ASKENAPVSM&nbsp;TPAETTVTDS&nbsp;HTPGRTNPSF&nbsp;GTLYSSFLDL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300&nbsp;<br/>SPKGTPNSRG&nbsp;ETSLELILST&nbsp;TGYPFSSPEP&nbsp;GSAGHSRIST&nbsp;SAPLSSSASV&nbsp;LDNKISETSI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;360&nbsp;<br/>FSGQSLTSPL&nbsp;SPGVPEARAS&nbsp;TMPNSAIPFS&nbsp;MTLSNAETSA&nbsp;ERVRSTISSL&nbsp;GTPSISTKQT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;420&nbsp;<br/>AETILTFHAF&nbsp;AETMDIPSTH&nbsp;IAKTLASEWL&nbsp;GSPGTLGGTS&nbsp;TSALTTTSPS&nbsp;TTLVSEETNT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;480&nbsp;<br/>HHSTSGKETE&nbsp;GTLNTSMTPL&nbsp;ETSAPGEESE&nbsp;MTATLVPTLG&nbsp;FTTLDSKIRS&nbsp;PSQVSSSHPT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;540&nbsp;<br/>RELRTTGSTS&nbsp;GRQSSSTAAH&nbsp;GSSDILRATT&nbsp;SSTSKASSWT&nbsp;SESTAQQFSE&nbsp;PQHTQWVETS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;600&nbsp;<br/>PSMKTERPPA&nbsp;STSVAAPITT&nbsp;SVPSVVSGFT&nbsp;TLKTSSTKGI&nbsp;WLEETSADTL&nbsp;IGESTAGPTT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;660&nbsp;<br/>HQFAVPTGIS&nbsp;MTGGSSTRGS&nbsp;QGTTHLLTRA&nbsp;TASSETSADL&nbsp;TLATNGVPVS&nbsp;VSPAVSKTAA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;720&nbsp;<br/>GSSPPGGTKP&nbsp;SYTMVSSVIP&nbsp;ETSSLQSSAF&nbsp;REGTSLGLTP&nbsp;LNTRHPFSSP&nbsp;EPDSAGHTKI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;740&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;780&nbsp;<br/>STSIPLLSSA&nbsp;SVLEDKVSAT&nbsp;STFSHHKATS&nbsp;SITTGTPEIS&nbsp;TKTKPSSAVL&nbsp;SSMTLSNAAT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;840&nbsp;<br/>SPERVRNATS&nbsp;PLTHPSPSGE&nbsp;ETAGSVLTLS&nbsp;TSAETTDSPN&nbsp;IHPTGTLTSE&nbsp;SSESPSTLSL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;860&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;900&nbsp;<br/>PSVSGVKTTF&nbsp;SSSTPSTHLF&nbsp;TSGEETEETS&nbsp;NPSVSQPETS&nbsp;VSRVRTTLAS&nbsp;TSVPTPVFPT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;920&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;960&nbsp;<br/>MDTWPTRSAQ&nbsp;FSSSHLVSEL&nbsp;RATSSTSVTN&nbsp;STGSALPKIS&nbsp;HLTGTATMSQ&nbsp;TNRDTFNDSA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;980&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;990&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1020&nbsp;<br/>APQSTTWPET&nbsp;SPRFKTGLPS&nbsp;ATTTVSTSAT&nbsp;SLSATVMVSK&nbsp;FTSPATSSME&nbsp;ATSIREPSTT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1080&nbsp;<br/>ILTTETTNGP&nbsp;GSMAVASTNI&nbsp;PIGKGYITEG&nbsp;RLDTSHLPIG&nbsp;TTASSETSMD&nbsp;FTMAKESVSM&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1140&nbsp;<br/>SVSPSQSMDA&nbsp;AGSSTPGRTS&nbsp;QFVDTFSDDV&nbsp;YHLTSREITI&nbsp;PRDGTSSALT&nbsp;PQMTATHPPS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1180&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1200&nbsp;<br/>PDPGSARSTW&nbsp;LGILSSSPSS&nbsp;PTPKVTMSST&nbsp;FSTQRVTTSM&nbsp;IMDTVETSRW&nbsp;NMPNLPSTTS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1240&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1260&nbsp;<br/>LTPSNIPTSG&nbsp;AIGKSTLVPL&nbsp;DTPSPATSLE&nbsp;ASEGGLPTLS&nbsp;TYPESTNTPS&nbsp;IHLGAHASSE&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1320&nbsp;<br/>SPSTIKLTMA&nbsp;SVVKPGSYTP&nbsp;LTFPSIETHI&nbsp;HVSTARMAYS&nbsp;SGSSPEMTAP&nbsp;GETNTGSTWD&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1360&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1380&nbsp;<br/>PTTYITTTDP&nbsp;KDTSSAQVST&nbsp;PHSVRTLRTT&nbsp;ENHPKTESAT&nbsp;PAAYSGSPKI&nbsp;SSSPNLTSPA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1420&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1440&nbsp;<br/>TKAWTITDTT&nbsp;EHSTQLHYTK&nbsp;LAEKSSGFET&nbsp;QSAPGPVSVV&nbsp;IPTSPTIGSS&nbsp;TLELTSDVPG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1480&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1500&nbsp;<br/>EPLVLAPSEQ&nbsp;TTITLPMATW&nbsp;LSTSLTEEMA&nbsp;STDLDISSPS&nbsp;SPMSTFAIFP&nbsp;PMSTPSHELS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1540&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1560&nbsp;<br/>KSEADTSAIR&nbsp;NTDSTTLDQH&nbsp;LGIRSLGRTG&nbsp;DLTTVPITPL&nbsp;TTTWTSVIEH&nbsp;STQAQDTLSA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1600&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1620&nbsp;<br/>TMSPTHVTQS&nbsp;LKDQTSIPAS&nbsp;ASPSHLTEVY&nbsp;PELGTQGRSS&nbsp;SEATTFWKPS&nbsp;TDTLSREIET&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1660&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1680&nbsp;<br/>GPTNIQSTPP&nbsp;MDNTTTGSSS&nbsp;SGVTLGIAHL&nbsp;PIGTSSPAET&nbsp;STNMALERRS&nbsp;STATVSMAGT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1720&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1740&nbsp;<br/>MGLLVTSAPG&nbsp;RSISQSLGRV&nbsp;SSVLSESTTE&nbsp;GVTDSSKGSS&nbsp;PRLNTQGNTA&nbsp;LSSSLEPSYA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1780&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1800&nbsp;<br/>EGSQMSTSIP&nbsp;LTSSPTTPDV&nbsp;EFIGGSTFWT&nbsp;KEVTTVMTSD&nbsp;ISKSSARTES&nbsp;SSATLMSTAL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1840&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1860&nbsp;<br/>GSTENTGKEK&nbsp;LRTASMDLPS&nbsp;PTPSMEVTPW&nbsp;ISLTLSNAPN&nbsp;TTDSLDLSHG&nbsp;VHTSSAGTLA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1920&nbsp;<br/>TDRSLNTGVT&nbsp;RASRLENGSD&nbsp;TSSKSLSMGN&nbsp;STHTSMTYTE&nbsp;KSEVSSSIHP&nbsp;RPETSAPGAE&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1960&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1980&nbsp;<br/>TTLTSTPGNR&nbsp;AISLTLPFSS&nbsp;IPVEEVISTG&nbsp;ITSGPDINSA&nbsp;PMTHSPITPP&nbsp;TIVWTSTGTI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1990&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2040&nbsp;<br/>EQSTQPLHAV&nbsp;SSEKVSVQTQ&nbsp;STPYVNSVAV&nbsp;SASPTHENSV&nbsp;SSGSSTSSPY&nbsp;SSASLESLDS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2080&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2100&nbsp;<br/>TISRRNAITS&nbsp;WLWDLTTSLP&nbsp;TTTWPSTSLS&nbsp;EALSSGHSGV&nbsp;SNPSSTTTEF&nbsp;PLFSAASTSA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2160&nbsp;<br/>AKQRNPETET&nbsp;HGPQNTAAST&nbsp;LNTDASSVTG&nbsp;LSETPVGASI&nbsp;SSEVPLPMAI&nbsp;TSRSDVSGLT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2180&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2220&nbsp;<br/>SESTANPSLG&nbsp;TASSAGTKLT&nbsp;RTISLPTSES&nbsp;LVSFRMNKDP&nbsp;WTVSIPLGSH&nbsp;PTTNTETSIP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2240&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2280&nbsp;<br/>VNSAGPPGLS&nbsp;TVASDVIDTP&nbsp;SDGAESIPTV&nbsp;SFSPSPDTEV&nbsp;TTISHFPEKT&nbsp;THSFRTISSL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2340&nbsp;<br/>THELTSRVTP&nbsp;IPGDWMSSAM&nbsp;STKPTGASPS&nbsp;ITLGERRTIT&nbsp;SAAPTTSPIV&nbsp;LTASFTETST&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2360&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2400&nbsp;<br/>VSLDNETTVK&nbsp;TSDILDARKT&nbsp;NELPSDSSSS&nbsp;SDLINTSIAS&nbsp;STMDVTKTAS&nbsp;ISPTSISGMT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2420&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2460&nbsp;<br/>ASSSPSLFSS&nbsp;DRPQVPTSTT&nbsp;ETNTATSPSV&nbsp;SSNTYSLDGG&nbsp;SNVGGTPSTL&nbsp;PPFTITHPVE&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2480&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2520&nbsp;<br/>TSSALLAWSR&nbsp;PVRTFSTMVS&nbsp;TDTASGENPT&nbsp;SSNSVVTSVP&nbsp;APGTWTSVGS&nbsp;TTDLPAMGFL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2540&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2580&nbsp;<br/>KTSPAGEAHS&nbsp;LLASTIEPAT&nbsp;AFTPHLSAAV&nbsp;VTGSSATSEA&nbsp;SLLTTSESKA&nbsp;IHSSPQTPTT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2600&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2640&nbsp;<br/>PTSGANWETS&nbsp;ATPESLLVVT&nbsp;ETSDTTLTSK&nbsp;ILVTDTILFS&nbsp;TVSTPPSKFP&nbsp;STGTLSGASF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2660&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2700&nbsp;<br/>PTLLPDTPAI&nbsp;PLTATEPTSS&nbsp;LATSFDSTPL&nbsp;VTIASDSLGT&nbsp;VPETTLTMSE&nbsp;TSNGDALVLK&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2720&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2740&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2760&nbsp;<br/>TVSNPDRSIP&nbsp;GITIQGVTES&nbsp;PLHPSSTSPS&nbsp;KIVAPRNTTY&nbsp;EGSITVALST&nbsp;LPAGTTGSLV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2780&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2820&nbsp;<br/>FSQSSENSET&nbsp;TALVDSSAGL&nbsp;ERASVMPLTT&nbsp;GSQGMASSGG&nbsp;IRSGSTHSTG&nbsp;TKTFSSLPLT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2840&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2860&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2880&nbsp;<br/>MNPGEVTAMS&nbsp;EITTNRLTAT&nbsp;QSTAPKGIPV&nbsp;KPTSAESGLL&nbsp;TPVSASSSPS&nbsp;KAFASLTTAP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2920&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2940&nbsp;<br/>PTWGIPQSTL&nbsp;TFEFSEVPSL&nbsp;DTKSASLPTP&nbsp;GQSLNTIPDS&nbsp;DASTASSSLS&nbsp;KSPEKNPRAR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2960&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2980&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2990&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3000&nbsp;<br/>MMTSTKAISA&nbsp;SSFQSTGFTE&nbsp;TPEGSASPSM&nbsp;AGHEPRVPTS&nbsp;GTGDPRYASE&nbsp;SMSYPDPSKA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3060&nbsp;<br/>SSAMTSTSLA&nbsp;SKLTTLFSTG&nbsp;QAARSGSSSS&nbsp;PISLSTEKET&nbsp;SFLSPTASTS&nbsp;RKTSLFLGPS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3080&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3120&nbsp;<br/>MARQPNILVH&nbsp;LQTSALTLSP&nbsp;TSTLNMSQEE&nbsp;PPELTSSQTI&nbsp;AEEEGTTAET&nbsp;QTLTFTPSET&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3180&nbsp;<br/>PTSLLPVSSP&nbsp;TEPTARRKSS&nbsp;PETWASSISV&nbsp;PAKTSLVETT&nbsp;DGTLVTTIKM&nbsp;SSQAAQGNST&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3240&nbsp;<br/>WPAPAEETGS&nbsp;SPAGTSPGSP&nbsp;EMSTTLKIMS&nbsp;SKEPSISPEI&nbsp;RSTVRNSPWK&nbsp;TPETTVPMET&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3300&nbsp;<br/>TVEPVTLQST&nbsp;ALGSGSTSIS&nbsp;HLPTGTTSPT&nbsp;KSPTENMLAT&nbsp;ERVSLSPSPP&nbsp;EAWTNLYSGT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3360&nbsp;<br/>PGGTRQSLAT&nbsp;MSSVSLESPT&nbsp;ARSITGTGQQ&nbsp;SSPELVSKTT&nbsp;GMEFSMWHGS&nbsp;TGGTTGDTHV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3420&nbsp;<br/>SLSTSSNILE&nbsp;DPVTSPNSVS&nbsp;SLTDKSKHKT&nbsp;ETWVSTTAIP&nbsp;STVLNNKIMA&nbsp;AEQQTSRSVD&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3480&nbsp;<br/>EAYSSTSSWS&nbsp;DQTSGSDITL&nbsp;GASPDVTNTL&nbsp;YITSTAQTTS&nbsp;LVSLPSGDQG&nbsp;ITSLTNPSGG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3540&nbsp;<br/>KTSSASSVTS&nbsp;PSIGLETLRA&nbsp;NVSAVKSDIA&nbsp;PTAGHLSQTS&nbsp;SPAEVSILDV&nbsp;TTAPTPGIST&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3600&nbsp;<br/>TITTMGTNSI&nbsp;STTTPNPEVG&nbsp;MSTMDSTPAT&nbsp;ERRTTSTEHP&nbsp;STWSSTAASD&nbsp;SWTVTDMTSN&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3660&nbsp;<br/>LKVARSPGTI&nbsp;STMHTTSFLA&nbsp;SSTELDSMST&nbsp;PHGRITVIGT&nbsp;SLVTPSSDAS&nbsp;AVKTETSTSE&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3720&nbsp;<br/>RTLSPSDTTA&nbsp;STPISTFSRV&nbsp;QRMSISVPDI&nbsp;LSTSWTPSST&nbsp;EAEDVPVSMV&nbsp;STDHASTKTD&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3740&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3780&nbsp;<br/>PNTPLSTFLF&nbsp;DSLSTLDWDT&nbsp;GRSLSSATAT&nbsp;TSAPQGATTP&nbsp;QELTLETMIS&nbsp;PATSQLPFSI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3840&nbsp;<br/>GHITSAVTPA&nbsp;AMARSSGVTF&nbsp;SRPDPTSKKA&nbsp;EQTSTQLPTT&nbsp;TSAHPGQVPR&nbsp;SAATTLDVIP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3860&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3900&nbsp;<br/>HTAKTPDATF&nbsp;QRQGQTALTT&nbsp;EARATSDSWN&nbsp;EKEKSTPSAP&nbsp;WITEMMNSVS&nbsp;EDTIKEVTSS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3920&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3960&nbsp;<br/>SSVLRTLNTL&nbsp;DINLESGTTS&nbsp;SPSWKSSPYE&nbsp;RIAPSESTTD&nbsp;KEAIHPSTNT&nbsp;VETTGWVTSS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3980&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3990&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4020&nbsp;<br/>EHASHSTIPA&nbsp;HSASSKLTSP&nbsp;VVTTSTREQA&nbsp;IVSMSTTTWP&nbsp;ESTRARTEPN&nbsp;SFLTIELRDV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4080&nbsp;<br/>SPYMDTSSTT&nbsp;QTSIISSPGS&nbsp;TAITKGPRTE&nbsp;ITSSKRISSS&nbsp;FLAQSMRSSD&nbsp;SPSEAITRLS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4140&nbsp;<br/>NFPAMTESGG&nbsp;MILAMQTSPP&nbsp;GATSLSAPTL&nbsp;DTSATASWTG&nbsp;TPLATTQRFT&nbsp;YSEKTTLFSK&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4180&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4200&nbsp;<br/>GPEDTSQPSP&nbsp;PSVEETSSSS&nbsp;SLVPIHATTS&nbsp;PSNILLTSQG&nbsp;HSPSSTPPVT&nbsp;SVFLSETSGL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4240&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4260&nbsp;<br/>GKTTDMSRIS&nbsp;LEPGTSLPPN&nbsp;LSSTAGEALS&nbsp;TYEASRDTKA&nbsp;IHHSADTAVT&nbsp;NMEATSSEYS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4320&nbsp;<br/>PIPGHTKPSK&nbsp;ATSPLVTSHI&nbsp;MGDITSSTSV&nbsp;FGSSETTEIE&nbsp;TVSSVNQGLQ&nbsp;ERSTSQVASS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4360&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4380&nbsp;<br/>ATETSTVITH&nbsp;VSSGDATTHV&nbsp;TKTQATFSSG&nbsp;TSISSPHQFI&nbsp;TSTNTFTDVS&nbsp;TNPSTSLIMT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4420&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4440&nbsp;<br/>ESSGVTITTQ&nbsp;TGPTGAATQG&nbsp;PYLLDTSTMP&nbsp;YLTETPLAVT&nbsp;PDFMQSEKTT&nbsp;LISKGPKDVS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4480&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4500&nbsp;<br/>WTSPPSVAET&nbsp;SYPSSLTPFL&nbsp;VTTIPPATST&nbsp;LQGQHTSSPV&nbsp;SATSVLTSGL&nbsp;VKTTDMLNTS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4540&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4560&nbsp;<br/>MEPVTNSPQN&nbsp;LNNPSNEILA&nbsp;TLAATTDIET&nbsp;IHPSINKAVT&nbsp;NMGTASSAHV&nbsp;LHSTLPVSSE&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4600&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4620&nbsp;<br/>PSTATSPMVP&nbsp;ASSMGDALAS&nbsp;ISIPGSETTD&nbsp;IEGEPTSSLT&nbsp;AGRKENSTLQ&nbsp;EMNSTTESNI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4660&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4680&nbsp;<br/>ILSNVSVGAI&nbsp;TEATKMEVPS&nbsp;FDATFIPTPA&nbsp;QSTKFPDIFS&nbsp;VASSRLSNSP&nbsp;PMTISTHMTT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4720&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4740&nbsp;<br/>TQTGSSGATS&nbsp;KIPLALDTST&nbsp;LETSAGTPSV&nbsp;VTEGFAHSKI&nbsp;TTAMNNDVKD&nbsp;VSQTNPPFQD&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4780&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4800&nbsp;<br/>EASSPSSQAP&nbsp;VLVTTLPSSV&nbsp;AFTPQWHSTS&nbsp;SPVSMSSVLT&nbsp;SSLVKTAGKV&nbsp;DTSLETVTSS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4840&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4860&nbsp;<br/>PQSMSNTLDD&nbsp;ISVTSAATTD&nbsp;IETTHPSINT&nbsp;VVTNVGTTGS&nbsp;AFESHSTVSA&nbsp;YPEPSKVTSP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4920&nbsp;<br/>NVTTSTMEDT&nbsp;TISRSIPKSS&nbsp;KTTRTETETT&nbsp;SSLTPKLRET&nbsp;SISQEITSST&nbsp;ETSTVPYKEL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4960&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4980&nbsp;<br/>TGATTEVSRT&nbsp;DVTSSSSTSF&nbsp;PGPDQSTVSL&nbsp;DISTETNTRL&nbsp;STSPIMTESA&nbsp;EITITTQTGP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4990&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5040&nbsp;<br/>HGATSQDTFT&nbsp;MDPSNTTPQA&nbsp;GIHSAMTHGF&nbsp;SQLDVTTLMS&nbsp;RIPQDVSWTS&nbsp;PPSVDKTSSP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5080&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5100&nbsp;<br/>SSFLSSPAMT&nbsp;TPSLISSTLP&nbsp;EDKLSSPMTS&nbsp;LLTSGLVKIT&nbsp;DILRTRLEPV&nbsp;TSSLPNFSST&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5160&nbsp;<br/>SDKILATSKD&nbsp;SKDTKEIFPS&nbsp;INTEETNVKA&nbsp;NNSGHESHSP&nbsp;ALADSETPKA&nbsp;TTQMVITTTV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5180&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5220&nbsp;<br/>GDPAPSTSMP&nbsp;VHGSSETTNI&nbsp;KREPTYFLTP&nbsp;RLRETSTSQE&nbsp;SSFPTDTSFL&nbsp;LSKVPTGTIT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5240&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5280&nbsp;<br/>EVSSTGVNSS&nbsp;SKISTPDHDK&nbsp;STVPPDTFTG&nbsp;EIPRVFTSSI&nbsp;KTKSAEMTIT&nbsp;TQASPPESAS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5340&nbsp;<br/>HSTLPLDTST&nbsp;TLSQGGTHST&nbsp;VTQGFPYSEV&nbsp;TTLMGMGPGN&nbsp;VSWMTTPPVE&nbsp;ETSSVSSLMS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5360&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5400&nbsp;<br/>SPAMTSPSPV&nbsp;SSTSPQSIPS&nbsp;SPLPVTALPT&nbsp;SVLVTTTDVL&nbsp;GTTSPESVTS&nbsp;SPPNLSSITH&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5420&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5460&nbsp;<br/>ERPATYKDTA&nbsp;HTEAAMHHST&nbsp;NTAVTNVGTS&nbsp;GSGHKSQSSV&nbsp;LADSETSKAT&nbsp;PLMSTTSTLG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5480&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5520&nbsp;<br/>DTSVSTSTPN&nbsp;ISQTNQIQTE&nbsp;PTASLSPRLR&nbsp;ESSTSEKTSS&nbsp;TTETNTAFSY&nbsp;VPTGAITQAS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5540&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5580&nbsp;<br/>RTEISSSRTS&nbsp;ISDLDRPTIA&nbsp;PDISTGMITR&nbsp;LFTSPIMTKS&nbsp;AEMTVTTQTT&nbsp;TPGATSQGIL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5600&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5640&nbsp;<br/>PWDTSTTLFQ&nbsp;GGTHSTVSQG&nbsp;FPHSEITTLR&nbsp;SRTPGDVSWM&nbsp;TTPPVEETSS&nbsp;GFSLMSPSMT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5660&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5700&nbsp;<br/>SPSPVSSTSP&nbsp;ESIPSSPLPV&nbsp;TALLTSVLVT&nbsp;TTNVLGTTSP&nbsp;EPVTSSPPNL&nbsp;SSPTQERLTT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5720&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5740&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5760&nbsp;<br/>YKDTAHTEAM&nbsp;HASMHTNTAV&nbsp;ANVGTSISGH&nbsp;ESQSSVPADS&nbsp;HTSKATSPMG&nbsp;ITFAMGDTSV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5780&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5820&nbsp;<br/>STSTPAFFET&nbsp;RIQTESTSSL&nbsp;IPGLRDTRTS&nbsp;EEINTVTETS&nbsp;TVLSEVPTTT&nbsp;TTEVSRTEVI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5840&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5860&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5880&nbsp;<br/>TSSRTTISGP&nbsp;DHSKMSPYIS&nbsp;TETITRLSTF&nbsp;PFVTGSTEMA&nbsp;ITNQTGPIGT&nbsp;ISQATLTLDT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5920&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5940&nbsp;<br/>SSTASWEGTH&nbsp;SPVTQRFPHS&nbsp;EETTTMSRST&nbsp;KGVSWQSPPS&nbsp;VEETSSPSSP&nbsp;VPLPAITSHS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5960&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5980&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5990&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6000&nbsp;<br/>SLYSAVSGSS&nbsp;PTSALPVTSL&nbsp;LTSGRRKTID&nbsp;MLDTHSELVT&nbsp;SSLPSASSFS&nbsp;GEILTSEAST&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6060&nbsp;<br/>NTETIHFSEN&nbsp;TAETNMGTTN&nbsp;SMHKLHSSVS&nbsp;IHSQPSGHTP&nbsp;PKVTGSMMED&nbsp;AIVSTSTPGS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6080&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6120&nbsp;<br/>PETKNVDRDS&nbsp;TSPLTPELKE&nbsp;DSTALVMNST&nbsp;TESNTVFSSV&nbsp;SLDAATEVSR&nbsp;AEVTYYDPTF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6180&nbsp;<br/>MPASAQSTKS&nbsp;PDISPEASSS&nbsp;HSNSPPLTIS&nbsp;THKTIATQTG&nbsp;PSGVTSLGQL&nbsp;TLDTSTIATS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6240&nbsp;<br/>AGTPSARTQD&nbsp;FVDSETTSVM&nbsp;NNDLNDVLKT&nbsp;SPFSAEEANS&nbsp;LSSQAPLLVT&nbsp;TSPSPVTSTL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6300&nbsp;<br/>QEHSTSSLVS&nbsp;VTSVPTPTLA&nbsp;KITDMDTNLE&nbsp;PVTRSPQNLR&nbsp;NTLATSEATT&nbsp;DTHTMHPSIN&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6360&nbsp;<br/>TAVANVGTTS&nbsp;SPNEFYFTVS&nbsp;PDSDPYKATS&nbsp;AVVITSTSGD&nbsp;SIVSTSMPRS&nbsp;SAMKKIESET&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6420&nbsp;<br/>TFSLIFRLRE&nbsp;TSTSQKIGSS&nbsp;SDTSTVFDKA&nbsp;FTAATTEVSR&nbsp;TELTSSSRTS&nbsp;IQGTEKPTMS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6480&nbsp;<br/>PDTSTRSVTM&nbsp;LSTFAGLTKS&nbsp;EERTIATQTG&nbsp;PHRATSQGTL&nbsp;TWDTSITTSQ&nbsp;AGTHSAMTHG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6540&nbsp;<br/>FSQLDLSTLT&nbsp;SRVPEYISGT&nbsp;SPPSVEKTSS&nbsp;SSSLLSLPAI&nbsp;TSPSPVPTTL&nbsp;PESRPSSPVH&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6600&nbsp;<br/>LTSLPTSGLV&nbsp;KTTDMLASVA&nbsp;SLPPNLGSTS&nbsp;HKIPTTSEDI&nbsp;KDTEKMYPST&nbsp;NIAVTNVGTT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6660&nbsp;<br/>TSEKESYSSV&nbsp;PAYSEPPKVT&nbsp;SPMVTSFNIR&nbsp;DTIVSTSMPG&nbsp;SSEITRIEME&nbsp;STFSLAHGLK&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6720&nbsp;<br/>GTSTSQDPIV&nbsp;STEKSAVLHK&nbsp;LTTGATETSR&nbsp;TEVASSRRTS&nbsp;IPGPDHSTES&nbsp;PDISTEVIPS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6740&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6780&nbsp;<br/>LPISLGITES&nbsp;SNMTIITRTG&nbsp;PPLGSTSQGT&nbsp;FTLDTPTTSS&nbsp;RAGTHSMATQ&nbsp;EFPHSEMTTV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6840&nbsp;<br/>MNKDPEILSW&nbsp;TIPPSIEKTS&nbsp;FSSSLMPSPA&nbsp;MTSPPVSSTL&nbsp;PKTIHTTPSP&nbsp;MTSLLTPSLV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6860&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6900&nbsp;<br/>MTTDTLGTSP&nbsp;EPTTSSPPNL&nbsp;SSTSHEILTT&nbsp;DEDTTAIEAM&nbsp;HPSTSTAATN&nbsp;VETTSSGHGS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6920&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6960&nbsp;<br/>QSSVLADSEK&nbsp;TKATAPMDTT&nbsp;STMGHTTVST&nbsp;SMSVSSETTK&nbsp;IKRESTYSLT&nbsp;PGLRETSISQ&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6980&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6990&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7020&nbsp;<br/>NASFSTDTSI&nbsp;VLSEVPTGTT&nbsp;AEVSRTEVTS&nbsp;SGRTSIPGPS&nbsp;QSTVLPEIST&nbsp;RTMTRLFASP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7080&nbsp;<br/>TMTESAEMTI&nbsp;PTQTGPSGST&nbsp;SQDTLTLDTS&nbsp;TTKSQAKTHS&nbsp;TLTQRFPHSE&nbsp;MTTLMSRGPG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7140&nbsp;<br/>DMSWQSSPSL&nbsp;ENPSSLPSLL&nbsp;SLPATTSPPP&nbsp;ISSTLPVTIS&nbsp;SSPLPVTSLL&nbsp;TSSPVTTTDM&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7180&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7200&nbsp;<br/>LHTSPELVTS&nbsp;SPPKLSHTSD&nbsp;ERLTTGKDTT&nbsp;NTEAVHPSTN&nbsp;TAASNVEIPS&nbsp;SGHESPSSAL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7240&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7260&nbsp;<br/>ADSETSKATS&nbsp;PMFITSTQED&nbsp;TTVAISTPHF&nbsp;LETSRIQKES&nbsp;ISSLSPKLRE&nbsp;TGSSVETSSA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7320&nbsp;<br/>IETSAVLSEV&nbsp;SIGATTEISR&nbsp;TEVTSSSRTS&nbsp;ISGSAESTML&nbsp;PEISTTRKII&nbsp;KFPTSPILAE&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7360&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7380&nbsp;<br/>SSEMTIKTQT&nbsp;SPPGSTSEST&nbsp;FTLDTSTTPS&nbsp;LVITHSTMTQ&nbsp;RLPHSEITTL&nbsp;VSRGAGDVPR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7420&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7440&nbsp;<br/>PSSLPVEETS&nbsp;PPSSQLSLSA&nbsp;MISPSPVSST&nbsp;LPASSHSSSA&nbsp;SVTSLLTPGQ&nbsp;VKTTEVLDAS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7480&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7500&nbsp;<br/>AEPETSSPPS&nbsp;LSSTSVEILA&nbsp;TSEVTTDTEK&nbsp;IHPFSNTAVT&nbsp;KVGTSSSGHE&nbsp;SPSSVLPDSE&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7540&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7560&nbsp;<br/>TTKATSAMGT&nbsp;ISIMGDTSVS&nbsp;TLTPALSNTR&nbsp;KIQSEPASSL&nbsp;TTRLRETSTS&nbsp;EETSLATEAN&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7600&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7620&nbsp;<br/>TVLSKVSTGA&nbsp;TTEVSRTEAI&nbsp;SFSRTSMSGP&nbsp;EQSTMSQDIS&nbsp;IGTIPRISAS&nbsp;SVLTESAKMT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7660&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7680&nbsp;<br/>ITTQTGPSES&nbsp;TLESTLNLNT&nbsp;ATTPSWVETH&nbsp;SIVIQGFPHP&nbsp;EMTTSMGRGP&nbsp;GGVSWPSPPF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7720&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7740&nbsp;<br/>VKETSPPSSP&nbsp;LSLPAVTSPH&nbsp;PVSTTFLAHI&nbsp;PPSPLPVTSL&nbsp;LTSGPATTTD&nbsp;ILGTSTEPGT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7780&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7800&nbsp;<br/>SSSSSLSTTS&nbsp;HERLTTYKDT&nbsp;AHTEAVHPST&nbsp;NTGGTNVATT&nbsp;SSGYKSQSSV&nbsp;LADSSPMCTT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7840&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7860&nbsp;<br/>STMGDTSVLT&nbsp;STPAFLETRR&nbsp;IQTELASSLT&nbsp;PGLRESSGSE&nbsp;GTSSGTKMST&nbsp;VLSKVPTGAT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7920&nbsp;<br/>TEISKEDVTS&nbsp;IPGPAQSTIS&nbsp;PDISTRTVSW&nbsp;FSTSPVMTES&nbsp;AEITMNTHTS&nbsp;PLGATTQGTS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7960&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7980&nbsp;<br/>TLDTSSTTSL&nbsp;TMTHSTISQG&nbsp;FSHSQMSTLM&nbsp;RRGPEDVSWM&nbsp;SPPLLEKTRP&nbsp;SFSLMSSPAT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7990&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8040&nbsp;<br/>TSPSPVSSTL&nbsp;PESISSSPLP&nbsp;VTSLLTSGLA&nbsp;KTTDMLHKSS&nbsp;EPVTNSPANL&nbsp;SSTSVEILAT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8080&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8100&nbsp;<br/>SEVTTDTEKT&nbsp;HPSSNRTVTD&nbsp;VGTSSSGHES&nbsp;TSFVLADSQT&nbsp;SKVTSPMVIT&nbsp;STMEDTSVST&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8160&nbsp;<br/>STPGFFETSR&nbsp;IQTEPTSSLT&nbsp;LGLRKTSSSE&nbsp;GTSLATEMST&nbsp;VLSGVPTGAT&nbsp;AEVSRTEVTS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8180&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8220&nbsp;<br/>SSRTSISGFA&nbsp;QLTVSPETST&nbsp;ETITRLPTSS&nbsp;IMTESAEMMI&nbsp;KTQTDPPGST&nbsp;PESTHTVDIS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8240&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8280&nbsp;<br/>TTPNWVETHS&nbsp;TVTQRFSHSE&nbsp;MTTLVSRSPG&nbsp;DMLWPSQSSV&nbsp;EETSSASSLL&nbsp;SLPATTSPSP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8340&nbsp;<br/>VSSTLVEDFP&nbsp;SASLPVTSLL&nbsp;NPGLVITTDR&nbsp;MGISREPGTS&nbsp;STSNLSSTSH&nbsp;ERLTTLEDTV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8360&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8400&nbsp;<br/>DTEDMQPSTH&nbsp;TAVTNVRTSI&nbsp;SGHESQSSVL&nbsp;SDSETPKATS&nbsp;PMGTTYTMGE&nbsp;TSVSISTSDF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8420&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8460&nbsp;<br/>FETSRIQIEP&nbsp;TSSLTSGLRE&nbsp;TSSSERISSA&nbsp;TEGSTVLSEV&nbsp;PSGATTEVSR&nbsp;TEVISSRGTS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8480&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8520&nbsp;<br/>MSGPDQFTIS&nbsp;PDISTEAITR&nbsp;LSTSPIMTES&nbsp;AESAITIETG&nbsp;SPGATSEGTL&nbsp;TLDTSTTTFW&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8540&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8580&nbsp;<br/>SGTHSTASPG&nbsp;FSHSEMTTLM&nbsp;SRTPGDVPWP&nbsp;SLPSVEEASS&nbsp;VSSSLSSPAM&nbsp;TSTSFFSTLP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8600&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8640&nbsp;<br/>ESISSSPHPV&nbsp;TALLTLGPVK&nbsp;TTDMLRTSSE&nbsp;PETSSPPNLS&nbsp;STSAEILATS&nbsp;EVTKDREKIH&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8660&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8700&nbsp;<br/>PSSNTPVVNV&nbsp;GTVIYKHLSP&nbsp;SSVLADLVTT&nbsp;KPTSPMATTS&nbsp;TLGNTSVSTS&nbsp;TPAFPETMMT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8720&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8740&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8760&nbsp;<br/>QPTSSLTSGL&nbsp;REISTSQETS&nbsp;SATERSASLS&nbsp;GMPTGATTKV&nbsp;SRTEALSLGR&nbsp;TSTPGPAQST&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8780&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8820&nbsp;<br/>ISPEISTETI&nbsp;TRISTPLTTT&nbsp;GSAEMTITPK&nbsp;TGHSGASSQG&nbsp;TFTLDTSSRA&nbsp;SWPGTHSAAT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8840&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8860&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8880&nbsp;<br/>HRSPHSGMTT&nbsp;PMSRGPEDVS&nbsp;WPSRPSVEKT&nbsp;SPPSSLVSLS&nbsp;AVTSPSPLYS&nbsp;TPSESSHSSP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8920&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8940&nbsp;<br/>LRVTSLFTPV&nbsp;MMKTTDMLDT&nbsp;SLEPVTTSPP&nbsp;SMNITSDESL&nbsp;ATSKATMETE&nbsp;AIQLSENTAV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8960&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8980&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8990&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9000&nbsp;<br/>TQMGTISARQ&nbsp;EFYSSYPGLP&nbsp;EPSKVTSPVV&nbsp;TSSTIKDIVS&nbsp;TTIPASSEIT&nbsp;RIEMESTSTL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9060&nbsp;<br/>TPTPRETSTS&nbsp;QEIHSATKPS&nbsp;TVPYKALTSA&nbsp;TIEDSMTQVM&nbsp;SSSRGPSPDQ&nbsp;STMSQDISTE&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9080&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9120&nbsp;<br/>VITRLSTSPI&nbsp;KTESTEMTIT&nbsp;TQTGSPGATS&nbsp;RGTLTLDTST&nbsp;TFMSGTHSTA&nbsp;SQGFSHSQMT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9180&nbsp;<br/>ALMSRTPGDV&nbsp;PWLSHPSVEE&nbsp;ASSASFSLSS&nbsp;PVMTSSSPVS&nbsp;STLPDSIHSS&nbsp;SLPVTSLLTS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9240&nbsp;<br/>GLVKTTELLG&nbsp;TSSEPETSSP&nbsp;PNLSSTSAEI&nbsp;LAITEVTTDT&nbsp;EKLEMTNVVT&nbsp;SGYTHESPSS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9300&nbsp;<br/>VLADSVTTKA&nbsp;TSSMGITYPT&nbsp;GDTNVLTSTP&nbsp;AFSDTSRIQT&nbsp;KSKLSLTPGL&nbsp;METSISEETS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9360&nbsp;<br/>SATEKSTVLS&nbsp;SVPTGATTEV&nbsp;SRTEAISSSR&nbsp;TSIPGPAQST&nbsp;MSSDTSMETI&nbsp;TRISTPLTRK&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9420&nbsp;<br/>ESTDMAITPK&nbsp;TGPSGATSQG&nbsp;TFTLDSSSTA&nbsp;SWPGTHSATT&nbsp;QRFPQSVVTT&nbsp;PMSRGPEDVS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9480&nbsp;<br/>WPSPLSVEKN&nbsp;SPPSSLVSSS&nbsp;SVTSPSPLYS&nbsp;TPSGSSHSSP&nbsp;VPVTSLFTSI&nbsp;MMKATDMLDA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9540&nbsp;<br/>SLEPETTSAP&nbsp;NMNITSDESL&nbsp;AASKATTETE&nbsp;AIHVFENTAA&nbsp;SHVETTSATE&nbsp;ELYSSSPGFS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9600&nbsp;<br/>EPTKVISPVV&nbsp;TSSSIRDNMV&nbsp;STTMPGSSGI&nbsp;TRIEIESMSS&nbsp;LTPGLRETRT&nbsp;SQDITSSTET&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9660&nbsp;<br/>STVLYKMPSG&nbsp;ATPEVSRTEV&nbsp;MPSSRTSIPG&nbsp;PAQSTMSLDI&nbsp;SDEVVTRLST&nbsp;SPIMTESAEI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9720&nbsp;<br/>TITTQTGYSL&nbsp;ATSQVTLPLG&nbsp;TSMTFLSGTH&nbsp;STMSQGLSHS&nbsp;EMTNLMSRGP&nbsp;ESLSWTSPRF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9740&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9780&nbsp;<br/>VETTRSSSSL&nbsp;TSLPLTTSLS&nbsp;PVSSTLLDSS&nbsp;PSSPLPVTSL&nbsp;ILPGLVKTTE&nbsp;VLDTSSEPKT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9840&nbsp;<br/>SSSPNLSSTS&nbsp;VEIPATSEIM&nbsp;TDTEKIHPSS&nbsp;NTAVAKVRTS&nbsp;SSVHESHSSV&nbsp;LADSETTITI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9860&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9900&nbsp;<br/>PSMGITSAVD&nbsp;DTTVFTSNPA&nbsp;FSETRRIPTE&nbsp;PTFSLTPGFR&nbsp;ETSTSEETTS&nbsp;ITETSAVLYG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9920&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9960&nbsp;<br/>VPTSATTEVS&nbsp;MTEIMSSNRI&nbsp;HIPDSDQSTM&nbsp;SPDIITEVIT&nbsp;RLSSSSMMSE&nbsp;STQMTITTQK&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9980&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9990&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10020&nbsp;<br/>SSPGATAQST&nbsp;LTLATTTAPL&nbsp;ARTHSTVPPR&nbsp;FLHSEMTTLM&nbsp;SRSPENPSWK&nbsp;SSLFVEKTSS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10080&nbsp;<br/>SSSLLSLPVT&nbsp;TSPSVSSTLP&nbsp;QSIPSSSFSV&nbsp;TSLLTPGMVK&nbsp;TTDTSTEPGT&nbsp;SLSPNLSGTS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10140&nbsp;<br/>VEILAASEVT&nbsp;TDTEKIHPSS&nbsp;SMAVTNVGTT&nbsp;SSGHELYSSV&nbsp;SIHSEPSKAT&nbsp;YPVGTPSSMA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10180&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10200&nbsp;<br/>ETSISTSMPA&nbsp;NFETTGFEAE&nbsp;PFSHLTSGFR&nbsp;KTNMSLDTSS&nbsp;VTPTNTPSSP&nbsp;GSTHLLQSSK&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10240&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10260&nbsp;<br/>TDFTSSAKTS&nbsp;SPDWPPASQY&nbsp;TEIPVDIITP&nbsp;FNASPSITES&nbsp;TGITSFPESR&nbsp;FTMSVTESTH&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10320&nbsp;<br/>HLSTDLLPSA&nbsp;ETISTGTVMP&nbsp;SLSEAMTSFA&nbsp;TTGVPRAISG&nbsp;SGSPFSRTES&nbsp;GPGDATLSTI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10360&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10380&nbsp;<br/>AESLPSSTPV&nbsp;PFSSSTFTTT&nbsp;DSSTIPALHE&nbsp;ITSSSATPYR&nbsp;VDTSLGTESS&nbsp;TTEGRLVMVS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10420&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10440&nbsp;<br/>TLDTSSQPGR&nbsp;TSSSPILDTR&nbsp;MTESVELGTV&nbsp;TSAYQVPSLS&nbsp;TRLTRTDGIM&nbsp;EHITKIPNEA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10480&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10500&nbsp;<br/>AHRGTIRPVK&nbsp;GPQTSTSPAS&nbsp;PKGLHTGGTK&nbsp;RMETTTTALK&nbsp;TTTTALKTTS&nbsp;RATLTTSVYT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10540&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10560&nbsp;<br/>PTLGTLTPLN&nbsp;ASMQMASTIP&nbsp;TEMMITTPYV&nbsp;FPDVPETTSS&nbsp;LATSLGAETS&nbsp;TALPRTTPSV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10600&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10620&nbsp;<br/>FNRESETTAS&nbsp;LVSRSGAERS&nbsp;PVIQTLDVSS&nbsp;SEPDTTASWV&nbsp;IHPAETIPTV&nbsp;SKTTPNFFHS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10660&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10680&nbsp;<br/>ELDTVSSTAT&nbsp;SHGADVSSAI&nbsp;PTNISPSELD&nbsp;ALTPLVTISG&nbsp;TDTSTTFPTL&nbsp;TKSPHETETR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10720&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10740&nbsp;<br/>TTWLTHPAET&nbsp;SSTIPRTIPN&nbsp;FSHHESDATP&nbsp;SIATSPGAET&nbsp;SSAIPIMTVS&nbsp;PGAEDLVTSQ&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10780&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10800&nbsp;<br/>VTSSGTDRNM&nbsp;TIPTLTLSPG&nbsp;EPKTIASLVT&nbsp;HPEAQTSSAI&nbsp;PTSTISPAVS&nbsp;RLVTSMVTSL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10840&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10860&nbsp;<br/>AAKTSTTNRA&nbsp;LTNSPGEPAT&nbsp;TVSLVTHPAQ&nbsp;TSPTVPWTTS&nbsp;IFFHSKSDTT&nbsp;PSMTTSHGAE&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10920&nbsp;<br/>SSSAVPTPTV&nbsp;STEVPGVVTP&nbsp;LVTSSRAVIS&nbsp;TTIPILTLSP&nbsp;GEPETTPSMA&nbsp;TSHGEEASSA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10960&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10980&nbsp;<br/>IPTPTVSPGV&nbsp;PGVVTSLVTS&nbsp;SRAVTSTTIP&nbsp;ILTFSLGEPE&nbsp;TTPSMATSHG&nbsp;TEAGSAVPTV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10990&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11040&nbsp;<br/>LPEVPGMVTS&nbsp;LVASSRAVTS&nbsp;TTLPTLTLSP&nbsp;GEPETTPSMA&nbsp;TSHGAEASST&nbsp;VPTVSPEVPG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11080&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11100&nbsp;<br/>VVTSLVTSSS&nbsp;GVNSTSIPTL&nbsp;ILSPGELETT&nbsp;PSMATSHGAE&nbsp;ASSAVPTPTV&nbsp;SPGVSGVVTP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11160&nbsp;<br/>LVTSSRAVTS&nbsp;TTIPILTLSS&nbsp;SEPETTPSMA&nbsp;TSHGVEASSA&nbsp;VLTVSPEVPG&nbsp;MVTSLVTSSR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11180&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11220&nbsp;<br/>AVTSTTIPTL&nbsp;TISSDEPETT&nbsp;TSLVTHSEAK&nbsp;MISAIPTLAV&nbsp;SPTVQGLVTS&nbsp;LVTSSGSETS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11240&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11280&nbsp;<br/>AFSNLTVASS&nbsp;QPETIDSWVA&nbsp;HPGTEASSVV&nbsp;PTLTVSTGEP&nbsp;FTNISLVTHP&nbsp;AESSSTLPRT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11340&nbsp;<br/>TSRFSHSELD&nbsp;TMPSTVTSPE&nbsp;AESSSAISTT&nbsp;ISPGIPGVLT&nbsp;SLVTSSGRDI&nbsp;SATFPTVPES&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11360&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11400&nbsp;<br/>PHESEATASW&nbsp;VTHPAVTSTT&nbsp;VPRTTPNYSH&nbsp;SEPDTTPSIA&nbsp;TSPGAEATSD&nbsp;FPTITVSPDV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11420&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11460&nbsp;<br/>PDMVTSQVTS&nbsp;SGTDTSITIP&nbsp;TLTLSSGEPE&nbsp;TTTSFITYSE&nbsp;THTSSAIPTL&nbsp;PVSPGASKML&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11480&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11520&nbsp;<br/>TSLVISSGTD&nbsp;STTTFPTLTE&nbsp;TPYEPETTAI&nbsp;QLIHPAETNT&nbsp;MVPRTTPKFS&nbsp;HSKSDTTLPV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11540&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11580&nbsp;<br/>AITSPGPEAS&nbsp;SAVSTTTISP&nbsp;DMSDLVTSLV&nbsp;PSSGTDTSTT&nbsp;FPTLSETPYE&nbsp;PETTATWLTH&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11600&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11640&nbsp;<br/>PAETSTTVSG&nbsp;TIPNFSHRGS&nbsp;DTAPSMVTSP&nbsp;GVDTRSGVPT&nbsp;TTIPPSIPGV&nbsp;VTSQVTSSAT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11660&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11700&nbsp;<br/>DTSTAIPTLT&nbsp;PSPGEPETTA&nbsp;SSATHPGTQT&nbsp;GFTVPIRTVP&nbsp;SSEPDTMASW&nbsp;VTHPPQTSTP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11720&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11740&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11760&nbsp;<br/>VSRTTSSFSH&nbsp;SSPDATPVMA&nbsp;TSPRTEASSA&nbsp;VLTTISPGAP&nbsp;EMVTSQITSS&nbsp;GAATSTTVPT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11780&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11820&nbsp;<br/>LTHSPGMPET&nbsp;TALLSTHPRT&nbsp;ETSKTFPAST&nbsp;VFPQVSETTA&nbsp;SLTIRPGAET&nbsp;STALPTQTTS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11840&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11860&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11880&nbsp;<br/>SLFTLLVTGT&nbsp;SRVDLSPTAS&nbsp;PGVSAKTAPL&nbsp;STHPGTETST&nbsp;MIPTSTLSLG&nbsp;LLETTGLLAT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11920&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11940&nbsp;<br/>SSSAETSTST&nbsp;LTLTVSPAVS&nbsp;GLSSASITTD&nbsp;KPQTVTSWNT&nbsp;ETSPSVTSVG&nbsp;PPEFSRTVTG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11960&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11980&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11990&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12000&nbsp;<br/>TTMTLIPSEM&nbsp;PTPPKTSHGE&nbsp;GVSPTTILRT&nbsp;TMVEATNLAT&nbsp;TGSSPTVAKT&nbsp;TTTFNTLAGS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12060&nbsp;<br/>LFTPLTTPGM&nbsp;STLASESVTS&nbsp;RTSYNHRSWI&nbsp;STTSSYNRRY&nbsp;WTPATSTPVT&nbsp;STFSPGISTS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12080&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12120&nbsp;<br/>SIPSSTAATV&nbsp;PFMVPFTLNF&nbsp;TITNLQYEED&nbsp;MRHPGSRKFN&nbsp;ATERELQGLL&nbsp;KPLFRNSSLE&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12180&nbsp;<br/>YLYSGCRLAS&nbsp;LRPEKDSSAT&nbsp;AVDAICTHRP&nbsp;DPEDLGLDRE&nbsp;RLYWELSNLT&nbsp;NGIQELGPYT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12240&nbsp;<br/>LDRNSLYVNG&nbsp;FTHRSSMPTT&nbsp;STPGTSTVDV&nbsp;GTSGTPSSSP&nbsp;SPTTAGPLLM&nbsp;PFTLNFTITN&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12300&nbsp;<br/>LQYEEDMRRT&nbsp;GSRKFNTMES&nbsp;VLQGLLKPLF&nbsp;KNTSVGPLYS&nbsp;GCRLTLLRPE&nbsp;KDGAATGVDA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12360&nbsp;<br/>ICTHRLDPKS&nbsp;PGLNREQLYW&nbsp;ELSKLTNDIE&nbsp;ELGPYTLDRN&nbsp;SLYVNGFTHQ&nbsp;SSVSTTSTPG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12420&nbsp;<br/>TSTVDLRTSG&nbsp;TPSSLSSPTI&nbsp;MAAGPLLVPF&nbsp;TLNFTITNLQ&nbsp;YGEDMGHPGS&nbsp;RKFNTTERVL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12480&nbsp;<br/>QGLLGPIFKN&nbsp;TSVGPLYSGC&nbsp;RLTSLRSEKD&nbsp;GAATGVDAIC&nbsp;IHHLDPKSPG&nbsp;LNRERLYWEL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12540&nbsp;<br/>SQLTNGIKEL&nbsp;GPYTLDRNSL&nbsp;YVNGFTHRTS&nbsp;VPTSSTPGTS&nbsp;TVDLGTSGTP&nbsp;FSLPSPATAG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12600&nbsp;<br/>PLLVLFTLNF&nbsp;TITNLKYEED&nbsp;MHRPGSRKFN&nbsp;TTERVLQTLL&nbsp;GPMFKNTSVG&nbsp;LLYSGCRLTL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12660&nbsp;<br/>LRSEKDGAAT&nbsp;GVDAICTHRL&nbsp;DPKSPGVDRE&nbsp;QLYWELSQLT&nbsp;NGIKELGPYT&nbsp;LDRNSLYVNG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12720&nbsp;<br/>FTHWIPVPTS&nbsp;STPGTSTVDL&nbsp;GSGTPSSLPS&nbsp;PTTAGPLLVP&nbsp;FTLNFTITNL&nbsp;KYEEDMHCPG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12740&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12780&nbsp;<br/>SRKFNTTERV&nbsp;LQSLLGPMFK&nbsp;NTSVGPLYSG&nbsp;CRLTLLRSEK&nbsp;DGAATGVDAI&nbsp;CTHRLDPKSP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12840&nbsp;<br/>GVDREQLYWE&nbsp;LSQLTNGIKE&nbsp;LGPYTLDRNS&nbsp;LYVNGFTHQT&nbsp;SAPNTSTPGT&nbsp;STVDLGTSGT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12860&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12900&nbsp;<br/>PSSLPSPTSA&nbsp;GPLLVPFTLN&nbsp;FTITNLQYEE&nbsp;DMHHPGSRKF&nbsp;NTTERVLQGL&nbsp;LGPMFKNTSV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12920&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12960&nbsp;<br/>GLLYSGCRLT&nbsp;LLRPEKNGAA&nbsp;TGMDAICSHR&nbsp;LDPKSPGLNR&nbsp;EQLYWELSQL&nbsp;THGIKELGPY&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12980&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12990&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13020&nbsp;<br/>TLDRNSLYVN&nbsp;GFTHRSSVAP&nbsp;TSTPGTSTVD&nbsp;LGTSGTPSSL&nbsp;PSPTTAVPLL&nbsp;VPFTLNFTIT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13080&nbsp;<br/>NLQYGEDMRH&nbsp;PGSRKFNTTE&nbsp;RVLQGLLGPL&nbsp;FKNSSVGPLY&nbsp;SGCRLISLRS&nbsp;EKDGAATGVD&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13140&nbsp;<br/>AICTHHLNPQ&nbsp;SPGLDREQLY&nbsp;WQLSQMTNGI&nbsp;KELGPYTLDR&nbsp;NSLYVNGFTH&nbsp;RSSGLTTSTP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13180&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13200&nbsp;<br/>WTSTVDLGTS&nbsp;GTPSPVPSPT&nbsp;TTGPLLVPFT&nbsp;LNFTITNLQY&nbsp;EENMGHPGSR&nbsp;KFNITESVLQ&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13240&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13260&nbsp;<br/>GLLKPLFKST&nbsp;SVGPLYSGCR&nbsp;LTLLRPEKDG&nbsp;VATRVDAICT&nbsp;HRPDPKIPGL&nbsp;DRQQLYWELS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13320&nbsp;<br/>QLTHSITELG&nbsp;PYTLDRDSLY&nbsp;VNGFTQRSSV&nbsp;PTTSTPGTFT&nbsp;VQPETSETPS&nbsp;SLPGPTATGP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13360&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13380&nbsp;<br/>VLLPFTLNFT&nbsp;ITNLQYEEDM&nbsp;RRPGSRKFNT&nbsp;TERVLQGLLM&nbsp;PLFKNTSVSS&nbsp;LYSGCRLTLL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13420&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13440&nbsp;<br/>RPEKDGAATR&nbsp;VDAVCTHRPD&nbsp;PKSPGLDRER&nbsp;LYWKLSQLTH&nbsp;GITELGPYTL&nbsp;DRHSLYVNGF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13480&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13500&nbsp;<br/>THQSSMTTTR&nbsp;TPDTSTMHLA&nbsp;TSRTPASLSG&nbsp;PMTASPLLVL&nbsp;FTINFTITNL&nbsp;RYEENMHHPG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13540&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13560&nbsp;<br/>SRKFNTTERV&nbsp;LQGLLRPVFK&nbsp;NTSVGPLYSG&nbsp;CRLTLLRPKK&nbsp;DGAATKVDAI&nbsp;CTYRPDPKSP&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13600&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13620&nbsp;<br/>GLDREQLYWE&nbsp;LSQLTHSITE&nbsp;LGPYTLDRDS&nbsp;LYVNGFTQRS&nbsp;SVPTTSIPGT&nbsp;PTVDLGTSGT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13660&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13680&nbsp;<br/>PVSKPGPSAA&nbsp;SPLLVLFTLN&nbsp;FTITNLRYEE&nbsp;NMQHPGSRKF&nbsp;NTTERVLQGL&nbsp;LRSLFKSTSV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13720&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13730&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13740&nbsp;<br/>GPLYSGCRLT&nbsp;LLRPEKDGTA&nbsp;TGVDAICTHH&nbsp;PDPKSPRLDR&nbsp;EQLYWELSQL&nbsp;THNITELGPY&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13750&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13760&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13770&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13780&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13790&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13800&nbsp;<br/>ALDNDSLFVN&nbsp;GFTHRSSVST&nbsp;TSTPGTPTVY&nbsp;LGASKTPASI&nbsp;FGPSAASHLL&nbsp;ILFTLNFTIT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13810&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13820&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13830&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13840&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13850&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13860&nbsp;<br/>NLRYEENMWP&nbsp;GSRKFNTTER&nbsp;VLQGLLRPLF&nbsp;KNTSVGPLYS&nbsp;GCRLTLLRPE&nbsp;KDGEATGVDA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13870&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13880&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13900&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13910&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13920&nbsp;<br/>ICTHRPDPTG&nbsp;PGLDREQLYL&nbsp;ELSQLTHSIT&nbsp;ELGPYTLDRD&nbsp;SLYVNGFTHR&nbsp;SSVPTTSTGV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13930&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13940&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13950&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13960&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13970&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13980&nbsp;<br/>VSEEPFTLNF&nbsp;TINNLRYMAD&nbsp;MGQPGSLKFN&nbsp;ITDNVMQHLL&nbsp;SPLFQRSSLG&nbsp;ARYTGCRVIA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13990&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14040&nbsp;<br/>LRSVKNGAET&nbsp;RVDLLCTYLQ&nbsp;PLSGPGLPIK&nbsp;QVFHELSQQT&nbsp;HGITRLGPYS&nbsp;LDKDSLYLNG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14080&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14100&nbsp;<br/>YNEPGPDEPP&nbsp;TTPKPATTFL&nbsp;PPLSEATTAM&nbsp;GYHLKTLTLN&nbsp;FTISNLQYSP&nbsp;DMGKGSATFN&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14160&nbsp;<br/>STEGVLQHLL&nbsp;RPLFQKSSMG&nbsp;PFYLGCQLIS&nbsp;LRPEKDGAAT&nbsp;GVDTTCTYHP&nbsp;DPVGPGLDIQ&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14180&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14220&nbsp;<br/>QLYWELSQLT&nbsp;HGVTQLGFYV&nbsp;LDRDSLFING&nbsp;YAPQNLSIRG&nbsp;EYQINFHIVN&nbsp;WNLSNPDPTS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14240&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14280&nbsp;<br/>SEYITLLRDI&nbsp;QDKVTTLYKG&nbsp;SQLHDTFRFC&nbsp;LVTNLTMDSV&nbsp;LVTVKALFSS&nbsp;NLDPSLVEQV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14340&nbsp;<br/>FLDKTLNASF&nbsp;HWLGSTYQLV&nbsp;DIHVTEMESS&nbsp;VYQPTSSSST&nbsp;QHFYLNFTIT&nbsp;NLPYSQDKAQ&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14360&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14400&nbsp;<br/>PGTTNYQRNK&nbsp;RNIEDALNQL&nbsp;FRNSSIKSYF&nbsp;SDCQVSTFRS&nbsp;VPNRHHTGVD&nbsp;SLCNFSPLAR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14420&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14460&nbsp;<br/>RVDRVAIYEE&nbsp;FLRMTRNGTQ&nbsp;LQNFTLDRSS&nbsp;VLVDGYSPNR&nbsp;NEPLTGNSDL&nbsp;PFWAVILIGL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14480&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14500&nbsp;&nbsp;&nbsp;&nbsp;<br/>AGLLGVITCL&nbsp;ICGVLVTTRR&nbsp;RKKEGEYNVQ&nbsp;QQCPGYYQSH&nbsp;LDLEDLQ<p>
+	  </section>             
+	  <section class="block" if= false>
+	    <h3>Isoforms</h3>
+	  <br>
+      <br>
+	      Sequence View <p class="seq">
+          </p>
+
+	   <br><br>
+	
+     
+	      
+	
+	  </section> 
+	</section>
+
+
+
+	  <section class="right" width="20px">
+
+	  		<center>
+			<form action="/proteins/show/Q8WXI7" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="sq2CDiXagy0BYzDs2SEyJLoPUBRBSx8V2VGqeEajF8QJvCCGZ55btdYD/1mYZi+L4KXspG6QBofy14t9BlYayA==" />
+				
+				<!-- To go back from dropdown to multiple selection box, type :multiple => true into the last set of {} brackets -->
+
+				<h2>Filter Information:</h2>
+				<br>
+				(<a href="/proteins/show/Q8WXI7">REFRESH</a>)
+				<br></br>
+				<h3>Directness: </h3>
+				<select name="directness" id="directness"><option value="unknown">unknown</option></select>
+				<br><h3>Physiological Relevance: </h3>
+				<select name="phys_rel" id="phys_rel"><option value="unknown">unknown</option></select>
+				<br><h3>Evidence Codes: </h3>
+				<select name="evidencecodes" id="evidencecodes"><option value="inferred from electronic annotation">inferred from electronic annotation</option></select>
+				<br><h3>Methodology: </h3>
+				<select name="methodology" id="methodology"><option value="electronic annotation">electronic annotation</option></select>
+				<br><h3>Perturbation of System: </h3>
+				<select name="perturbations" id="perturbations"><option value=""></option></select>
+				<br><h3>Biological System: </h3>
+				<select name="methodsystems" id="methodsystems"><option value="unknown">unknown</option></select>
+				<br><h3>Protease Assignment Confidence: </h3>
+				<select name="proteaseassignmentconfidences" id="proteaseassignmentconfidences"><option value="unknown">unknown</option></select>
+				<br><h3>Evidence Names: </h3>
+				<select name="evidences" id="evidences"><option value="inferred from uniprot">inferred from uniprot</option></select>
+				<br><h3>Database: </h3>
+				<select name="repository" id="repository"><option value=""></option></select>
+				<br><h3>Lab: </h3>
+				<select name="labs" id="labs"><option value=""></option></select>
+				<br><br>
+				<input type="submit" name="commit" value="Search" data-disable-with="Search" />
+</form>
+		</center>
+
+	  </section>
+         	
+	
+
+	</section> 	  
+
+</def>
+
+
+
+
+<section class="full category">
+</section>
+<def tag='Protein_Neighborhood'>
+	<a name="Protein_Neighborhood"/>
+	<h2>Protein Neighborhood</h2>
+		<img src="/assets/protein_neighborhood/Q8WXI7_pw_graphviz-b7cbea3647b4934e613b8944826bc842c7f431999e14b0dd5f308c3730a22e22.svg" />
+</def>
+	
+	        <section class="full category">
+              <pagenav/>
+              <a name="features"/><h2>Domains &amp; Features</h2>
+            </section>
+
+            <h2><center>1 N-termini - 1 C-termini - 0 Cleavages - 0 Substrates</center></h2>
+			
+<!-- N-TERMINI  -->
+
+              <a name="features"/><h2>N-termini</h2></a>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Name</th>
+					<th>Sequence</th>
+					<th>Position</th>
+					<th>Modification</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMID)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td>Q8WXI7-1-unknown</td>
+							<td>MLKPSG...</td>
+							<td>1</td>
+							<td></td>
+							<td>inferred from electronic annotation</td>
+							<td>electronic annotation</td>
+							<td><a target="_blank" href="http://www.uniprot.org">UniProtKB</a></td>
+							<td></td>
+							<td><a href="/evidences/show/1">inferred from uniprot</a></td>
+							<td>
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>
+
+
+
+<!-- C-TERMINI  -->
+
+
+              <a name="features"/><h2>C-termini</h2>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Name</th>
+					<th>Sequence</th>
+					<th>Position</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td></td>
+							<td>... </td>
+							<td>22152</td>
+							<td>inferred from electronic annotation</td>
+							<td>electronic annotation</td>
+							<td><a target="_blank" href="http://www.uniprot.org">UniProtKB</a></td>
+							<td></td>
+							<td><a href="/evidences/show/1">inferred from uniprot</a></td>
+							<td>
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>
+
+<!-- CLEAVAGES -->
+
+
+              <a name="features"/><h2>Cleavages</h2>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Protease</th>
+					<th>Position</th>
+					<th>Sequence</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+				</tbody>
+			  </table>
+			</ul>
+
+
+<!-- SUBSTRATES -->
+
+              <a name="features"/><h2>Substrates</h2>
+              <ul id="protshow">
+			  <table id="protshow" class="substrates-table">
+				<thead>
+					<th>Substrate</th>
+					<th>Position</th>
+					<th>Sequence</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+				</tbody>
+			  </table>
+			</ul>	
+
+			
+			
+			<section class="full">
+              
+            </section>
+	
+</def>
+
+
+<br>
+<br>
+
+
+</div>
+</div>
+</div>
+
+<footer>
+
+        
+    <div id="publication">
+
+        <div id="pics">
+        <img alt="UBC Logo" src="/assets/UBClogoupdated-76d10b067dddb96b9cf35c63b9db6f8ddd48959cffd588df9598f89d124f7279.png" width="372" height="117" />
+        <a href="http://clip.ubc.ca" target="_blank"><img alt="Lab Logo" src="/assets/Optimized_LabLogo-6b774b6428c587573bbe04397e0d610398524d5693571f497b59df22be3789d1.png" width="400" height="169" /></a>
+        </div>
+    </div>
+
+
+
+<div id="links">
+<br>
+<br>
+<center>
+<a href="/documentations/about">About |</a>
+<a href="/documentations/license">License &amp; Disclaimer |</a>
+<a href="mailto:topfind.clip@gmail.com">Contact |</a>
+<a href="/documentations/download">Download</a> 
+</center>
+
+<br>
+<center>
+        <h3> Developed by: Philipp F. Lange, Nikolaus Fortelny, Simran Rai </h3>
+        <a href="http://nar.oxfordjournals.org/content/early/2014/10/20/nar.gku1012.full" target="_blank">Nikolaus Fortelny, Sharon Yang, Paul Pavlidis, Philipp F. Lange*, Christopher M. Overall*, <b>Nucleic Acids Research</b> doi: 10.1093/nar/gku1012 (2014)</a><a href="http://nar.oxfordjournals.org/content/early/2014/10/20/nar.gku1012.full.pdf+html" target="_blank">[pdf]</a><br>
+        <a href="http://nar.oxfordjournals.org/content/40/D1/D351.full" target="_blank">Philipp F. Lange, Pitter F. Huesgen, Christopher M. Overall, <b>Nucleic Acids Research</b> 40 (D1), D351-D361 (2012)</a> <a href="https://www.researchgate.net/profile/Philipp_Lange/publication/51816705_TopFIND_2.0--linking_protein_termini_with_proteolytic_processing_and_modifications_altering_protein_function/links/0fcfd50574d434aac9000000?ev=pub_int_doc_dl&origin=publication_detail&inViewer=true" target="_blank">[pdf]</a><br>
+        <a href="http://www.nature.com/nmeth/journal/v8/n9/full/nmeth.1669.html" target="_blank">Philipp F. Lange &amp; Christopher M. Overall, <b>Nature Methods</b> 8, 703&minus;704 (2011)</a> <a href="/topfind/downloads/2011-NMeth-Lange_and_Overall.pdf" target="_blank">[pdf]</a>
+    <div class="bottom">&nbsp;</div>
+</center>
+
+</div>
+
+
+    </footer>
+
+
+
+</body>
+
+
+
+
+
+</body>
+</html>

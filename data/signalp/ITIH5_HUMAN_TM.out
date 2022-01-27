@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.488
+  max. Y    17       0.673
+  max. S     6       0.970
+  mean S     1-16    0.931
+       D     1-16    0.776   0.500   YES
+Name=ITIH5_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: CVG-SQ D=0.776 D-cutoff=0.500 Networks=SignalP-TM

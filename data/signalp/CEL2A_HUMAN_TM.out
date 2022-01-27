@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.364
+  max. Y    17       0.566
+  max. S     1       0.925
+  mean S     1-16    0.884
+       D     1-16    0.693   0.500   YES
+Name=CEL2A_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: ALS-CG D=0.693 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    42       0.247
+  max. Y    42       0.283
+  max. S    11       0.564
+  mean S     1-41    0.341
+       D     1-41    0.306   0.500   NO
+Name=LIRA5_HUMAN	SP='NO' D=0.306 D-cutoff=0.500 Networks=SignalP-TM

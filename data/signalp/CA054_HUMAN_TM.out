@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.585
+  max. Y    17       0.591
+  max. S     3       0.778
+  mean S     1-16    0.615
+       D     1-16    0.600   0.500   YES
+Name=CA054_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: ILG-QE D=0.600 D-cutoff=0.500 Networks=SignalP-TM

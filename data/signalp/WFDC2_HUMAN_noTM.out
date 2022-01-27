@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    31       0.708
+  max. Y    31       0.815
+  max. S    18       0.993
+  mean S     1-30    0.940
+       D     1-30    0.882   0.450   YES
+Name=WFDC2_HUMAN	SP='YES' Cleavage site between pos. 30 and 31: TGA-EK D=0.882 D-cutoff=0.450 Networks=SignalP-noTM

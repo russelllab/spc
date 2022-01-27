@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    30       0.867
+  max. Y    30       0.883
+  max. S    18       0.983
+  mean S     1-29    0.907
+       D     1-29    0.896   0.450   YES
+Name=CXL16_HUMAN	SP='YES' Cleavage site between pos. 29 and 30: GNG-NE D=0.896 D-cutoff=0.450 Networks=SignalP-noTM

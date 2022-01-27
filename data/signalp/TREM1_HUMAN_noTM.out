@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.611
+  max. Y    21       0.749
+  max. S    15       0.965
+  mean S     1-20    0.917
+       D     1-20    0.840   0.450   YES
+Name=TREM1_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: LRA-AT D=0.840 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    63       0.278
+  max. Y    21       0.277
+  max. S    13       0.786
+  mean S     1-20    0.671
+       D     1-20    0.490   0.450   YES
+Name=ADTRP_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: TFL-NY D=0.490 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.402
+  max. Y    21       0.591
+  max. S     1       0.952
+  mean S     1-20    0.861
+       D     1-20    0.737   0.450   YES
+Name=UROK_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: SKG-SN D=0.737 D-cutoff=0.450 Networks=SignalP-noTM

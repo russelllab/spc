@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.815
+  max. Y    24       0.840
+  max. S     9       0.960
+  mean S     1-23    0.892
+       D     1-23    0.861   0.500   YES
+Name=PIGT_HUMAN	SP='YES' Cleavage site between pos. 23 and 24: CLA-EP D=0.861 D-cutoff=0.500 Networks=SignalP-TM

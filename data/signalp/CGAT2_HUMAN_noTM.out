@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    29       0.313
+  max. Y    29       0.555
+  max. S    17       0.997
+  mean S     1-28    0.973
+       D     1-28    0.781   0.450   YES
+Name=CGAT2_HUMAN	SP='YES' Cleavage site between pos. 28 and 29: VLF-MY D=0.781 D-cutoff=0.450 Networks=SignalP-noTM

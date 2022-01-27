@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    54       0.479
+  max. Y    54       0.474
+  max. S    37       0.876
+  mean S     1-53    0.452
+       D     1-53    0.462   0.450   YES
+Name=LT4R2_HUMAN	SP='YES' Cleavage site between pos. 53 and 54: ARG-RP D=0.462 D-cutoff=0.450 Networks=SignalP-noTM

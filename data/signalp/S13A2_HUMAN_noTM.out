@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    54       0.613
+  max. Y    54       0.412
+  max. S    13       0.970
+  mean S     1-53    0.641
+       D     1-53    0.535   0.450   YES
+Name=S13A2_HUMAN	SP='YES' Cleavage site between pos. 53 and 54: TEA-LP D=0.535 D-cutoff=0.450 Networks=SignalP-noTM

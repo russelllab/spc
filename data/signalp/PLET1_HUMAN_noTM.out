@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    26       0.380
+  max. Y    26       0.536
+  max. S     6       0.890
+  mean S     1-25    0.766
+       D     1-25    0.660   0.450   YES
+Name=PLET1_HUMAN	SP='YES' Cleavage site between pos. 25 and 26: SSA-TF D=0.660 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.561
+  max. Y    22       0.658
+  max. S     2       0.884
+  mean S     1-21    0.768
+       D     1-21    0.718   0.450   YES
+Name=DNSL2_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: TAA-LR D=0.718 D-cutoff=0.450 Networks=SignalP-noTM

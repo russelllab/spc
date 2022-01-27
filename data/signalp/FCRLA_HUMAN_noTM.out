@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.395
+  max. Y    28       0.622
+  max. S    15       0.997
+  mean S     1-27    0.978
+       D     1-27    0.815   0.450   YES
+Name=FCRLA_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: LLA-AS D=0.815 D-cutoff=0.450 Networks=SignalP-noTM

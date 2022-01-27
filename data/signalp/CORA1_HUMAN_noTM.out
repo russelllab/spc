@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    42       0.373
+  max. Y    42       0.544
+  max. S    31       0.913
+  mean S     1-41    0.676
+       D     1-41    0.615   0.450   YES
+Name=CORA1_HUMAN	SP='YES' Cleavage site between pos. 41 and 42: TQG-AP D=0.615 D-cutoff=0.450 Networks=SignalP-noTM

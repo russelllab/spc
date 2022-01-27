@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    29       0.741
+  max. Y    26       0.777
+  max. S    12       0.952
+  mean S     1-25    0.903
+       D     1-25    0.827   0.500   YES
+Name=ULBP2_HUMAN	SP='YES' Cleavage site between pos. 25 and 26: SRA-GR D=0.827 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.457
+  max. Y    17       0.647
+  max. S     9       0.954
+  mean S     1-16    0.915
+       D     1-16    0.754   0.500   YES
+Name=VSIG1_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: CLA-GQ D=0.754 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.236
+  max. Y    23       0.408
+  max. S    12       0.798
+  mean S     1-22    0.684
+       D     1-22    0.518   0.500   YES
+Name=FRRS1_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: VAN-YP D=0.518 D-cutoff=0.500 Networks=SignalP-TM

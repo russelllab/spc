@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    40       0.315
+  max. Y    40       0.526
+  max. S    28       0.971
+  mean S     1-39    0.828
+       D     1-39    0.689   0.450   YES
+Name=GLT12_HUMAN	SP='YES' Cleavage site between pos. 39 and 40: LRA-QR D=0.689 D-cutoff=0.450 Networks=SignalP-noTM

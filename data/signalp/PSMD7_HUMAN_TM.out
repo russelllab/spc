@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.123
+  max. Y    23       0.185
+  max. S    16       0.434
+  mean S     1-22    0.272
+       D     1-22    0.220   0.500   NO
+Name=PSMD7_HUMAN	SP='NO' D=0.220 D-cutoff=0.500 Networks=SignalP-TM

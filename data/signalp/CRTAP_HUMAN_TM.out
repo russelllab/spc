@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    27       0.733
+  max. Y    27       0.707
+  max. S    20       0.852
+  mean S     1-26    0.709
+       D     1-26    0.708   0.500   YES
+Name=CRTAP_HUMAN	SP='YES' Cleavage site between pos. 26 and 27: GRA-QY D=0.708 D-cutoff=0.500 Networks=SignalP-TM

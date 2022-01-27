@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    26       0.415
+  max. Y    26       0.486
+  max. S     5       0.865
+  mean S     1-25    0.656
+       D     1-25    0.554   0.500   YES
+Name=EFNA4_HUMAN	SP='YES' Cleavage site between pos. 25 and 26: GSS-LR D=0.554 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.181
+  max. Y    20       0.381
+  max. S     9       0.879
+  mean S     1-19    0.797
+       D     1-19    0.605   0.450   YES
+Name=KI3L1_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: QRA-GP D=0.605 D-cutoff=0.450 Networks=SignalP-noTM

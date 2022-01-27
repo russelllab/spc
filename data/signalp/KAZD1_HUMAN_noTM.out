@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    31       0.802
+  max. Y    31       0.863
+  max. S    17       0.981
+  mean S     1-30    0.930
+       D     1-30    0.899   0.450   YES
+Name=KAZD1_HUMAN	SP='YES' Cleavage site between pos. 30 and 31: TGA-RP D=0.899 D-cutoff=0.450 Networks=SignalP-noTM

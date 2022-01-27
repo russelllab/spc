@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    34       0.639
+  max. Y    34       0.746
+  max. S    21       0.948
+  mean S     1-33    0.875
+       D     1-33    0.816   0.450   YES
+Name=GALT6_HUMAN	SP='YES' Cleavage site between pos. 33 and 34: VSS-RE D=0.816 D-cutoff=0.450 Networks=SignalP-noTM

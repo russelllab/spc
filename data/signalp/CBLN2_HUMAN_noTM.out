@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    52       0.687
+  max. Y    52       0.772
+  max. S    39       0.958
+  mean S     1-51    0.588
+       D     1-51    0.673   0.450   YES
+Name=CBLN2_HUMAN	SP='YES' Cleavage site between pos. 51 and 52: VRA-QN D=0.673 D-cutoff=0.450 Networks=SignalP-noTM

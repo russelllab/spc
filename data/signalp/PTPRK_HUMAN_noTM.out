@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.364
+  max. Y    28       0.578
+  max. S     9       0.960
+  mean S     1-27    0.914
+       D     1-27    0.760   0.450   YES
+Name=PTPRK_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: GSA-QG D=0.760 D-cutoff=0.450 Networks=SignalP-noTM

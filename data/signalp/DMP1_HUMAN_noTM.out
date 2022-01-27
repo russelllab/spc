@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.810
+  max. Y    17       0.880
+  max. S    10       0.972
+  mean S     1-16    0.951
+       D     1-16    0.918   0.450   YES
+Name=DMP1_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: SCA-LP D=0.918 D-cutoff=0.450 Networks=SignalP-noTM

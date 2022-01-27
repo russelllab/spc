@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    44       0.334
+  max. Y    44       0.494
+  max. S    36       0.869
+  mean S     1-43    0.521
+       D     1-43    0.508   0.450   YES
+Name=NEMP1_HUMAN	SP='YES' Cleavage site between pos. 43 and 44: GTA-ET D=0.508 D-cutoff=0.450 Networks=SignalP-noTM

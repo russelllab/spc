@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.564
+  max. Y    28       0.502
+  max. S     5       0.788
+  mean S     1-27    0.558
+       D     1-27    0.525   0.500   YES
+Name=OSMR_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: VLA-ER D=0.525 D-cutoff=0.500 Networks=SignalP-TM

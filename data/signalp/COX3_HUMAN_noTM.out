@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    33       0.468
+  max. Y    33       0.542
+  max. S    39       0.904
+  mean S     1-32    0.561
+       D     1-32    0.552   0.450   YES
+Name=COX3_HUMAN	SP='YES' Cleavage site between pos. 32 and 33: GLA-MW D=0.552 D-cutoff=0.450 Networks=SignalP-noTM

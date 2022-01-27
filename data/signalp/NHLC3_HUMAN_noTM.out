@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    27       0.171
+  max. Y    27       0.386
+  max. S     9       0.980
+  mean S     1-26    0.879
+       D     1-26    0.652   0.450   YES
+Name=NHLC3_HUMAN	SP='YES' Cleavage site between pos. 26 and 27: FCG-SP D=0.652 D-cutoff=0.450 Networks=SignalP-noTM

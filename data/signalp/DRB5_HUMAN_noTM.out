@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    30       0.444
+  max. Y    30       0.503
+  max. S    27       0.847
+  mean S     1-29    0.527
+       D     1-29    0.516   0.450   YES
+Name=DRB5_HUMAN	SP='YES' Cleavage site between pos. 29 and 30: ALA-GD D=0.516 D-cutoff=0.450 Networks=SignalP-noTM

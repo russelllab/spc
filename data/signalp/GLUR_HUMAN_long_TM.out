@@ -1,0 +1,18 @@
+# SignalP-4.1 euk predictions
+# Name=GLUR_HUMAN	Length=8	Networks=SignalP-TM
+# pos  aa    C       S       Y
+    1   C   0.102   0.258   0.162
+    2   E   0.102   0.272   0.162
+    3   H   0.101   0.244   0.162
+    4   S   0.102   0.193   0.162
+    5   H   0.100   0.131   0.159
+    6   D   0.103   0.113   0.159
+    7   G   0.103   0.096   0.155
+    8   A   0.101   0.072   0.150
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C     6       0.103
+  max. Y     1       0.000
+  max. S     2       0.272
+  mean S     1-0     0.000
+       D     1-0     0.000   0.500   NO
+Name=GLUR_HUMAN	SP='NO' D=0.000 D-cutoff=0.500 Networks=SignalP-TM

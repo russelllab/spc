@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    46       0.553
+  max. Y    46       0.675
+  max. S    18       0.989
+  mean S     1-45    0.836
+       D     1-45    0.762   0.450   YES
+Name=TTC13_HUMAN	SP='YES' Cleavage site between pos. 45 and 46: ALA-TE D=0.762 D-cutoff=0.450 Networks=SignalP-noTM

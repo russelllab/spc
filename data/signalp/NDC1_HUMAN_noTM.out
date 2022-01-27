@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    42       0.382
+  max. Y    42       0.508
+  max. S    27       0.852
+  mean S     1-41    0.572
+       D     1-41    0.543   0.450   YES
+Name=NDC1_HUMAN	SP='YES' Cleavage site between pos. 41 and 42: CTT-VF D=0.543 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.294
+  max. Y    19       0.521
+  max. S    12       0.977
+  mean S     1-18    0.916
+       D     1-18    0.734   0.450   YES
+Name=BMP15_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: VLF-ME D=0.734 D-cutoff=0.450 Networks=SignalP-noTM

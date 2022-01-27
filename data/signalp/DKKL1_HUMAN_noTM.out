@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    31       0.871
+  max. Y    31       0.905
+  max. S    21       0.985
+  mean S     1-30    0.932
+       D     1-30    0.919   0.450   YES
+Name=DKKL1_HUMAN	SP='YES' Cleavage site between pos. 30 and 31: SAA-AP D=0.919 D-cutoff=0.450 Networks=SignalP-noTM

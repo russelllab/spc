@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    31       0.439
+  max. Y    31       0.489
+  max. S     3       0.953
+  mean S     1-30    0.643
+       D     1-30    0.572   0.450   YES
+Name=PON3_HUMAN	SP='YES' Cleavage site between pos. 30 and 31: VNA-SR D=0.572 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.551
+  max. Y    24       0.711
+  max. S    12       0.956
+  mean S     1-23    0.916
+       D     1-23    0.793   0.500   YES
+Name=AOAH_HUMAN	SP='YES' Cleavage site between pos. 23 and 24: SSA-SP D=0.793 D-cutoff=0.500 Networks=SignalP-TM

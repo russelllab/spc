@@ -1,0 +1,14 @@
+# SignalP-4.1 euk predictions
+# Name=TUFT_HUMAN	Length=4	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   T   0.101   0.148   0.122
+    2   K   0.103   0.138   0.123
+    3   P   0.103   0.121   0.123
+    4   R   0.104   0.112   0.123
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C     4       0.104
+  max. Y     1       0.000
+  max. S     1       0.148
+  mean S     1-0     0.000
+       D     1-0     0.000   0.450   NO
+Name=TUFT_HUMAN	SP='NO' D=0.000 D-cutoff=0.450 Networks=SignalP-noTM

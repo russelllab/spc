@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.165
+  max. Y    15       0.322
+  max. S     9       0.771
+  mean S     1-14    0.627
+       D     1-14    0.487   0.450   YES
+Name=STIM2_HUMAN	SP='YES' Cleavage site between pos. 14 and 15: ADG-CE D=0.487 D-cutoff=0.450 Networks=SignalP-noTM

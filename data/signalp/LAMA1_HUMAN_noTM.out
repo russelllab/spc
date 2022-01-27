@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.344
+  max. Y    20       0.547
+  max. S     2       0.950
+  mean S     1-19    0.857
+       D     1-19    0.714   0.450   YES
+Name=LAMA1_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: CRQ-RG D=0.714 D-cutoff=0.450 Networks=SignalP-noTM

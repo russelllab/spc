@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.610
+  max. Y    23       0.687
+  max. S     9       0.896
+  mean S     1-22    0.803
+       D     1-22    0.733   0.500   YES
+Name=CYTL1_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: ARP-TP D=0.733 D-cutoff=0.500 Networks=SignalP-TM

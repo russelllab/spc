@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.125
+  max. Y    17       0.276
+  max. S     8       0.819
+  mean S     1-16    0.639
+       D     1-16    0.472   0.450   YES
+Name=HTD2_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: GLR-RT D=0.472 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    38       0.641
+  max. Y    38       0.610
+  max. S    35       0.745
+  mean S     1-37    0.538
+       D     1-37    0.581   0.500   YES
+Name=CAH9_HUMAN	SP='YES' Cleavage site between pos. 37 and 38: VHP-QR D=0.581 D-cutoff=0.500 Networks=SignalP-TM

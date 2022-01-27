@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.447
+  max. Y    17       0.563
+  max. S     7       0.789
+  mean S     1-16    0.705
+       D     1-16    0.639   0.450   YES
+Name=C1QT7_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: ASG-QP D=0.639 D-cutoff=0.450 Networks=SignalP-noTM

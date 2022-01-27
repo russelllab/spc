@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    40       0.513
+  max. Y    40       0.656
+  max. S    37       0.915
+  mean S     1-39    0.555
+       D     1-39    0.616   0.500   YES
+Name=NOTC3_HUMAN	SP='YES' Cleavage site between pos. 39 and 40: GAA-AP D=0.616 D-cutoff=0.500 Networks=SignalP-TM

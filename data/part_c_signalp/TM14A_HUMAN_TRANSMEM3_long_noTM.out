@@ -1,0 +1,31 @@
+# SignalP-4.1 euk predictions
+# Name=TM14A_HUMAN_TRANSMEM3	Length=21	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   P   0.105   0.953   0.316
+    2   A   0.105   0.926   0.317
+    3   G   0.098   0.902   0.305
+    4   L   0.102   0.888   0.312
+    5   V   0.104   0.885   0.313
+    6   A   0.104   0.890   0.313
+    7   G   0.101   0.887   0.308
+    8   L   0.099   0.840   0.305
+    9   S   0.109   0.749   0.318
+   10   L   0.103   0.694   0.309
+   11   M   0.101   0.722   0.303
+   12   M   0.101   0.754   0.302
+   13   I   0.108   0.657   0.310
+   14   L   0.100   0.573   0.296
+   15   R   0.104   0.478   0.299
+   16   L   0.104   0.447   0.295
+   17   V   0.099   0.392   0.285
+   18   L   0.098   0.365   0.278
+   19   L   0.103   0.313   0.280
+   20   L   0.119   0.252   0.296
+   21   L   0.108   0.220   0.276
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.119
+  max. Y    13       0.310
+  max. S     1       0.953
+  mean S     1-12    0.841
+       D     1-12    0.597   0.450   YES
+Name=TM14A_HUMAN_TRANSMEM3	SP='YES' Cleavage site between pos. 12 and 13: LMM-IL D=0.597 D-cutoff=0.450 Networks=SignalP-noTM

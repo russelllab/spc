@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.583
+  max. Y    22       0.757
+  max. S    13       0.994
+  mean S     1-21    0.984
+       D     1-21    0.879   0.450   YES
+Name=SIAT6_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: VLG-FL D=0.879 D-cutoff=0.450 Networks=SignalP-noTM

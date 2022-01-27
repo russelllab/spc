@@ -1,0 +1,32 @@
+# SignalP-4.1 euk predictions
+# Name=SMIM7_HUMAN_TRANSMEM1	Length=22	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   F   0.100   0.954   0.309
+    2   R   0.103   0.962   0.313
+    3   I   0.105   0.946   0.317
+    4   F   0.103   0.944   0.314
+    5   I   0.108   0.930   0.320
+    6   A   0.104   0.895   0.315
+    7   L   0.096   0.880   0.302
+    8   W   0.102   0.825   0.310
+    9   N   0.099   0.783   0.306
+   10   I   0.102   0.657   0.309
+   11   F   0.097   0.608   0.299
+   12   M   0.102   0.548   0.304
+   13   M   0.103   0.354   0.302
+   14   F   0.097   0.348   0.288
+   15   C   0.100   0.297   0.288
+   16   M   0.105   0.245   0.290
+   17   I   0.100   0.241   0.277
+   18   V   0.100   0.218   0.271
+   19   L   0.098   0.258   0.263
+   20   F   0.101   0.222   0.260
+   21   G   0.116   0.143   0.272
+   22   S   0.115   0.134   0.263
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.116
+  max. Y    12       0.304
+  max. S     2       0.962
+  mean S     1-11    0.853
+       D     1-11    0.600   0.450   YES
+Name=SMIM7_HUMAN_TRANSMEM1	SP='YES' Cleavage site between pos. 11 and 12: NIF-MM D=0.600 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    25       0.270
+  max. Y    25       0.506
+  max. S    12       0.984
+  mean S     1-24    0.946
+       D     1-24    0.743   0.450   YES
+Name=EFNB1_HUMAN	SP='YES' Cleavage site between pos. 24 and 25: CRL-AT D=0.743 D-cutoff=0.450 Networks=SignalP-noTM

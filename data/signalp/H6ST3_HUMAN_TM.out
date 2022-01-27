@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    29       0.352
+  max. Y    29       0.475
+  max. S    16       0.734
+  mean S     1-28    0.602
+       D     1-28    0.526   0.500   YES
+Name=H6ST3_HUMAN	SP='YES' Cleavage site between pos. 28 and 29: VSP-SC D=0.526 D-cutoff=0.500 Networks=SignalP-TM

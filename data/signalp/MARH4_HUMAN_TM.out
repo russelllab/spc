@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.645
+  max. Y    19       0.720
+  max. S     1       0.906
+  mean S     1-18    0.817
+       D     1-18    0.759   0.500   YES
+Name=MARH4_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: CSG-WY D=0.759 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,32 @@
+# SignalP-4.1 euk predictions
+# Name=ACHA9_HUMAN_TRANSMEM4	Length=22	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   F   0.101   0.979   0.314
+    2   F   0.101   0.984   0.315
+    3   M   0.103   0.979   0.317
+    4   W   0.103   0.972   0.317
+    5   I   0.103   0.945   0.318
+    6   F   0.099   0.931   0.311
+    7   F   0.104   0.887   0.318
+    8   I   0.101   0.848   0.312
+    9   M   0.102   0.799   0.313
+   10   V   0.100   0.741   0.310
+   11   F   0.099   0.668   0.306
+   12   V   0.099   0.602   0.304
+   13   M   0.097   0.513   0.298
+   14   T   0.104   0.510   0.306
+   15   I   0.115   0.423   0.316
+   16   L   0.097   0.461   0.287
+   17   I   0.104   0.451   0.292
+   18   I   0.107   0.342   0.292
+   19   A   0.104   0.308   0.283
+   20   R   0.131   0.181   0.311
+   21   A   0.116   0.139   0.285
+   22   D   0.460   0.105   0.553
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.460
+  max. Y    22       0.553
+  max. S     2       0.984
+  mean S     1-21    0.651
+       D     1-21    0.606   0.450   YES
+Name=ACHA9_HUMAN_TRANSMEM4	SP='YES' Cleavage site between pos. 21 and 22: ARA-D D=0.606 D-cutoff=0.450 Networks=SignalP-noTM

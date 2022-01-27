@@ -1,0 +1,32 @@
+# SignalP-4.1 euk predictions
+# Name=SC5A4_HUMAN_TRANSMEM11	Length=22	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   T   0.103   0.868   0.298
+    2   I   0.103   0.892   0.299
+    3   V   0.100   0.850   0.295
+    4   N   0.101   0.777   0.296
+    5   I   0.103   0.723   0.299
+    6   N   0.098   0.713   0.289
+    7   A   0.108   0.692   0.302
+    8   I   0.099   0.658   0.288
+    9   L   0.102   0.626   0.291
+   10   L   0.103   0.440   0.291
+   11   L   0.103   0.296   0.288
+   12   A   0.106   0.220   0.287
+   13   V   0.094   0.201   0.265
+   14   V   0.106   0.177   0.276
+   15   V   0.100   0.150   0.261
+   16   F   0.100   0.167   0.256
+   17   I   0.102   0.151   0.252
+   18   H   0.098   0.142   0.240
+   19   G   0.098   0.171   0.233
+   20   Y   0.121   0.116   0.251
+   21   Y   0.101   0.124   0.222
+   22   A   0.105   0.134   0.218
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.121
+  max. Y    11       0.288
+  max. S     2       0.892
+  mean S     1-10    0.724
+       D     1-10    0.523   0.450   YES
+Name=SC5A4_HUMAN_TRANSMEM11	SP='YES' Cleavage site between pos. 10 and 11: ILL-LA D=0.523 D-cutoff=0.450 Networks=SignalP-noTM

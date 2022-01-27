@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    37       0.219
+  max. Y    37       0.352
+  max. S    19       0.812
+  mean S     1-36    0.633
+       D     1-36    0.504   0.450   YES
+Name=TLCD4_HUMAN	SP='YES' Cleavage site between pos. 36 and 37: VSP-GF D=0.504 D-cutoff=0.450 Networks=SignalP-noTM

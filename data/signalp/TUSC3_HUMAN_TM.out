@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    42       0.673
+  max. Y    42       0.650
+  max. S    26       0.728
+  mean S     1-41    0.468
+       D     1-41    0.577   0.500   YES
+Name=TUSC3_HUMAN	SP='YES' Cleavage site between pos. 41 and 42: GGG-QK D=0.577 D-cutoff=0.500 Networks=SignalP-TM

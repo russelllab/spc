@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    47       0.381
+  max. Y    47       0.554
+  max. S    27       0.961
+  mean S     1-46    0.767
+       D     1-46    0.669   0.450   YES
+Name=TM115_HUMAN	SP='YES' Cleavage site between pos. 46 and 47: CLA-VT D=0.669 D-cutoff=0.450 Networks=SignalP-noTM

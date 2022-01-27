@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    25       0.616
+  max. Y    25       0.751
+  max. S    18       0.953
+  mean S     1-24    0.919
+       D     1-24    0.842   0.450   YES
+Name=TNR25_HUMAN	SP='YES' Cleavage site between pos. 24 and 25: ARA-QG D=0.842 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    31       0.844
+  max. Y    31       0.857
+  max. S    18       0.923
+  mean S     1-30    0.862
+       D     1-30    0.859   0.500   YES
+Name=CTHR1_HUMAN	SP='YES' Cleavage site between pos. 30 and 31: SSA-SE D=0.859 D-cutoff=0.500 Networks=SignalP-TM

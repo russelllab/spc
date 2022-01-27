@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.389
+  max. Y    24       0.466
+  max. S     2       0.839
+  mean S     1-23    0.645
+       D     1-23    0.538   0.500   YES
+Name=LIRA3_HUMAN	SP='YES' Cleavage site between pos. 23 and 24: VQA-GP D=0.538 D-cutoff=0.500 Networks=SignalP-TM

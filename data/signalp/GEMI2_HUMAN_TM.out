@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.156
+  max. Y    20       0.176
+  max. S    19       0.283
+  mean S     1-19    0.204
+       D     1-19    0.187   0.500   NO
+Name=GEMI2_HUMAN	SP='NO' D=0.187 D-cutoff=0.500 Networks=SignalP-TM

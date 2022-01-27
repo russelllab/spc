@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    30       0.710
+  max. Y    30       0.675
+  max. S    11       0.873
+  mean S     1-29    0.697
+       D     1-29    0.684   0.500   YES
+Name=SFRP5_HUMAN	SP='YES' Cleavage site between pos. 29 and 30: ARC-EE D=0.684 D-cutoff=0.500 Networks=SignalP-TM

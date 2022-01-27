@@ -1,0 +1,32 @@
+# SignalP-4.1 euk predictions
+# Name=FMO1_HUMAN_TRANSMEM1	Length=22	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   F   0.100   0.900   0.300
+    2   E   0.101   0.920   0.302
+    3   S   0.103   0.921   0.305
+    4   F   0.100   0.909   0.300
+    5   L   0.102   0.915   0.303
+    6   K   0.102   0.875   0.303
+    7   V   0.099   0.874   0.299
+    8   F   0.102   0.846   0.303
+    9   S   0.107   0.812   0.310
+   10   F   0.097   0.718   0.295
+   11   L   0.104   0.753   0.303
+   12   A   0.102   0.767   0.300
+   13   L   0.091   0.755   0.283
+   14   L   0.104   0.674   0.301
+   15   V   0.100   0.555   0.292
+   16   A   0.105   0.454   0.297
+   17   I   0.101   0.362   0.288
+   18   F   0.096   0.311   0.277
+   19   L   0.104   0.327   0.282
+   20   I   0.101   0.240   0.274
+   21   F   0.096   0.167   0.262
+   22   L   0.100   0.245   0.261
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C     9       0.107
+  max. Y    11       0.303
+  max. S     3       0.921
+  mean S     1-10    0.869
+       D     1-10    0.609   0.450   YES
+Name=FMO1_HUMAN_TRANSMEM1	SP='YES' Cleavage site between pos. 10 and 11: FSF-LA D=0.609 D-cutoff=0.450 Networks=SignalP-noTM

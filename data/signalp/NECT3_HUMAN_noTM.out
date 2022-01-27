@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    58       0.569
+  max. Y    58       0.591
+  max. S    48       0.903
+  mean S     1-57    0.399
+       D     1-57    0.487   0.450   YES
+Name=NECT3_HUMAN	SP='YES' Cleavage site between pos. 57 and 58: ALA-GP D=0.487 D-cutoff=0.450 Networks=SignalP-noTM

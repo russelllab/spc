@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.134
+  max. Y    24       0.123
+  max. S     1       0.205
+  mean S     1-23    0.116
+       D     1-23    0.120   0.500   NO
+Name=RITA1_HUMAN	SP='NO' D=0.120 D-cutoff=0.500 Networks=SignalP-TM

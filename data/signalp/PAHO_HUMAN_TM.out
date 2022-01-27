@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.593
+  max. Y    19       0.743
+  max. S    11       0.962
+  mean S     1-18    0.929
+       D     1-18    0.817   0.500   YES
+Name=PAHO_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: CVA-LL D=0.817 D-cutoff=0.500 Networks=SignalP-TM

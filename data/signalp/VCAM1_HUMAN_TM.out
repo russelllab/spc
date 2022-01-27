@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    25       0.455
+  max. Y    25       0.554
+  max. S    19       0.826
+  mean S     1-24    0.654
+       D     1-24    0.594   0.500   YES
+Name=VCAM1_HUMAN	SP='YES' Cleavage site between pos. 24 and 25: SQA-FK D=0.594 D-cutoff=0.500 Networks=SignalP-TM

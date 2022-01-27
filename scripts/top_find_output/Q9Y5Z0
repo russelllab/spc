@@ -1,0 +1,2562 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Topfind 4.1</title>
+  <link rel="stylesheet" media="all" href="/assets/application-858af69cb01fabcb6739c5a9f3b408dc5cab04a41204d359455faa9a1c71fe4f.css" data-turbolinks-track="true" />
+  <script src="/assets/application-81d2bdfbc75607a7faecaf7abdf4676ceac4fd65d3aa8930b8177b5f7a641d9c.js" data-turbolinks-track="true"></script>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="W+ksFeWGPQFQH5HnzEy3Ys9WGHwrxaUDYF+KlPRlh2xImElCFzZdO7r72u7OayDgNPL2kVKaCMOgdUcKoUkqNA==" />
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://code.highcharts.com/6.0.6/highcharts.js"></script>
+<script src="https://code.highcharts.com/6.0.6/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/js/modules/xrange.js"></script>
+<script src="https://code.highcharts.com/js/modules/exporting.js"></script>
+<link rel="stylesheet" type="text/css" href="assets/stylesheets/defaultcontentslider.css" />
+<link rel="stylesheet" type="text/css" href="assets/stylesheets/componentcontentslider.css" />
+<script src="assets/javascripts/modernizr.custom.js"></script>
+
+
+<style>
+
+@import 'https://code.highcharts.com/css/highcharts.css';
+
+#protshow {
+  font-family: "Lato", "Ubuntu", sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#protshow td, #protshow th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#protshow tr:nth-child(even){background-color: #f2f2f2;}
+
+#protshow tr:hover {background-color: #ddd;}
+
+#protshow th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0C0E28;
+  color: white;
+}
+
+
+#container_chart {
+min-width: 300px;
+max-width: 800px;
+height: 300px;
+margin: 1em auto;
+}
+
+
+/* Exporting module */
+.highcharts-contextbutton {
+fill: #ffffff;
+    /* needed to capture hover */
+stroke: none;
+    stroke-linecap: round;
+}
+
+.highcharts-contextbutton:hover {
+fill: #e6e6e6;
+stroke: #e6e6e6;
+}
+
+.highcharts-button-symbol {
+stroke: #666666;
+    stroke-width: 3px;
+}
+
+.highcharts-menu {
+border: 1px solid #999999;
+background: #ffffff;
+padding: 5px 0;
+    box-shadow: 3px 3px 10px #888;
+}
+
+.highcharts-menu-item {
+padding: 0.5em 1em;
+background: none;
+color: #333333;
+cursor: pointer;
+transition: background 250ms, color 250ms;
+}
+
+.highcharts-menu-item:hover {
+background: #335cad;
+color: #ffffff;
+}
+
+
+h1 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 25px;
+	line-height: 25px;
+	color: #444;
+}
+
+h2 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 20px;
+	color: #444;
+}
+
+h3 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 15px;
+	color: #444;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", "Ubuntu", sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #e3e2e0;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+
+p.seq {font-family: 'Courier New', Courier, monospace; font-size: 12px;}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>TopFIND 4.0</title>
+
+		<!-- meta -->
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	    <!-- css -->
+<!--
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/ionicons.min.css">
+		<link rel="stylesheet" type="text/css" href="css/pace.css">
+	    <link rel="stylesheet" type="text/css" href="css/custom.css">-->
+
+	    <!-- js -->
+<!--
+	    <script src="js/jquery-2.1.3.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+	    <script src="js/pace.min.js"></script>
+	    <script src="js/modernizr.custom.js"></script>-->
+	</head>
+
+
+	<body>		
+
+		<div class="container">
+            <header id="site-header">
+				<div class="row">
+					<div class="col-md-4 col-sm-5 col-xs-8">
+						<div class="logo">
+							<h1 style="font-size: 40px;"><a href="/home/index">Top<b style="color: red;">FIND</b></a></h1>
+						</div>
+					</div><!-- col-md-4 -->
+					<div class="col-md-8 col-sm-7 col-xs-12">
+						<nav class="main-nav" role="navigation">
+							<div class="navbar-header">
+  								<button type="button" id="trigger-overlay" class="navbar-toggle">
+    								<span class="ion-navicon"></span>
+  								</button>
+							</div>
+
+							<div class="navbar" id="navbar-main">
+  								<ul class="nav navbar-nav navbar-right">
+    								<li class="cl-effect-11"><a href="/proteins/protsearch" data-hover="Proteins">Proteins<b style="color: red;">+</b></a></li>
+    								<li class="cl-effect-11"><a href="/topfinder" data-hover="TopFINDer">Top<b style="color: red;">FINDer</b></a></li>
+    								<li class="cl-effect-11"><a href="/pathfinder" data-hover="PathFINDer">Path<b style="color: red;">FINDer</b></a></li>
+    								<li class="cl-effect-11"><a href="/contribute/index" data-hover="Contribute">Contribute</a></li>
+  								</ul>
+							</div><!-- /.navbar-collapse -->
+						</nav>
+				</div>
+			</header>
+		</div>
+
+</body>
+
+
+
+<!-- RUBY DOESN'T DISPLAY TOOLTIPS, if I put he same code in a .html file tooltips are displayed -->
+<!-- If the values are integers, one has to start from 0 -->
+
+<!-- PARSE RUBY DATA FOR JAVASCRIPT-->
+
+<div id="container_chart" style="width:100%; height:400px;"></div>
+
+<script type="text/javascript">
+
+    var dataarr = [];
+    var catarr = [];
+
+
+    $(document).ready(
+
+        function makeArr() {
+
+        var domainElem = [["Sequence","1-518",0,518],["Chains","63-518",63,518],["N-Terms","1",1,2],["N-Terms","21",21,22],["N-Terms","63",63,64],["N-Terms","80",80,81],["N-Terms","96",96,97],["C-Terms","62",61,62],["C-Terms","518",517,518],["Cleavages","62",61,62],["Variants","VAR_SEQ (1-95)",1,95],["Variants","VAR_SEQ (1-79)",1,79],["Variants","VAR_SEQ (329-378)",329,378],["Variants","VAR_SEQ (379-396)",379,396],["Variants","VAR_SEQ (397-518)",397,518],["Topology","TOPO_DOM (21-473)",21,473],["Topology","TOPO_DOM (495-518)",495,518],["Topology","STRAND (84-87)",84,87],["Topology","STRAND (91-98)",91,98],["Topology","STRAND (103-110)",103,110],["Topology","STRAND (116-119)",116,119],["Topology","STRAND (139-149)",139,149],["Topology","STRAND (152-164)",152,164],["Topology","STRAND (173-185)",173,185],["Topology","STRAND (194-198)",194,198],["Topology","STRAND (205-207)",205,207],["Topology","STRAND (228-232)",228,232],["Topology","STRAND (247-253)",247,253],["Topology","STRAND (264-267)",264,267],["Topology","STRAND (278-283)",278,283],["Topology","STRAND (300-302)",300,302],["Topology","STRAND (308-312)",308,312],["Topology","STRAND (327-329)",327,329],["Topology","STRAND (343-346)",343,346],["Topology","STRAND (358-363)",358,363],["Topology","STRAND (369-375)",369,375],["Topology","STRAND (381-384)",381,384],["Topology","STRAND (391-403)",391,403],["Topology","STRAND (405-407)",405,407],["Topology","STRAND (415-420)",415,420],["Topology","STRAND (425-430)",425,430],["Topology","STRAND (435-438)",435,438],["Topology","STRAND (439-449)",439,449],["Topology","STRAND (451-453)",451,453],["Variants","CONFLICT (36-36)",36,36],["Variants","CONFLICT (184-184)",184,184],["Variants","CONFLICT (192-192)",192,192],["Variants","CONFLICT (233-233)",233,233],["Topology","TRANSMEM (474-494)",474,494],["Topology","TURN (99-102)",99,102],["Topology","TURN (166-168)",166,168],["Topology","TURN (271-274)",271,274],["Topology","TURN (421-424)",421,424],["Features","ACT_SITE (110-110)",110,110],["Features","ACT_SITE (303-303)",303,303],["Domains","SIGNAL (1-20)",1,20],["Variants","MUTAGEN (110-110)",110,110],["Variants","MUTAGEN (303-303)",303,303],["Topology","HELIX (78-80)",78,80],["Topology","HELIX (88-90)",88,90],["Topology","HELIX (132-134)",132,134],["Topology","HELIX (202-204)",202,204],["Topology","HELIX (214-222)",214,222],["Topology","HELIX (256-258)",256,258],["Topology","HELIX (292-295)",292,295],["Topology","HELIX (313-326)",313,326],["Topology","HELIX (334-337)",334,337],["Topology","HELIX (339-342)",339,342],["Topology","HELIX (347-349)",347,349],["Topology","HELIX (352-354)",352,354],["Topology","HELIX (377-380)",377,380],["Topology","HELIX (409-412)",409,412],["Domains","PROPEP (21-62)",21,62],["Domains","SIGNAL (1-20)",1,20],["Domains","PROPEP (21-62)",21,62],["Topology","TOPO_DOM (21-473)",21,473],["Topology","TOPO_DOM (495-518)",495,518],["Topology","TRANSMEM (474-494)",474,494],["Domains","DOMAIN (92-429)",92,429],["Features","ACT_SITE (110-110)",110,110],["Features","ACT_SITE (303-303)",303,303],["Variants","VAR_SEQ (1-95)",1,95],["Variants","VAR_SEQ (1-79)",1,79],["Variants","VAR_SEQ (329-378)",329,378],["Variants","VAR_SEQ (379-396)",379,396],["Variants","VAR_SEQ (397-518)",397,518],["Variants","MUTAGEN (110-110)",110,110],["Variants","MUTAGEN (303-303)",303,303],["Variants","CONFLICT (36-36)",36,36],["Variants","CONFLICT (184-184)",184,184],["Variants","CONFLICT (192-192)",192,192],["Variants","CONFLICT (233-233)",233,233],["Topology","HELIX (78-80)",78,80],["Topology","HELIX (88-90)",88,90],["Topology","HELIX (132-134)",132,134],["Topology","HELIX (202-204)",202,204],["Topology","HELIX (214-222)",214,222],["Topology","HELIX (256-258)",256,258],["Topology","HELIX (292-295)",292,295],["Topology","HELIX (313-326)",313,326],["Topology","HELIX (334-337)",334,337],["Topology","HELIX (339-342)",339,342],["Topology","HELIX (347-349)",347,349],["Topology","HELIX (352-354)",352,354],["Topology","HELIX (377-380)",377,380],["Topology","HELIX (409-412)",409,412],["Topology","STRAND (84-87)",84,87],["Topology","STRAND (91-98)",91,98],["Topology","STRAND (103-110)",103,110],["Topology","STRAND (116-119)",116,119],["Topology","STRAND (139-149)",139,149],["Topology","STRAND (152-164)",152,164],["Topology","STRAND (173-185)",173,185],["Topology","STRAND (194-198)",194,198],["Topology","STRAND (205-207)",205,207],["Topology","STRAND (228-232)",228,232],["Topology","STRAND (247-253)",247,253],["Topology","STRAND (264-267)",264,267],["Topology","STRAND (278-283)",278,283],["Topology","STRAND (300-302)",300,302],["Topology","STRAND (308-312)",308,312],["Topology","STRAND (327-329)",327,329],["Topology","STRAND (343-346)",343,346],["Topology","STRAND (358-363)",358,363],["Topology","STRAND (369-375)",369,375],["Topology","STRAND (381-384)",381,384],["Topology","STRAND (391-403)",391,403],["Topology","STRAND (405-407)",405,407],["Topology","STRAND (415-420)",415,420],["Topology","STRAND (425-430)",425,430],["Topology","STRAND (435-438)",435,438],["Topology","STRAND (439-449)",439,449],["Topology","STRAND (451-453)",451,453],["Topology","TURN (99-102)",99,102],["Topology","TURN (166-168)",166,168],["Topology","TURN (271-274)",271,274],["Topology","TURN (421-424)",421,424]];
+
+        var dataarr = [];
+        var catarr = [];
+        var i;
+
+        for (i = 0; i < domainElem.length ; i++ )
+        {
+        switch(domainElem[i][0]) {
+            
+          case "Sequence":
+                catarr[0] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:0,
+                color: '#e41a1c',
+                key: (domainElem[i][1])
+                });
+                break;
+
+            
+            case "Chains":
+                catarr[1] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:1,
+                color: '#377eb8',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Topology":
+                catarr[2] = (domainElem[i][0]);
+                dataarr.push({
+                x: parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:2,
+                color: '#4daf4a',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "N-Terms":
+                catarr[3] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:3,
+                color: '#984ea3',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "C-Terms":
+                catarr[4] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:4,
+                color: '#ff7f00',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Cleavages":
+                catarr[5] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:5,
+                color: '#CCCC00',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Modifications":
+                catarr[6] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:6,
+                color: '#a65628',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Variants":
+                catarr[7] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:7,
+                color: '#f781bf',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Domains":
+                catarr[8] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:8,
+                color: '#999999',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+        }
+        }
+
+
+    
+
+    (function (H) {
+    var defaultPlotOptions = H.getOptions().plotOptions,
+    columnType = H.seriesTypes.column,
+    each = H.each,
+    extendClass = H.extendClass,
+    pick = H.pick,
+    Point = H.Point,
+    Series = H.Series;
+    
+    defaultPlotOptions.xrange = H.merge(defaultPlotOptions.column, {
+    tooltip: {
+    headerFormat: '<span style="font-size: 0.85em">{point.x} - {point.x2}</span><br/>',
+    pointFormat: '<span style="color:{point.color}">\u25CF</span> {point.yCategory}: <b>{point.key}</b><br/>',
+    footerFormat: '<span style="color:{point.color}">{series.name}</span><br/>'
+    }
+    });
+    H.seriesTypes.xrange = H.extendClass(columnType, {
+    pointClass: extendClass(Point, {
+        // Add x2 and yCategory to the available properties for tooltip formats
+    getLabelConfig: function () {
+        var cfg = Point.prototype.getLabelConfig.call(this);
+        
+        cfg.x2 = this.x2;
+        cfg.yCategory = this.yCategory = this.series.yAxis.categories && this.series.yAxis.categories[this.y];
+        return cfg;
+    }
+    }),
+    type: 'xrange',
+    forceDL: true,
+    parallelArrays: ['x', 'x2', 'y'],
+    requireSorting: false,
+    animate: H.seriesTypes.line.prototype.animate,
+        
+        /**
+         * Borrow the column series metrics, but with swapped axes. This gives free access
+         * to features like groupPadding, grouping, pointWidth etc.
+         */
+    getColumnMetrics: function () {
+        var metrics,
+        chart = this.chart;
+        
+        function swapAxes() {
+            each(chart.series, function (s) {
+                var xAxis = s.xAxis;
+                s.xAxis = s.yAxis;
+                s.yAxis = xAxis;
+            });
+        }
+        
+        swapAxes();
+        
+        this.yAxis.closestPointRange = 1;
+        metrics = columnType.prototype.getColumnMetrics.call(this);
+        
+        swapAxes();
+        
+        return metrics;
+    },
+        
+        /**
+         * Override cropData to show a point where x is outside visible range
+         * but x2 is outside.
+         */
+    cropData: function (xData, yData, min, max) {
+        
+        // Replace xData with x2Data to find the appropriate cropStart
+        var crop = Series.prototype.cropData.call(this, this.x2Data, yData, min, max);
+        
+        // Re-insert the cropped xData
+        crop.xData = xData.slice(crop.start, crop.end);
+        
+        return crop;
+    },
+        
+    translate: function () {
+        columnType.prototype.translate.apply(this, arguments);
+        var series = this,
+        xAxis = series.xAxis,
+        metrics = series.columnMetrics,
+        minPointLength = series.options.minPointLength || 0;
+        
+        H.each(series.points, function (point) {
+            var plotX = point.plotX,
+            plotX2 = xAxis.toPixels(H.pick(point.x2, point.x + (point.len || 0)), true),
+            width = plotX2 - plotX,
+            widthDifference;
+            
+            if (minPointLength) {
+                widthDifference = width < minPointLength ? minPointLength - width : 0;
+                plotX -= widthDifference / 2;
+                plotX2 += widthDifference / 2;
+            }
+            
+            plotX = Math.max(plotX, -10);
+            plotX2 = Math.min(Math.max(plotX2, -10), xAxis.len + 10);
+            
+            point.shapeArgs = {
+            x: plotX,
+            y: point.plotY + metrics.offset,
+            width: plotX2 - plotX,
+            height: metrics.width
+            };
+            point.tooltipPos[0] += width / 2;
+            point.tooltipPos[1] -= metrics.width / 2;
+        });
+    }
+    });
+    
+    /**
+     * Max x2 should be considered in xAxis extremes
+     */
+    H.wrap(H.Axis.prototype, 'getSeriesExtremes', function (proceed) {
+        var axis = this,
+        dataMax,
+        modMax;
+        
+        proceed.call(this);
+        if (this.isXAxis) {
+            dataMax = pick(axis.dataMax, Number.MIN_VALUE);
+            each(this.series, function (series) {
+                each(series.x2Data || [], function (val) {
+                    if (val > dataMax) {
+                        dataMax = val;
+                        modMax = true;
+                    }
+                });
+            });
+            if (modMax) {
+                axis.dataMax = dataMax;
+            }
+        }
+    });
+}(Highcharts));
+
+Highcharts.chart('container_chart', {
+    chart: {
+    type: 'xrange'
+    },
+    title: {
+    text: 'Summary'
+    },
+    xAxis: {
+    type: 'linear'
+    },
+    yAxis: {
+    title: {
+    text: ''
+    },
+    categories: [catarr[0], catarr[1], catarr[2], catarr[3], catarr[4], catarr[5], catarr[6], catarr[7], catarr[8]],
+    reversed: true
+    },
+    series: [{
+    name: 'Q9Y5Z0',
+    pointWidth: 20,
+    colorByPoint: true,
+    data: dataarr,
+    point: {
+    events: {
+    }
+    }
+        
+    }]
+    });
+
+
+    });
+
+</script>
+
+
+<p id="demo"></p>
+<p id="demo2"></p>
+
+
+
+<div class="content-body">
+		<div class ="container">
+			<div class="row">
+
+<h2> </h2>
+
+<def tag='general-protein-information'>
+
+	<section class="left">
+	  <section class="block">
+	  
+	    <h1>Q9Y5Z0: Beta-secretase 2</h1>
+	    <table class="protein-summary annotation">
+                <h3> General Information </h3> 
+                
+	      <tr> 
+	        <th>Protein names</th> 
+	        <td><br>
+	        		- Beta-secretase 2<br>
+	        		- 3.4.23.45 {ECO:0000269|PubMed:21907142}<br>
+	        		- Aspartic-like protease 56 kDa<br>
+	        		- Aspartyl protease 1<br>
+	        		- ASP1<br>
+	        		- Asp 1<br>
+	        		- Beta-site amyloid precursor protein cleaving enzyme 2<br>
+	        		- Beta-site APP cleaving enzyme 2<br>
+	        		- Down region aspartic protease<br>
+	        		- DRAP<br>
+	        		- Memapsin-1<br>
+	        		- Membrane-associated aspartic protease 1<br>
+	        		- Theta-secretase<br>
+	        </br></td>
+	      </tr><tr> 
+	        <th>Gene names</th> 
+	        <td>BACE2 </td>
+	      </tr><tr>
+	        <th>Organism</th>
+	        <td>Homo sapiens</td>
+	      </tr><tr>
+	        <th>Protease Family</th>
+	        <td> 
+	        	<a href="https://www.ebi.ac.uk/merops/cgi-bin/famsum?family=A01">A01.041</a>
+	        	</td>
+	      </tr><tr>
+	        <th>Protease ID</th>
+	        <td>
+	        		<a href="https://www.ebi.ac.uk/merops/cgi-bin/pepsum?id=A01.041">A01.041</a>
+	        	</td>
+	      </tr><tr if="&@protein.chromosome.present?">
+	        <th>Chromosome location</th>
+	        <td><a href="/topfind/proteins?query=&chromosome=#{@protein.chromosome}"><view:chromosome/></a> <a href="/proteins/index?query=&chromosome=#{@protein.chromosome}&arm=#{@band.first}&band=#{@band.delete 'pq'}"></a></td>
+	      </tr><tr>
+	      	<th> UniProt ID</th>
+	      	<td><a href="http://www.uniprot.org/uniprot/Q9Y5Z0"> Q9Y5Z0</a></td>
+	      </tr>
+	    </table>
+	  </section>
+	  	  <section class="block">
+	  	  			<div class="row">
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 5</h2>
+    	<h2> N-termini </h2>
+
+   </div>
+  </div>
+
+ 	<div class="column">
+    <div class="card">
+    	
+    	<h2> 2</h2>
+    	<h2> C-termini </h2>
+
+   </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 1</h2>
+    	<h2> Cleavages </h2>
+
+   </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 108</h2>
+    	<h2> Substrates </h2>
+
+   </div>
+  </div>
+
+</div>
+
+	    <h3>Sequence</h3> 
+	    	<p class="seq">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60&nbsp;<br/>MGALARALLL&nbsp;PLLAQWLLRA&nbsp;APELAPAPFT&nbsp;LPLRVAAATN&nbsp;RVVAPTPGPG&nbsp;TPAERHADGL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120&nbsp;<br/>ALALEPALAS&nbsp;PAGAANFLAM&nbsp;VDNLQGDSGR&nbsp;GYYLEMLIGT&nbsp;PPQKLQILVD&nbsp;TGSSNFAVAG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180&nbsp;<br/>TPHSYIDTYF&nbsp;DTERSSTYRS&nbsp;KGFDVTVKYT&nbsp;QGSWTGFVGE&nbsp;DLVTIPKGFN&nbsp;TSFLVNIATI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;240&nbsp;<br/>FESENFFLPG&nbsp;IKWNGILGLA&nbsp;YATLAKPSSS&nbsp;LETFFDSLVT&nbsp;QANIPNVFSM&nbsp;QMCGAGLPVA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300&nbsp;<br/>GSGTNGGSLV&nbsp;LGGIEPSLYK&nbsp;GDIWYTPIKE&nbsp;EWYYQIEILK&nbsp;LEIGGQSLNL&nbsp;DCREYNADKA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;360&nbsp;<br/>IVDSGTTLLR&nbsp;LPQKVFDAVV&nbsp;EAVARASLIP&nbsp;EFSDGFWTGS&nbsp;QLACWTNSET&nbsp;PWSYFPKISI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;420&nbsp;<br/>YLRDENSSRS&nbsp;FRITILPQLY&nbsp;IQPMMGAGLN&nbsp;YECYRFGISP&nbsp;STNALVIGAT&nbsp;VMEGFYVIFD&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;480&nbsp;<br/>RAQKRVGFAA&nbsp;SPCAEIAGAA&nbsp;VSEISGPFST&nbsp;EDVASNCVPA&nbsp;QSLSEPILWI&nbsp;VSYALMSVCG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;510&nbsp;&nbsp;&nbsp;&nbsp;<br/>AILLVLIVLL&nbsp;LLPFRCQRRP&nbsp;RDPEVVNDES&nbsp;SLVRHRWK<p>
+	  </section>             
+	  <section class="block" if= true>
+	    <h3>Isoforms</h3>
+            - Isoform 2 of Beta-secretase 2
+            - Isoform 3 of Beta-secretase 2
+            - Isoform 4 of Beta-secretase 2
+            - Isoform 5 of Beta-secretase 2
+	  <br>
+      <br>
+	      Sequence View <p class="seq">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60&nbsp;<br/>MGALARALLL&nbsp;PLLAQWLLRA&nbsp;APELAPAPFT&nbsp;LPLRVAAATN&nbsp;RVVAPTPGPG&nbsp;TPAERHADGL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120&nbsp;<br/>ALALEPALAS&nbsp;PAGAANFLAM&nbsp;VDNLQGDSGR&nbsp;GYYLEMLIGT&nbsp;PPQKLQILVD&nbsp;TGSSNFAVAG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180&nbsp;<br/>TPHSYIDTYF&nbsp;DTERSSTYRS&nbsp;KGFDVTVKYT&nbsp;QGSWTGFVGE&nbsp;DLVTIPKGFN&nbsp;TSFLVNIATI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;240&nbsp;<br/>FESENFFLPG&nbsp;IKWNGILGLA&nbsp;YATLAKPSSS&nbsp;LETFFDSLVT&nbsp;QANIPNVFSM&nbsp;QMCGAGLPVA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300&nbsp;<br/>GSGTNGGSLV&nbsp;LGGIEPSLYK&nbsp;GDIWYTPIKE&nbsp;EWYYQIEILK&nbsp;LEIGGQSLNL&nbsp;DCREYNADKA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;360&nbsp;<br/>IVDSGTTLLR&nbsp;LPQKVFDAVV&nbsp;EAVARASLIP&nbsp;EFSDGFWTGS&nbsp;QLACWTNSET&nbsp;PWSYFPKISI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;420&nbsp;<br/>YLRDENSSRS&nbsp;FRITILPQLY&nbsp;IQPMMGAGLN&nbsp;YECYRFGISP&nbsp;STNALVIGAT&nbsp;VMEGFYVIFD&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;480&nbsp;<br/>RAQKRVGFAA&nbsp;SPCAEIAGAA&nbsp;VSEISGPFST&nbsp;EDVASNCVPA&nbsp;QSLSEPILWI&nbsp;VSYALMSVCG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;510&nbsp;&nbsp;&nbsp;&nbsp;<br/>AILLVLIVLL&nbsp;LLPFRCQRRP&nbsp;RDPEVVNDES&nbsp;SLVRHRWK
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60&nbsp;<br/>MGALARALLL&nbsp;PLLAQWLLRA&nbsp;APELAPAPFT&nbsp;LPLRVAAATN&nbsp;RVVAPTPGPG&nbsp;TPAERHADGL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120&nbsp;<br/>ALALEPALAS&nbsp;PAGAANFLAM&nbsp;VDNLQGDSGR&nbsp;GYYLEMLIGT&nbsp;PPQKLQILVD&nbsp;TGSSNFAVAG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180&nbsp;<br/>TPHSYIDTYF&nbsp;DTERSSTYRS&nbsp;KGFDVTVKYT&nbsp;QGSWTGFVGE&nbsp;DLVTIPKGFN&nbsp;TSFLVNIATI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;240&nbsp;<br/>FESENFFLPG&nbsp;IKWNGILGLA&nbsp;YATLAKPSSS&nbsp;LETFFDSLVT&nbsp;QANIPNVFSM&nbsp;QMCGAGLPVA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300&nbsp;<br/>GSGTNGGSLV&nbsp;LGGIEPSLYK&nbsp;GDIWYTPIKE&nbsp;EWYYQIEILK&nbsp;LEIGGQSLNL&nbsp;DCREYNADKA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;360&nbsp;<br/>IVDSGTTLLR&nbsp;LPQKVFDAVV&nbsp;EAVARASLIP&nbsp;EFSDGFWTGS&nbsp;QLACWTNSET&nbsp;PWSYFPKISI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;420&nbsp;<br/>YLRDENSSRS&nbsp;FRITILPQLY&nbsp;IQPMMGAGLN&nbsp;YECYRFGISP&nbsp;STNALVIGAT&nbsp;VMEGFYVIFD&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;480&nbsp;<br/>RAQKRVGFAA&nbsp;SPCAEIAGAA&nbsp;VSEISGPFST&nbsp;EDVASNCVPA&nbsp;QSLSEPILWI&nbsp;VSYALMSVCG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;510&nbsp;&nbsp;&nbsp;&nbsp;<br/>AILLVLIVLL&nbsp;LLPFRCQRRP&nbsp;RDPEVVNDES&nbsp;SLVRHRWK
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60&nbsp;<br/>MGALARALLL&nbsp;PLLAQWLLRA&nbsp;APELAPAPFT&nbsp;LPLRVAAATN&nbsp;RVVAPTPGPG&nbsp;TPAERHADGL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120&nbsp;<br/>ALALEPALAS&nbsp;PAGAANFLAM&nbsp;VDNLQGDSGR&nbsp;GYYLEMLIGT&nbsp;PPQKLQILVD&nbsp;TGSSNFAVAG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180&nbsp;<br/>TPHSYIDTYF&nbsp;DTERSSTYRS&nbsp;KGFDVTVKYT&nbsp;QGSWTGFVGE&nbsp;DLVTIPKGFN&nbsp;TSFLVNIATI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;240&nbsp;<br/>FESENFFLPG&nbsp;IKWNGILGLA&nbsp;YATLAKPSSS&nbsp;LETFFDSLVT&nbsp;QANIPNVFSM&nbsp;QMCGAGLPVA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300&nbsp;<br/>GSGTNGGSLV&nbsp;LGGIEPSLYK&nbsp;GDIWYTPIKE&nbsp;EWYYQIEILK&nbsp;LEIGGQSLNL&nbsp;DCREYNADKA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;360&nbsp;<br/>IVDSGTTLLR&nbsp;LPQKVFDAVV&nbsp;EAVARASLIP&nbsp;EFSDGFWTGS&nbsp;QLACWTNSET&nbsp;PWSYFPKISI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;420&nbsp;<br/>YLRDENSSRS&nbsp;FRITILPQLY&nbsp;IQPMMGAGLN&nbsp;YECYRFGISP&nbsp;STNALVIGAT&nbsp;VMEGFYVIFD&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;480&nbsp;<br/>RAQKRVGFAA&nbsp;SPCAEIAGAA&nbsp;VSEISGPFST&nbsp;EDVASNCVPA&nbsp;QSLSEPILWI&nbsp;VSYALMSVCG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;510&nbsp;&nbsp;&nbsp;&nbsp;<br/>AILLVLIVLL&nbsp;LLPFRCQRRP&nbsp;RDPEVVNDES&nbsp;SLVRHRWK
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60&nbsp;<br/>MGALARALLL&nbsp;PLLAQWLLRA&nbsp;APELAPAPFT&nbsp;LPLRVAAATN&nbsp;RVVAPTPGPG&nbsp;TPAERHADGL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120&nbsp;<br/>ALALEPALAS&nbsp;PAGAANFLAM&nbsp;VDNLQGDSGR&nbsp;GYYLEMLIGT&nbsp;PPQKLQILVD&nbsp;TGSSNFAVAG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180&nbsp;<br/>TPHSYIDTYF&nbsp;DTERSSTYRS&nbsp;KGFDVTVKYT&nbsp;QGSWTGFVGE&nbsp;DLVTIPKGFN&nbsp;TSFLVNIATI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;240&nbsp;<br/>FESENFFLPG&nbsp;IKWNGILGLA&nbsp;YATLAKPSSS&nbsp;LETFFDSLVT&nbsp;QANIPNVFSM&nbsp;QMCGAGLPVA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300&nbsp;<br/>GSGTNGGSLV&nbsp;LGGIEPSLYK&nbsp;GDIWYTPIKE&nbsp;EWYYQIEILK&nbsp;LEIGGQSLNL&nbsp;DCREYNADKA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;360&nbsp;<br/>IVDSGTTLLR&nbsp;LPQKVFDAVV&nbsp;EAVARASLIP&nbsp;EFSDGFWTGS&nbsp;QLACWTNSET&nbsp;PWSYFPKISI&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;420&nbsp;<br/>YLRDENSSRS&nbsp;FRITILPQLY&nbsp;IQPMMGAGLN&nbsp;YECYRFGISP&nbsp;STNALVIGAT&nbsp;VMEGFYVIFD&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;480&nbsp;<br/>RAQKRVGFAA&nbsp;SPCAEIAGAA&nbsp;VSEISGPFST&nbsp;EDVASNCVPA&nbsp;QSLSEPILWI&nbsp;VSYALMSVCG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;510&nbsp;&nbsp;&nbsp;&nbsp;<br/>AILLVLIVLL&nbsp;LLPFRCQRRP&nbsp;RDPEVVNDES&nbsp;SLVRHRWK
+          </p>
+
+	   <br><br>
+	
+     
+	      
+	
+	  </section> 
+	</section>
+
+
+
+	  <section class="right" width="20px">
+
+	  		<center>
+			<form action="/proteins/show/Q9Y5Z0" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="pwNsmdv8xQKMKm8uSpX/i+Qq9TiUAxntUu0FtAPB4GA+Gpul9DDREgdVPsgAGI1eIu5sKjMzzZfxtn8eJOLdWg==" />
+				
+				<!-- To go back from dropdown to multiple selection box, type :multiple => true into the last set of {} brackets -->
+
+				<h2>Filter Information:</h2>
+				<br>
+				(<a href="/proteins/show/Q9Y5Z0">REFRESH</a>)
+				<br></br>
+				<h3>Directness: </h3>
+				<select name="directness" id="directness"><option value="unknown">unknown</option>
+<option value="indirect">indirect</option></select>
+				<br><h3>Physiological Relevance: </h3>
+				<select name="phys_rel" id="phys_rel"><option value="unknown">unknown</option>
+<option value="none">none</option>
+<option value="yes">yes</option></select>
+				<br><h3>Evidence Codes: </h3>
+				<select name="evidencecodes" id="evidencecodes"><option value="inferred from electronic annotation">inferred from electronic annotation</option>
+<option value="inferred from cleavage">inferred from cleavage</option>
+<option value="inferred from isoform by sequence similarity">inferred from isoform by sequence similarity</option>
+<option value="inferred from experiment">inferred from experiment</option></select>
+				<br><h3>Methodology: </h3>
+				<select name="methodology" id="methodology"><option value="electronic annotation">electronic annotation</option>
+<option value="unknown">unknown</option></select>
+				<br><h3>Perturbation of System: </h3>
+				<select name="perturbations" id="perturbations"><option value=""></option>
+<option value="none">none</option></select>
+				<br><h3>Biological System: </h3>
+				<select name="methodsystems" id="methodsystems"><option value="unknown">unknown</option></select>
+				<br><h3>Protease Assignment Confidence: </h3>
+				<select name="proteaseassignmentconfidences" id="proteaseassignmentconfidences"><option value="unknown">unknown</option></select>
+				<br><h3>Evidence Names: </h3>
+				<select name="evidences" id="evidences"><option value="inferred from uniprot">inferred from uniprot</option>
+<option value="Inferred from cleavage TC607">Inferred from cleavage TC607</option>
+<option value="inferred from TNt115745">inferred from TNt115745</option>
+<option value="inferred from TNt115746">inferred from TNt115746</option>
+<option value="inferred from TNt112719">inferred from TNt112719</option>
+<option value="inferred from TNt112720">inferred from TNt112720</option>
+<option value="inferred from TNt68147">inferred from TNt68147</option>
+<option value="inferred from TNt68148">inferred from TNt68148</option>
+<option value="inferred from TNt68149">inferred from TNt68149</option>
+<option value="inferred from TNt98807">inferred from TNt98807</option>
+<option value="inferred from TNt98808">inferred from TNt98808</option>
+<option value="inferred from TNt68150">inferred from TNt68150</option>
+<option value="inferred from TNt98868">inferred from TNt98868</option>
+<option value="inferred from TNt98869">inferred from TNt98869</option>
+<option value="inferred from TNt98870">inferred from TNt98870</option>
+<option value="inferred from TCt63768">inferred from TCt63768</option>
+<option value="inferred from TCt63767">inferred from TCt63767</option>
+<option value="inferred from TCt63765">inferred from TCt63765</option>
+<option value="inferred from TCt123285">inferred from TCt123285</option>
+<option value="inferred from TCt123286">inferred from TCt123286</option>
+<option value="Kim YT et al.:Enzymic properties of recombina... (A01.041)">Kim YT et al.:Enzymic properties of recombina... (A01.041)</option>
+<option value="inferred from TC505">inferred from TC505</option>
+<option value="inferred from TC515">inferred from TC515</option>
+<option value="inferred from TC525">inferred from TC525</option>
+<option value="inferred from TC535">inferred from TC535</option>
+<option value="inferred from TC545">inferred from TC545</option>
+<option value="inferred from TC555">inferred from TC555</option>
+<option value="inferred from TC565">inferred from TC565</option>
+<option value="inferred from TC575">inferred from TC575</option>
+<option value="Fluhrer R et al.:A non-amyloidogenic function of... (A01.041)">Fluhrer R et al.:A non-amyloidogenic function of... (A01.041)</option>
+<option value="inferred from TC585">inferred from TC585</option>
+<option value="Farzan M et al.:BACE2, a beta -secretase homolo... (A01.041)">Farzan M et al.:BACE2, a beta -secretase homolo... (A01.041)</option>
+<option value="inferred from TC595">inferred from TC595</option>
+<option value="Hussain I et al.:Prodomain processing of Asp1 (B... (A01.041)">Hussain I et al.:Prodomain processing of Asp1 (B... (A01.041)</option>
+<option value="inferred from TC607">inferred from TC607</option></select>
+				<br><h3>Database: </h3>
+				<select name="repository" id="repository"><option value=""></option>
+<option value=""></option></select>
+				<br><h3>Lab: </h3>
+				<select name="labs" id="labs"><option value=""></option>
+<option value=""></option>
+<option value="Lin X">Lin X</option>
+<option value="Walter J">Walter J</option>
+<option value="Choe H">Choe H</option>
+<option value="Dingwall C">Dingwall C</option></select>
+				<br><br>
+				<input type="submit" name="commit" value="Search" data-disable-with="Search" />
+</form>
+		</center>
+
+	  </section>
+         	
+	
+
+	</section> 	  
+
+</def>
+
+
+
+
+<section class="full category">
+</section>
+<def tag='Protein_Neighborhood'>
+	<a name="Protein_Neighborhood"/>
+	<h2>Protein Neighborhood</h2>
+		<img src="/assets/protein_neighborhood/Q9Y5Z0_pw_graphviz-98b7684b0655b08929eb643479458296871d44b6df635a63e87b3f333f539feb.svg" />
+</def>
+	
+	        <section class="full category">
+              <pagenav/>
+              <a name="features"/><h2>Domains &amp; Features</h2>
+            </section>
+
+            <h2><center>5 N-termini - 2 C-termini - 1 Cleavages - 108 Substrates</center></h2>
+			
+<!-- N-TERMINI  -->
+
+              <a name="features"/><h2>N-termini</h2></a>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Name</th>
+					<th>Sequence</th>
+					<th>Position</th>
+					<th>Modification</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMID)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td>Q9Y5Z0-1-unknown</td>
+							<td>MGALAR...</td>
+							<td>1</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0-2#TNt68147">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/6778">inferred from TNt68147</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q9Y5Z0-1-unknown</td>
+							<td>MGALAR...</td>
+							<td>1</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0-3#TNt68148">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/6914">inferred from TNt68148</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q9Y5Z0-21-unknown</td>
+							<td>APELAP...</td>
+							<td>21</td>
+							<td></td>
+							<td>inferred from electronic annotation</td>
+							<td>electronic annotation</td>
+							<td><a target="_blank" href="http://www.uniprot.org">UniProtKB</a></td>
+							<td></td>
+							<td><a href="/evidences/show/1">inferred from uniprot</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q9Y5Z0-21-unknown</td>
+							<td>APELAP...</td>
+							<td>21</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0-3#TNt112719">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/164770">inferred from TNt112719</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q9Y5Z0-21-unknown</td>
+							<td>APELAP...</td>
+							<td>21</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0-2#TNt112720">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/164771">inferred from TNt112720</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q9Y5Z0-63-unknown</td>
+							<td>ALEPAL...</td>
+							<td>63</td>
+							<td></td>
+							<td>inferred from electronic annotation</td>
+							<td>electronic annotation</td>
+							<td><a target="_blank" href="http://www.uniprot.org">UniProtKB</a></td>
+							<td></td>
+							<td><a href="/evidences/show/1">inferred from uniprot</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q9Y5Z0-63-unknown</td>
+							<td>ALEPAL...</td>
+							<td>63</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0#TC607">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/120234">Inferred from cleavage TC607</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q9Y5Z0-63-unknown</td>
+							<td>ALEPAL...</td>
+							<td>63</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0-3#TNt115745">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/172898">inferred from TNt115745</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q9Y5Z0-63-unknown</td>
+							<td>ALEPAL...</td>
+							<td>63</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0-2#TNt115746">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/172899">inferred from TNt115746</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q9Y5Z0-80-unknown</td>
+							<td>MVDNLQ...</td>
+							<td>80</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0-4#TNt68149">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/7049">inferred from TNt68149</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q9Y5Z0-80-unknown</td>
+							<td>MVDNLQ...</td>
+							<td>80</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0-3#TNt98807">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/174685">inferred from TNt98807</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q9Y5Z0-80-unknown</td>
+							<td>MVDNLQ...</td>
+							<td>80</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0-2#TNt98808">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/174686">inferred from TNt98808</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q9Y5Z0-96-unknown</td>
+							<td>MLIGTP...</td>
+							<td>96</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0-5#TNt68150">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/7177">inferred from TNt68150</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q9Y5Z0-96-unknown</td>
+							<td>MLIGTP...</td>
+							<td>96</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0-4#TNt98868">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/163484">inferred from TNt98868</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q9Y5Z0-96-unknown</td>
+							<td>MLIGTP...</td>
+							<td>96</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0-3#TNt98869">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/176058">inferred from TNt98869</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>Q9Y5Z0-96-unknown</td>
+							<td>MLIGTP...</td>
+							<td>96</td>
+							<td></td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0-2#TNt98870">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/176059">inferred from TNt98870</a></td>
+							<td>
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>
+
+
+
+<!-- C-TERMINI  -->
+
+
+              <a name="features"/><h2>C-termini</h2>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Name</th>
+					<th>Sequence</th>
+					<th>Position</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td></td>
+							<td>...DGLALA </td>
+							<td>62</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0#TC607">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/120234">Inferred from cleavage TC607</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...DGLALA </td>
+							<td>62</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0-3#TCt123285">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/201930">inferred from TCt123285</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...DGLALA </td>
+							<td>62</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0-2#TCt123286">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/201931">inferred from TCt123286</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...RHRWK </td>
+							<td>518</td>
+							<td>inferred from electronic annotation</td>
+							<td>electronic annotation</td>
+							<td><a target="_blank" href="http://www.uniprot.org">UniProtKB</a></td>
+							<td></td>
+							<td><a href="/evidences/show/1">inferred from uniprot</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...RHRWK </td>
+							<td>518</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0-5#TCt63768">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/50831">inferred from TCt63768</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...RHRWK </td>
+							<td>518</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0-4#TCt63767">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/51522">inferred from TCt63767</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...RHRWK </td>
+							<td>518</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0-2#TCt63765">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/52804">inferred from TCt63765</a></td>
+							<td>
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>
+
+<!-- CLEAVAGES -->
+
+
+              <a name="features"/><h2>Cleavages</h2>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Protease</th>
+					<th>Position</th>
+					<th>Sequence</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td><a href="/proteins/show/Q9Y5Z0">BACE2_HUMAN</a></td>
+							<td>62</td>
+							<td>LALA.|.ALEP</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Dingwall C</td>
+							<td><a href="/evidences/show/70617">Hussain I et al.:Prodomain processing of Asp1 (B... (A01.041)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/11316808">11316808</a>,
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>
+
+
+<!-- SUBSTRATES -->
+
+              <a name="features"/><h2>Substrates</h2>
+              <ul id="protshow">
+			  <table id="protshow" class="substrates-table">
+				<thead>
+					<th>Substrate</th>
+					<th>Position</th>
+					<th>Sequence</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td><a href="/proteins/show/Q9Y5Z0">BACE2_HUMAN</a></td>
+							<td>62</td>
+							<td>LALA.|.ALEP</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Dingwall C</td>
+							<td><a href="/evidences/show/70617">Hussain I et al.:Prodomain processing of Asp1 (B... (A01.041)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/11316808">11316808</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/Q9Y5Z0-3">BACE2-Isoform3_HUMAN</a></td>
+							<td>62</td>
+							<td>LALA.|.ALEP</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0#TC607">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70619">inferred from TC607</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/Q9Y5Z0-2">BACE2-Isoform2_HUMAN</a></td>
+							<td>62</td>
+							<td>LALA.|.ALEP</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q9Y5Z0#TC607">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70619">inferred from TC607</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02768">ALBU_HUMAN</a></td>
+							<td>169</td>
+							<td>ARRH.|.HPYF</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Lin X</td>
+							<td><a href="/evidences/show/70585">Kim YT et al.:Enzymic properties of recombina... (A01.041)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12423367">12423367</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02768">ALBU_HUMAN</a></td>
+							<td>170</td>
+							<td>RRHP.|.PYFY</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Lin X</td>
+							<td><a href="/evidences/show/70585">Kim YT et al.:Enzymic properties of recombina... (A01.041)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12423367">12423367</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02768">ALBU_HUMAN</a></td>
+							<td>172</td>
+							<td>HPYF.|.FYAP</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Lin X</td>
+							<td><a href="/evidences/show/70585">Kim YT et al.:Enzymic properties of recombina... (A01.041)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12423367">12423367</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-10">A4-Isoform10_HUMAN</a></td>
+							<td>540</td>
+							<td>VKMD.|.DAEF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC505">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70590">inferred from TC505</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-10">A4-Isoform10_HUMAN</a></td>
+							<td>541</td>
+							<td>KMDA.|.AEFR</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC515">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70592">inferred from TC515</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-10">A4-Isoform10_HUMAN</a></td>
+							<td>543</td>
+							<td>DAEF.|.FRHD</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC525">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70594">inferred from TC525</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-10">A4-Isoform10_HUMAN</a></td>
+							<td>545</td>
+							<td>EFRH.|.HDSG</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC535">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70596">inferred from TC535</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-10">A4-Isoform10_HUMAN</a></td>
+							<td>553</td>
+							<td>EVHH.|.HQKL</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70598">inferred from TC545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-10">A4-Isoform10_HUMAN</a></td>
+							<td>554</td>
+							<td>VHHQ.|.QKLV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC555">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70600">inferred from TC555</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-10">A4-Isoform10_HUMAN</a></td>
+							<td>555</td>
+							<td>HHQK.|.KLVF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC565">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70602">inferred from TC565</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-10">A4-Isoform10_HUMAN</a></td>
+							<td>556</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC575">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70605">inferred from TC575</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-10">A4-Isoform10_HUMAN</a></td>
+							<td>559</td>
+							<td>LVFF.|.FAED</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC585">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70609">inferred from TC585</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-10">A4-Isoform10_HUMAN</a></td>
+							<td>560</td>
+							<td>VFFA.|.AEDV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC595">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70612">inferred from TC595</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-3">A4-Isoform3_HUMAN</a></td>
+							<td>578</td>
+							<td>VKMD.|.DAEF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC505">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70590">inferred from TC505</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-3">A4-Isoform3_HUMAN</a></td>
+							<td>579</td>
+							<td>KMDA.|.AEFR</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC515">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70592">inferred from TC515</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-3">A4-Isoform3_HUMAN</a></td>
+							<td>581</td>
+							<td>DAEF.|.FRHD</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC525">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70594">inferred from TC525</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-3">A4-Isoform3_HUMAN</a></td>
+							<td>583</td>
+							<td>EFRH.|.HDSG</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC535">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70596">inferred from TC535</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-3">A4-Isoform3_HUMAN</a></td>
+							<td>591</td>
+							<td>EVHH.|.HQKL</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70598">inferred from TC545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-3">A4-Isoform3_HUMAN</a></td>
+							<td>592</td>
+							<td>VHHQ.|.QKLV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC555">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70600">inferred from TC555</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-3">A4-Isoform3_HUMAN</a></td>
+							<td>593</td>
+							<td>HHQK.|.KLVF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC565">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70602">inferred from TC565</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-3">A4-Isoform3_HUMAN</a></td>
+							<td>594</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC575">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70605">inferred from TC575</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-4">A4-Isoform4_HUMAN</a></td>
+							<td>596</td>
+							<td>VKMD.|.DAEF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC505">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70590">inferred from TC505</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-5">A4-Isoform5_HUMAN</a></td>
+							<td>597</td>
+							<td>VKMD.|.DAEF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC505">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70590">inferred from TC505</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-4">A4-Isoform4_HUMAN</a></td>
+							<td>597</td>
+							<td>KMDA.|.AEFR</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC515">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70592">inferred from TC515</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-3">A4-Isoform3_HUMAN</a></td>
+							<td>597</td>
+							<td>LVFF.|.FAED</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC585">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70609">inferred from TC585</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-5">A4-Isoform5_HUMAN</a></td>
+							<td>598</td>
+							<td>KMDA.|.AEFR</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC515">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70592">inferred from TC515</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-3">A4-Isoform3_HUMAN</a></td>
+							<td>598</td>
+							<td>VFFA.|.AEDV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC595">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70612">inferred from TC595</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-4">A4-Isoform4_HUMAN</a></td>
+							<td>599</td>
+							<td>DAEF.|.FRHD</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC525">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70594">inferred from TC525</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-5">A4-Isoform5_HUMAN</a></td>
+							<td>600</td>
+							<td>DAEF.|.FRHD</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC525">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70594">inferred from TC525</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-4">A4-Isoform4_HUMAN</a></td>
+							<td>601</td>
+							<td>EFRH.|.HDSG</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC535">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70596">inferred from TC535</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-5">A4-Isoform5_HUMAN</a></td>
+							<td>602</td>
+							<td>EFRH.|.HDSG</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC535">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70596">inferred from TC535</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-4">A4-Isoform4_HUMAN</a></td>
+							<td>609</td>
+							<td>EVHH.|.HQKL</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70598">inferred from TC545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-5">A4-Isoform5_HUMAN</a></td>
+							<td>610</td>
+							<td>EVHH.|.HQKL</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70598">inferred from TC545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-4">A4-Isoform4_HUMAN</a></td>
+							<td>610</td>
+							<td>VHHQ.|.QKLV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC555">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70600">inferred from TC555</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-5">A4-Isoform5_HUMAN</a></td>
+							<td>611</td>
+							<td>VHHQ.|.QKLV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC555">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70600">inferred from TC555</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-4">A4-Isoform4_HUMAN</a></td>
+							<td>611</td>
+							<td>HHQK.|.KLVF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC565">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70602">inferred from TC565</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-5">A4-Isoform5_HUMAN</a></td>
+							<td>612</td>
+							<td>HHQK.|.KLVF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC565">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70602">inferred from TC565</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-4">A4-Isoform4_HUMAN</a></td>
+							<td>612</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC575">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70605">inferred from TC575</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-5">A4-Isoform5_HUMAN</a></td>
+							<td>613</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC575">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70605">inferred from TC575</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-6">A4-Isoform6_HUMAN</a></td>
+							<td>615</td>
+							<td>VKMD.|.DAEF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC505">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70590">inferred from TC505</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-4">A4-Isoform4_HUMAN</a></td>
+							<td>615</td>
+							<td>LVFF.|.FAED</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC585">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70609">inferred from TC585</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-6">A4-Isoform6_HUMAN</a></td>
+							<td>616</td>
+							<td>KMDA.|.AEFR</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC515">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70592">inferred from TC515</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-5">A4-Isoform5_HUMAN</a></td>
+							<td>616</td>
+							<td>LVFF.|.FAED</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC585">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70609">inferred from TC585</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-4">A4-Isoform4_HUMAN</a></td>
+							<td>616</td>
+							<td>VFFA.|.AEDV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC595">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70612">inferred from TC595</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-5">A4-Isoform5_HUMAN</a></td>
+							<td>617</td>
+							<td>VFFA.|.AEDV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC595">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70612">inferred from TC595</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-6">A4-Isoform6_HUMAN</a></td>
+							<td>618</td>
+							<td>DAEF.|.FRHD</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC525">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70594">inferred from TC525</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-6">A4-Isoform6_HUMAN</a></td>
+							<td>620</td>
+							<td>EFRH.|.HDSG</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC535">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70596">inferred from TC535</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-6">A4-Isoform6_HUMAN</a></td>
+							<td>628</td>
+							<td>EVHH.|.HQKL</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70598">inferred from TC545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-6">A4-Isoform6_HUMAN</a></td>
+							<td>629</td>
+							<td>VHHQ.|.QKLV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC555">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70600">inferred from TC555</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-6">A4-Isoform6_HUMAN</a></td>
+							<td>630</td>
+							<td>HHQK.|.KLVF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC565">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70602">inferred from TC565</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-6">A4-Isoform6_HUMAN</a></td>
+							<td>631</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC575">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70605">inferred from TC575</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-7">A4-Isoform7_HUMAN</a></td>
+							<td>634</td>
+							<td>VKMD.|.DAEF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC505">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70590">inferred from TC505</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-6">A4-Isoform6_HUMAN</a></td>
+							<td>634</td>
+							<td>LVFF.|.FAED</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC585">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70609">inferred from TC585</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-7">A4-Isoform7_HUMAN</a></td>
+							<td>635</td>
+							<td>KMDA.|.AEFR</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC515">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70592">inferred from TC515</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-6">A4-Isoform6_HUMAN</a></td>
+							<td>635</td>
+							<td>VFFA.|.AEDV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC595">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70612">inferred from TC595</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-7">A4-Isoform7_HUMAN</a></td>
+							<td>637</td>
+							<td>DAEF.|.FRHD</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC525">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70594">inferred from TC525</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-7">A4-Isoform7_HUMAN</a></td>
+							<td>639</td>
+							<td>EFRH.|.HDSG</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC535">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70596">inferred from TC535</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-11">A4-Isoform11_HUMAN</a></td>
+							<td>647</td>
+							<td>VKMD.|.DAEF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC505">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70590">inferred from TC505</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-7">A4-Isoform7_HUMAN</a></td>
+							<td>647</td>
+							<td>EVHH.|.HQKL</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70598">inferred from TC545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-11">A4-Isoform11_HUMAN</a></td>
+							<td>648</td>
+							<td>KMDA.|.AEFR</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC515">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70592">inferred from TC515</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-7">A4-Isoform7_HUMAN</a></td>
+							<td>648</td>
+							<td>VHHQ.|.QKLV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC555">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70600">inferred from TC555</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-7">A4-Isoform7_HUMAN</a></td>
+							<td>649</td>
+							<td>HHQK.|.KLVF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC565">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70602">inferred from TC565</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-11">A4-Isoform11_HUMAN</a></td>
+							<td>650</td>
+							<td>DAEF.|.FRHD</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC525">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70594">inferred from TC525</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-7">A4-Isoform7_HUMAN</a></td>
+							<td>650</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC575">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70605">inferred from TC575</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-8">A4-Isoform8_HUMAN</a></td>
+							<td>652</td>
+							<td>VKMD.|.DAEF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC505">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70590">inferred from TC505</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-11">A4-Isoform11_HUMAN</a></td>
+							<td>652</td>
+							<td>EFRH.|.HDSG</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC535">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70596">inferred from TC535</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-9">A4-Isoform9_HUMAN</a></td>
+							<td>653</td>
+							<td>VKMD.|.DAEF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC505">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70590">inferred from TC505</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-8">A4-Isoform8_HUMAN</a></td>
+							<td>653</td>
+							<td>KMDA.|.AEFR</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC515">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70592">inferred from TC515</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-7">A4-Isoform7_HUMAN</a></td>
+							<td>653</td>
+							<td>LVFF.|.FAED</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC585">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70609">inferred from TC585</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-9">A4-Isoform9_HUMAN</a></td>
+							<td>654</td>
+							<td>KMDA.|.AEFR</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC515">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70592">inferred from TC515</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-7">A4-Isoform7_HUMAN</a></td>
+							<td>654</td>
+							<td>VFFA.|.AEDV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC595">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70612">inferred from TC595</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-8">A4-Isoform8_HUMAN</a></td>
+							<td>655</td>
+							<td>DAEF.|.FRHD</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC525">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70594">inferred from TC525</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-9">A4-Isoform9_HUMAN</a></td>
+							<td>656</td>
+							<td>DAEF.|.FRHD</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC525">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70594">inferred from TC525</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-8">A4-Isoform8_HUMAN</a></td>
+							<td>657</td>
+							<td>EFRH.|.HDSG</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC535">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70596">inferred from TC535</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-9">A4-Isoform9_HUMAN</a></td>
+							<td>658</td>
+							<td>EFRH.|.HDSG</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC535">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70596">inferred from TC535</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-11">A4-Isoform11_HUMAN</a></td>
+							<td>660</td>
+							<td>EVHH.|.HQKL</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70598">inferred from TC545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-11">A4-Isoform11_HUMAN</a></td>
+							<td>661</td>
+							<td>VHHQ.|.QKLV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC555">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70600">inferred from TC555</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-11">A4-Isoform11_HUMAN</a></td>
+							<td>662</td>
+							<td>HHQK.|.KLVF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC565">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70602">inferred from TC565</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-11">A4-Isoform11_HUMAN</a></td>
+							<td>663</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC575">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70605">inferred from TC575</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-8">A4-Isoform8_HUMAN</a></td>
+							<td>665</td>
+							<td>EVHH.|.HQKL</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70598">inferred from TC545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-9">A4-Isoform9_HUMAN</a></td>
+							<td>666</td>
+							<td>EVHH.|.HQKL</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70598">inferred from TC545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-8">A4-Isoform8_HUMAN</a></td>
+							<td>666</td>
+							<td>VHHQ.|.QKLV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC555">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70600">inferred from TC555</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-11">A4-Isoform11_HUMAN</a></td>
+							<td>666</td>
+							<td>LVFF.|.FAED</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC585">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70609">inferred from TC585</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-9">A4-Isoform9_HUMAN</a></td>
+							<td>667</td>
+							<td>VHHQ.|.QKLV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC555">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70600">inferred from TC555</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-8">A4-Isoform8_HUMAN</a></td>
+							<td>667</td>
+							<td>HHQK.|.KLVF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC565">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70602">inferred from TC565</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-11">A4-Isoform11_HUMAN</a></td>
+							<td>667</td>
+							<td>VFFA.|.AEDV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC595">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70612">inferred from TC595</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-9">A4-Isoform9_HUMAN</a></td>
+							<td>668</td>
+							<td>HHQK.|.KLVF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC565">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70602">inferred from TC565</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-8">A4-Isoform8_HUMAN</a></td>
+							<td>668</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC575">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70605">inferred from TC575</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-9">A4-Isoform9_HUMAN</a></td>
+							<td>669</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC575">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70605">inferred from TC575</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067">A4_HUMAN</a></td>
+							<td>671</td>
+							<td>VKMD.|.DAEF</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Lin X</td>
+							<td><a href="/evidences/show/70585">Kim YT et al.:Enzymic properties of recombina... (A01.041)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12423367">12423367</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-8">A4-Isoform8_HUMAN</a></td>
+							<td>671</td>
+							<td>LVFF.|.FAED</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC585">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70609">inferred from TC585</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067">A4_HUMAN</a></td>
+							<td>672</td>
+							<td>KMDA.|.AEFR</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Lin X</td>
+							<td><a href="/evidences/show/70585">Kim YT et al.:Enzymic properties of recombina... (A01.041)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12423367">12423367</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-9">A4-Isoform9_HUMAN</a></td>
+							<td>672</td>
+							<td>LVFF.|.FAED</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC585">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70609">inferred from TC585</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-8">A4-Isoform8_HUMAN</a></td>
+							<td>672</td>
+							<td>VFFA.|.AEDV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC595">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70612">inferred from TC595</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-9">A4-Isoform9_HUMAN</a></td>
+							<td>673</td>
+							<td>VFFA.|.AEDV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC595">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/70612">inferred from TC595</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067">A4_HUMAN</a></td>
+							<td>674</td>
+							<td>DAEF.|.FRHD</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Lin X</td>
+							<td><a href="/evidences/show/70585">Kim YT et al.:Enzymic properties of recombina... (A01.041)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12423367">12423367</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067">A4_HUMAN</a></td>
+							<td>676</td>
+							<td>EFRH.|.HDSG</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Lin X</td>
+							<td><a href="/evidences/show/70585">Kim YT et al.:Enzymic properties of recombina... (A01.041)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12423367">12423367</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067">A4_HUMAN</a></td>
+							<td>684</td>
+							<td>EVHH.|.HQKL</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Lin X</td>
+							<td><a href="/evidences/show/70585">Kim YT et al.:Enzymic properties of recombina... (A01.041)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12423367">12423367</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067">A4_HUMAN</a></td>
+							<td>685</td>
+							<td>VHHQ.|.QKLV</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Lin X</td>
+							<td><a href="/evidences/show/70585">Kim YT et al.:Enzymic properties of recombina... (A01.041)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12423367">12423367</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067">A4_HUMAN</a></td>
+							<td>686</td>
+							<td>HHQK.|.KLVF</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Lin X</td>
+							<td><a href="/evidences/show/70585">Kim YT et al.:Enzymic properties of recombina... (A01.041)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12423367">12423367</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067">A4_HUMAN</a></td>
+							<td>687</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Lin X</td>
+							<td><a href="/evidences/show/70585">Kim YT et al.:Enzymic properties of recombina... (A01.041)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12423367">12423367</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067">A4_HUMAN</a></td>
+							<td>690</td>
+							<td>LVFF.|.FAED</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Walter J</td>
+							<td><a href="/evidences/show/70607">Fluhrer R et al.:A non-amyloidogenic function of... (A01.041)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12065613">12065613</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067">A4_HUMAN</a></td>
+							<td>691</td>
+							<td>VFFA.|.AEDV</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Choe H</td>
+							<td><a href="/evidences/show/70610">Farzan M et al.:BACE2, a beta -secretase homolo... (A01.041)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/10931940">10931940</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P46531">NOTC1_HUMAN</a></td>
+							<td>1756</td>
+							<td>VLLS.|.SRKR</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Lin X</td>
+							<td><a href="/evidences/show/70613">Kim YT et al.:Enzymic properties of recombina... (A01.041)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12423367">12423367</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P46531">NOTC1_HUMAN</a></td>
+							<td>1757</td>
+							<td>LLSR.|.RKRR</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Lin X</td>
+							<td><a href="/evidences/show/70613">Kim YT et al.:Enzymic properties of recombina... (A01.041)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12423367">12423367</a>,
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>	
+
+			
+			
+			<section class="full">
+              
+            </section>
+	
+</def>
+
+
+<br>
+<br>
+
+
+</div>
+</div>
+</div>
+
+<footer>
+
+        
+    <div id="publication">
+
+        <div id="pics">
+        <img alt="UBC Logo" src="/assets/UBClogoupdated-76d10b067dddb96b9cf35c63b9db6f8ddd48959cffd588df9598f89d124f7279.png" width="372" height="117" />
+        <a href="http://clip.ubc.ca" target="_blank"><img alt="Lab Logo" src="/assets/Optimized_LabLogo-6b774b6428c587573bbe04397e0d610398524d5693571f497b59df22be3789d1.png" width="400" height="169" /></a>
+        </div>
+    </div>
+
+
+
+<div id="links">
+<br>
+<br>
+<center>
+<a href="/documentations/about">About |</a>
+<a href="/documentations/license">License &amp; Disclaimer |</a>
+<a href="mailto:topfind.clip@gmail.com">Contact |</a>
+<a href="/documentations/download">Download</a> 
+</center>
+
+<br>
+<center>
+        <h3> Developed by: Philipp F. Lange, Nikolaus Fortelny, Simran Rai </h3>
+        <a href="http://nar.oxfordjournals.org/content/early/2014/10/20/nar.gku1012.full" target="_blank">Nikolaus Fortelny, Sharon Yang, Paul Pavlidis, Philipp F. Lange*, Christopher M. Overall*, <b>Nucleic Acids Research</b> doi: 10.1093/nar/gku1012 (2014)</a><a href="http://nar.oxfordjournals.org/content/early/2014/10/20/nar.gku1012.full.pdf+html" target="_blank">[pdf]</a><br>
+        <a href="http://nar.oxfordjournals.org/content/40/D1/D351.full" target="_blank">Philipp F. Lange, Pitter F. Huesgen, Christopher M. Overall, <b>Nucleic Acids Research</b> 40 (D1), D351-D361 (2012)</a> <a href="https://www.researchgate.net/profile/Philipp_Lange/publication/51816705_TopFIND_2.0--linking_protein_termini_with_proteolytic_processing_and_modifications_altering_protein_function/links/0fcfd50574d434aac9000000?ev=pub_int_doc_dl&origin=publication_detail&inViewer=true" target="_blank">[pdf]</a><br>
+        <a href="http://www.nature.com/nmeth/journal/v8/n9/full/nmeth.1669.html" target="_blank">Philipp F. Lange &amp; Christopher M. Overall, <b>Nature Methods</b> 8, 703&minus;704 (2011)</a> <a href="/topfind/downloads/2011-NMeth-Lange_and_Overall.pdf" target="_blank">[pdf]</a>
+    <div class="bottom">&nbsp;</div>
+</center>
+
+</div>
+
+
+    </footer>
+
+
+
+</body>
+
+
+
+
+
+</body>
+</html>

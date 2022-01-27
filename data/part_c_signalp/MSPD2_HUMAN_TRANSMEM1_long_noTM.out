@@ -1,0 +1,32 @@
+# SignalP-4.1 euk predictions
+# Name=MSPD2_HUMAN_TRANSMEM1	Length=22	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   L   0.101   0.980   0.315
+    2   L   0.103   0.983   0.317
+    3   L   0.102   0.971   0.316
+    4   S   0.105   0.936   0.322
+    5   L   0.102   0.898   0.316
+    6   T   0.105   0.871   0.319
+    7   M   0.103   0.855   0.317
+    8   L   0.104   0.788   0.316
+    9   L   0.100   0.727   0.309
+   10   L   0.100   0.606   0.307
+   11   A   0.101   0.477   0.306
+   12   F   0.102   0.433   0.304
+   13   V   0.098   0.372   0.293
+   14   T   0.099   0.312   0.290
+   15   S   0.103   0.273   0.291
+   16   F   0.130   0.202   0.320
+   17   F   0.103   0.160   0.279
+   18   Y   0.105   0.130   0.274
+   19   L   0.098   0.120   0.258
+   20   L   0.102   0.107   0.256
+   21   Y   0.101   0.117   0.245
+   22   S   0.107   0.119   0.245
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    16       0.130
+  max. Y    16       0.320
+  max. S     2       0.983
+  mean S     1-15    0.699
+       D     1-15    0.525   0.450   YES
+Name=MSPD2_HUMAN_TRANSMEM1	SP='YES' Cleavage site between pos. 15 and 16: VTS-FF D=0.525 D-cutoff=0.450 Networks=SignalP-noTM

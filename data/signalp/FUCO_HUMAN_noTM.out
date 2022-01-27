@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.596
+  max. Y    28       0.740
+  max. S    20       0.964
+  mean S     1-27    0.924
+       D     1-27    0.839   0.450   YES
+Name=FUCO_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: AES-VR D=0.839 D-cutoff=0.450 Networks=SignalP-noTM

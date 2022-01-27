@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    37       0.336
+  max. Y    30       0.540
+  max. S    18       0.986
+  mean S     1-29    0.917
+       D     1-29    0.691   0.500   YES
+Name=TNR11_HUMAN	SP='YES' Cleavage site between pos. 29 and 30: ALQ-IA D=0.691 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.649
+  max. Y    28       0.763
+  max. S    15       0.960
+  mean S     1-27    0.898
+       D     1-27    0.817   0.500   YES
+Name=GELS_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: VRA-AT D=0.817 D-cutoff=0.500 Networks=SignalP-TM

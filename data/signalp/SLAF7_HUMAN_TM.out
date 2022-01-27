@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.639
+  max. Y    23       0.716
+  max. S    19       0.886
+  mean S     1-22    0.788
+       D     1-22    0.745   0.500   YES
+Name=SLAF7_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: SAA-SG D=0.745 D-cutoff=0.500 Networks=SignalP-TM

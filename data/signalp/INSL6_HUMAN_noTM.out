@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.218
+  max. Y    23       0.446
+  max. S    13       0.969
+  mean S     1-22    0.911
+       D     1-22    0.697   0.450   YES
+Name=INSL6_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: SRE-LS D=0.697 D-cutoff=0.450 Networks=SignalP-noTM

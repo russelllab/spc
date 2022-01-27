@@ -1,0 +1,30 @@
+# SignalP-4.1 euk predictions
+# Name=MFF_HUMAN_TRANSMEM1	Length=20	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   V   0.099   0.622   0.248
+    2   M   0.101   0.510   0.250
+    3   Y   0.102   0.358   0.251
+    4   S   0.099   0.311   0.245
+    5   I   0.101   0.249   0.244
+    6   T   0.104   0.222   0.244
+    7   V   0.102   0.196   0.238
+    8   A   0.102   0.169   0.234
+    9   F   0.098   0.194   0.225
+   10   W   0.100   0.185   0.223
+   11   L   0.098   0.160   0.216
+   12   L   0.104   0.152   0.218
+   13   N   0.100   0.123   0.208
+   14   S   0.105   0.127   0.208
+   15   W   0.101   0.128   0.198
+   16   L   0.102   0.122   0.193
+   17   W   0.103   0.128   0.188
+   18   F   0.096   0.110   0.176
+   19   R   0.096   0.108   0.169
+   20   R   0.106   0.105   0.170
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.106
+  max. Y    12       0.218
+  max. S     1       0.622
+  mean S     1-11    0.289
+       D     1-11    0.256   0.450   NO
+Name=MFF_HUMAN_TRANSMEM1	SP='NO' D=0.256 D-cutoff=0.450 Networks=SignalP-noTM

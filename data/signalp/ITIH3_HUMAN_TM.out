@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.485
+  max. Y    21       0.651
+  max. S     1       0.955
+  mean S     1-20    0.895
+       D     1-20    0.749   0.500   YES
+Name=ITIH3_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: AAS-GF D=0.749 D-cutoff=0.500 Networks=SignalP-TM

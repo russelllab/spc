@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    36       0.140
+  max. Y    36       0.249
+  max. S    15       0.677
+  mean S     1-35    0.394
+       D     1-35    0.328   0.450   NO
+Name=URAS1_HUMAN	SP='NO' D=0.328 D-cutoff=0.450 Networks=SignalP-noTM

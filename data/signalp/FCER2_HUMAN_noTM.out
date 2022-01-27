@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    53       0.398
+  max. Y    53       0.567
+  max. S    32       0.993
+  mean S     1-52    0.595
+       D     1-52    0.582   0.450   YES
+Name=FCER2_HUMAN	SP='YES' Cleavage site between pos. 52 and 53: TQS-LK D=0.582 D-cutoff=0.450 Networks=SignalP-noTM

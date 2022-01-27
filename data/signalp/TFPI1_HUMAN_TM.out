@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    29       0.685
+  max. Y    29       0.712
+  max. S    13       0.945
+  mean S     1-28    0.793
+       D     1-28    0.744   0.500   YES
+Name=TFPI1_HUMAN	SP='YES' Cleavage site between pos. 28 and 29: LNA-DS D=0.744 D-cutoff=0.500 Networks=SignalP-TM

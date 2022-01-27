@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    16       0.189
+  max. Y    16       0.330
+  max. S     6       0.724
+  mean S     1-15    0.605
+       D     1-15    0.478   0.450   YES
+Name=IFFO2_HUMAN	SP='YES' Cleavage site between pos. 15 and 16: AFG-CP D=0.478 D-cutoff=0.450 Networks=SignalP-noTM

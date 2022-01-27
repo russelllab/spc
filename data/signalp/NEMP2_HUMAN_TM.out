@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    25       0.537
+  max. Y    25       0.691
+  max. S    18       0.953
+  mean S     1-24    0.889
+       D     1-24    0.770   0.500   YES
+Name=NEMP2_HUMAN	SP='YES' Cleavage site between pos. 24 and 25: VRG-EA D=0.770 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    29       0.766
+  max. Y    29       0.697
+  max. S    13       0.822
+  mean S     1-28    0.664
+       D     1-28    0.684   0.500   YES
+Name=SORL_HUMAN	SP='YES' Cleavage site between pos. 28 and 29: ALC-EV D=0.684 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,4594 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Topfind 4.1</title>
+  <link rel="stylesheet" media="all" href="/assets/application-858af69cb01fabcb6739c5a9f3b408dc5cab04a41204d359455faa9a1c71fe4f.css" data-turbolinks-track="true" />
+  <script src="/assets/application-81d2bdfbc75607a7faecaf7abdf4676ceac4fd65d3aa8930b8177b5f7a641d9c.js" data-turbolinks-track="true"></script>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="qolTkROBxLa5EIWXP91RPjX71712XY8/lqDiwGOxQ8vGutiHLT01U6tLIn16aCyvSfdSU9EICwOC9hEMsNxSAQ==" />
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://code.highcharts.com/6.0.6/highcharts.js"></script>
+<script src="https://code.highcharts.com/6.0.6/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/js/modules/xrange.js"></script>
+<script src="https://code.highcharts.com/js/modules/exporting.js"></script>
+<link rel="stylesheet" type="text/css" href="assets/stylesheets/defaultcontentslider.css" />
+<link rel="stylesheet" type="text/css" href="assets/stylesheets/componentcontentslider.css" />
+<script src="assets/javascripts/modernizr.custom.js"></script>
+
+
+<style>
+
+@import 'https://code.highcharts.com/css/highcharts.css';
+
+#protshow {
+  font-family: "Lato", "Ubuntu", sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#protshow td, #protshow th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#protshow tr:nth-child(even){background-color: #f2f2f2;}
+
+#protshow tr:hover {background-color: #ddd;}
+
+#protshow th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0C0E28;
+  color: white;
+}
+
+
+#container_chart {
+min-width: 300px;
+max-width: 800px;
+height: 300px;
+margin: 1em auto;
+}
+
+
+/* Exporting module */
+.highcharts-contextbutton {
+fill: #ffffff;
+    /* needed to capture hover */
+stroke: none;
+    stroke-linecap: round;
+}
+
+.highcharts-contextbutton:hover {
+fill: #e6e6e6;
+stroke: #e6e6e6;
+}
+
+.highcharts-button-symbol {
+stroke: #666666;
+    stroke-width: 3px;
+}
+
+.highcharts-menu {
+border: 1px solid #999999;
+background: #ffffff;
+padding: 5px 0;
+    box-shadow: 3px 3px 10px #888;
+}
+
+.highcharts-menu-item {
+padding: 0.5em 1em;
+background: none;
+color: #333333;
+cursor: pointer;
+transition: background 250ms, color 250ms;
+}
+
+.highcharts-menu-item:hover {
+background: #335cad;
+color: #ffffff;
+}
+
+
+h1 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 25px;
+	line-height: 25px;
+	color: #444;
+}
+
+h2 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 20px;
+	color: #444;
+}
+
+h3 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 15px;
+	color: #444;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", "Ubuntu", sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #e3e2e0;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+
+p.seq {font-family: 'Courier New', Courier, monospace; font-size: 12px;}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>TopFIND 4.0</title>
+
+		<!-- meta -->
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	    <!-- css -->
+<!--
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/ionicons.min.css">
+		<link rel="stylesheet" type="text/css" href="css/pace.css">
+	    <link rel="stylesheet" type="text/css" href="css/custom.css">-->
+
+	    <!-- js -->
+<!--
+	    <script src="js/jquery-2.1.3.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+	    <script src="js/pace.min.js"></script>
+	    <script src="js/modernizr.custom.js"></script>-->
+	</head>
+
+
+	<body>		
+
+		<div class="container">
+            <header id="site-header">
+				<div class="row">
+					<div class="col-md-4 col-sm-5 col-xs-8">
+						<div class="logo">
+							<h1 style="font-size: 40px;"><a href="/home/index">Top<b style="color: red;">FIND</b></a></h1>
+						</div>
+					</div><!-- col-md-4 -->
+					<div class="col-md-8 col-sm-7 col-xs-12">
+						<nav class="main-nav" role="navigation">
+							<div class="navbar-header">
+  								<button type="button" id="trigger-overlay" class="navbar-toggle">
+    								<span class="ion-navicon"></span>
+  								</button>
+							</div>
+
+							<div class="navbar" id="navbar-main">
+  								<ul class="nav navbar-nav navbar-right">
+    								<li class="cl-effect-11"><a href="/proteins/protsearch" data-hover="Proteins">Proteins<b style="color: red;">+</b></a></li>
+    								<li class="cl-effect-11"><a href="/topfinder" data-hover="TopFINDer">Top<b style="color: red;">FINDer</b></a></li>
+    								<li class="cl-effect-11"><a href="/pathfinder" data-hover="PathFINDer">Path<b style="color: red;">FINDer</b></a></li>
+    								<li class="cl-effect-11"><a href="/contribute/index" data-hover="Contribute">Contribute</a></li>
+  								</ul>
+							</div><!-- /.navbar-collapse -->
+						</nav>
+				</div>
+			</header>
+		</div>
+
+</body>
+
+
+
+<!-- RUBY DOESN'T DISPLAY TOOLTIPS, if I put he same code in a .html file tooltips are displayed -->
+<!-- If the values are integers, one has to start from 0 -->
+
+<!-- PARSE RUBY DATA FOR JAVASCRIPT-->
+
+<div id="container_chart" style="width:100%; height:400px;"></div>
+
+<script type="text/javascript">
+
+    var dataarr = [];
+    var catarr = [];
+
+
+    $(document).ready(
+
+        function makeArr() {
+
+        var domainElem = [["Sequence","1-582",0,582],["Chains","112-582",112,582],["N-Terms","21",21,22],["N-Terms","50",50,51],["N-Terms","61",61,62],["N-Terms","109",109,110],["N-Terms","112",112,113],["N-Terms","119",119,120],["N-Terms","130",130,131],["N-Terms","222",222,223],["N-Terms","256",256,257],["N-Terms","284",284,285],["N-Terms","285",285,286],["N-Terms","299",299,300],["C-Terms","49",48,49],["C-Terms","60",59,60],["C-Terms","108",107,108],["C-Terms","111",110,111],["C-Terms","118",117,118],["C-Terms","129",128,129],["C-Terms","188",187,188],["C-Terms","221",220,221],["C-Terms","255",254,255],["C-Terms","283",282,283],["C-Terms","284",283,284],["C-Terms","298",297,298],["C-Terms","582",581,582],["Cleavages","49",48,49],["Cleavages","49",48,49],["Cleavages","60",59,60],["Cleavages","60",59,60],["Cleavages","108",107,108],["Cleavages","111",110,111],["Cleavages","111",110,111],["Cleavages","111",110,111],["Cleavages","111",110,111],["Cleavages","111",110,111],["Cleavages","111",110,111],["Cleavages","111",110,111],["Cleavages","111",110,111],["Cleavages","118",117,118],["Cleavages","129",128,129],["Cleavages","221",220,221],["Cleavages","255",254,255],["Cleavages","283",282,283],["Cleavages","284",283,284],["Cleavages","298",297,298],["Topology","TURN (133-135)",133,135],["Topology","TURN (208-211)",208,211],["Topology","TURN (422-424)",422,424],["Topology","TURN (440-443)",440,443],["Topology","TURN (488-491)",488,491],["Variants","CONFLICT (338-338)",338,338],["Variants","CONFLICT (500-500)",500,500],["Topology","TOPO_DOM (112-541)",112,541],["Topology","TOPO_DOM (563-582)",563,582],["Domains","SIGNAL (1-20)",1,20],["Features","METAL (93-93)",93,93],["Features","METAL (239-239)",239,239],["Features","METAL (243-243)",243,243],["Features","METAL (249-249)",249,249],["Topology","TRANSMEM (542-562)",542,562],["Topology","STRAND (120-128)",120,128],["Topology","STRAND (158-161)",158,161],["Topology","STRAND (171-173)",171,173],["Topology","STRAND (176-182)",176,182],["Topology","STRAND (187-190)",187,190],["Topology","STRAND (194-202)",194,202],["Topology","STRAND (213-216)",213,216],["Topology","STRAND (230-232)",230,232],["Topology","STRAND (258-260)",258,260],["Topology","STRAND (324-329)",324,329],["Topology","STRAND (332-337)",332,337],["Topology","STRAND (340-345)",340,345],["Topology","STRAND (354-356)",354,356],["Topology","STRAND (370-373)",370,373],["Topology","STRAND (379-383)",379,383],["Topology","STRAND (386-391)",386,391],["Topology","STRAND (400-402)",400,402],["Topology","STRAND (416-420)",416,420],["Topology","STRAND (427-431)",427,431],["Topology","STRAND (434-439)",434,439],["Topology","STRAND (450-452)",450,452],["Topology","STRAND (464-468)",464,468],["Topology","STRAND (472-479)",472,479],["Topology","STRAND (482-487)",482,487],["Domains","MOTIF (91-98)",91,98],["Topology","REPEAT (316-364)",316,364],["Topology","REPEAT (365-410)",365,410],["Topology","REPEAT (412-460)",412,460],["Topology","REPEAT (461-508)",461,508],["Features","ACT_SITE (240-240)",240,240],["Topology","HELIX (137-154)",137,154],["Topology","HELIX (164-168)",164,168],["Topology","HELIX (233-244)",233,244],["Topology","HELIX (273-283)",273,283],["Topology","HELIX (318-320)",318,320],["Topology","HELIX (357-360)",357,360],["Topology","HELIX (403-405)",403,405],["Topology","HELIX (453-455)",453,455],["Topology","HELIX (501-504)",501,504],["Variants","VARIANT (4-4)",4,4],["Variants","VARIANT (6-6)",6,6],["Variants","VARIANT (8-8)",8,8],["Variants","VARIANT (17-17)",17,17],["Variants","VARIANT (233-233)",233,233],["Variants","VARIANT (273-273)",273,273],["Variants","VARIANT (302-302)",302,302],["Variants","VARIANT (355-355)",355,355],["Variants","VARIANT (431-431)",431,431],["Domains","PROPEP (21-111)",21,111],["Domains","SIGNAL (1-20)",1,20],["Domains","PROPEP (21-111)",21,111],["Topology","TOPO_DOM (112-541)",112,541],["Topology","TOPO_DOM (563-582)",563,582],["Topology","TRANSMEM (542-562)",542,562],["Topology","REPEAT (316-364)",316,364],["Topology","REPEAT (365-410)",365,410],["Topology","REPEAT (412-460)",412,460],["Topology","REPEAT (461-508)",461,508],["Domains","MOTIF (91-98)",91,98],["Features","ACT_SITE (240-240)",240,240],["Features","METAL (93-93)",93,93],["Features","METAL (239-239)",239,239],["Features","METAL (243-243)",243,243],["Features","METAL (249-249)",249,249],["Modifications","MOD_RES (399-399)",399,399],["Variants","VARIANT (4-4)",4,4],["Variants","VARIANT (6-6)",6,6],["Variants","VARIANT (8-8)",8,8],["Variants","VARIANT (17-17)",17,17],["Variants","VARIANT (233-233)",233,233],["Variants","VARIANT (273-273)",273,273],["Variants","VARIANT (302-302)",302,302],["Variants","VARIANT (355-355)",355,355],["Variants","VARIANT (431-431)",431,431],["Variants","CONFLICT (338-338)",338,338],["Variants","CONFLICT (500-500)",500,500],["Topology","STRAND (120-128)",120,128],["Topology","STRAND (158-161)",158,161],["Topology","STRAND (171-173)",171,173],["Topology","STRAND (176-182)",176,182],["Topology","STRAND (187-190)",187,190],["Topology","STRAND (194-202)",194,202],["Topology","STRAND (205-207)",205,207],["Topology","STRAND (213-216)",213,216],["Topology","STRAND (221-223)",221,223],["Topology","STRAND (230-232)",230,232],["Topology","STRAND (258-260)",258,260],["Topology","STRAND (324-329)",324,329],["Topology","STRAND (332-337)",332,337],["Topology","STRAND (340-345)",340,345],["Topology","STRAND (354-356)",354,356],["Topology","STRAND (370-373)",370,373],["Topology","STRAND (375-377)",375,377],["Topology","STRAND (379-383)",379,383],["Topology","STRAND (386-391)",386,391],["Topology","STRAND (392-395)",392,395],["Topology","STRAND (400-402)",400,402],["Topology","STRAND (416-420)",416,420],["Topology","STRAND (427-431)",427,431],["Topology","STRAND (434-439)",434,439],["Topology","STRAND (450-452)",450,452],["Topology","STRAND (456-458)",456,458],["Topology","STRAND (464-468)",464,468],["Topology","STRAND (472-479)",472,479],["Topology","STRAND (482-487)",482,487],["Topology","STRAND (498-500)",498,500],["Topology","STRAND (569-575)",569,575],["Topology","TURN (133-135)",133,135],["Topology","TURN (208-211)",208,211],["Topology","TURN (422-424)",422,424],["Topology","TURN (440-443)",440,443],["Topology","TURN (488-491)",488,491],["Topology","HELIX (137-154)",137,154],["Topology","HELIX (164-168)",164,168],["Topology","HELIX (233-244)",233,244],["Topology","HELIX (273-283)",273,283],["Topology","HELIX (318-320)",318,320],["Topology","HELIX (357-360)",357,360],["Topology","HELIX (403-405)",403,405],["Topology","HELIX (453-455)",453,455],["Topology","HELIX (501-504)",501,504]];
+
+        var dataarr = [];
+        var catarr = [];
+        var i;
+
+        for (i = 0; i < domainElem.length ; i++ )
+        {
+        switch(domainElem[i][0]) {
+            
+          case "Sequence":
+                catarr[0] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:0,
+                color: '#e41a1c',
+                key: (domainElem[i][1])
+                });
+                break;
+
+            
+            case "Chains":
+                catarr[1] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:1,
+                color: '#377eb8',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Topology":
+                catarr[2] = (domainElem[i][0]);
+                dataarr.push({
+                x: parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:2,
+                color: '#4daf4a',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "N-Terms":
+                catarr[3] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:3,
+                color: '#984ea3',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "C-Terms":
+                catarr[4] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:4,
+                color: '#ff7f00',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Cleavages":
+                catarr[5] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:5,
+                color: '#CCCC00',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Modifications":
+                catarr[6] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:6,
+                color: '#a65628',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Variants":
+                catarr[7] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:7,
+                color: '#f781bf',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Domains":
+                catarr[8] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:8,
+                color: '#999999',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+        }
+        }
+
+
+    
+
+    (function (H) {
+    var defaultPlotOptions = H.getOptions().plotOptions,
+    columnType = H.seriesTypes.column,
+    each = H.each,
+    extendClass = H.extendClass,
+    pick = H.pick,
+    Point = H.Point,
+    Series = H.Series;
+    
+    defaultPlotOptions.xrange = H.merge(defaultPlotOptions.column, {
+    tooltip: {
+    headerFormat: '<span style="font-size: 0.85em">{point.x} - {point.x2}</span><br/>',
+    pointFormat: '<span style="color:{point.color}">\u25CF</span> {point.yCategory}: <b>{point.key}</b><br/>',
+    footerFormat: '<span style="color:{point.color}">{series.name}</span><br/>'
+    }
+    });
+    H.seriesTypes.xrange = H.extendClass(columnType, {
+    pointClass: extendClass(Point, {
+        // Add x2 and yCategory to the available properties for tooltip formats
+    getLabelConfig: function () {
+        var cfg = Point.prototype.getLabelConfig.call(this);
+        
+        cfg.x2 = this.x2;
+        cfg.yCategory = this.yCategory = this.series.yAxis.categories && this.series.yAxis.categories[this.y];
+        return cfg;
+    }
+    }),
+    type: 'xrange',
+    forceDL: true,
+    parallelArrays: ['x', 'x2', 'y'],
+    requireSorting: false,
+    animate: H.seriesTypes.line.prototype.animate,
+        
+        /**
+         * Borrow the column series metrics, but with swapped axes. This gives free access
+         * to features like groupPadding, grouping, pointWidth etc.
+         */
+    getColumnMetrics: function () {
+        var metrics,
+        chart = this.chart;
+        
+        function swapAxes() {
+            each(chart.series, function (s) {
+                var xAxis = s.xAxis;
+                s.xAxis = s.yAxis;
+                s.yAxis = xAxis;
+            });
+        }
+        
+        swapAxes();
+        
+        this.yAxis.closestPointRange = 1;
+        metrics = columnType.prototype.getColumnMetrics.call(this);
+        
+        swapAxes();
+        
+        return metrics;
+    },
+        
+        /**
+         * Override cropData to show a point where x is outside visible range
+         * but x2 is outside.
+         */
+    cropData: function (xData, yData, min, max) {
+        
+        // Replace xData with x2Data to find the appropriate cropStart
+        var crop = Series.prototype.cropData.call(this, this.x2Data, yData, min, max);
+        
+        // Re-insert the cropped xData
+        crop.xData = xData.slice(crop.start, crop.end);
+        
+        return crop;
+    },
+        
+    translate: function () {
+        columnType.prototype.translate.apply(this, arguments);
+        var series = this,
+        xAxis = series.xAxis,
+        metrics = series.columnMetrics,
+        minPointLength = series.options.minPointLength || 0;
+        
+        H.each(series.points, function (point) {
+            var plotX = point.plotX,
+            plotX2 = xAxis.toPixels(H.pick(point.x2, point.x + (point.len || 0)), true),
+            width = plotX2 - plotX,
+            widthDifference;
+            
+            if (minPointLength) {
+                widthDifference = width < minPointLength ? minPointLength - width : 0;
+                plotX -= widthDifference / 2;
+                plotX2 += widthDifference / 2;
+            }
+            
+            plotX = Math.max(plotX, -10);
+            plotX2 = Math.min(Math.max(plotX2, -10), xAxis.len + 10);
+            
+            point.shapeArgs = {
+            x: plotX,
+            y: point.plotY + metrics.offset,
+            width: plotX2 - plotX,
+            height: metrics.width
+            };
+            point.tooltipPos[0] += width / 2;
+            point.tooltipPos[1] -= metrics.width / 2;
+        });
+    }
+    });
+    
+    /**
+     * Max x2 should be considered in xAxis extremes
+     */
+    H.wrap(H.Axis.prototype, 'getSeriesExtremes', function (proceed) {
+        var axis = this,
+        dataMax,
+        modMax;
+        
+        proceed.call(this);
+        if (this.isXAxis) {
+            dataMax = pick(axis.dataMax, Number.MIN_VALUE);
+            each(this.series, function (series) {
+                each(series.x2Data || [], function (val) {
+                    if (val > dataMax) {
+                        dataMax = val;
+                        modMax = true;
+                    }
+                });
+            });
+            if (modMax) {
+                axis.dataMax = dataMax;
+            }
+        }
+    });
+}(Highcharts));
+
+Highcharts.chart('container_chart', {
+    chart: {
+    type: 'xrange'
+    },
+    title: {
+    text: 'Summary'
+    },
+    xAxis: {
+    type: 'linear'
+    },
+    yAxis: {
+    title: {
+    text: ''
+    },
+    categories: [catarr[0], catarr[1], catarr[2], catarr[3], catarr[4], catarr[5], catarr[6], catarr[7], catarr[8]],
+    reversed: true
+    },
+    series: [{
+    name: 'P50281',
+    pointWidth: 20,
+    colorByPoint: true,
+    data: dataarr,
+    point: {
+    events: {
+    }
+    }
+        
+    }]
+    });
+
+
+    });
+
+</script>
+
+
+<p id="demo"></p>
+<p id="demo2"></p>
+
+
+
+<div class="content-body">
+		<div class ="container">
+			<div class="row">
+
+<h2> </h2>
+
+<def tag='general-protein-information'>
+
+	<section class="left">
+	  <section class="block">
+	  
+	    <h1>P50281: Matrix metalloproteinase-14</h1>
+	    <table class="protein-summary annotation">
+                <h3> General Information </h3> 
+                
+	      <tr> 
+	        <th>Protein names</th> 
+	        <td><br>
+	        		- Matrix metalloproteinase-14<br>
+	        		- MMP-14<br>
+	        		- 3.4.24.80<br>
+	        		- MMP-X1<br>
+	        		- Membrane-type matrix metalloproteinase 1<br>
+	        		- MT-MMP 1<br>
+	        		- MTMMP1<br>
+	        		- Membrane-type-1 matrix metalloproteinase<br>
+	        		- MT1-MMP<br>
+	        		- MT1MMP<br>
+	        </br></td>
+	      </tr><tr> 
+	        <th>Gene names</th> 
+	        <td>MMP14 </td>
+	      </tr><tr>
+	        <th>Organism</th>
+	        <td>Homo sapiens</td>
+	      </tr><tr>
+	        <th>Protease Family</th>
+	        <td> 
+	        	<a href="https://www.ebi.ac.uk/merops/cgi-bin/famsum?family=M10">M10.014</a>
+	        	</td>
+	      </tr><tr>
+	        <th>Protease ID</th>
+	        <td>
+	        		<a href="https://www.ebi.ac.uk/merops/cgi-bin/pepsum?id=M10.014">M10.014</a>
+	        	</td>
+	      </tr><tr if="&@protein.chromosome.present?">
+	        <th>Chromosome location</th>
+	        <td><a href="/topfind/proteins?query=&chromosome=#{@protein.chromosome}"><view:chromosome/></a> <a href="/proteins/index?query=&chromosome=#{@protein.chromosome}&arm=#{@band.first}&band=#{@band.delete 'pq'}"></a></td>
+	      </tr><tr>
+	      	<th> UniProt ID</th>
+	      	<td><a href="http://www.uniprot.org/uniprot/P50281"> P50281</a></td>
+	      </tr>
+	    </table>
+	  </section>
+	  	  <section class="block">
+	  	  			<div class="row">
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 12</h2>
+    	<h2> N-termini </h2>
+
+   </div>
+  </div>
+
+ 	<div class="column">
+    <div class="card">
+    	
+    	<h2> 13</h2>
+    	<h2> C-termini </h2>
+
+   </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 20</h2>
+    	<h2> Cleavages </h2>
+
+   </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 221</h2>
+    	<h2> Substrates </h2>
+
+   </div>
+  </div>
+
+</div>
+
+	    <h3>Sequence</h3> 
+	    	<p class="seq">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60&nbsp;<br/>MSPAPRPPRC&nbsp;LLLPLLTLGT&nbsp;ALASLGSAQS&nbsp;SSFSPEAWLQ&nbsp;QYGYLPPGDL&nbsp;RTHTQRSPQS&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120&nbsp;<br/>LSAAIAAMQK&nbsp;FYGLQVTGKA&nbsp;DADTMKAMRR&nbsp;PRCGVPDKFG&nbsp;AEIKANVRRK&nbsp;RYAIQGLKWQ&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180&nbsp;<br/>HNEITFCIQN&nbsp;YTPKVGEYAT&nbsp;YEAIRKAFRV&nbsp;WESATPLRFR&nbsp;EVPYAYIREG&nbsp;HEKQADIMIF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;240&nbsp;<br/>FAEGFHGDST&nbsp;PFDGEGGFLA&nbsp;HAYFPGPNIG&nbsp;GDTHFDSAEP&nbsp;WTVRNEDLNG&nbsp;NDIFLVAVHE&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300&nbsp;<br/>LGHALGLEHS&nbsp;SDPSAIMAPF&nbsp;YQWMDTENFV&nbsp;LPDDDRRGIQ&nbsp;QLYGGESGFP&nbsp;TKMPPQPRTT&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;360&nbsp;<br/>SRPSVPDKPK&nbsp;NPTYGPNICD&nbsp;GNFDTVAMLR&nbsp;GEMFVFKERW&nbsp;FWRVRNNQVM&nbsp;DGYPMPIGQF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;420&nbsp;<br/>WRGLPASINT&nbsp;AYERKDGKFV&nbsp;FFKGDKHWVF&nbsp;DEASLEPGYP&nbsp;KHIKELGRGL&nbsp;PTDKIDAALF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;480&nbsp;<br/>WMPNGKTYFF&nbsp;RGNKYYRFNE&nbsp;ELRAVDSEYP&nbsp;KNIKVWEGIP&nbsp;ESPRGSFMGS&nbsp;DEVFTYFYKG&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;540&nbsp;<br/>NKYWKFNNQK&nbsp;LKVEPGYPKS&nbsp;ALRDWMGCPS&nbsp;GGRPDEGTEE&nbsp;ETEVIIIEVD&nbsp;EEGGGAVSAA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;580&nbsp;&nbsp;&nbsp;&nbsp;<br/>AVVLPVLLLL&nbsp;LVLAVGLAVF&nbsp;FFRRHGTPRR&nbsp;LLYCQRSLLD&nbsp;KV<p>
+	  </section>             
+	  <section class="block" if= false>
+	    <h3>Isoforms</h3>
+	  <br>
+      <br>
+	      Sequence View <p class="seq">
+          </p>
+
+	   <br><br>
+	
+     
+	      
+	
+	  </section> 
+	</section>
+
+
+
+	  <section class="right" width="20px">
+
+	  		<center>
+			<form action="/proteins/show/P50281" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="gETU8/KHrbIsbBBL3zqPwBYF9EkMG2FWRb7J2jfa5CZSPwMv+IgL1aRrPQd0npQ0gxhedxYSpG2U0dVT6c11Ow==" />
+				
+				<!-- To go back from dropdown to multiple selection box, type :multiple => true into the last set of {} brackets -->
+
+				<h2>Filter Information:</h2>
+				<br>
+				(<a href="/proteins/show/P50281">REFRESH</a>)
+				<br></br>
+				<h3>Directness: </h3>
+				<select name="directness" id="directness"><option value="unknown">unknown</option>
+<option value="indirect">indirect</option>
+<option value="direct">direct</option></select>
+				<br><h3>Physiological Relevance: </h3>
+				<select name="phys_rel" id="phys_rel"><option value="unknown">unknown</option>
+<option value="yes">yes</option>
+<option value="none">none</option></select>
+				<br><h3>Evidence Codes: </h3>
+				<select name="evidencecodes" id="evidencecodes"><option value="inferred from electronic annotation">inferred from electronic annotation</option>
+<option value="inferred from cleavage">inferred from cleavage</option>
+<option value="inferred from experiment">inferred from experiment</option>
+<option value="inferred from isoform by sequence similarity">inferred from isoform by sequence similarity</option></select>
+				<br><h3>Methodology: </h3>
+				<select name="methodology" id="methodology"><option value="electronic annotation">electronic annotation</option>
+<option value="unknown">unknown</option>
+<option value="MS other">MS other</option></select>
+				<br><h3>Perturbation of System: </h3>
+				<select name="perturbations" id="perturbations"><option value=""></option>
+<option value="none">none</option></select>
+				<br><h3>Biological System: </h3>
+				<select name="methodsystems" id="methodsystems"><option value="unknown">unknown</option>
+<option value="cell free">cell free</option></select>
+				<br><h3>Protease Assignment Confidence: </h3>
+				<select name="proteaseassignmentconfidences" id="proteaseassignmentconfidences"><option value="unknown">unknown</option>
+<option value="I no other proteolytic activities present">I no other proteolytic activities present</option></select>
+				<br><h3>Evidence Names: </h3>
+				<select name="evidences" id="evidences"><option value="inferred from uniprot">inferred from uniprot</option>
+<option value="Inferred from cleavage TC26626">Inferred from cleavage TC26626</option>
+<option value="Inferred from cleavage TC26896">Inferred from cleavage TC26896</option>
+<option value="Inferred from cleavage TC9769">Inferred from cleavage TC9769</option>
+<option value="Inferred from cleavage TC27194">Inferred from cleavage TC27194</option>
+<option value="Inferred from cleavage TC21607">Inferred from cleavage TC21607</option>
+<option value="Inferred from cleavage TC27044">Inferred from cleavage TC27044</option>
+<option value="Inferred from cleavage TC27591">Inferred from cleavage TC27591</option>
+<option value="Inferred from cleavage TC27341">Inferred from cleavage TC27341</option>
+<option value="Inferred from cleavage TC23091">Inferred from cleavage TC23091</option>
+<option value="Inferred from cleavage TC21605">Inferred from cleavage TC21605</option>
+<option value="Inferred from cleavage TC23092">Inferred from cleavage TC23092</option>
+<option value="Inferred from cleavage TC21606">Inferred from cleavage TC21606</option>
+<option value="Inferred from cleavage TC27590">Inferred from cleavage TC27590</option>
+<option value="Inferred from cleavage TC21608">Inferred from cleavage TC21608</option>
+<option value="Inferred from cleavage TC21609">Inferred from cleavage TC21609</option>
+<option value="Inferred from cleavage TC21610">Inferred from cleavage TC21610</option>
+<option value="Inferred from cleavage TC21611">Inferred from cleavage TC21611</option>
+<option value="Inferred from cleavage TC21612">Inferred from cleavage TC21612</option>
+<option value="Inferred from cleavage TC21613">Inferred from cleavage TC21613</option>
+<option value="Inferred from cleavage TC21614">Inferred from cleavage TC21614</option>
+<option value="inferred from ensembl protein ENSP00000446989">inferred from ensembl protein ENSP00000446989</option>
+<option value="Sato H et al.:Activation of a recombinant mem... (S08.071)">Sato H et al.:Activation of a recombinant mem... (S08.071)</option>
+<option value="Bair EL et al.:Membrane type 1 matrix metallop... (M10.014)">Bair EL et al.:Membrane type 1 matrix metallop... (M10.014)</option>
+<option value="Borgono CA et al.:Expression and functional chara... (S01.029)">Borgono CA et al.:Expression and functional chara... (S01.029)</option>
+<option value="Overall CM et al.:Protease degradomics: mass spec... (M10.014)">Overall CM et al.:Protease degradomics: mass spec... (M10.014)</option>
+<option value="Golubkov VS et al.:Membrane type-1 matrix metallop... (M10.014)">Golubkov VS et al.:Membrane type-1 matrix metallop... (M10.014)</option>
+<option value="inferred from TC21431">inferred from TC21431</option>
+<option value="Endo K et al.:Cleavage of syndecan-1 by membr... (M10.014)">Endo K et al.:Cleavage of syndecan-1 by membr... (M10.014)</option>
+<option value="inferred from TC21433">inferred from TC21433</option>
+<option value="Hiller O et al.:Matrix metalloproteinases colla... (M10.009)">Hiller O et al.:Matrix metalloproteinases colla... (M10.009)</option>
+<option value="Tam EM et al.:Membrane protease proteomics: I... (M10.014)">Tam EM et al.:Membrane protease proteomics: I... (M10.014)</option>
+<option value="Ohuchi E et al.:Membrane type 1 matrix metallop... (M10.014)">Ohuchi E et al.:Membrane type 1 matrix metallop... (M10.014)</option>
+<option value="Fukui N et al.:Processing of type II procollag... (M12.301)">Fukui N et al.:Processing of type II procollag... (M12.301)</option>
+<option value="inferred from TC21442">inferred from TC21442</option>
+<option value="inferred from TC21444">inferred from TC21444</option>
+<option value="Aoki T et al.:Cleavage of apolipoprotein E by... (M10.014)">Aoki T et al.:Cleavage of apolipoprotein E by... (M10.014)</option>
+<option value="Park JH et al.:Cleavage and functional loss of... (M10.014)">Park JH et al.:Cleavage and functional loss of... (M10.014)</option>
+<option value="Kim SY et al.:Apolipoprotein C-II is a novel ... (M10.014)">Kim SY et al.:Apolipoprotein C-II is a novel ... (M10.014)</option>
+<option value="Bini A et al.:Characterization of stromelysin... (M10.014)">Bini A et al.:Characterization of stromelysin... (M10.014)</option>
+<option value="inferred from TC21456">inferred from TC21456</option>
+<option value="inferred from TC21458">inferred from TC21458</option>
+<option value="inferred from TC21460">inferred from TC21460</option>
+<option value="inferred from TC21462">inferred from TC21462</option>
+<option value="inferred from TC21464">inferred from TC21464</option>
+<option value="inferred from TC21471">inferred from TC21471</option>
+<option value="inferred from TC21473">inferred from TC21473</option>
+<option value="inferred from TC21475">inferred from TC21475</option>
+<option value="Shiryaev SA et al.:Matrix metalloproteinase proteo... (M10.006)">Shiryaev SA et al.:Matrix metalloproteinase proteo... (M10.006)</option>
+<option value="inferred from TC21477">inferred from TC21477</option>
+<option value="inferred from TC21482">inferred from TC21482</option>
+<option value="inferred from TC21485">inferred from TC21485</option>
+<option value="inferred from TC21488">inferred from TC21488</option>
+<option value="Higashi S et al.:Novel processing of beta-amyloi... (M10.014)">Higashi S et al.:Novel processing of beta-amyloi... (M10.014)</option>
+<option value="inferred from TC21493">inferred from TC21493</option>
+<option value="Amour A et al.:The enzymatic activity of ADAM8... (M12.210)">Amour A et al.:The enzymatic activity of ADAM8... (M12.210)</option>
+<option value="inferred from TC21503">inferred from TC21503</option>
+<option value="Ratnikov BI et al.:An alternative processing of in... (M10.014)">Ratnikov BI et al.:An alternative processing of in... (M10.014)</option>
+<option value="inferred from TC21513">inferred from TC21513</option>
+<option value="Li Y et al.:Cleavage of lumican by membrane... (M10.014)">Li Y et al.:Cleavage of lumican by membrane... (M10.014)</option>
+<option value="Will H et al.:The soluble catalytic domain of... (M10.014)">Will H et al.:The soluble catalytic domain of... (M10.014)</option>
+<option value="inferred from TC21518">inferred from TC21518</option>
+<option value="Pei D et al.:Transmembrane-deletion mutants ... (M10.014)">Pei D et al.:Transmembrane-deletion mutants ... (M10.014)</option>
+<option value="inferred from TC21520">inferred from TC21520</option>
+<option value="inferred from TC21523">inferred from TC21523</option>
+<option value="Butler GS et al.:Mannose-binding lectin (MBL) mu... (M10.014)">Butler GS et al.:Mannose-binding lectin (MBL) mu... (M10.014)</option>
+<option value="Merops MMP14_HUMAN -&gt; CADH1_HUMAN @585">Merops MMP14_HUMAN -&gt; CADH1_HUMAN @585</option>
+<option value="Merops MMP14_HUMAN -&gt; CADH1_HUMAN @586">Merops MMP14_HUMAN -&gt; CADH1_HUMAN @586</option>
+<option value="Kajita M et al.:Membrane-type 1 matrix metallop... (M10.014)">Kajita M et al.:Membrane-type 1 matrix metallop... (M10.014)</option>
+<option value="inferred from TC21528">inferred from TC21528</option>
+<option value="inferred from TC21545">inferred from TC21545</option>
+<option value="inferred from TC21560">inferred from TC21560</option>
+<option value="Fosang AJ et al.:Membrane-type 1 MMP (MMP-14) cl... (M10.013)">Fosang AJ et al.:Membrane-type 1 MMP (MMP-14) cl... (M10.013)</option>
+<option value="inferred from TC21575">inferred from TC21575</option>
+<option value="inferred from TC21578">inferred from TC21578</option>
+<option value="inferred from TC21581">inferred from TC21581</option>
+<option value="Nangia-Makker P et al.:Galectin-3 cleavage: a novel su... (M10.014)">Nangia-Makker P et al.:Galectin-3 cleavage: a novel su... (M10.014)</option>
+<option value="Belkin AM et al.:Matrix-dependent proteolysis of... (M10.014)">Belkin AM et al.:Matrix-dependent proteolysis of... (M10.014)</option>
+<option value="inferred from TC21587">inferred from TC21587</option>
+<option value="inferred from TC21589">inferred from TC21589</option>
+<option value="inferred from TC21591">inferred from TC21591</option>
+<option value="Butler GS et al.:Pharmacoproteomics of a metallo... (M10.014)">Butler GS et al.:Pharmacoproteomics of a metallo... (M10.014)</option>
+<option value="inferred from TC21593">inferred from TC21593</option>
+<option value="Tang Y et al.:Tumor-stroma interaction: posit... (M10.014)">Tang Y et al.:Tumor-stroma interaction: posit... (M10.014)</option>
+<option value="inferred from TC21597">inferred from TC21597</option>
+<option value="inferred from TC21600">inferred from TC21600</option>
+<option value="Zijlstra A et al.:Collagenolysis-dependent angiog... (M10.014)">Zijlstra A et al.:Collagenolysis-dependent angiog... (M10.014)</option>
+<option value="Knauper V et al.:Cellular mechanisms for human p... (M10.014)">Knauper V et al.:Cellular mechanisms for human p... (M10.014)</option>
+<option value="Golubkov VS et al.:Proteolysis of the membrane typ... (M10.014)">Golubkov VS et al.:Proteolysis of the membrane typ... (M10.014)</option>
+<option value="Rozanov DV et al.:Membrane type-1 matrix metallop... (M10.014)">Rozanov DV et al.:Membrane type-1 matrix metallop... (M10.014)</option>
+<option value="Toth M et al.:Complex pattern of membrane typ... (M10.014)">Toth M et al.:Complex pattern of membrane typ... (M10.014)</option>
+<option value="Merops MMP14_HUMAN -&gt; MMP14_HUMAN @284">Merops MMP14_HUMAN -&gt; MMP14_HUMAN @284</option>
+<option value="Niiya D et al.:Identification and characteriza... (M10.014)">Niiya D et al.:Identification and characteriza... (M10.014)</option>
+<option value="McQuibban GA et al.:Matrix metalloproteinase proces... (M10.013)">McQuibban GA et al.:Matrix metalloproteinase proces... (M10.013)</option>
+<option value="Rozanov DV et al.:The hemopexin-like C-terminal d... (M10.014)">Rozanov DV et al.:The hemopexin-like C-terminal d... (M10.014)</option>
+<option value="Koshikawa N et al.:Membrane-type matrix metallopro... (M10.014)">Koshikawa N et al.:Membrane-type matrix metallopro... (M10.014)</option>
+<option value="inferred from TC21618">inferred from TC21618</option>
+<option value="inferred from TC21620">inferred from TC21620</option>
+<option value="Takino T et al.:Cleavage of metastasis suppress... (M10.014)">Takino T et al.:Cleavage of metastasis suppress... (M10.014)</option>
+<option value="Abd El-Aziz SH et al.:Cleavage of growth differentiat... (M10.014)">Abd El-Aziz SH et al.:Cleavage of growth differentiat... (M10.014)</option>
+<option value="Remacle AG et al.:Substrate cleavage analysis of ... (S08.071)">Remacle AG et al.:Substrate cleavage analysis of ... (S08.071)</option>
+<option value="Okumura Y et al.:Proteolytic activation of the p... (S01.233)">Okumura Y et al.:Proteolytic activation of the p... (S01.233)</option>
+<option value="recMMP-Chemokine_AStarr2012A">recMMP-Chemokine_AStarr2012A</option>
+<option value="inferred from TC34900">inferred from TC34900</option>
+<option value="inferred from TC34902">inferred from TC34902</option></select>
+				<br><h3>Database: </h3>
+				<select name="repository" id="repository"><option value=""></option>
+<option value=""></option>
+<option value="http://ensembl.org/Homo_sapiens/Transcript/Summary?db=core;g=ENSG00000157227;p=ENSP00000446989">http://ensembl.org/Homo_sapiens/Transcript/Summary?db=core;g=ENSG00000157227;p=ENSP00000446989</option></select>
+				<br><h3>Lab: </h3>
+				<select name="labs" id="labs"><option value=""></option>
+<option value=""></option>
+<option value="Seiki M">Seiki M</option>
+<option value="Bowden GT">Bowden GT</option>
+<option value="Diamandis EP">Diamandis EP</option>
+<option value="Seth A">Seth A</option>
+<option value="Strongin AY">Strongin AY</option>
+<option value="Sato H">Sato H</option>
+<option value="Tschesche H">Tschesche H</option>
+<option value="Overall CM">Overall CM</option>
+<option value="Okada Y">Okada Y</option>
+<option value="Sandell LJ">Sandell LJ</option>
+<option value="Lee ST">Lee ST</option>
+<option value="Kudryk BJ">Kudryk BJ</option>
+<option value="Miyazaki K">Miyazaki K</option>
+<option value="Murphy G">Murphy G</option>
+<option value="Weiss SJ">Weiss SJ</option>
+<option value="Raz A">Raz A</option>
+<option value="Yan L">Yan L</option>
+<option value="Quigley JP">Quigley JP</option>
+<option value="Fridman R">Fridman R</option>
+<option value="Kido H">Kido H</option>
+<option value="Overall Lab">Overall Lab</option></select>
+				<br><br>
+				<input type="submit" name="commit" value="Search" data-disable-with="Search" />
+</form>
+		</center>
+
+	  </section>
+         	
+	
+
+	</section> 	  
+
+</def>
+
+
+
+
+<section class="full category">
+</section>
+<def tag='Protein_Neighborhood'>
+	<a name="Protein_Neighborhood"/>
+	<h2>Protein Neighborhood</h2>
+		<img src="/assets/protein_neighborhood/P50281_pw_graphviz-d5ab4be83b6cf33b3e2ecb309887457a7e6eb5ac86a11fb9ec4f0d83f3cba128.svg" />
+</def>
+	
+	        <section class="full category">
+              <pagenav/>
+              <a name="features"/><h2>Domains &amp; Features</h2>
+            </section>
+
+            <h2><center>12 N-termini - 13 C-termini - 20 Cleavages - 221 Substrates</center></h2>
+			
+<!-- N-TERMINI  -->
+
+              <a name="features"/><h2>N-termini</h2></a>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Name</th>
+					<th>Sequence</th>
+					<th>Position</th>
+					<th>Modification</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMID)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td>P50281-21-unknown</td>
+							<td>ALASLG...</td>
+							<td>21</td>
+							<td></td>
+							<td>inferred from electronic annotation</td>
+							<td>electronic annotation</td>
+							<td><a target="_blank" href="http://www.uniprot.org">UniProtKB</a></td>
+							<td></td>
+							<td><a href="/evidences/show/1">inferred from uniprot</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-50-unknown</td>
+							<td>LRTHTQ...</td>
+							<td>50</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC23091">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/118850">Inferred from cleavage TC23091</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-50-unknown</td>
+							<td>LRTHTQ...</td>
+							<td>50</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21605">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/118873">Inferred from cleavage TC21605</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-61-unknown</td>
+							<td>LSAAIA...</td>
+							<td>61</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC23092">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/119977">Inferred from cleavage TC23092</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-61-unknown</td>
+							<td>LSAAIA...</td>
+							<td>61</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21606">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/120003">Inferred from cleavage TC21606</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-109-unknown</td>
+							<td>RKRYAI...</td>
+							<td>109</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC27590">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124227">Inferred from cleavage TC27590</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-112-unknown</td>
+							<td>YAIQGL...</td>
+							<td>112</td>
+							<td></td>
+							<td>inferred from electronic annotation</td>
+							<td>electronic annotation</td>
+							<td><a target="_blank" href="http://www.uniprot.org">UniProtKB</a></td>
+							<td></td>
+							<td><a href="/evidences/show/1">inferred from uniprot</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-112-unknown</td>
+							<td>YAIQGL...</td>
+							<td>112</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC26626">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124432">Inferred from cleavage TC26626</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-112-unknown</td>
+							<td>YAIQGL...</td>
+							<td>112</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC26896">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124436">Inferred from cleavage TC26896</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-112-unknown</td>
+							<td>YAIQGL...</td>
+							<td>112</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC9769">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124445">Inferred from cleavage TC9769</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-112-unknown</td>
+							<td>YAIQGL...</td>
+							<td>112</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC27194">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124448">Inferred from cleavage TC27194</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-112-unknown</td>
+							<td>YAIQGL...</td>
+							<td>112</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21607">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124462">Inferred from cleavage TC21607</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-112-unknown</td>
+							<td>YAIQGL...</td>
+							<td>112</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC27044">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124484">Inferred from cleavage TC27044</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-112-unknown</td>
+							<td>YAIQGL...</td>
+							<td>112</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC27591">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124503">Inferred from cleavage TC27591</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-112-unknown</td>
+							<td>YAIQGL...</td>
+							<td>112</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC27341">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124507">Inferred from cleavage TC27341</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-119-unknown</td>
+							<td>WQHNEI...</td>
+							<td>119</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21608">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124998">Inferred from cleavage TC21608</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-130-unknown</td>
+							<td>NYTPKV...</td>
+							<td>130</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21609">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/125706">Inferred from cleavage TC21609</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-222-unknown</td>
+							<td>TVRNED...</td>
+							<td>222</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21610">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/130474">Inferred from cleavage TC21610</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-256-unknown</td>
+							<td>IMAPFY...</td>
+							<td>256</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21611">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/132128">Inferred from cleavage TC21611</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-284-unknown</td>
+							<td>GGESGF...</td>
+							<td>284</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21612">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/133091">Inferred from cleavage TC21612</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-285-unknown</td>
+							<td>GESGFP...</td>
+							<td>285</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21613">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/133117">Inferred from cleavage TC21613</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P50281-299-unknown</td>
+							<td>TTSRPS...</td>
+							<td>299</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21614">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/133623">Inferred from cleavage TC21614</a></td>
+							<td>
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>
+
+
+
+<!-- C-TERMINI  -->
+
+
+              <a name="features"/><h2>C-termini</h2>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Name</th>
+					<th>Sequence</th>
+					<th>Position</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td></td>
+							<td>...LPPGDL </td>
+							<td>49</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC23091">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/118850">Inferred from cleavage TC23091</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...LPPGDL </td>
+							<td>49</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21605">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/118873">Inferred from cleavage TC21605</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...RSPQSL </td>
+							<td>60</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC23092">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/119977">Inferred from cleavage TC23092</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...RSPQSL </td>
+							<td>60</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21606">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/120003">Inferred from cleavage TC21606</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...KANVRR </td>
+							<td>108</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC27590">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124227">Inferred from cleavage TC27590</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...VRRKRY </td>
+							<td>111</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC26626">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124432">Inferred from cleavage TC26626</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...VRRKRY </td>
+							<td>111</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC26896">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124436">Inferred from cleavage TC26896</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...VRRKRY </td>
+							<td>111</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC9769">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124445">Inferred from cleavage TC9769</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...VRRKRY </td>
+							<td>111</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC27194">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124448">Inferred from cleavage TC27194</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...VRRKRY </td>
+							<td>111</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21607">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124462">Inferred from cleavage TC21607</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...VRRKRY </td>
+							<td>111</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC27044">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124484">Inferred from cleavage TC27044</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...VRRKRY </td>
+							<td>111</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC27591">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124503">Inferred from cleavage TC27591</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...VRRKRY </td>
+							<td>111</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC27341">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124507">Inferred from cleavage TC27341</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...IQGLKW </td>
+							<td>118</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21608">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/124998">Inferred from cleavage TC21608</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...TFCIQN </td>
+							<td>129</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21609">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/125706">Inferred from cleavage TC21609</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...GFHGDS </td>
+							<td>188</td>
+							<td>inferred from electronic annotation</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://www.ensembl.org">Ensembl</a></td>
+							<td></td>
+							<td><a href="/evidences/show/103085">inferred from ensembl protein ENSP00000446989</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...SAEPWT </td>
+							<td>221</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21610">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/130474">Inferred from cleavage TC21610</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...SDPSAI </td>
+							<td>255</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21611">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/132128">Inferred from cleavage TC21611</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...IQQLYG </td>
+							<td>283</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21612">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/133091">Inferred from cleavage TC21612</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...QQLYGG </td>
+							<td>284</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21613">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/133117">Inferred from cleavage TC21613</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...PPQPRT </td>
+							<td>298</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P50281#TC21614">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/133623">Inferred from cleavage TC21614</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...LLDKV </td>
+							<td>582</td>
+							<td>inferred from electronic annotation</td>
+							<td>electronic annotation</td>
+							<td><a target="_blank" href="http://www.uniprot.org">UniProtKB</a></td>
+							<td></td>
+							<td><a href="/evidences/show/1">inferred from uniprot</a></td>
+							<td>
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>
+
+<!-- CLEAVAGES -->
+
+
+              <a name="features"/><h2>Cleavages</h2>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Protease</th>
+					<th>Position</th>
+					<th>Sequence</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td><a href="/proteins/show/P08253">MMP2_HUMAN</a></td>
+							<td>49</td>
+							<td>PGDL.|.LRTH</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85808">Golubkov VS et al.:Proteolysis of the membrane typ... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/17938169">17938169</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>49</td>
+							<td>PGDL.|.LRTH</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85808">Golubkov VS et al.:Proteolysis of the membrane typ... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/17938169">17938169</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P08253">MMP2_HUMAN</a></td>
+							<td>60</td>
+							<td>PQSL.|.LSAA</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85808">Golubkov VS et al.:Proteolysis of the membrane typ... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/17938169">17938169</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>60</td>
+							<td>PQSL.|.LSAA</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85808">Golubkov VS et al.:Proteolysis of the membrane typ... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/17938169">17938169</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P00747">PLMN_HUMAN</a></td>
+							<td>108</td>
+							<td>NVRR.|.RKRY</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Kido H</td>
+							<td><a href="/evidences/show/88419">Okumura Y et al.:Proteolytic activation of the p... (S01.233)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/9037191">9037191</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16519">NEC2_HUMAN</a></td>
+							<td>111</td>
+							<td>RKRY.|.YAIQ</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/77253">Remacle AG et al.:Substrate cleavage analysis of ... (S08.071)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/18505722">18505722</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/Q6UW60">PCSK4_HUMAN</a></td>
+							<td>111</td>
+							<td>RKRY.|.YAIQ</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/77253">Remacle AG et al.:Substrate cleavage analysis of ... (S08.071)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/18505722">18505722</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P09958">FURIN_HUMAN</a></td>
+							<td>111</td>
+							<td>RKRY.|.YAIQ</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Seiki M</td>
+							<td><a href="/evidences/show/77383">Sato H et al.:Activation of a recombinant mem... (S08.071)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/8804434">8804434</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P29122">PCSK6_HUMAN</a></td>
+							<td>111</td>
+							<td>RKRY.|.YAIQ</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/77253">Remacle AG et al.:Substrate cleavage analysis of ... (S08.071)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/18505722">18505722</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>111</td>
+							<td>RKRY.|.YAIQ</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85811">Rozanov DV et al.:Membrane type-1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12514192">12514192</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/Q92824">PCSK5_HUMAN</a></td>
+							<td>111</td>
+							<td>RKRY.|.YAIQ</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/77253">Remacle AG et al.:Substrate cleavage analysis of ... (S08.071)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/18505722">18505722</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P00747">PLMN_HUMAN</a></td>
+							<td>111</td>
+							<td>RKRY.|.YAIQ</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Kido H</td>
+							<td><a href="/evidences/show/88419">Okumura Y et al.:Proteolytic activation of the p... (S01.233)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/9037191">9037191</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/Q16549">PCSK7_HUMAN</a></td>
+							<td>111</td>
+							<td>RKRY.|.YAIQ</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/77253">Remacle AG et al.:Substrate cleavage analysis of ... (S08.071)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/18505722">18505722</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>118</td>
+							<td>GLKW.|.WQHN</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85811">Rozanov DV et al.:Membrane type-1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12514192">12514192</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>129</td>
+							<td>CIQN.|.NYTP</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85811">Rozanov DV et al.:Membrane type-1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12514192">12514192</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>221</td>
+							<td>EPWT.|.TVRN</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85811">Rozanov DV et al.:Membrane type-1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12514192">12514192</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>255</td>
+							<td>PSAI.|.IMAP</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Fridman R</td>
+							<td><a href="/evidences/show/85816">Toth M et al.:Complex pattern of membrane typ... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12004057">12004057</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>283</td>
+							<td>QLYG.|.GGES</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85811">Rozanov DV et al.:Membrane type-1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12514192">12514192</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>284</td>
+							<td>LYGG.|.GESG</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td></td>
+							<td><a href="/evidences/show/85819">Merops MMP14_HUMAN -&gt; MMP14_HUMAN @284</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>298</td>
+							<td>QPRT.|.TTSR</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85811">Rozanov DV et al.:Membrane type-1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12514192">12514192</a>,
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>
+
+
+<!-- SUBSTRATES -->
+
+              <a name="features"/><h2>Substrates</h2>
+              <ul id="protshow">
+			  <table id="protshow" class="substrates-table">
+				<thead>
+					<th>Substrate</th>
+					<th>Position</th>
+					<th>Sequence</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td><a href="/proteins/show/Q99616">CCL13_HUMAN</a></td>
+							<td>3</td>
+							<td>MKVS.|.SAVL</td>
+							<td></td>
+							<td>MS other</td>
+							<td>
+							<td>Overall Lab</td>
+							<td><a href="/evidences/show/146743">recMMP-Chemokine_AStarr2012A</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22147696">22147696</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P80075">CCL8_HUMAN</a></td>
+							<td>4</td>
+							<td>KVSA.|.AALL</td>
+							<td></td>
+							<td>MS other</td>
+							<td>
+							<td>Overall Lab</td>
+							<td><a href="/evidences/show/146743">recMMP-Chemokine_AStarr2012A</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22147696">22147696</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/O15467">CCL16_HUMAN</a></td>
+							<td>4</td>
+							<td>KVSE.|.EAAL</td>
+							<td></td>
+							<td>MS other</td>
+							<td>
+							<td>Overall Lab</td>
+							<td><a href="/evidences/show/146743">recMMP-Chemokine_AStarr2012A</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22147696">22147696</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P80075">CCL8_HUMAN</a></td>
+							<td>5</td>
+							<td>VSAA.|.ALLC</td>
+							<td></td>
+							<td>MS other</td>
+							<td>
+							<td>Overall Lab</td>
+							<td><a href="/evidences/show/146743">recMMP-Chemokine_AStarr2012A</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22147696">22147696</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P13236">CCL4_HUMAN</a></td>
+							<td>5</td>
+							<td>LCVT.|.TVLS</td>
+							<td></td>
+							<td>MS other</td>
+							<td>
+							<td>Overall Lab</td>
+							<td><a href="/evidences/show/146743">recMMP-Chemokine_AStarr2012A</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22147696">22147696</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P80098">CCL7_HUMAN</a></td>
+							<td>6</td>
+							<td>SAAL.|.LLCL</td>
+							<td></td>
+							<td>MS other</td>
+							<td>
+							<td>Overall Lab</td>
+							<td><a href="/evidences/show/146743">recMMP-Chemokine_AStarr2012A</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22147696">22147696</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P13236">CCL4_HUMAN</a></td>
+							<td>6</td>
+							<td>CVTV.|.VLSL</td>
+							<td></td>
+							<td>MS other</td>
+							<td>
+							<td>Overall Lab</td>
+							<td><a href="/evidences/show/146743">recMMP-Chemokine_AStarr2012A</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22147696">22147696</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/O15467">CCL16_HUMAN</a></td>
+							<td>7</td>
+							<td>EAAL.|.LSLL</td>
+							<td></td>
+							<td>MS other</td>
+							<td>
+							<td>Overall Lab</td>
+							<td><a href="/evidences/show/146743">recMMP-Chemokine_AStarr2012A</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22147696">22147696</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P80098">CCL7_HUMAN</a></td>
+							<td>8</td>
+							<td>ALLC.|.CLLL</td>
+							<td></td>
+							<td>MS other</td>
+							<td>
+							<td>Overall Lab</td>
+							<td><a href="/evidences/show/146743">recMMP-Chemokine_AStarr2012A</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22147696">22147696</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P55773-2">CCL23-Isoform2_HUMAN</a></td>
+							<td>13</td>
+							<td>LMLV.|.VTAL</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P55773#TC34900">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/151968">inferred from TC34900</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P55773">CCL23_HUMAN</a></td>
+							<td>13</td>
+							<td>LMLV.|.VTAL</td>
+							<td></td>
+							<td>MS other</td>
+							<td>
+							<td>Overall Lab</td>
+							<td><a href="/evidences/show/146743">recMMP-Chemokine_AStarr2012A</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22147696">22147696</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/Q16663">CCL15_HUMAN</a></td>
+							<td>13</td>
+							<td>LMLV.|.VAVL</td>
+							<td></td>
+							<td>MS other</td>
+							<td>
+							<td>Overall Lab</td>
+							<td><a href="/evidences/show/146743">recMMP-Chemokine_AStarr2012A</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22147696">22147696</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P08253-3">MMP2-Isoform3_HUMAN</a></td>
+							<td>16</td>
+							<td>SCNL.|.LFVL</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P08253#TC21518">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85759">inferred from TC21518</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/Q16663">CCL15_HUMAN</a></td>
+							<td>26</td>
+							<td>INDA.|.AETE</td>
+							<td></td>
+							<td>MS other</td>
+							<td>
+							<td>Overall Lab</td>
+							<td><a href="/evidences/show/146743">recMMP-Chemokine_AStarr2012A</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22147696">22147696</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P10145-2">IL8-Isoform2_HUMAN</a></td>
+							<td>27</td>
+							<td>LPRS.|.SAKE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P10145#TC21523">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85764">inferred from TC21523</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P80098">CCL7_HUMAN</a></td>
+							<td>27</td>
+							<td>PVGI.|.INTS</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Overall CM</td>
+							<td><a href="/evidences/show/85672">McQuibban GA et al.:Matrix metalloproteinase proces... (M10.013)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12149192">12149192</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P10145">IL8_HUMAN</a></td>
+							<td>27</td>
+							<td>LPRS.|.SAKE</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Overall CM</td>
+							<td><a href="/evidences/show/85692">Tam EM et al.:Membrane protease proteomics: I... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15118097">15118097</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P35613-4">BASI-Isoform4_HUMAN</a></td>
+							<td>29</td>
+							<td>PEPM.|.MGTA</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P35613#TC21597">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85801">inferred from TC21597</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P55773-2">CCL23-Isoform2_HUMAN</a></td>
+							<td>29</td>
+							<td>AETE.|.EFMM</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P55773#TC34902">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/151970">inferred from TC34902</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P55773">CCL23_HUMAN</a></td>
+							<td>29</td>
+							<td>AETE.|.EFMM</td>
+							<td></td>
+							<td>MS other</td>
+							<td>
+							<td>Overall Lab</td>
+							<td><a href="/evidences/show/146743">recMMP-Chemokine_AStarr2012A</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22147696">22147696</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P08253-2">MMP2-Isoform2_HUMAN</a></td>
+							<td>33</td>
+							<td>VANY.|.YNFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P08253#TC21520">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85762">inferred from TC21520</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P35613-4">BASI-Isoform4_HUMAN</a></td>
+							<td>34</td>
+							<td>TANI.|.IQLH</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P35613#TC21600">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85803">inferred from TC21600</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02671-2">FIBA-Isoform2_HUMAN</a></td>
+							<td>35</td>
+							<td>GVRG.|.GPRV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02671#TC21456">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85718">inferred from TC21456</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02671">FIBA_HUMAN</a></td>
+							<td>35</td>
+							<td>GVRG.|.GPRV</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Kudryk BJ</td>
+							<td><a href="/evidences/show/85716">Bini A et al.:Characterization of stromelysin... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/10529239">10529239</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/Q99497">PARK7_HUMAN</a></td>
+							<td>37</td>
+							<td>VAGL.|.LAGK</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Overall CM</td>
+							<td><a href="/evidences/show/85795">Butler GS et al.:Pharmacoproteomics of a metallo... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/18505826">18505826</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02675">FIBB_HUMAN</a></td>
+							<td>44</td>
+							<td>SARG.|.GHRP</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Kudryk BJ</td>
+							<td><a href="/evidences/show/85716">Bini A et al.:Characterization of stromelysin... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/10529239">10529239</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P13236">CCL4_HUMAN</a></td>
+							<td>44</td>
+							<td>KLPR.|.RNFV</td>
+							<td></td>
+							<td>MS other</td>
+							<td>
+							<td>Overall Lab</td>
+							<td><a href="/evidences/show/146743">recMMP-Chemokine_AStarr2012A</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22147696">22147696</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>49</td>
+							<td>PGDL.|.LRTH</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85808">Golubkov VS et al.:Proteolysis of the membrane typ... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/17938169">17938169</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P45452">MMP13_HUMAN</a></td>
+							<td>54</td>
+							<td>LAGI.|.ILKE</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Quigley JP</td>
+							<td><a href="/evidences/show/85804">Zijlstra A et al.:Collagenolysis-dependent angiog... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15066996">15066996</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02655">APOC2_HUMAN</a></td>
+							<td>57</td>
+							<td>AQNL.|.LYEK</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Lee ST</td>
+							<td><a href="/evidences/show/85714">Kim SY et al.:Apolipoprotein C-II is a novel ... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/16314153">16314153</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P08253-3">MMP2-Isoform3_HUMAN</a></td>
+							<td>59</td>
+							<td>VANY.|.YNFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P08253#TC21520">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85762">inferred from TC21520</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>60</td>
+							<td>PQSL.|.LSAA</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85808">Golubkov VS et al.:Proteolysis of the membrane typ... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/17938169">17938169</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P17931">LEG3_HUMAN</a></td>
+							<td>62</td>
+							<td>PGAY.|.YPGA</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Raz A</td>
+							<td><a href="/evidences/show/85784">Nangia-Makker P et al.:Galectin-3 cleavage: a novel su... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/18089806">18089806</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P08253">MMP2_HUMAN</a></td>
+							<td>66</td>
+							<td>SCNL.|.LFVL</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Murphy G</td>
+							<td><a href="/evidences/show/85757">Will H et al.:The soluble catalytic domain of... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/8663332">8663332</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P11226">MBL2_HUMAN</a></td>
+							<td>68</td>
+							<td>LRGL.|.LQGP</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Overall CM</td>
+							<td><a href="/evidences/show/85765">Butler GS et al.:Mannose-binding lectin (MBL) mu... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/11891230">11891230</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P01375">TNFA_HUMAN</a></td>
+							<td>69</td>
+							<td>LSLI.|.ISPL</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Overall CM</td>
+							<td><a href="/evidences/show/85692">Tam EM et al.:Membrane protease proteomics: I... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15118097">15118097</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P01375">TNFA_HUMAN</a></td>
+							<td>72</td>
+							<td>ISPL.|.LAQA</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Overall CM</td>
+							<td><a href="/evidences/show/85692">Tam EM et al.:Membrane protease proteomics: I... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15118097">15118097</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P80075">CCL8_HUMAN</a></td>
+							<td>73</td>
+							<td>GKEV.|.VCAD</td>
+							<td></td>
+							<td>MS other</td>
+							<td>
+							<td>Overall Lab</td>
+							<td><a href="/evidences/show/146743">recMMP-Chemokine_AStarr2012A</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22147696">22147696</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P01375">TNFA_HUMAN</a></td>
+							<td>74</td>
+							<td>PLAQ.|.QAVR</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Overall CM</td>
+							<td><a href="/evidences/show/85692">Tam EM et al.:Membrane protease proteomics: I... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15118097">15118097</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P01375">TNFA_HUMAN</a></td>
+							<td>76</td>
+							<td>AQAV.|.VRSS</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Overall CM</td>
+							<td><a href="/evidences/show/85692">Tam EM et al.:Membrane protease proteomics: I... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15118097">15118097</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02675">FIBB_HUMAN</a></td>
+							<td>80</td>
+							<td>AAAT.|.TQKK</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Kudryk BJ</td>
+							<td><a href="/evidences/show/85716">Bini A et al.:Characterization of stromelysin... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/10529239">10529239</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P18827">SDC1_HUMAN</a></td>
+							<td>82</td>
+							<td>PTGL.|.LEAT</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Sato H</td>
+							<td><a href="/evidences/show/85755">Li Y et al.:Cleavage of lumican by membrane... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15466200">15466200</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02649">APOE_HUMAN</a></td>
+							<td>85</td>
+							<td>DETM.|.MKEL</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Sato H</td>
+							<td><a href="/evidences/show/85703">Aoki T et al.:Cleavage of apolipoprotein E by... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15713888">15713888</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/O15467">CCL16_HUMAN</a></td>
+							<td>85</td>
+							<td>WVQE.|.EYIK</td>
+							<td></td>
+							<td>MS other</td>
+							<td>
+							<td>Overall Lab</td>
+							<td><a href="/evidences/show/146743">recMMP-Chemokine_AStarr2012A</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22147696">22147696</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02686-6">MBP-Isoform6_HUMAN</a></td>
+							<td>90</td>
+							<td>VHFF.|.FKNI</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02686#TC21477">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85739">inferred from TC21477</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02686-5">MBP-Isoform5_HUMAN</a></td>
+							<td>90</td>
+							<td>VHFF.|.FKNI</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02686#TC21477">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85739">inferred from TC21477</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02679">FIBG_HUMAN</a></td>
+							<td>91</td>
+							<td>AIQL.|.LTYN</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Tschesche H</td>
+							<td><a href="/evidences/show/85198">Hiller O et al.:Matrix metalloproteinases colla... (M10.009)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/10930399">10930399</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02679-2">FIBG-Isoform2_HUMAN</a></td>
+							<td>91</td>
+							<td>AIQL.|.LTYN</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02679#TC21471">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85733">inferred from TC21471</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02649">APOE_HUMAN</a></td>
+							<td>93</td>
+							<td>AYKS.|.SELE</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Sato H</td>
+							<td><a href="/evidences/show/85703">Aoki T et al.:Cleavage of apolipoprotein E by... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15713888">15713888</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P35613-2">BASI-Isoform2_HUMAN</a></td>
+							<td>93</td>
+							<td>PEPM.|.MGTA</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P35613#TC21597">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85801">inferred from TC21597</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P35613-2">BASI-Isoform2_HUMAN</a></td>
+							<td>98</td>
+							<td>TANI.|.IQLH</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P35613#TC21600">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85803">inferred from TC21600</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P45452">MMP13_HUMAN</a></td>
+							<td>103</td>
+							<td>VGEY.|.YNVF</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Murphy G</td>
+							<td><a href="/evidences/show/85806">Knauper V et al.:Cellular mechanisms for human p... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/8663255">8663255</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02671-2">FIBA-Isoform2_HUMAN</a></td>
+							<td>104</td>
+							<td>SHSL.|.LTTN</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02671#TC21458">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85720">inferred from TC21458</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02671">FIBA_HUMAN</a></td>
+							<td>104</td>
+							<td>SHSL.|.LTTN</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Tschesche H</td>
+							<td><a href="/evidences/show/85198">Hiller O et al.:Matrix metalloproteinases colla... (M10.009)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/10930399">10930399</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02679-2">FIBG-Isoform2_HUMAN</a></td>
+							<td>104</td>
+							<td>PNMI.|.IDAA</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02679#TC21473">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85735">inferred from TC21473</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02679">FIBG_HUMAN</a></td>
+							<td>104</td>
+							<td>PNMI.|.IDAA</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Kudryk BJ</td>
+							<td><a href="/evidences/show/85716">Bini A et al.:Characterization of stromelysin... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/10529239">10529239</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02686-5">MBP-Isoform5_HUMAN</a></td>
+							<td>109</td>
+							<td>GRGL.|.LSLS</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02686#TC21482">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85741">inferred from TC21482</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02679-2">FIBG-Isoform2_HUMAN</a></td>
+							<td>109</td>
+							<td>AATL.|.LKSR</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02679#TC21475">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85737">inferred from TC21475</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02679">FIBG_HUMAN</a></td>
+							<td>109</td>
+							<td>AATL.|.LKSR</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Kudryk BJ</td>
+							<td><a href="/evidences/show/85716">Bini A et al.:Characterization of stromelysin... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/10529239">10529239</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P08253">MMP2_HUMAN</a></td>
+							<td>109</td>
+							<td>VANY.|.YNFF</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Weiss SJ</td>
+							<td><a href="/evidences/show/85760">Pei D et al.:Transmembrane-deletion mutants ... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/8621565">8621565</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02686-5">MBP-Isoform5_HUMAN</a></td>
+							<td>111</td>
+							<td>GLSL.|.LSRF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02686#TC21485">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85743">inferred from TC21485</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/Q99497">PARK7_HUMAN</a></td>
+							<td>111</td>
+							<td>PTAL.|.LLAH</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Overall CM</td>
+							<td><a href="/evidences/show/85795">Butler GS et al.:Pharmacoproteomics of a metallo... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/18505826">18505826</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>111</td>
+							<td>RKRY.|.YAIQ</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85811">Rozanov DV et al.:Membrane type-1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12514192">12514192</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02458-1">CO2A1-Isoform1_HUMAN</a></td>
+							<td>112</td>
+							<td>FAAQ.|.QMAG</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02458#TC21442">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85700">inferred from TC21442</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02686-4">MBP-Isoform4_HUMAN</a></td>
+							<td>116</td>
+							<td>VHFF.|.FKNI</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02686#TC21477">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85739">inferred from TC21477</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02686-3">MBP-Isoform3_HUMAN</a></td>
+							<td>116</td>
+							<td>VHFF.|.FKNI</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02686#TC21477">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85739">inferred from TC21477</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02671-2">FIBA-Isoform2_HUMAN</a></td>
+							<td>116</td>
+							<td>RGDF.|.FSSA</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02671#TC21460">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85722">inferred from TC21460</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02671">FIBA_HUMAN</a></td>
+							<td>116</td>
+							<td>RGDF.|.FSSA</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Tschesche H</td>
+							<td><a href="/evidences/show/85198">Hiller O et al.:Matrix metalloproteinases colla... (M10.009)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/10930399">10930399</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>118</td>
+							<td>GLKW.|.WQHN</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85811">Rozanov DV et al.:Membrane type-1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12514192">12514192</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/Q15726">KISS1_HUMAN</a></td>
+							<td>118</td>
+							<td>SFGL.|.LRFG</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Sato H</td>
+							<td><a href="/evidences/show/85832">Takino T et al.:Cleavage of metastasis suppress... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12879005">12879005</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02671-2">FIBA-Isoform2_HUMAN</a></td>
+							<td>121</td>
+							<td>SANN.|.NRDN</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02671#TC21462">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85724">inferred from TC21462</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02671">FIBA_HUMAN</a></td>
+							<td>121</td>
+							<td>SANN.|.NRDN</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Kudryk BJ</td>
+							<td><a href="/evidences/show/85716">Bini A et al.:Characterization of stromelysin... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/10529239">10529239</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02458-1">CO2A1-Isoform1_HUMAN</a></td>
+							<td>128</td>
+							<td>QLGV.|.VMQG</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02458#TC21444">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85702">inferred from TC21444</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>129</td>
+							<td>CIQN.|.NYTP</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85811">Rozanov DV et al.:Membrane type-1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12514192">12514192</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02686-3">MBP-Isoform3_HUMAN</a></td>
+							<td>135</td>
+							<td>GRGL.|.LSLS</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02686#TC21482">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85741">inferred from TC21482</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02686-3">MBP-Isoform3_HUMAN</a></td>
+							<td>137</td>
+							<td>GLSL.|.LSRF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02686#TC21485">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85743">inferred from TC21485</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/Q99075">HBEGF_HUMAN</a></td>
+							<td>149</td>
+							<td>SLPV.|.VENR</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Murphy G</td>
+							<td><a href="/evidences/show/70136">Amour A et al.:The enzymatic activity of ADAM8... (M12.210)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12135759">12135759</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/Q99075">HBEGF_HUMAN</a></td>
+							<td>151</td>
+							<td>PVEN.|.NRLY</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Murphy G</td>
+							<td><a href="/evidences/show/70136">Amour A et al.:The enzymatic activity of ADAM8... (M12.210)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12135759">12135759</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/Q07021">C1QBP_HUMAN</a></td>
+							<td>152</td>
+							<td>SQGQ.|.QKVE</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85825">Rozanov DV et al.:The hemopexin-like C-terminal d... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/11773076">11773076</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02675">FIBB_HUMAN</a></td>
+							<td>153</td>
+							<td>LKDL.|.LWQK</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Kudryk BJ</td>
+							<td><a href="/evidences/show/85716">Bini A et al.:Characterization of stromelysin... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/10529239">10529239</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02686-6">MBP-Isoform6_HUMAN</a></td>
+							<td>158</td>
+							<td>PMAR.|.RR</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02686#TC21488">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85745">inferred from TC21488</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070">CD44_HUMAN</a></td>
+							<td>162</td>
+							<td>EYRT.|.TNPE</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Seiki M</td>
+							<td><a href="/evidences/show/85771">Kajita M et al.:Membrane-type 1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/11381077">11381077</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-18">CD44-Isoform18_HUMAN</a></td>
+							<td>162</td>
+							<td>EYRT.|.TNPE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21528">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85773">inferred from TC21528</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-17">CD44-Isoform17_HUMAN</a></td>
+							<td>162</td>
+							<td>EYRT.|.TNPE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21528">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85773">inferred from TC21528</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-16">CD44-Isoform16_HUMAN</a></td>
+							<td>162</td>
+							<td>EYRT.|.TNPE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21528">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85773">inferred from TC21528</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-15">CD44-Isoform15_HUMAN</a></td>
+							<td>162</td>
+							<td>EYRT.|.TNPE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21528">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85773">inferred from TC21528</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-14">CD44-Isoform14_HUMAN</a></td>
+							<td>162</td>
+							<td>EYRT.|.TNPE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21528">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85773">inferred from TC21528</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-13">CD44-Isoform13_HUMAN</a></td>
+							<td>162</td>
+							<td>EYRT.|.TNPE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21528">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85773">inferred from TC21528</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-12">CD44-Isoform12_HUMAN</a></td>
+							<td>162</td>
+							<td>EYRT.|.TNPE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21528">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85773">inferred from TC21528</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-11">CD44-Isoform11_HUMAN</a></td>
+							<td>162</td>
+							<td>EYRT.|.TNPE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21528">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85773">inferred from TC21528</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-10">CD44-Isoform10_HUMAN</a></td>
+							<td>162</td>
+							<td>EYRT.|.TNPE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21528">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85773">inferred from TC21528</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-9">CD44-Isoform9_HUMAN</a></td>
+							<td>162</td>
+							<td>EYRT.|.TNPE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21528">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85773">inferred from TC21528</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-8">CD44-Isoform8_HUMAN</a></td>
+							<td>162</td>
+							<td>EYRT.|.TNPE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21528">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85773">inferred from TC21528</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-7">CD44-Isoform7_HUMAN</a></td>
+							<td>162</td>
+							<td>EYRT.|.TNPE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21528">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85773">inferred from TC21528</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-6">CD44-Isoform6_HUMAN</a></td>
+							<td>162</td>
+							<td>EYRT.|.TNPE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21528">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85773">inferred from TC21528</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-5">CD44-Isoform5_HUMAN</a></td>
+							<td>162</td>
+							<td>EYRT.|.TNPE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21528">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85773">inferred from TC21528</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-4">CD44-Isoform4_HUMAN</a></td>
+							<td>162</td>
+							<td>EYRT.|.TNPE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21528">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85773">inferred from TC21528</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-3">CD44-Isoform3_HUMAN</a></td>
+							<td>162</td>
+							<td>EYRT.|.TNPE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21528">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85773">inferred from TC21528</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02675">FIBB_HUMAN</a></td>
+							<td>167</td>
+							<td>NENV.|.VVNE</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Kudryk BJ</td>
+							<td><a href="/evidences/show/85716">Bini A et al.:Characterization of stromelysin... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/10529239">10529239</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02686-5">MBP-Isoform5_HUMAN</a></td>
+							<td>169</td>
+							<td>PMAR.|.RR</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02686#TC21488">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85745">inferred from TC21488</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02675">FIBB_HUMAN</a></td>
+							<td>171</td>
+							<td>VNEY.|.YSSE</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Kudryk BJ</td>
+							<td><a href="/evidences/show/85716">Bini A et al.:Characterization of stromelysin... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/10529239">10529239</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/O76076">WISP2_HUMAN</a></td>
+							<td>177</td>
+							<td>PAQG.|.GPQF</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Seth A</td>
+							<td><a href="/evidences/show/85681">Overall CM et al.:Protease degradomics: mass spec... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15255181">15255181</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P28799-3">GRN-Isoform3_HUMAN</a></td>
+							<td>179</td>
+							<td>PQAL.|.LKRD</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P28799#TC21593">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85797">inferred from TC21593</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02458">CO2A1_HUMAN</a></td>
+							<td>181</td>
+							<td>FAAQ.|.QMAG</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Sandell LJ</td>
+							<td><a href="/evidences/show/70414">Fukui N et al.:Processing of type II procollag... (M12.301)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/11705992">11705992</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P29279">CCN2_HUMAN</a></td>
+							<td>181</td>
+							<td>LAAY.|.YRLE</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Overall CM</td>
+							<td><a href="/evidences/show/85692">Tam EM et al.:Membrane protease proteomics: I... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15118097">15118097</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/O76076">WISP2_HUMAN</a></td>
+							<td>183</td>
+							<td>FSGL.|.LVSS</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Seth A</td>
+							<td><a href="/evidences/show/85681">Overall CM et al.:Protease degradomics: mass spec... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15255181">15255181</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02686-4">MBP-Isoform4_HUMAN</a></td>
+							<td>184</td>
+							<td>PMAR.|.RR</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02686#TC21488">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85745">inferred from TC21488</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070">CD44_HUMAN</a></td>
+							<td>186</td>
+							<td>SERS.|.SSTS</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Seiki M</td>
+							<td><a href="/evidences/show/85771">Kajita M et al.:Membrane-type 1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/11381077">11381077</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-18">CD44-Isoform18_HUMAN</a></td>
+							<td>186</td>
+							<td>SERS.|.SSTS</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85775">inferred from TC21545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-17">CD44-Isoform17_HUMAN</a></td>
+							<td>186</td>
+							<td>SERS.|.SSTS</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85775">inferred from TC21545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-15">CD44-Isoform15_HUMAN</a></td>
+							<td>186</td>
+							<td>SERS.|.SSTS</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85775">inferred from TC21545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-14">CD44-Isoform14_HUMAN</a></td>
+							<td>186</td>
+							<td>SERS.|.SSTS</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85775">inferred from TC21545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-13">CD44-Isoform13_HUMAN</a></td>
+							<td>186</td>
+							<td>SERS.|.SSTS</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85775">inferred from TC21545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-12">CD44-Isoform12_HUMAN</a></td>
+							<td>186</td>
+							<td>SERS.|.SSTS</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85775">inferred from TC21545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-11">CD44-Isoform11_HUMAN</a></td>
+							<td>186</td>
+							<td>SERS.|.SSTS</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85775">inferred from TC21545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-10">CD44-Isoform10_HUMAN</a></td>
+							<td>186</td>
+							<td>SERS.|.SSTS</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85775">inferred from TC21545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-9">CD44-Isoform9_HUMAN</a></td>
+							<td>186</td>
+							<td>SERS.|.SSTS</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85775">inferred from TC21545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-8">CD44-Isoform8_HUMAN</a></td>
+							<td>186</td>
+							<td>SERS.|.SSTS</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85775">inferred from TC21545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-7">CD44-Isoform7_HUMAN</a></td>
+							<td>186</td>
+							<td>SERS.|.SSTS</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85775">inferred from TC21545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-6">CD44-Isoform6_HUMAN</a></td>
+							<td>186</td>
+							<td>SERS.|.SSTS</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85775">inferred from TC21545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-5">CD44-Isoform5_HUMAN</a></td>
+							<td>186</td>
+							<td>SERS.|.SSTS</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85775">inferred from TC21545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-4">CD44-Isoform4_HUMAN</a></td>
+							<td>186</td>
+							<td>SERS.|.SSTS</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21545">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85775">inferred from TC21545</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070">CD44_HUMAN</a></td>
+							<td>192</td>
+							<td>SGGY.|.YIFY</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Seiki M</td>
+							<td><a href="/evidences/show/85771">Kajita M et al.:Membrane-type 1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/11381077">11381077</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-18">CD44-Isoform18_HUMAN</a></td>
+							<td>192</td>
+							<td>SGGY.|.YIFY</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21560">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85777">inferred from TC21560</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-17">CD44-Isoform17_HUMAN</a></td>
+							<td>192</td>
+							<td>SGGY.|.YIFY</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21560">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85777">inferred from TC21560</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-15">CD44-Isoform15_HUMAN</a></td>
+							<td>192</td>
+							<td>SGGY.|.YIFY</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21560">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85777">inferred from TC21560</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-14">CD44-Isoform14_HUMAN</a></td>
+							<td>192</td>
+							<td>SGGY.|.YIFY</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21560">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85777">inferred from TC21560</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-13">CD44-Isoform13_HUMAN</a></td>
+							<td>192</td>
+							<td>SGGY.|.YIFY</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21560">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85777">inferred from TC21560</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-12">CD44-Isoform12_HUMAN</a></td>
+							<td>192</td>
+							<td>SGGY.|.YIFY</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21560">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85777">inferred from TC21560</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-11">CD44-Isoform11_HUMAN</a></td>
+							<td>192</td>
+							<td>SGGY.|.YIFY</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21560">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85777">inferred from TC21560</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-10">CD44-Isoform10_HUMAN</a></td>
+							<td>192</td>
+							<td>SGGY.|.YIFY</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21560">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85777">inferred from TC21560</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-9">CD44-Isoform9_HUMAN</a></td>
+							<td>192</td>
+							<td>SGGY.|.YIFY</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21560">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85777">inferred from TC21560</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-8">CD44-Isoform8_HUMAN</a></td>
+							<td>192</td>
+							<td>SGGY.|.YIFY</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21560">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85777">inferred from TC21560</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-7">CD44-Isoform7_HUMAN</a></td>
+							<td>192</td>
+							<td>SGGY.|.YIFY</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21560">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85777">inferred from TC21560</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-6">CD44-Isoform6_HUMAN</a></td>
+							<td>192</td>
+							<td>SGGY.|.YIFY</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21560">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85777">inferred from TC21560</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-5">CD44-Isoform5_HUMAN</a></td>
+							<td>192</td>
+							<td>SGGY.|.YIFY</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21560">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85777">inferred from TC21560</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16070-4">CD44-Isoform4_HUMAN</a></td>
+							<td>192</td>
+							<td>SGGY.|.YIFY</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16070#TC21560">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85777">inferred from TC21560</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02649">APOE_HUMAN</a></td>
+							<td>194</td>
+							<td>LSAI.|.IRER</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Lee ST</td>
+							<td><a href="/evidences/show/85706">Park JH et al.:Cleavage and functional loss of... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/18655030">18655030</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02686-3">MBP-Isoform3_HUMAN</a></td>
+							<td>195</td>
+							<td>PMAR.|.RR</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02686#TC21488">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85745">inferred from TC21488</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02458">CO2A1_HUMAN</a></td>
+							<td>197</td>
+							<td>QLGV.|.VMQG</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Sandell LJ</td>
+							<td><a href="/evidences/show/70414">Fukui N et al.:Processing of type II procollag... (M12.301)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/11705992">11705992</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02649">APOE_HUMAN</a></td>
+							<td>201</td>
+							<td>LGPL.|.LVEQ</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Lee ST</td>
+							<td><a href="/evidences/show/85706">Park JH et al.:Cleavage and functional loss of... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/18655030">18655030</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P35613">BASI_HUMAN</a></td>
+							<td>209</td>
+							<td>PEPM.|.MGTA</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Yan L</td>
+							<td><a href="/evidences/show/85799">Tang Y et al.:Tumor-stroma interaction: posit... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/14985463">14985463</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P35613">BASI_HUMAN</a></td>
+							<td>214</td>
+							<td>TANI.|.IQLH</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Yan L</td>
+							<td><a href="/evidences/show/85799">Tang Y et al.:Tumor-stroma interaction: posit... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/14985463">14985463</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02649">APOE_HUMAN</a></td>
+							<td>220</td>
+							<td>GQPL.|.LQER</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Lee ST</td>
+							<td><a href="/evidences/show/85706">Park JH et al.:Cleavage and functional loss of... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/18655030">18655030</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>221</td>
+							<td>EPWT.|.TVRN</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85811">Rozanov DV et al.:Membrane type-1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12514192">12514192</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02686">MBP_HUMAN</a></td>
+							<td>223</td>
+							<td>VHFF.|.FKNI</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85135">Shiryaev SA et al.:Matrix metalloproteinase proteo... (M10.006)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/19300513">19300513</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02686">MBP_HUMAN</a></td>
+							<td>242</td>
+							<td>GRGL.|.LSLS</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85135">Shiryaev SA et al.:Matrix metalloproteinase proteo... (M10.006)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/19300513">19300513</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02686">MBP_HUMAN</a></td>
+							<td>244</td>
+							<td>GLSL.|.LSRF</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85135">Shiryaev SA et al.:Matrix metalloproteinase proteo... (M10.006)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/19300513">19300513</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P18827">SDC1_HUMAN</a></td>
+							<td>245</td>
+							<td>SQGL.|.LLDR</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Sato H</td>
+							<td><a href="/evidences/show/85687">Endo K et al.:Cleavage of syndecan-1 by membr... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12904296">12904296</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02649">APOE_HUMAN</a></td>
+							<td>246</td>
+							<td>RDRL.|.LDEV</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Sato H</td>
+							<td><a href="/evidences/show/85703">Aoki T et al.:Cleavage of apolipoprotein E by... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15713888">15713888</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/Q99988">GDF15_HUMAN</a></td>
+							<td>252</td>
+							<td>AANM.|.MHAQ</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Sato H</td>
+							<td><a href="/evidences/show/85838">Abd El-Aziz SH et al.:Cleavage of growth differentiat... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/17640303">17640303</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02649">APOE_HUMAN</a></td>
+							<td>255</td>
+							<td>QVAE.|.EVRA</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Sato H</td>
+							<td><a href="/evidences/show/85703">Aoki T et al.:Cleavage of apolipoprotein E by... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15713888">15713888</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>255</td>
+							<td>PSAI.|.IMAP</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Fridman R</td>
+							<td><a href="/evidences/show/85816">Toth M et al.:Complex pattern of membrane typ... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12004057">12004057</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02649">APOE_HUMAN</a></td>
+							<td>267</td>
+							<td>AQQI.|.IRLQ</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Lee ST</td>
+							<td><a href="/evidences/show/85706">Park JH et al.:Cleavage and functional loss of... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/18655030">18655030</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>283</td>
+							<td>QLYG.|.GGES</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85811">Rozanov DV et al.:Membrane type-1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12514192">12514192</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>284</td>
+							<td>LYGG.|.GESG</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td></td>
+							<td><a href="/evidences/show/85819">Merops MMP14_HUMAN -&gt; MMP14_HUMAN @284</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02649">APOE_HUMAN</a></td>
+							<td>296</td>
+							<td>WAGL.|.LVEK</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Sato H</td>
+							<td><a href="/evidences/show/85703">Aoki T et al.:Cleavage of apolipoprotein E by... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15713888">15713888</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50281">MMP14_HUMAN</a></td>
+							<td>298</td>
+							<td>QPRT.|.TTSR</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85811">Rozanov DV et al.:Membrane type-1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12514192">12514192</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02686">MBP_HUMAN</a></td>
+							<td>302</td>
+							<td>PMAR.|.RR</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85135">Shiryaev SA et al.:Matrix metalloproteinase proteo... (M10.006)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/19300513">19300513</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/O15230">LAMA5_HUMAN</a></td>
+							<td>319</td>
+							<td>PFRL.|.LQCT</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Bowden GT</td>
+							<td><a href="/evidences/show/85676">Bair EL et al.:Membrane type 1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15967115">15967115</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P00748">FA12_HUMAN</a></td>
+							<td>350</td>
+							<td>PPSL.|.LTRN</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Tschesche H</td>
+							<td><a href="/evidences/show/85198">Hiller O et al.:Matrix metalloproteinases colla... (M10.009)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/10930399">10930399</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P28799">GRN_HUMAN</a></td>
+							<td>359</td>
+							<td>PQAL.|.LKRD</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Overall CM</td>
+							<td><a href="/evidences/show/85795">Butler GS et al.:Pharmacoproteomics of a metallo... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/18505826">18505826</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P28799-2">GRN-Isoform2_HUMAN</a></td>
+							<td>359</td>
+							<td>PQAL.|.LKRD</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P28799#TC21593">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85797">inferred from TC21593</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16112">PGCA_HUMAN</a></td>
+							<td>360</td>
+							<td>PENF.|.FFGV</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Okada Y</td>
+							<td><a href="/evidences/show/85637">Fosang AJ et al.:Membrane-type 1 MMP (MMP-14) cl... (M10.013)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/9688535">9688535</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16112-3">PGCA-Isoform3_HUMAN</a></td>
+							<td>360</td>
+							<td>PENF.|.FFGV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16112#TC21575">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85779">inferred from TC21575</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16112-2">PGCA-Isoform2_HUMAN</a></td>
+							<td>360</td>
+							<td>PENF.|.FFGV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16112#TC21575">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85779">inferred from TC21575</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16112">PGCA_HUMAN</a></td>
+							<td>373</td>
+							<td>TVQT.|.TVTW</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Okada Y</td>
+							<td><a href="/evidences/show/85637">Fosang AJ et al.:Membrane-type 1 MMP (MMP-14) cl... (M10.013)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/9688535">9688535</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16112-3">PGCA-Isoform3_HUMAN</a></td>
+							<td>373</td>
+							<td>TVQT.|.TVTW</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16112#TC21578">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85781">inferred from TC21578</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16112-2">PGCA-Isoform2_HUMAN</a></td>
+							<td>373</td>
+							<td>TVQT.|.TVTW</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16112#TC21578">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85781">inferred from TC21578</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P21980-2">TGM2-Isoform2_HUMAN</a></td>
+							<td>375</td>
+							<td>PVPV.|.VRAI</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P21980#TC21587">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85790">inferred from TC21587</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P21980">TGM2_HUMAN</a></td>
+							<td>375</td>
+							<td>PVPV.|.VRAI</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85788">Belkin AM et al.:Matrix-dependent proteolysis of... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/11278623">11278623</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P00748">FA12_HUMAN</a></td>
+							<td>376</td>
+							<td>VGGL.|.LVAL</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Tschesche H</td>
+							<td><a href="/evidences/show/85198">Hiller O et al.:Matrix metalloproteinases colla... (M10.009)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/10930399">10930399</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02671">FIBA_HUMAN</a></td>
+							<td>432</td>
+							<td>TEKL.|.LVTS</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Tschesche H</td>
+							<td><a href="/evidences/show/85198">Hiller O et al.:Matrix metalloproteinases colla... (M10.009)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/10930399">10930399</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02671-2">FIBA-Isoform2_HUMAN</a></td>
+							<td>432</td>
+							<td>TEKL.|.LVTS</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P02671#TC21464">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85726">inferred from TC21464</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-10">A4-Isoform10_HUMAN</a></td>
+							<td>448</td>
+							<td>LANM.|.MISE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC21493">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85748">inferred from TC21493</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P21980-2">TGM2-Isoform2_HUMAN</a></td>
+							<td>458</td>
+							<td>FTRA.|.ANHL</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P21980#TC21589">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85792">inferred from TC21589</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P21980">TGM2_HUMAN</a></td>
+							<td>458</td>
+							<td>FTRA.|.ANHL</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85788">Belkin AM et al.:Matrix-dependent proteolysis of... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/11278623">11278623</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16112">PGCA_HUMAN</a></td>
+							<td>460</td>
+							<td>SEDL.|.LVVQ</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Okada Y</td>
+							<td><a href="/evidences/show/85637">Fosang AJ et al.:Membrane-type 1 MMP (MMP-14) cl... (M10.013)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/9688535">9688535</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16112-3">PGCA-Isoform3_HUMAN</a></td>
+							<td>460</td>
+							<td>SEDL.|.LVVQ</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16112#TC21581">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85783">inferred from TC21581</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P16112-2">PGCA-Isoform2_HUMAN</a></td>
+							<td>460</td>
+							<td>SEDL.|.LVVQ</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P16112#TC21581">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85783">inferred from TC21581</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P21980-2">TGM2-Isoform2_HUMAN</a></td>
+							<td>461</td>
+							<td>ANHL.|.LNKL</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P21980#TC21591">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85794">inferred from TC21591</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P21980">TGM2_HUMAN</a></td>
+							<td>461</td>
+							<td>ANHL.|.LNKL</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85788">Belkin AM et al.:Matrix-dependent proteolysis of... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/11278623">11278623</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-4">A4-Isoform4_HUMAN</a></td>
+							<td>504</td>
+							<td>LANM.|.MISE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC21493">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85748">inferred from TC21493</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-3">A4-Isoform3_HUMAN</a></td>
+							<td>504</td>
+							<td>LANM.|.MISE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC21493">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85748">inferred from TC21493</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-6">A4-Isoform6_HUMAN</a></td>
+							<td>523</td>
+							<td>LANM.|.MISE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC21493">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85748">inferred from TC21493</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-5">A4-Isoform5_HUMAN</a></td>
+							<td>523</td>
+							<td>LANM.|.MISE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC21493">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85748">inferred from TC21493</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P50895">BCAM_HUMAN</a></td>
+							<td>529</td>
+							<td>PHGN.|.NKRH</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Seiki M</td>
+							<td><a href="/evidences/show/85822">Niiya D et al.:Identification and characteriza... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/19667067">19667067</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/O95613-2">PCNT-Isoform2_HUMAN</a></td>
+							<td>554</td>
+							<td>VLGL.|.LETE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/O95613#TC21431">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85686">inferred from TC21431</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-11">A4-Isoform11_HUMAN</a></td>
+							<td>555</td>
+							<td>LANM.|.MISE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC21493">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85748">inferred from TC21493</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-10">A4-Isoform10_HUMAN</a></td>
+							<td>556</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC21503">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85750">inferred from TC21503</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/Q13753-2">LAMC2-Isoform2_HUMAN</a></td>
+							<td>559</td>
+							<td>YFGD.|.DPLA</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q13753#TC21618">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85829">inferred from TC21618</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/Q13753">LAMC2_HUMAN</a></td>
+							<td>559</td>
+							<td>YFGD.|.DPLA</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Seiki M</td>
+							<td><a href="/evidences/show/85827">Koshikawa N et al.:Membrane-type matrix metallopro... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15525652">15525652</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-8">A4-Isoform8_HUMAN</a></td>
+							<td>560</td>
+							<td>LANM.|.MISE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC21493">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85748">inferred from TC21493</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-7">A4-Isoform7_HUMAN</a></td>
+							<td>560</td>
+							<td>LANM.|.MISE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC21493">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85748">inferred from TC21493</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-9">A4-Isoform9_HUMAN</a></td>
+							<td>579</td>
+							<td>LANM.|.MISE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC21493">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85748">inferred from TC21493</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067">A4_HUMAN</a></td>
+							<td>579</td>
+							<td>LANM.|.MISE</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Miyazaki K</td>
+							<td><a href="/evidences/show/85746">Higashi S et al.:Novel processing of beta-amyloi... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12767235">12767235</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/Q13753-2">LAMC2-Isoform2_HUMAN</a></td>
+							<td>579</td>
+							<td>PMGS.|.SEPV</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/Q13753#TC21620">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85831">inferred from TC21620</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/Q13753">LAMC2_HUMAN</a></td>
+							<td>579</td>
+							<td>PMGS.|.SEPV</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Seiki M</td>
+							<td><a href="/evidences/show/85827">Koshikawa N et al.:Membrane-type matrix metallopro... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15525652">15525652</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P12830">CADH1_HUMAN</a></td>
+							<td>585</td>
+							<td>LILS.|.SDVN</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td></td>
+							<td><a href="/evidences/show/85767">Merops MMP14_HUMAN -&gt; CADH1_HUMAN @585</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P12830">CADH1_HUMAN</a></td>
+							<td>586</td>
+							<td>ILSD.|.DVND</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td></td>
+							<td><a href="/evidences/show/85769">Merops MMP14_HUMAN -&gt; CADH1_HUMAN @586</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-3">A4-Isoform3_HUMAN</a></td>
+							<td>594</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC21503">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85750">inferred from TC21503</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-4">A4-Isoform4_HUMAN</a></td>
+							<td>612</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC21503">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85750">inferred from TC21503</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-5">A4-Isoform5_HUMAN</a></td>
+							<td>613</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC21503">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85750">inferred from TC21503</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-6">A4-Isoform6_HUMAN</a></td>
+							<td>631</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC21503">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85750">inferred from TC21503</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-7">A4-Isoform7_HUMAN</a></td>
+							<td>650</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC21503">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85750">inferred from TC21503</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-11">A4-Isoform11_HUMAN</a></td>
+							<td>663</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC21503">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85750">inferred from TC21503</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-8">A4-Isoform8_HUMAN</a></td>
+							<td>668</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC21503">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85750">inferred from TC21503</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067-9">A4-Isoform9_HUMAN</a></td>
+							<td>669</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P05067#TC21503">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85750">inferred from TC21503</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/O95613">PCNT_HUMAN</a></td>
+							<td>672</td>
+							<td>VLGL.|.LETE</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85684">Golubkov VS et al.:Membrane type-1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15878869">15878869</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P05067">A4_HUMAN</a></td>
+							<td>687</td>
+							<td>HQKL.|.LVFF</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Murphy G</td>
+							<td><a href="/evidences/show/70136">Amour A et al.:The enzymatic activity of ADAM8... (M12.210)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12135759">12135759</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P06756-3">ITAV-Isoform3_HUMAN</a></td>
+							<td>845</td>
+							<td>KRDL.|.LALS</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P06756#TC21513">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85753">inferred from TC21513</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P06756-2">ITAV-Isoform2_HUMAN</a></td>
+							<td>855</td>
+							<td>KRDL.|.LALS</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P06756#TC21513">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85753">inferred from TC21513</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P08123">CO1A2_HUMAN</a></td>
+							<td>865</td>
+							<td>PQGL.|.LLGA</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Okada Y</td>
+							<td><a href="/evidences/show/85697">Ohuchi E et al.:Membrane type 1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/8999957">8999957</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P08123">CO1A2_HUMAN</a></td>
+							<td>871</td>
+							<td>APGI.|.ILGL</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Sato H</td>
+							<td><a href="/evidences/show/85755">Li Y et al.:Cleavage of lumican by membrane... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15466200">15466200</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P06756">ITAV_HUMAN</a></td>
+							<td>891</td>
+							<td>KRDL.|.LALS</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Strongin AY</td>
+							<td><a href="/evidences/show/85751">Ratnikov BI et al.:An alternative processing of in... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/11741954">11741954</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/P02452">CO1A1_HUMAN</a></td>
+							<td>953</td>
+							<td>PQGI.|.IAGQ</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Okada Y</td>
+							<td><a href="/evidences/show/85697">Ohuchi E et al.:Membrane type 1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/8999957">8999957</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/O95613-2">PCNT-Isoform2_HUMAN</a></td>
+							<td>1049</td>
+							<td>LLGL.|.LFGE</td>
+							<td>inferred from isoform by sequence similarity</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/O95613#TC21433">TopFIND</a>
+							<td></td>
+							<td><a href="/evidences/show/85689">inferred from TC21433</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/O95613">PCNT_HUMAN</a></td>
+							<td>1167</td>
+							<td>LLGL.|.LFGE</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Sato H</td>
+							<td><a href="/evidences/show/85687">Endo K et al.:Cleavage of syndecan-1 by membr... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/12904296">12904296</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/O15230">LAMA5_HUMAN</a></td>
+							<td>1245</td>
+							<td>PPGL.|.LPLT</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Bowden GT</td>
+							<td><a href="/evidences/show/85676">Bair EL et al.:Membrane type 1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15967115">15967115</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/O15230">LAMA5_HUMAN</a></td>
+							<td>1700</td>
+							<td>PSYL.|.LGDR</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Bowden GT</td>
+							<td><a href="/evidences/show/85676">Bair EL et al.:Membrane type 1 matrix metallop... (M10.014)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/15967115">15967115</a>,
+							</td>
+							</tr>
+							<tr>
+							<td><a href="/proteins/show/O15230">LAMA5_HUMAN</a></td>
+							<td>2421</td>
+							<td>LSRD.|.DNAT</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Diamandis EP</td>
+							<td><a href="/evidences/show/82043">Borgono CA et al.:Expression and functional chara... (S01.029)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/17110383">17110383</a>,
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>	
+
+			
+			
+			<section class="full">
+              
+            </section>
+	
+</def>
+
+
+<br>
+<br>
+
+
+</div>
+</div>
+</div>
+
+<footer>
+
+        
+    <div id="publication">
+
+        <div id="pics">
+        <img alt="UBC Logo" src="/assets/UBClogoupdated-76d10b067dddb96b9cf35c63b9db6f8ddd48959cffd588df9598f89d124f7279.png" width="372" height="117" />
+        <a href="http://clip.ubc.ca" target="_blank"><img alt="Lab Logo" src="/assets/Optimized_LabLogo-6b774b6428c587573bbe04397e0d610398524d5693571f497b59df22be3789d1.png" width="400" height="169" /></a>
+        </div>
+    </div>
+
+
+
+<div id="links">
+<br>
+<br>
+<center>
+<a href="/documentations/about">About |</a>
+<a href="/documentations/license">License &amp; Disclaimer |</a>
+<a href="mailto:topfind.clip@gmail.com">Contact |</a>
+<a href="/documentations/download">Download</a> 
+</center>
+
+<br>
+<center>
+        <h3> Developed by: Philipp F. Lange, Nikolaus Fortelny, Simran Rai </h3>
+        <a href="http://nar.oxfordjournals.org/content/early/2014/10/20/nar.gku1012.full" target="_blank">Nikolaus Fortelny, Sharon Yang, Paul Pavlidis, Philipp F. Lange*, Christopher M. Overall*, <b>Nucleic Acids Research</b> doi: 10.1093/nar/gku1012 (2014)</a><a href="http://nar.oxfordjournals.org/content/early/2014/10/20/nar.gku1012.full.pdf+html" target="_blank">[pdf]</a><br>
+        <a href="http://nar.oxfordjournals.org/content/40/D1/D351.full" target="_blank">Philipp F. Lange, Pitter F. Huesgen, Christopher M. Overall, <b>Nucleic Acids Research</b> 40 (D1), D351-D361 (2012)</a> <a href="https://www.researchgate.net/profile/Philipp_Lange/publication/51816705_TopFIND_2.0--linking_protein_termini_with_proteolytic_processing_and_modifications_altering_protein_function/links/0fcfd50574d434aac9000000?ev=pub_int_doc_dl&origin=publication_detail&inViewer=true" target="_blank">[pdf]</a><br>
+        <a href="http://www.nature.com/nmeth/journal/v8/n9/full/nmeth.1669.html" target="_blank">Philipp F. Lange &amp; Christopher M. Overall, <b>Nature Methods</b> 8, 703&minus;704 (2011)</a> <a href="/topfind/downloads/2011-NMeth-Lange_and_Overall.pdf" target="_blank">[pdf]</a>
+    <div class="bottom">&nbsp;</div>
+</center>
+
+</div>
+
+
+    </footer>
+
+
+
+</body>
+
+
+
+
+
+</body>
+</html>

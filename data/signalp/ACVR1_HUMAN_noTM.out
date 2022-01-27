@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.233
+  max. Y    23       0.400
+  max. S     9       0.803
+  mean S     1-22    0.687
+       D     1-22    0.555   0.450   YES
+Name=ACVR1_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: SME-DE D=0.555 D-cutoff=0.450 Networks=SignalP-noTM

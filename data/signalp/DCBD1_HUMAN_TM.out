@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    35       0.397
+  max. Y    35       0.544
+  max. S    28       0.846
+  mean S     1-34    0.698
+       D     1-34    0.605   0.500   YES
+Name=DCBD1_HUMAN	SP='YES' Cleavage site between pos. 34 and 35: LQA-EE D=0.605 D-cutoff=0.500 Networks=SignalP-TM

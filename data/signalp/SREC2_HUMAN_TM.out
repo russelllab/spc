@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    44       0.672
+  max. Y    44       0.772
+  max. S    38       0.946
+  mean S     1-43    0.621
+       D     1-43    0.712   0.500   YES
+Name=SREC2_HUMAN	SP='YES' Cleavage site between pos. 43 and 44: VAP-QE D=0.712 D-cutoff=0.500 Networks=SignalP-TM

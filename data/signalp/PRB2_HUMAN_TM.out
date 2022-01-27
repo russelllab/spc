@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.824
+  max. Y    17       0.888
+  max. S     6       0.987
+  mean S     1-16    0.957
+       D     1-16    0.916   0.500   YES
+Name=PRB2_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: SSA-QN D=0.916 D-cutoff=0.500 Networks=SignalP-TM

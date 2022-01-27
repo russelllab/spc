@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    35       0.604
+  max. Y    35       0.527
+  max. S    15       0.702
+  mean S     1-34    0.542
+       D     1-34    0.533   0.500   YES
+Name=CEAM8_HUMAN	SP='YES' Cleavage site between pos. 34 and 35: TTA-QL D=0.533 D-cutoff=0.500 Networks=SignalP-TM

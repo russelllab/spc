@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    43       0.108
+  max. Y    43       0.119
+  max. S    38       0.150
+  mean S     1-42    0.118
+       D     1-42    0.119   0.500   NO
+Name=TASO2_HUMAN	SP='NO' D=0.119 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.696
+  max. Y    18       0.803
+  max. S    15       0.958
+  mean S     1-17    0.930
+       D     1-17    0.854   0.500   YES
+Name=CATB_HUMAN	SP='YES' Cleavage site between pos. 17 and 18: ANA-RS D=0.854 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.396
+  max. Y    17       0.448
+  max. S     6       0.637
+  mean S     1-16    0.463
+       D     1-16    0.456   0.450   YES
+Name=NFIP1_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: ACG-SR D=0.456 D-cutoff=0.450 Networks=SignalP-noTM

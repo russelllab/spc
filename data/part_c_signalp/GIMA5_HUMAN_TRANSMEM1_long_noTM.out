@@ -1,0 +1,33 @@
+# SignalP-4.1 euk predictions
+# Name=GIMA5_HUMAN_TRANSMEM1	Length=23	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   I   0.102   0.969   0.315
+    2   F   0.101   0.982   0.313
+    3   V   0.103   0.984   0.317
+    4   F   0.102   0.976   0.315
+    5   L   0.107   0.962   0.322
+    6   L   0.101   0.932   0.313
+    7   L   0.104   0.908   0.318
+    8   C   0.103   0.869   0.316
+    9   S   0.103   0.842   0.315
+   10   I   0.102   0.844   0.312
+   11   L   0.098   0.824   0.306
+   12   F   0.098   0.784   0.305
+   13   F   0.094   0.712   0.296
+   14   I   0.100   0.560   0.303
+   15   I   0.098   0.502   0.297
+   16   F   0.097   0.394   0.293
+   17   L   0.106   0.386   0.302
+   18   F   0.103   0.276   0.293
+   19   I   0.101   0.234   0.284
+   20   F   0.106   0.177   0.285
+   21   H   0.100   0.127   0.270
+   22   Y   0.109   0.119   0.275
+   23   I   0.105   0.127   0.262
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.109
+  max. Y    11       0.306
+  max. S     3       0.984
+  mean S     1-10    0.927
+       D     1-10    0.641   0.450   YES
+Name=GIMA5_HUMAN_TRANSMEM1	SP='YES' Cleavage site between pos. 10 and 11: CSI-LF D=0.641 D-cutoff=0.450 Networks=SignalP-noTM

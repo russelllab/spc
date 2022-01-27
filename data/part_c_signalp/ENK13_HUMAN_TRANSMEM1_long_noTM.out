@@ -1,0 +1,34 @@
+# SignalP-4.1 euk predictions
+# Name=ENK13_HUMAN_TRANSMEM1	Length=24	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   G   0.102   0.992   0.318
+    2   S   0.100   0.993   0.314
+    3   L   0.102   0.995   0.318
+    4   L   0.102   0.996   0.319
+    5   L   0.102   0.995   0.318
+    6   L   0.103   0.993   0.320
+    7   A   0.107   0.985   0.326
+    8   L   0.101   0.976   0.316
+    9   L   0.109   0.965   0.328
+   10   I   0.099   0.949   0.312
+   11   L   0.102   0.947   0.318
+   12   V   0.101   0.939   0.316
+   13   C   0.095   0.923   0.305
+   14   L   0.102   0.896   0.317
+   15   C   0.098   0.825   0.309
+   16   C   0.137   0.734   0.364
+   17   L   0.108   0.681   0.322
+   18   L   0.120   0.596   0.337
+   19   L   0.112   0.463   0.322
+   20   V   0.106   0.389   0.308
+   21   C   0.110   0.258   0.309
+   22   R   0.119   0.200   0.316
+   23   C   0.122   0.148   0.313
+   24   L   0.330   0.101   0.502
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.330
+  max. Y    24       0.502
+  max. S     4       0.996
+  mean S     1-23    0.776
+       D     1-23    0.650   0.450   YES
+Name=ENK13_HUMAN_TRANSMEM1	SP='YES' Cleavage site between pos. 23 and 24: CRC-L D=0.650 D-cutoff=0.450 Networks=SignalP-noTM

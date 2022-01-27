@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    43       0.624
+  max. Y    43       0.686
+  max. S    38       0.895
+  mean S     1-42    0.635
+       D     1-42    0.659   0.450   YES
+Name=NFAM1_HUMAN	SP='YES' Cleavage site between pos. 42 and 43: AGG-QS D=0.659 D-cutoff=0.450 Networks=SignalP-noTM

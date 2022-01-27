@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    31       0.274
+  max. Y    31       0.472
+  max. S    18       0.933
+  mean S     1-30    0.797
+       D     1-30    0.602   0.500   YES
+Name=CSF3_HUMAN	SP='YES' Cleavage site between pos. 30 and 31: QEA-TP D=0.602 D-cutoff=0.500 Networks=SignalP-TM

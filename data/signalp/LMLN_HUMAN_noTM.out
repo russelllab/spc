@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    52       0.205
+  max. Y    52       0.412
+  max. S    43       0.945
+  mean S     1-51    0.491
+       D     1-51    0.455   0.450   YES
+Name=LMLN_HUMAN	SP='YES' Cleavage site between pos. 51 and 52: ASA-TS D=0.455 D-cutoff=0.450 Networks=SignalP-noTM

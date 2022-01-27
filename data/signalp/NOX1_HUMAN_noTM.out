@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    30       0.546
+  max. Y    30       0.720
+  max. S    18       0.997
+  mean S     1-29    0.949
+       D     1-29    0.844   0.450   YES
+Name=NOX1_HUMAN	SP='YES' Cleavage site between pos. 29 and 30: VDA-FL D=0.844 D-cutoff=0.450 Networks=SignalP-noTM

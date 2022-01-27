@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    41       0.220
+  max. Y    41       0.429
+  max. S    33       0.970
+  mean S     1-40    0.590
+       D     1-40    0.516   0.450   YES
+Name=ENTP3_HUMAN	SP='YES' Cleavage site between pos. 40 and 41: VSI-TV D=0.516 D-cutoff=0.450 Networks=SignalP-noTM

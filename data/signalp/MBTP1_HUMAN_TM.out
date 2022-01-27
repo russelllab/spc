@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.506
+  max. Y    23       0.635
+  max. S    15       0.942
+  mean S     1-22    0.843
+       D     1-22    0.718   0.500   YES
+Name=MBTP1_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: HLG-DR D=0.718 D-cutoff=0.500 Networks=SignalP-TM

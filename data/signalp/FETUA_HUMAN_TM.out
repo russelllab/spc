@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.822
+  max. Y    19       0.872
+  max. S    15       0.968
+  mean S     1-18    0.928
+       D     1-18    0.895   0.500   YES
+Name=FETUA_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: CHS-AP D=0.895 D-cutoff=0.500 Networks=SignalP-TM

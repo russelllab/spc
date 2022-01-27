@@ -1,0 +1,31 @@
+# SignalP-4.1 euk predictions
+# Name=IR3IP_HUMAN_TRANSMEM2	Length=21	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   V   0.100   0.902   0.301
+    2   M   0.101   0.872   0.302
+    3   R   0.104   0.820   0.306
+    4   V   0.103   0.759   0.304
+    5   P   0.103   0.674   0.303
+    6   L   0.106   0.670   0.306
+    7   I   0.102   0.655   0.297
+    8   I   0.104   0.578   0.298
+    9   V   0.104   0.487   0.296
+   10   N   0.098   0.527   0.284
+   11   S   0.107   0.536   0.294
+   12   I   0.102   0.485   0.285
+   13   A   0.103   0.430   0.281
+   14   I   0.098   0.323   0.271
+   15   V   0.097   0.305   0.265
+   16   L   0.100   0.253   0.264
+   17   L   0.106   0.221   0.266
+   18   L   0.104   0.178   0.258
+   19   L   0.101   0.167   0.247
+   20   F   0.105   0.152   0.245
+   21   G   0.103   0.128   0.235
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    11       0.107
+  max. Y    11       0.294
+  max. S     1       0.902
+  mean S     1-10    0.694
+       D     1-10    0.510   0.450   YES
+Name=IR3IP_HUMAN_TRANSMEM2	SP='YES' Cleavage site between pos. 10 and 11: IVN-SI D=0.510 D-cutoff=0.450 Networks=SignalP-noTM

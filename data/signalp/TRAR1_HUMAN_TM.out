@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.193
+  max. Y    20       0.400
+  max. S     7       0.900
+  mean S     1-19    0.826
+       D     1-19    0.570   0.500   YES
+Name=TRAR1_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: VST-QL D=0.570 D-cutoff=0.500 Networks=SignalP-TM

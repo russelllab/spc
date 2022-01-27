@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    42       0.386
+  max. Y    42       0.496
+  max. S    38       0.799
+  mean S     1-41    0.533
+       D     1-41    0.511   0.500   YES
+Name=TYRO3_HUMAN	SP='YES' Cleavage site between pos. 41 and 42: AAA-GL D=0.511 D-cutoff=0.500 Networks=SignalP-TM

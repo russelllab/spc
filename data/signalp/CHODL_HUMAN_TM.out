@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.271
+  max. Y    22       0.417
+  max. S    14       0.865
+  mean S     1-21    0.730
+       D     1-21    0.542   0.500   YES
+Name=CHODL_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: AFC-RR D=0.542 D-cutoff=0.500 Networks=SignalP-TM

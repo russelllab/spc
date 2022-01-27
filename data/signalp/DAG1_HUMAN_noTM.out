@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.549
+  max. Y    28       0.711
+  max. S    15       0.981
+  mean S     1-27    0.920
+       D     1-27    0.824   0.450   YES
+Name=DAG1_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: VMA-QS D=0.824 D-cutoff=0.450 Networks=SignalP-noTM

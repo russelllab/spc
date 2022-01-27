@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    26       0.623
+  max. Y    26       0.733
+  max. S    13       0.970
+  mean S     1-25    0.884
+       D     1-25    0.793   0.500   YES
+Name=COL11_HUMAN	SP='YES' Cleavage site between pos. 25 and 26: GHP-QP D=0.793 D-cutoff=0.500 Networks=SignalP-TM

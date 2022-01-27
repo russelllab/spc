@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.640
+  max. Y    28       0.740
+  max. S    20       0.950
+  mean S     1-27    0.846
+       D     1-27    0.797   0.450   YES
+Name=HYAS3_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: ILA-AY D=0.797 D-cutoff=0.450 Networks=SignalP-noTM

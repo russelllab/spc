@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    37       0.296
+  max. Y    34       0.465
+  max. S    28       0.882
+  mean S     1-33    0.791
+       D     1-33    0.595   0.500   YES
+Name=IBP2_HUMAN	SP='YES' Cleavage site between pos. 33 and 34: GGG-AR D=0.595 D-cutoff=0.500 Networks=SignalP-TM

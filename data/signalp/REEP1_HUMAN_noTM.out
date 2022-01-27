@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    54       0.287
+  max. Y    16       0.351
+  max. S    11       0.941
+  mean S     1-15    0.896
+       D     1-15    0.645   0.450   YES
+Name=REEP1_HUMAN	SP='YES' Cleavage site between pos. 15 and 16: IFG-TL D=0.645 D-cutoff=0.450 Networks=SignalP-noTM

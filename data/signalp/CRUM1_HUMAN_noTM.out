@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.390
+  max. Y    28       0.520
+  max. S    14       0.912
+  mean S     1-27    0.711
+       D     1-27    0.623   0.450   YES
+Name=CRUM1_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: SFC-NK D=0.623 D-cutoff=0.450 Networks=SignalP-noTM

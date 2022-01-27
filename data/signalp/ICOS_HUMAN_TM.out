@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.545
+  max. Y    21       0.662
+  max. S     9       0.852
+  mean S     1-20    0.789
+       D     1-20    0.713   0.500   YES
+Name=ICOS_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: LTG-EI D=0.713 D-cutoff=0.500 Networks=SignalP-TM

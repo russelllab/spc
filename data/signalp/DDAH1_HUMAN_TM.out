@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.144
+  max. Y    17       0.162
+  max. S     6       0.277
+  mean S     1-16    0.204
+       D     1-16    0.179   0.500   NO
+Name=DDAH1_HUMAN	SP='NO' D=0.179 D-cutoff=0.500 Networks=SignalP-TM

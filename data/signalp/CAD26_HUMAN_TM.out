@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    33       0.535
+  max. Y    27       0.677
+  max. S    16       0.963
+  mean S     1-26    0.880
+       D     1-26    0.758   0.500   YES
+Name=CAD26_HUMAN	SP='YES' Cleavage site between pos. 26 and 27: VSI-ID D=0.758 D-cutoff=0.500 Networks=SignalP-TM

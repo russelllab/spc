@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.655
+  max. Y    19       0.669
+  max. S    13       0.806
+  mean S     1-18    0.679
+       D     1-18    0.673   0.500   YES
+Name=CBPA2_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: IYC-LE D=0.673 D-cutoff=0.500 Networks=SignalP-TM

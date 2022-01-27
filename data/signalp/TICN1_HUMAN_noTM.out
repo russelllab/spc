@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.426
+  max. Y    22       0.524
+  max. S     1       0.902
+  mean S     1-21    0.634
+       D     1-21    0.583   0.450   YES
+Name=TICN1_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: VES-RH D=0.583 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    54       0.256
+  max. Y    54       0.414
+  max. S    48       0.922
+  mean S     1-53    0.544
+       D     1-53    0.484   0.450   YES
+Name=XKR5_HUMAN	SP='YES' Cleavage site between pos. 53 and 54: ALS-YL D=0.484 D-cutoff=0.450 Networks=SignalP-noTM

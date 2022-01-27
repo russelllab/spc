@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.318
+  max. Y    22       0.517
+  max. S    10       0.937
+  mean S     1-21    0.854
+       D     1-21    0.652   0.500   YES
+Name=TICN3_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: SLA-AA D=0.652 D-cutoff=0.500 Networks=SignalP-TM

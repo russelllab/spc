@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    49       0.189
+  max. Y    49       0.419
+  max. S    40       0.986
+  mean S     1-48    0.607
+       D     1-48    0.520   0.450   YES
+Name=EXTL3_HUMAN	SP='YES' Cleavage site between pos. 48 and 49: IAH-YY D=0.520 D-cutoff=0.450 Networks=SignalP-noTM

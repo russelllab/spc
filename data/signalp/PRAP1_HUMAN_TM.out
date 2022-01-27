@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.494
+  max. Y    21       0.670
+  max. S     9       0.945
+  mean S     1-20    0.909
+       D     1-20    0.766   0.500   YES
+Name=PRAP1_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: AGA-VP D=0.766 D-cutoff=0.500 Networks=SignalP-TM

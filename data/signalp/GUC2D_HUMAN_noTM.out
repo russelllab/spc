@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    52       0.667
+  max. Y    52       0.778
+  max. S    41       0.952
+  mean S     1-51    0.595
+       D     1-51    0.679   0.450   YES
+Name=GUC2D_HUMAN	SP='YES' Cleavage site between pos. 51 and 52: ALS-AV D=0.679 D-cutoff=0.450 Networks=SignalP-noTM

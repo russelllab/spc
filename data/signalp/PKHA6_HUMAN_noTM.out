@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    62       0.111
+  max. Y    44       0.107
+  max. S    29       0.114
+  mean S     1-43    0.097
+       D     1-43    0.102   0.450   NO
+Name=PKHA6_HUMAN	SP='NO' D=0.102 D-cutoff=0.450 Networks=SignalP-noTM

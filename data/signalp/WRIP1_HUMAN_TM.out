@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    49       0.111
+  max. Y    41       0.118
+  max. S    33       0.168
+  mean S     1-40    0.109
+       D     1-40    0.115   0.500   NO
+Name=WRIP1_HUMAN	SP='NO' D=0.115 D-cutoff=0.500 Networks=SignalP-TM

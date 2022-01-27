@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    30       0.489
+  max. Y    30       0.668
+  max. S    19       0.982
+  mean S     1-29    0.914
+       D     1-29    0.801   0.450   YES
+Name=MUCL3_HUMAN	SP='YES' Cleavage site between pos. 29 and 30: AGA-TT D=0.801 D-cutoff=0.450 Networks=SignalP-noTM

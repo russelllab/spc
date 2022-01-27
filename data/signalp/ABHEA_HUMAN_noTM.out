@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    16       0.386
+  max. Y    16       0.452
+  max. S    44       0.970
+  mean S     1-15    0.484
+       D     1-15    0.469   0.450   YES
+Name=ABHEA_HUMAN	SP='YES' Cleavage site between pos. 15 and 16: GGA-RP D=0.469 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.229
+  max. Y    17       0.456
+  max. S    12       0.947
+  mean S     1-16    0.904
+       D     1-16    0.635   0.500   YES
+Name=CADH5_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: CLG-LL D=0.635 D-cutoff=0.500 Networks=SignalP-TM

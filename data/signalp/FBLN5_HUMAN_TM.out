@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.808
+  max. Y    24       0.833
+  max. S     7       0.927
+  mean S     1-23    0.865
+       D     1-23    0.846   0.500   YES
+Name=FBLN5_HUMAN	SP='YES' Cleavage site between pos. 23 and 24: GNA-QA D=0.846 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.287
+  max. Y    22       0.446
+  max. S     5       0.881
+  mean S     1-21    0.742
+       D     1-21    0.565   0.500   YES
+Name=GFRA2_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: SLA-SP D=0.565 D-cutoff=0.500 Networks=SignalP-TM

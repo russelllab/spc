@@ -1,0 +1,34 @@
+# SignalP-4.1 euk predictions
+# Name=CYTM1_HUMAN_TRANSMEM1	Length=24	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   L   0.100   0.941   0.307
+    2   G   0.103   0.936   0.311
+    3   P   0.097   0.939   0.302
+    4   S   0.108   0.962   0.319
+    5   T   0.101   0.940   0.308
+    6   C   0.102   0.877   0.310
+    7   L   0.099   0.798   0.305
+    8   T   0.103   0.714   0.309
+    9   A   0.100   0.642   0.303
+   10   C   0.096   0.470   0.296
+   11   W   0.099   0.400   0.296
+   12   T   0.101   0.334   0.294
+   13   A   0.099   0.300   0.288
+   14   L   0.095   0.291   0.277
+   15   C   0.102   0.206   0.282
+   16   C   0.100   0.162   0.273
+   17   C   0.098   0.153   0.264
+   18   C   0.108   0.144   0.269
+   19   L   0.105   0.132   0.258
+   20   W   0.099   0.113   0.243
+   21   D   0.098   0.100   0.234
+   22   M   0.096   0.103   0.224
+   23   L   0.094   0.106   0.214
+   24   T   0.102   0.118   0.213
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.108
+  max. Y    11       0.296
+  max. S     4       0.962
+  mean S     1-10    0.822
+       D     1-10    0.580   0.450   YES
+Name=CYTM1_HUMAN_TRANSMEM1	SP='YES' Cleavage site between pos. 10 and 11: TAC-WT D=0.580 D-cutoff=0.450 Networks=SignalP-noTM

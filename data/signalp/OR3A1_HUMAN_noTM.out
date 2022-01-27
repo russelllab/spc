@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    45       0.447
+  max. Y    45       0.428
+  max. S    42       0.758
+  mean S     1-44    0.469
+       D     1-44    0.450   0.450   YES
+Name=OR3A1_HUMAN	SP='YES' Cleavage site between pos. 44 and 45: VRG-NL D=0.450 D-cutoff=0.450 Networks=SignalP-noTM

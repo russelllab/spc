@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    30       0.850
+  max. Y    30       0.882
+  max. S    13       0.970
+  mean S     1-29    0.892
+       D     1-29    0.888   0.450   YES
+Name=GPAT3_HUMAN	SP='YES' Cleavage site between pos. 29 and 30: VFG-VS D=0.888 D-cutoff=0.450 Networks=SignalP-noTM

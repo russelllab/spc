@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.388
+  max. Y    19       0.608
+  max. S    14       0.979
+  mean S     1-18    0.958
+       D     1-18    0.797   0.450   YES
+Name=EPHB2_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: LAA-VE D=0.797 D-cutoff=0.450 Networks=SignalP-noTM

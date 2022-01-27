@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    43       0.347
+  max. Y    43       0.414
+  max. S    42       0.679
+  mean S     1-42    0.481
+       D     1-42    0.450   0.450   YES
+Name=ZDHC8_HUMAN	SP='YES' Cleavage site between pos. 42 and 43: TRA-VS D=0.450 D-cutoff=0.450 Networks=SignalP-noTM

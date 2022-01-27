@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.301
+  max. Y    24       0.450
+  max. S    10       0.778
+  mean S     1-23    0.673
+       D     1-23    0.570   0.450   YES
+Name=ESPB1_HUMAN	SP='YES' Cleavage site between pos. 23 and 24: SSG-GM D=0.570 D-cutoff=0.450 Networks=SignalP-noTM

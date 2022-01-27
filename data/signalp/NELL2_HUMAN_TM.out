@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.567
+  max. Y    22       0.570
+  max. S     7       0.721
+  mean S     1-21    0.579
+       D     1-21    0.574   0.500   YES
+Name=NELL2_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: VWG-LG D=0.574 D-cutoff=0.500 Networks=SignalP-TM

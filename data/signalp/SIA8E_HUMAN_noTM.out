@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.406
+  max. Y    28       0.582
+  max. S    25       0.954
+  mean S     1-27    0.745
+       D     1-27    0.670   0.450   YES
+Name=SIA8E_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: AFA-LV D=0.670 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.765
+  max. Y    17       0.850
+  max. S    11       0.960
+  mean S     1-16    0.942
+       D     1-16    0.900   0.450   YES
+Name=PRG2_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: VSA-LH D=0.900 D-cutoff=0.450 Networks=SignalP-noTM

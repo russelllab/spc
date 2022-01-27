@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    49       0.364
+  max. Y    49       0.515
+  max. S    19       0.957
+  mean S     1-48    0.732
+       D     1-48    0.632   0.450   YES
+Name=COPT2_HUMAN	SP='YES' Cleavage site between pos. 48 and 49: GKA-KL D=0.632 D-cutoff=0.450 Networks=SignalP-noTM

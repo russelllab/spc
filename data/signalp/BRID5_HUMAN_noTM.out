@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    49       0.604
+  max. Y    49       0.766
+  max. S    39       0.997
+  mean S     1-48    0.663
+       D     1-48    0.711   0.450   YES
+Name=BRID5_HUMAN	SP='YES' Cleavage site between pos. 48 and 49: VVA-GG D=0.711 D-cutoff=0.450 Networks=SignalP-noTM

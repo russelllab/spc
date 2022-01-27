@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.802
+  max. Y    20       0.864
+  max. S    11       0.979
+  mean S     1-19    0.925
+       D     1-19    0.897   0.450   YES
+Name=FA12_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: TLS-IP D=0.897 D-cutoff=0.450 Networks=SignalP-noTM

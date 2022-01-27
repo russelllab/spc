@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.453
+  max. Y    18       0.627
+  max. S     1       0.940
+  mean S     1-17    0.881
+       D     1-17    0.729   0.500   YES
+Name=CER1_HUMAN	SP='YES' Cleavage site between pos. 17 and 18: GKT-TR D=0.729 D-cutoff=0.500 Networks=SignalP-TM

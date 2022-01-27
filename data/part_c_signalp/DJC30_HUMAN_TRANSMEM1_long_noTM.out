@@ -1,0 +1,29 @@
+# SignalP-4.1 euk predictions
+# Name=DJC30_HUMAN_TRANSMEM1	Length=19	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   D   0.103   0.718   0.271
+    2   T   0.105   0.634   0.275
+    3   A   0.106   0.515   0.275
+    4   A   0.100   0.458   0.265
+    5   I   0.100   0.445   0.263
+    6   F   0.097   0.438   0.258
+    7   L   0.101   0.418   0.260
+    8   I   0.107   0.358   0.264
+    9   F   0.100   0.327   0.253
+   10   S   0.107   0.245   0.258
+   11   I   0.102   0.223   0.247
+   12   F   0.103   0.164   0.244
+   13   I   0.104   0.164   0.239
+   14   I   0.099   0.152   0.228
+   15   I   0.101   0.132   0.225
+   16   G   0.098   0.153   0.216
+   17   F   0.101   0.122   0.213
+   18   Y   0.096   0.115   0.201
+   19   I   0.104   0.112   0.202
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    10       0.107
+  max. Y    11       0.247
+  max. S     1       0.718
+  mean S     1-10    0.456
+       D     1-10    0.359   0.450   NO
+Name=DJC30_HUMAN_TRANSMEM1	SP='NO' D=0.359 D-cutoff=0.450 Networks=SignalP-noTM

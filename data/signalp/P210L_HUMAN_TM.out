@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    37       0.770
+  max. Y    37       0.556
+  max. S     6       0.731
+  mean S     1-36    0.476
+       D     1-36    0.524   0.500   YES
+Name=P210L_HUMAN	SP='YES' Cleavage site between pos. 36 and 37: TLA-NK D=0.524 D-cutoff=0.500 Networks=SignalP-TM

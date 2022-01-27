@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    16       0.632
+  max. Y    16       0.758
+  max. S     3       0.931
+  mean S     1-15    0.908
+       D     1-15    0.818   0.500   YES
+Name=CTRB1_HUMAN	SP='YES' Cleavage site between pos. 15 and 16: VGA-AF D=0.818 D-cutoff=0.500 Networks=SignalP-TM

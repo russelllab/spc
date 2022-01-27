@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.512
+  max. Y    22       0.636
+  max. S    16       0.923
+  mean S     1-21    0.806
+       D     1-21    0.704   0.500   YES
+Name=LPAL2_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: TET-GP D=0.704 D-cutoff=0.500 Networks=SignalP-TM

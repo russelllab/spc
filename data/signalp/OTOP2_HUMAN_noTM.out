@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    50       0.202
+  max. Y    50       0.419
+  max. S    39       0.973
+  mean S     1-49    0.547
+       D     1-49    0.488   0.450   YES
+Name=OTOP2_HUMAN	SP='YES' Cleavage site between pos. 49 and 50: ISG-GA D=0.488 D-cutoff=0.450 Networks=SignalP-noTM

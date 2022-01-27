@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.331
+  max. Y    20       0.545
+  max. S    13       0.932
+  mean S     1-19    0.901
+       D     1-19    0.737   0.450   YES
+Name=NMDE3_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: AWA-GL D=0.737 D-cutoff=0.450 Networks=SignalP-noTM

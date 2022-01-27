@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.859
+  max. Y    23       0.900
+  max. S    11       0.983
+  mean S     1-22    0.936
+       D     1-22    0.914   0.500   YES
+Name=COLA1_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: VLA-ED D=0.914 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.729
+  max. Y    20       0.767
+  max. S    16       0.901
+  mean S     1-19    0.776
+       D     1-19    0.771   0.500   YES
+Name=CALR3_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: ALA-TV D=0.771 D-cutoff=0.500 Networks=SignalP-TM

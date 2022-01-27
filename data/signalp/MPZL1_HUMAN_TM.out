@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    38       0.696
+  max. Y    38       0.571
+  max. S    11       0.695
+  mean S     1-37    0.423
+       D     1-37    0.512   0.500   YES
+Name=MPZL1_HUMAN	SP='YES' Cleavage site between pos. 37 and 38: VSA-LE D=0.512 D-cutoff=0.500 Networks=SignalP-TM

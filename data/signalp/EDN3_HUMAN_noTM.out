@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.555
+  max. Y    17       0.699
+  max. S    13       0.936
+  mean S     1-16    0.898
+       D     1-16    0.806   0.450   YES
+Name=EDN3_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: TSA-AG D=0.806 D-cutoff=0.450 Networks=SignalP-noTM

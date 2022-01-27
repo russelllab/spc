@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.613
+  max. Y    22       0.728
+  max. S    16       0.905
+  mean S     1-21    0.864
+       D     1-21    0.801   0.450   YES
+Name=GRIA4_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: AMG-AF D=0.801 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    44       0.492
+  max. Y    44       0.594
+  max. S    27       0.980
+  mean S     1-43    0.635
+       D     1-43    0.616   0.450   YES
+Name=ASB11_HUMAN	SP='YES' Cleavage site between pos. 43 and 44: VKG-NR D=0.616 D-cutoff=0.450 Networks=SignalP-noTM

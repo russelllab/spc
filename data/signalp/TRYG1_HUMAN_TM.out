@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.390
+  max. Y    20       0.600
+  max. S    16       0.948
+  mean S     1-19    0.906
+       D     1-19    0.723   0.500   YES
+Name=TRYG1_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: VSL-RT D=0.723 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.281
+  max. Y    28       0.483
+  max. S    23       0.909
+  mean S     1-27    0.777
+       D     1-27    0.641   0.450   YES
+Name=IGSF6_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: VGA-CT D=0.641 D-cutoff=0.450 Networks=SignalP-noTM

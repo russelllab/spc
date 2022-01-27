@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    27       0.437
+  max. Y    27       0.625
+  max. S    15       0.964
+  mean S     1-26    0.900
+       D     1-26    0.774   0.450   YES
+Name=SMIM9_HUMAN	SP='YES' Cleavage site between pos. 26 and 27: VAS-SP D=0.774 D-cutoff=0.450 Networks=SignalP-noTM

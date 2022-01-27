@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.545
+  max. Y    18       0.698
+  max. S     6       0.950
+  mean S     1-17    0.903
+       D     1-17    0.780   0.500   YES
+Name=TRGV5_HUMAN	SP='YES' Cleavage site between pos. 17 and 18: ASQ-KS D=0.780 D-cutoff=0.500 Networks=SignalP-TM

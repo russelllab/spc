@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    27       0.697
+  max. Y    27       0.648
+  max. S     1       0.878
+  mean S     1-26    0.625
+       D     1-26    0.635   0.450   YES
+Name=FXRD2_HUMAN	SP='YES' Cleavage site between pos. 26 and 27: ALS-VP D=0.635 D-cutoff=0.450 Networks=SignalP-noTM

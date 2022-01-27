@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.335
+  max. Y    19       0.558
+  max. S     4       0.965
+  mean S     1-18    0.929
+       D     1-18    0.758   0.450   YES
+Name=EGFL6_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: VAG-GF D=0.758 D-cutoff=0.450 Networks=SignalP-noTM

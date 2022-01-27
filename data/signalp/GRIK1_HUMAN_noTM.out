@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    35       0.299
+  max. Y    35       0.369
+  max. S    30       0.705
+  mean S     1-34    0.443
+       D     1-34    0.409   0.450   NO
+Name=GRIK1_HUMAN	SP='NO' D=0.409 D-cutoff=0.450 Networks=SignalP-noTM

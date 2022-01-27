@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.615
+  max. Y    20       0.537
+  max. S     2       0.745
+  mean S     1-19    0.520
+       D     1-19    0.530   0.500   YES
+Name=NDUS8_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: ARA-GP D=0.530 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    38       0.367
+  max. Y    38       0.548
+  max. S    17       0.975
+  mean S     1-37    0.818
+       D     1-37    0.694   0.450   YES
+Name=NEGR1_HUMAN	SP='YES' Cleavage site between pos. 37 and 38: GQS-VD D=0.694 D-cutoff=0.450 Networks=SignalP-noTM

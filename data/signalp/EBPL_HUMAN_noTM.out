@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    30       0.311
+  max. Y    30       0.500
+  max. S    13       0.922
+  mean S     1-29    0.801
+       D     1-29    0.663   0.450   YES
+Name=EBPL_HUMAN	SP='YES' Cleavage site between pos. 29 and 30: ALG-LR D=0.663 D-cutoff=0.450 Networks=SignalP-noTM

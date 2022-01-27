@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    47       0.442
+  max. Y    47       0.578
+  max. S    39       0.969
+  mean S     1-46    0.448
+       D     1-46    0.507   0.450   YES
+Name=ERGI1_HUMAN	SP='YES' Cleavage site between pos. 46 and 47: LTG-FI D=0.507 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.602
+  max. Y    22       0.352
+  max. S     5       0.633
+  mean S     1-21    0.331
+       D     1-21    0.343   0.500   NO
+Name=VATO_HUMAN	SP='NO' D=0.343 D-cutoff=0.500 Networks=SignalP-TM

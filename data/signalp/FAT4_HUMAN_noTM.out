@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    43       0.249
+  max. Y    43       0.434
+  max. S    27       0.960
+  mean S     1-42    0.672
+       D     1-42    0.562   0.450   YES
+Name=FAT4_HUMAN	SP='YES' Cleavage site between pos. 42 and 43: VHG-AE D=0.562 D-cutoff=0.450 Networks=SignalP-noTM

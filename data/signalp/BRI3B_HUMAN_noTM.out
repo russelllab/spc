@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    35       0.891
+  max. Y    35       0.924
+  max. S    21       0.996
+  mean S     1-34    0.958
+       D     1-34    0.943   0.450   YES
+Name=BRI3B_HUMAN	SP='YES' Cleavage site between pos. 34 and 35: AQG-AR D=0.943 D-cutoff=0.450 Networks=SignalP-noTM

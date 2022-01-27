@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    42       0.358
+  max. Y    42       0.478
+  max. S    33       0.833
+  mean S     1-41    0.448
+       D     1-41    0.466   0.500   NO
+Name=CORA1_HUMAN	SP='NO' D=0.466 D-cutoff=0.500 Networks=SignalP-TM

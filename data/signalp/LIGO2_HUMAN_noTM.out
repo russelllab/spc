@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.650
+  max. Y    28       0.772
+  max. S    14       0.975
+  mean S     1-27    0.913
+       D     1-27    0.848   0.450   YES
+Name=LIGO2_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: TIG-CP D=0.848 D-cutoff=0.450 Networks=SignalP-noTM

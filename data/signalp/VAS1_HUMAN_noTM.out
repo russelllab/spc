@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    41       0.336
+  max. Y    41       0.544
+  max. S    31       0.977
+  mean S     1-40    0.736
+       D     1-40    0.648   0.450   YES
+Name=VAS1_HUMAN	SP='YES' Cleavage site between pos. 40 and 41: AAA-AE D=0.648 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    26       0.560
+  max. Y    26       0.654
+  max. S    11       0.968
+  mean S     1-25    0.835
+       D     1-25    0.726   0.500   YES
+Name=C99L2_HUMAN	SP='YES' Cleavage site between pos. 25 and 26: GSG-DF D=0.726 D-cutoff=0.500 Networks=SignalP-TM

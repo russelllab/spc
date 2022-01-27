@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    43       0.195
+  max. Y    43       0.343
+  max. S    39       0.836
+  mean S     1-42    0.544
+       D     1-42    0.451   0.450   YES
+Name=GRPL2_HUMAN	SP='YES' Cleavage site between pos. 42 and 43: LNA-RF D=0.451 D-cutoff=0.450 Networks=SignalP-noTM

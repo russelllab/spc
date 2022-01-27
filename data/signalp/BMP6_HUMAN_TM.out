@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.165
+  max. Y    21       0.372
+  max. S     6       0.942
+  mean S     1-20    0.884
+       D     1-20    0.577   0.500   YES
+Name=BMP6_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: LCS-CC D=0.577 D-cutoff=0.500 Networks=SignalP-TM

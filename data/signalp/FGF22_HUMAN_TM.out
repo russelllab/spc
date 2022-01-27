@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.696
+  max. Y    23       0.778
+  max. S     2       0.947
+  mean S     1-22    0.892
+       D     1-22    0.824   0.500   YES
+Name=FGF22_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: AAG-TP D=0.824 D-cutoff=0.500 Networks=SignalP-TM

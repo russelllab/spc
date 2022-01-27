@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    38       0.643
+  max. Y    38       0.747
+  max. S    12       0.963
+  mean S     1-37    0.883
+       D     1-37    0.821   0.450   YES
+Name=GPAT4_HUMAN	SP='YES' Cleavage site between pos. 37 and 38: IFG-VS D=0.821 D-cutoff=0.450 Networks=SignalP-noTM

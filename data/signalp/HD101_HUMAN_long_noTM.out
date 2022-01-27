@@ -1,0 +1,15 @@
+# SignalP-4.1 euk predictions
+# Name=HD101_HUMAN	Length=5	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   G   0.102   0.170   0.131
+    2   T   0.099   0.156   0.130
+    3   T   0.105   0.136   0.133
+    4   G   0.104   0.118   0.132
+    5   T   0.099   0.111   0.128
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C     3       0.105
+  max. Y     1       0.000
+  max. S     1       0.170
+  mean S     1-0     0.000
+       D     1-0     0.000   0.450   NO
+Name=HD101_HUMAN	SP='NO' D=0.000 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.748
+  max. Y    23       0.776
+  max. S    11       0.945
+  mean S     1-22    0.850
+       D     1-22    0.805   0.500   YES
+Name=PAPP1_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: GLA-ER D=0.805 D-cutoff=0.500 Networks=SignalP-TM

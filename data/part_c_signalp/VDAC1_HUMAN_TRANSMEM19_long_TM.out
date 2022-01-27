@@ -1,0 +1,21 @@
+# SignalP-4.1 euk predictions
+# Name=VDAC1_HUMAN_TRANSMEM19	Length=11	Networks=SignalP-TM
+# pos  aa    C       S       Y
+    1   H   0.101   0.198   0.141
+    2   K   0.103   0.183   0.142
+    3   L   0.102   0.148   0.142
+    4   G   0.105   0.125   0.142
+    5   L   0.101   0.089   0.138
+    6   G   0.106   0.071   0.138
+    7   L   0.099   0.056   0.130
+    8   E   0.107   0.050   0.131
+    9   F   0.102   0.047   0.124
+   10   Q   0.105   0.048   0.121
+   11   A   0.105   0.047   0.116
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C     8       0.107
+  max. Y    11       0.116
+  max. S     1       0.198
+  mean S     1-10    0.101
+       D     1-10    0.110   0.500   NO
+Name=VDAC1_HUMAN_TRANSMEM19	SP='NO' D=0.110 D-cutoff=0.500 Networks=SignalP-TM

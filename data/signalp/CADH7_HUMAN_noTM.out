@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.827
+  max. Y    28       0.842
+  max. S     7       0.936
+  mean S     1-27    0.852
+       D     1-27    0.847   0.450   YES
+Name=CADH7_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: SQA-EL D=0.847 D-cutoff=0.450 Networks=SignalP-noTM

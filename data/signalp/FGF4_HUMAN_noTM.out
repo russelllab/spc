@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    31       0.276
+  max. Y    31       0.489
+  max. S    16       0.979
+  mean S     1-30    0.883
+       D     1-30    0.702   0.450   YES
+Name=FGF4_HUMAN	SP='YES' Cleavage site between pos. 30 and 31: GAA-AP D=0.702 D-cutoff=0.450 Networks=SignalP-noTM

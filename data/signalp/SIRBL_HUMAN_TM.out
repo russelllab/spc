@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    30       0.778
+  max. Y    30       0.800
+  max. S    19       0.925
+  mean S     1-29    0.821
+       D     1-29    0.808   0.500   YES
+Name=SIRBL_HUMAN	SP='YES' Cleavage site between pos. 29 and 30: VAG-EE D=0.808 D-cutoff=0.500 Networks=SignalP-TM

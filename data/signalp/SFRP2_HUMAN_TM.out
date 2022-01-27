@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    25       0.687
+  max. Y    25       0.699
+  max. S     2       0.889
+  mean S     1-24    0.744
+       D     1-24    0.717   0.500   YES
+Name=SFRP2_HUMAN	SP='YES' Cleavage site between pos. 24 and 25: ARG-LF D=0.717 D-cutoff=0.500 Networks=SignalP-TM

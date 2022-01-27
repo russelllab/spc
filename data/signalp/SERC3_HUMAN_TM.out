@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.270
+  max. Y    21       0.490
+  max. S    11       0.922
+  mean S     1-20    0.869
+       D     1-20    0.642   0.500   YES
+Name=SERC3_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: CSG-AS D=0.642 D-cutoff=0.500 Networks=SignalP-TM

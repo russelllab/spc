@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.217
+  max. Y    19       0.386
+  max. S     9       0.757
+  mean S     1-18    0.682
+       D     1-18    0.505   0.500   YES
+Name=OX26_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: GAC-FP D=0.505 D-cutoff=0.500 Networks=SignalP-TM

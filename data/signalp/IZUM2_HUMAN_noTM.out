@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.454
+  max. Y    21       0.631
+  max. S     1       0.962
+  mean S     1-20    0.868
+       D     1-20    0.759   0.450   YES
+Name=IZUM2_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: GWG-CL D=0.759 D-cutoff=0.450 Networks=SignalP-noTM

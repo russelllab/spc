@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    33       0.435
+  max. Y    33       0.601
+  max. S    21       0.918
+  mean S     1-32    0.765
+       D     1-32    0.690   0.450   YES
+Name=LRRC3_HUMAN	SP='YES' Cleavage site between pos. 32 and 33: GAA-CP D=0.690 D-cutoff=0.450 Networks=SignalP-noTM

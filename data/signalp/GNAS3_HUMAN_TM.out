@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    45       0.232
+  max. Y    45       0.270
+  max. S    44       0.452
+  mean S     1-44    0.213
+       D     1-44    0.247   0.500   NO
+Name=GNAS3_HUMAN	SP='NO' D=0.247 D-cutoff=0.500 Networks=SignalP-TM

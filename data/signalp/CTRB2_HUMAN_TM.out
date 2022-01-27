@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.639
+  max. Y    19       0.748
+  max. S     3       0.943
+  mean S     1-18    0.888
+       D     1-18    0.804   0.500   YES
+Name=CTRB2_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: TFG-CG D=0.804 D-cutoff=0.500 Networks=SignalP-TM

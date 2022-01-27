@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    31       0.764
+  max. Y    31       0.750
+  max. S    20       0.813
+  mean S     1-30    0.706
+       D     1-30    0.733   0.500   YES
+Name=ITAV_HUMAN	SP='YES' Cleavage site between pos. 30 and 31: CRA-FN D=0.733 D-cutoff=0.500 Networks=SignalP-TM

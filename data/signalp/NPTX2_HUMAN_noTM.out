@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.337
+  max. Y    18       0.547
+  max. S     7       0.944
+  mean S     1-17    0.878
+       D     1-17    0.726   0.450   YES
+Name=NPTX2_HUMAN	SP='YES' Cleavage site between pos. 17 and 18: AGA-QD D=0.726 D-cutoff=0.450 Networks=SignalP-noTM

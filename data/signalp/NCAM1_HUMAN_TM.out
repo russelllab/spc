@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.327
+  max. Y    20       0.505
+  max. S    17       0.837
+  mean S     1-19    0.747
+       D     1-19    0.602   0.500   YES
+Name=NCAM1_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: AVS-LQ D=0.602 D-cutoff=0.500 Networks=SignalP-TM

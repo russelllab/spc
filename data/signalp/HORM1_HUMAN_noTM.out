@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    47       0.152
+  max. Y    47       0.164
+  max. S    37       0.325
+  mean S     1-46    0.151
+       D     1-46    0.157   0.450   NO
+Name=HORM1_HUMAN	SP='NO' D=0.157 D-cutoff=0.450 Networks=SignalP-noTM

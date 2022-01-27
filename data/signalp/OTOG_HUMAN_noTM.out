@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    26       0.600
+  max. Y    26       0.707
+  max. S     3       0.979
+  mean S     1-25    0.851
+       D     1-25    0.785   0.450   YES
+Name=OTOG_HUMAN	SP='YES' Cleavage site between pos. 25 and 26: AES-LR D=0.785 D-cutoff=0.450 Networks=SignalP-noTM

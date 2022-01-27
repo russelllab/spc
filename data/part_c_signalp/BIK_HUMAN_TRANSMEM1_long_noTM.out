@@ -1,0 +1,35 @@
+# SignalP-4.1 euk predictions
+# Name=BIK_HUMAN_TRANSMEM1	Length=25	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   V   0.101   0.985   0.315
+    2   L   0.103   0.987   0.318
+    3   L   0.107   0.991   0.324
+    4   A   0.102   0.993   0.318
+    5   L   0.101   0.990   0.315
+    6   L   0.107   0.974   0.325
+    7   L   0.100   0.959   0.314
+    8   L   0.109   0.954   0.328
+    9   L   0.106   0.944   0.323
+   10   A   0.104   0.919   0.320
+   11   L   0.099   0.868   0.312
+   12   L   0.103   0.805   0.316
+   13   L   0.100   0.699   0.311
+   14   P   0.100   0.691   0.309
+   15   L   0.108   0.608   0.318
+   16   L   0.099   0.611   0.301
+   17   S   0.101   0.642   0.302
+   18   G   0.210   0.443   0.432
+   19   G   0.398   0.186   0.586
+   20   L   0.247   0.112   0.452
+   21   H   0.109   0.108   0.293
+   22   L   0.123   0.100   0.303
+   23   L   0.108   0.096   0.277
+   24   L   0.100   0.096   0.258
+   25   K   0.106   0.100   0.258
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.398
+  max. Y    19       0.586
+  max. S     4       0.993
+  mean S     1-18    0.837
+       D     1-18    0.722   0.450   YES
+Name=BIK_HUMAN_TRANSMEM1	SP='YES' Cleavage site between pos. 18 and 19: LSG-GL D=0.722 D-cutoff=0.450 Networks=SignalP-noTM

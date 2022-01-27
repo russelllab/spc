@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    47       0.782
+  max. Y    47       0.802
+  max. S    41       0.878
+  mean S     1-46    0.464
+       D     1-46    0.667   0.500   YES
+Name=FREM2_HUMAN	SP='YES' Cleavage site between pos. 46 and 47: VPA-QP D=0.667 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    32       0.607
+  max. Y    32       0.678
+  max. S     4       0.962
+  mean S     1-31    0.799
+       D     1-31    0.743   0.450   YES
+Name=MMP11_HUMAN	SP='YES' Cleavage site between pos. 31 and 32: LLA-RA D=0.743 D-cutoff=0.450 Networks=SignalP-noTM

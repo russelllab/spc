@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    42       0.319
+  max. Y    42       0.475
+  max. S    31       0.884
+  mean S     1-41    0.603
+       D     1-41    0.544   0.450   YES
+Name=EDEM3_HUMAN	SP='YES' Cleavage site between pos. 41 and 42: AGA-EP D=0.544 D-cutoff=0.450 Networks=SignalP-noTM

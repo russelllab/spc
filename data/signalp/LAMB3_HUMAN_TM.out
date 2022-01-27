@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.673
+  max. Y    18       0.798
+  max. S     2       0.963
+  mean S     1-17    0.948
+       D     1-17    0.858   0.500   YES
+Name=LAMB3_HUMAN	SP='YES' Cleavage site between pos. 17 and 18: LHA-QQ D=0.858 D-cutoff=0.500 Networks=SignalP-TM

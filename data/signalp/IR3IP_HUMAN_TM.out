@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.247
+  max. Y    19       0.440
+  max. S     5       0.860
+  mean S     1-18    0.787
+       D     1-18    0.579   0.500   YES
+Name=IR3IP_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: VNA-IA D=0.579 D-cutoff=0.500 Networks=SignalP-TM

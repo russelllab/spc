@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.769
+  max. Y    21       0.805
+  max. S    11       0.925
+  mean S     1-20    0.844
+       D     1-20    0.826   0.450   YES
+Name=FSTL5_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: SEG-RP D=0.826 D-cutoff=0.450 Networks=SignalP-noTM

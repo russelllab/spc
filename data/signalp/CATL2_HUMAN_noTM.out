@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.658
+  max. Y    18       0.768
+  max. S    15       0.931
+  mean S     1-17    0.891
+       D     1-17    0.834   0.450   YES
+Name=CATL2_HUMAN	SP='YES' Cleavage site between pos. 17 and 18: ASA-VP D=0.834 D-cutoff=0.450 Networks=SignalP-noTM

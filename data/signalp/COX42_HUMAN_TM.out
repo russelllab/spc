@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.227
+  max. Y    18       0.175
+  max. S     1       0.243
+  mean S     1-17    0.146
+       D     1-17    0.164   0.500   NO
+Name=COX42_HUMAN	SP='NO' D=0.164 D-cutoff=0.500 Networks=SignalP-TM

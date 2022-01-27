@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    33       0.391
+  max. Y    33       0.524
+  max. S    16       0.887
+  mean S     1-32    0.723
+       D     1-32    0.632   0.450   YES
+Name=CYHR1_HUMAN	SP='YES' Cleavage site between pos. 32 and 33: AEA-SR D=0.632 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.457
+  max. Y    18       0.635
+  max. S    13       0.958
+  mean S     1-17    0.926
+       D     1-17    0.792   0.450   YES
+Name=RET3_HUMAN	SP='YES' Cleavage site between pos. 17 and 18: GLA-GP D=0.792 D-cutoff=0.450 Networks=SignalP-noTM

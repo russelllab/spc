@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.271
+  max. Y    21       0.478
+  max. S    16       0.931
+  mean S     1-20    0.837
+       D     1-20    0.622   0.500   YES
+Name=LIPE_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: AAG-SP D=0.622 D-cutoff=0.500 Networks=SignalP-TM

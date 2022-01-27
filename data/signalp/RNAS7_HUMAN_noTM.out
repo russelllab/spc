@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    29       0.699
+  max. Y    29       0.794
+  max. S    16       0.992
+  mean S     1-28    0.910
+       D     1-28    0.856   0.450   YES
+Name=RNAS7_HUMAN	SP='YES' Cleavage site between pos. 28 and 29: VSA-KP D=0.856 D-cutoff=0.450 Networks=SignalP-noTM

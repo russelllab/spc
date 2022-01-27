@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.116
+  max. Y    11       0.137
+  max. S     2       0.233
+  mean S     1-10    0.153
+       D     1-10    0.146   0.450   NO
+Name=LORF2_HUMAN	SP='NO' D=0.146 D-cutoff=0.450 Networks=SignalP-noTM

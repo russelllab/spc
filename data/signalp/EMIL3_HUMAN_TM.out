@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.869
+  max. Y    23       0.872
+  max. S     2       0.934
+  mean S     1-22    0.887
+       D     1-22    0.878   0.500   YES
+Name=EMIL3_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: AQA-RG D=0.878 D-cutoff=0.500 Networks=SignalP-TM

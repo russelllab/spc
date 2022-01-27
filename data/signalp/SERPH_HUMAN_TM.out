@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.727
+  max. Y    19       0.827
+  max. S     8       0.960
+  mean S     1-18    0.940
+       D     1-18    0.872   0.500   YES
+Name=SERPH_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: ALA-AE D=0.872 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    46       0.139
+  max. Y    37       0.301
+  max. S    36       0.850
+  mean S     1-36    0.634
+       D     1-36    0.481   0.450   YES
+Name=ABCAD_HUMAN	SP='YES' Cleavage site between pos. 36 and 37: CIL-FV D=0.481 D-cutoff=0.450 Networks=SignalP-noTM

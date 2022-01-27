@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    48       0.481
+  max. Y    48       0.574
+  max. S    41       0.836
+  mean S     1-47    0.436
+       D     1-47    0.499   0.450   YES
+Name=CTL1_HUMAN	SP='YES' Cleavage site between pos. 47 and 48: ICG-FS D=0.499 D-cutoff=0.450 Networks=SignalP-noTM

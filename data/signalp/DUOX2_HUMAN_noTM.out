@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.149
+  max. Y    22       0.334
+  max. S     1       0.837
+  mean S     1-21    0.745
+       D     1-21    0.556   0.450   YES
+Name=DUOX2_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: SLG-PS D=0.556 D-cutoff=0.450 Networks=SignalP-noTM

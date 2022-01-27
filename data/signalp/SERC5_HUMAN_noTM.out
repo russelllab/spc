@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    60       0.575
+  max. Y    60       0.609
+  max. S    46       0.952
+  mean S     1-59    0.535
+       D     1-59    0.569   0.450   YES
+Name=SERC5_HUMAN	SP='YES' Cleavage site between pos. 59 and 60: TVA-HK D=0.569 D-cutoff=0.450 Networks=SignalP-noTM

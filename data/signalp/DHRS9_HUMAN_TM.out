@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.405
+  max. Y    18       0.549
+  max. S     9       0.859
+  mean S     1-17    0.746
+       D     1-17    0.628   0.500   YES
+Name=DHRS9_HUMAN	SP='YES' Cleavage site between pos. 17 and 18: LWT-RK D=0.628 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    55       0.402
+  max. Y    55       0.562
+  max. S    47       0.974
+  mean S     1-54    0.416
+       D     1-54    0.484   0.450   YES
+Name=SGCZ_HUMAN	SP='YES' Cleavage site between pos. 54 and 55: AMT-IW D=0.484 D-cutoff=0.450 Networks=SignalP-noTM

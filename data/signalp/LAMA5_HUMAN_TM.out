@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    36       0.587
+  max. Y    36       0.549
+  max. S    21       0.639
+  mean S     1-35    0.455
+       D     1-35    0.511   0.500   YES
+Name=LAMA5_HUMAN	SP='YES' Cleavage site between pos. 35 and 36: ARA-RE D=0.511 D-cutoff=0.500 Networks=SignalP-TM

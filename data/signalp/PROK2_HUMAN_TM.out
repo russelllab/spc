@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.446
+  max. Y    28       0.611
+  max. S    11       0.977
+  mean S     1-27    0.898
+       D     1-27    0.725   0.500   YES
+Name=PROK2_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: GDA-AV D=0.725 D-cutoff=0.500 Networks=SignalP-TM

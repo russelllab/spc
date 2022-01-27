@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    39       0.545
+  max. Y    39       0.572
+  max. S     8       0.944
+  mean S     1-38    0.684
+       D     1-38    0.632   0.450   YES
+Name=ARSD_HUMAN	SP='YES' Cleavage site between pos. 38 and 39: ANA-FK D=0.632 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.407
+  max. Y    28       0.553
+  max. S    14       0.844
+  mean S     1-27    0.689
+       D     1-27    0.607   0.500   YES
+Name=ROBO4_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: GMA-QD D=0.607 D-cutoff=0.500 Networks=SignalP-TM

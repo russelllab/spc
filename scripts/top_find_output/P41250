@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Topfind 4.1</title>
+  <link rel="stylesheet" media="all" href="/assets/application-858af69cb01fabcb6739c5a9f3b408dc5cab04a41204d359455faa9a1c71fe4f.css" data-turbolinks-track="true" />
+  <script src="/assets/application-81d2bdfbc75607a7faecaf7abdf4676ceac4fd65d3aa8930b8177b5f7a641d9c.js" data-turbolinks-track="true"></script>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="R36SfwIWXCVY5yXEAQ8j0XWBPa+EKyNF4vy9JSi6V44pow1DvrCUOqFHKE1zDftG5r68H3bSwNlL4FVk5kBXpg==" />
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://code.highcharts.com/6.0.6/highcharts.js"></script>
+<script src="https://code.highcharts.com/6.0.6/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/js/modules/xrange.js"></script>
+<script src="https://code.highcharts.com/js/modules/exporting.js"></script>
+<link rel="stylesheet" type="text/css" href="assets/stylesheets/defaultcontentslider.css" />
+<link rel="stylesheet" type="text/css" href="assets/stylesheets/componentcontentslider.css" />
+<script src="assets/javascripts/modernizr.custom.js"></script>
+
+
+<style>
+
+@import 'https://code.highcharts.com/css/highcharts.css';
+
+#protshow {
+  font-family: "Lato", "Ubuntu", sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#protshow td, #protshow th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#protshow tr:nth-child(even){background-color: #f2f2f2;}
+
+#protshow tr:hover {background-color: #ddd;}
+
+#protshow th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0C0E28;
+  color: white;
+}
+
+
+#container_chart {
+min-width: 300px;
+max-width: 800px;
+height: 300px;
+margin: 1em auto;
+}
+
+
+/* Exporting module */
+.highcharts-contextbutton {
+fill: #ffffff;
+    /* needed to capture hover */
+stroke: none;
+    stroke-linecap: round;
+}
+
+.highcharts-contextbutton:hover {
+fill: #e6e6e6;
+stroke: #e6e6e6;
+}
+
+.highcharts-button-symbol {
+stroke: #666666;
+    stroke-width: 3px;
+}
+
+.highcharts-menu {
+border: 1px solid #999999;
+background: #ffffff;
+padding: 5px 0;
+    box-shadow: 3px 3px 10px #888;
+}
+
+.highcharts-menu-item {
+padding: 0.5em 1em;
+background: none;
+color: #333333;
+cursor: pointer;
+transition: background 250ms, color 250ms;
+}
+
+.highcharts-menu-item:hover {
+background: #335cad;
+color: #ffffff;
+}
+
+
+h1 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 25px;
+	line-height: 25px;
+	color: #444;
+}
+
+h2 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 20px;
+	color: #444;
+}
+
+h3 {
+	font-family: 'Lato', sans-serif;
+	word-spacing: 1px;
+	letter-spacing: 0.01em;
+	font-size: 15px;
+	color: #444;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", "Ubuntu", sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #e3e2e0;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+
+p.seq {font-family: 'Courier New', Courier, monospace; font-size: 12px;}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>TopFIND 4.0</title>
+
+		<!-- meta -->
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	    <!-- css -->
+<!--
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/ionicons.min.css">
+		<link rel="stylesheet" type="text/css" href="css/pace.css">
+	    <link rel="stylesheet" type="text/css" href="css/custom.css">-->
+
+	    <!-- js -->
+<!--
+	    <script src="js/jquery-2.1.3.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+	    <script src="js/pace.min.js"></script>
+	    <script src="js/modernizr.custom.js"></script>-->
+	</head>
+
+
+	<body>		
+
+		<div class="container">
+            <header id="site-header">
+				<div class="row">
+					<div class="col-md-4 col-sm-5 col-xs-8">
+						<div class="logo">
+							<h1 style="font-size: 40px;"><a href="/home/index">Top<b style="color: red;">FIND</b></a></h1>
+						</div>
+					</div><!-- col-md-4 -->
+					<div class="col-md-8 col-sm-7 col-xs-12">
+						<nav class="main-nav" role="navigation">
+							<div class="navbar-header">
+  								<button type="button" id="trigger-overlay" class="navbar-toggle">
+    								<span class="ion-navicon"></span>
+  								</button>
+							</div>
+
+							<div class="navbar" id="navbar-main">
+  								<ul class="nav navbar-nav navbar-right">
+    								<li class="cl-effect-11"><a href="/proteins/protsearch" data-hover="Proteins">Proteins<b style="color: red;">+</b></a></li>
+    								<li class="cl-effect-11"><a href="/topfinder" data-hover="TopFINDer">Top<b style="color: red;">FINDer</b></a></li>
+    								<li class="cl-effect-11"><a href="/pathfinder" data-hover="PathFINDer">Path<b style="color: red;">FINDer</b></a></li>
+    								<li class="cl-effect-11"><a href="/contribute/index" data-hover="Contribute">Contribute</a></li>
+  								</ul>
+							</div><!-- /.navbar-collapse -->
+						</nav>
+				</div>
+			</header>
+		</div>
+
+</body>
+
+
+
+<!-- RUBY DOESN'T DISPLAY TOOLTIPS, if I put he same code in a .html file tooltips are displayed -->
+<!-- If the values are integers, one has to start from 0 -->
+
+<!-- PARSE RUBY DATA FOR JAVASCRIPT-->
+
+<div id="container_chart" style="width:100%; height:400px;"></div>
+
+<script type="text/javascript">
+
+    var dataarr = [];
+    var catarr = [];
+
+
+    $(document).ready(
+
+        function makeArr() {
+
+        var domainElem = [["Sequence","1-739",0,739],["Chains","1-739",1,739],["N-Terms","1",1,2],["N-Terms","36",36,37],["N-Terms","37",37,38],["N-Terms","39",39,40],["N-Terms","55",55,56],["N-Terms","57",57,58],["N-Terms","57",57,58],["N-Terms","93",93,94],["N-Terms","111",111,112],["N-Terms","491",491,492],["C-Terms","92",91,92],["C-Terms","739",738,739],["Cleavages","92",91,92],["Topology","TURN (244-248)",244,248],["Topology","TURN (315-317)",315,317],["Topology","TURN (368-370)",368,370],["Topology","TURN (565-567)",565,567],["Topology","TURN (609-611)",609,611],["Topology","TURN (625-627)",625,627],["Topology","TURN (689-691)",689,691],["Topology","TURN (699-701)",699,701],["Modifications","MOD_RES (204-204)",204,204],["Modifications","MOD_RES (453-453)",453,453],["Modifications","MOD_RES (501-501)",501,501],["Features","NP_BIND (331-333)",331,333],["Features","NP_BIND (341-346)",341,346],["Features","NP_BIND (457-458)",457,458],["Features","NP_BIND (580-583)",580,583],["Topology","HELIX (121-130)",121,130],["Topology","HELIX (139-141)",139,141],["Topology","HELIX (152-168)",152,168],["Topology","HELIX (170-173)",170,173],["Topology","HELIX (186-191)",186,191],["Topology","HELIX (194-197)",194,197],["Topology","HELIX (214-227)",214,227],["Topology","HELIX (233-243)",233,243],["Topology","HELIX (251-260)",251,260],["Topology","HELIX (301-305)",301,305],["Topology","HELIX (308-314)",308,314],["Topology","HELIX (339-341)",339,341],["Topology","HELIX (357-359)",357,359],["Topology","HELIX (365-367)",365,367],["Topology","HELIX (378-382)",378,382],["Topology","HELIX (392-397)",392,397],["Topology","HELIX (404-420)",404,420],["Topology","HELIX (424-426)",424,426],["Topology","HELIX (434-436)",434,436],["Topology","HELIX (467-476)",467,476],["Topology","HELIX (581-592)",581,592],["Topology","HELIX (628-640)",628,640],["Topology","HELIX (654-663)",654,663],["Topology","HELIX (674-677)",674,677],["Topology","HELIX (702-710)",702,710],["Topology","HELIX (716-722)",716,722],["Domains","REGION (346-350)",346,350],["Domains","REGION (576-580)",576,580],["Domains","DOMAIN (63-119)",63,119],["Variants","MUTAGEN (635-635)",635,635],["Features","BINDING (213-213)",213,213],["Features","BINDING (299-299)",299,299],["Features","BINDING (435-435)",435,435],["Topology","STRAND (133-136)",133,136],["Topology","STRAND (148-150)",148,150],["Topology","STRAND (182-185)",182,185],["Topology","STRAND (199-208)",199,208],["Topology","STRAND (211-213)",211,213],["Topology","STRAND (229-231)",229,231],["Topology","STRAND (266-268)",266,268],["Topology","STRAND (276-279)",276,279],["Topology","STRAND (283-285)",283,285],["Topology","STRAND (287-296)",287,296],["Topology","STRAND (298-300)",298,300],["Topology","STRAND (321-330)",321,330],["Topology","STRAND (344-355)",344,355],["Topology","STRAND (372-376)",372,376],["Topology","STRAND (388-391)",388,391],["Topology","STRAND (400-402)",400,402],["Topology","STRAND (427-431)",427,431],["Topology","STRAND (442-451)",442,451],["Topology","STRAND (454-462)",454,462],["Topology","STRAND (482-484)",482,484],["Topology","STRAND (562-564)",562,564],["Topology","STRAND (568-570)",568,570],["Topology","STRAND (573-580)",573,580],["Topology","STRAND (593-595)",593,595],["Topology","STRAND (597-600)",597,600],["Topology","STRAND (603-605)",603,605],["Topology","STRAND (615-621)",615,621],["Topology","STRAND (645-647)",645,647],["Topology","STRAND (668-672)",668,672],["Topology","STRAND (679-681)",679,681],["Topology","STRAND (683-688)",683,688],["Topology","STRAND (694-698)",694,698],["Variants","VARIANT (42-42)",42,42],["Variants","VARIANT (125-125)",125,125],["Variants","VARIANT (183-183)",183,183],["Variants","VARIANT (268-268)",268,268],["Variants","VARIANT (294-294)",294,294],["Variants","VARIANT (388-388)",388,388],["Variants","VARIANT (580-580)",580,580],["Variants","CONFLICT (9-18)",9,18],["Variants","CONFLICT (205-205)",205,205],["Variants","CONFLICT (530-530)",530,530],["Variants","CONFLICT (634-634)",634,634],["Domains","DOMAIN (63-119)",63,119],["Features","NP_BIND (331-333)",331,333],["Features","NP_BIND (342-343)",342,343],["Features","NP_BIND (457-458)",457,458],["Domains","REGION (576-578)",576,578],["Features","BINDING (299-299)",299,299],["Features","BINDING (350-350)",350,350],["Features","BINDING (583-583)",583,583],["Modifications","MOD_RES (35-35)",35,35],["Modifications","MOD_RES (204-204)",204,204],["Modifications","MOD_RES (453-453)",453,453],["Modifications","MOD_RES (501-501)",501,501],["Modifications","MOD_RES (700-700)",700,700],["Modifications","MOD_RES (736-736)",736,736],["Variants","VARIANT (42-42)",42,42],["Variants","VARIANT (111-111)",111,111],["Variants","VARIANT (125-125)",125,125],["Variants","VARIANT (183-183)",183,183],["Variants","VARIANT (200-200)",200,200],["Variants","VARIANT (200-200)",200,200],["Variants","VARIANT (265-265)",265,265],["Variants","VARIANT (268-268)",268,268],["Variants","VARIANT (292-292)",292,292],["Variants","VARIANT (294-294)",294,294],["Variants","VARIANT (298-298)",298,298],["Variants","VARIANT (310-310)",310,310],["Variants","VARIANT (334-334)",334,334],["Variants","VARIANT (388-388)",388,388],["Variants","VARIANT (412-412)",412,412],["Variants","VARIANT (472-472)",472,472],["Variants","VARIANT (554-554)",554,554],["Variants","VARIANT (580-580)",580,580],["Variants","VARIANT (598-598)",598,598],["Variants","VARIANT (635-635)",635,635],["Variants","VARIANT (652-652)",652,652],["Variants","MUTAGEN (121-121)",121,121],["Variants","MUTAGEN (211-211)",211,211],["Variants","MUTAGEN (337-337)",337,337],["Variants","MUTAGEN (486-490)",486,490],["Variants","MUTAGEN (602-602)",602,602],["Variants","MUTAGEN (658-658)",658,658],["Variants","MUTAGEN (729-729)",729,729],["Variants","CONFLICT (9-18)",9,18],["Variants","CONFLICT (205-205)",205,205],["Variants","CONFLICT (530-530)",530,530],["Variants","CONFLICT (634-634)",634,634],["Topology","TURN (62-64)",62,64],["Topology","TURN (81-83)",81,83],["Topology","TURN (244-248)",244,248],["Topology","TURN (315-317)",315,317],["Topology","TURN (368-370)",368,370],["Topology","TURN (565-567)",565,567],["Topology","TURN (609-611)",609,611],["Topology","TURN (625-627)",625,627],["Topology","TURN (689-691)",689,691],["Topology","TURN (699-701)",699,701],["Topology","HELIX (65-80)",65,80],["Topology","HELIX (95-112)",95,112],["Topology","HELIX (121-130)",121,130],["Topology","HELIX (139-141)",139,141],["Topology","HELIX (152-168)",152,168],["Topology","HELIX (170-173)",170,173],["Topology","HELIX (186-191)",186,191],["Topology","HELIX (194-197)",194,197],["Topology","HELIX (214-227)",214,227],["Topology","HELIX (233-243)",233,243],["Topology","HELIX (251-260)",251,260],["Topology","HELIX (301-305)",301,305],["Topology","HELIX (308-314)",308,314],["Topology","HELIX (339-341)",339,341],["Topology","HELIX (357-359)",357,359],["Topology","HELIX (365-367)",365,367],["Topology","HELIX (378-382)",378,382],["Topology","HELIX (392-397)",392,397],["Topology","HELIX (404-420)",404,420],["Topology","HELIX (424-426)",424,426],["Topology","HELIX (434-436)",434,436],["Topology","HELIX (467-476)",467,476],["Topology","HELIX (501-507)",501,507],["Topology","HELIX (512-519)",512,519],["Topology","HELIX (524-535)",524,535],["Topology","HELIX (581-592)",581,592],["Topology","HELIX (628-640)",628,640],["Topology","HELIX (654-663)",654,663],["Topology","HELIX (674-677)",674,677],["Topology","HELIX (702-710)",702,710],["Topology","HELIX (716-722)",716,722],["Topology","STRAND (133-136)",133,136],["Topology","STRAND (148-150)",148,150],["Topology","STRAND (182-185)",182,185],["Topology","STRAND (199-208)",199,208],["Topology","STRAND (211-213)",211,213],["Topology","STRAND (229-231)",229,231],["Topology","STRAND (266-268)",266,268],["Topology","STRAND (276-279)",276,279],["Topology","STRAND (283-285)",283,285],["Topology","STRAND (287-296)",287,296],["Topology","STRAND (298-300)",298,300],["Topology","STRAND (321-330)",321,330],["Topology","STRAND (344-355)",344,355],["Topology","STRAND (372-376)",372,376],["Topology","STRAND (388-391)",388,391],["Topology","STRAND (400-402)",400,402],["Topology","STRAND (427-431)",427,431],["Topology","STRAND (442-451)",442,451],["Topology","STRAND (454-462)",454,462],["Topology","STRAND (482-484)",482,484],["Topology","STRAND (541-544)",541,544],["Topology","STRAND (547-550)",547,550],["Topology","STRAND (552-554)",552,554],["Topology","STRAND (562-564)",562,564],["Topology","STRAND (568-570)",568,570],["Topology","STRAND (573-580)",573,580],["Topology","STRAND (593-595)",593,595],["Topology","STRAND (597-600)",597,600],["Topology","STRAND (603-605)",603,605],["Topology","STRAND (615-621)",615,621],["Topology","STRAND (645-647)",645,647],["Topology","STRAND (650-652)",650,652],["Topology","STRAND (668-672)",668,672],["Topology","STRAND (679-681)",679,681],["Topology","STRAND (683-688)",683,688],["Topology","STRAND (694-698)",694,698],["Topology","STRAND (712-714)",712,714]];
+
+        var dataarr = [];
+        var catarr = [];
+        var i;
+
+        for (i = 0; i < domainElem.length ; i++ )
+        {
+        switch(domainElem[i][0]) {
+            
+          case "Sequence":
+                catarr[0] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:0,
+                color: '#e41a1c',
+                key: (domainElem[i][1])
+                });
+                break;
+
+            
+            case "Chains":
+                catarr[1] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:1,
+                color: '#377eb8',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Topology":
+                catarr[2] = (domainElem[i][0]);
+                dataarr.push({
+                x: parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:2,
+                color: '#4daf4a',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "N-Terms":
+                catarr[3] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:3,
+                color: '#984ea3',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "C-Terms":
+                catarr[4] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:4,
+                color: '#ff7f00',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Cleavages":
+                catarr[5] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:5,
+                color: '#CCCC00',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Modifications":
+                catarr[6] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:6,
+                color: '#a65628',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Variants":
+                catarr[7] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:7,
+                color: '#f781bf',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+            case "Domains":
+                catarr[8] = (domainElem[i][0]);
+                dataarr.push({
+                x:parseInt(domainElem[i][2]),
+                x2: parseInt(domainElem[i][3]),
+                y:8,
+                color: '#999999',
+                key: (domainElem[i][1])
+                });
+                break;
+            
+        }
+        }
+
+
+    
+
+    (function (H) {
+    var defaultPlotOptions = H.getOptions().plotOptions,
+    columnType = H.seriesTypes.column,
+    each = H.each,
+    extendClass = H.extendClass,
+    pick = H.pick,
+    Point = H.Point,
+    Series = H.Series;
+    
+    defaultPlotOptions.xrange = H.merge(defaultPlotOptions.column, {
+    tooltip: {
+    headerFormat: '<span style="font-size: 0.85em">{point.x} - {point.x2}</span><br/>',
+    pointFormat: '<span style="color:{point.color}">\u25CF</span> {point.yCategory}: <b>{point.key}</b><br/>',
+    footerFormat: '<span style="color:{point.color}">{series.name}</span><br/>'
+    }
+    });
+    H.seriesTypes.xrange = H.extendClass(columnType, {
+    pointClass: extendClass(Point, {
+        // Add x2 and yCategory to the available properties for tooltip formats
+    getLabelConfig: function () {
+        var cfg = Point.prototype.getLabelConfig.call(this);
+        
+        cfg.x2 = this.x2;
+        cfg.yCategory = this.yCategory = this.series.yAxis.categories && this.series.yAxis.categories[this.y];
+        return cfg;
+    }
+    }),
+    type: 'xrange',
+    forceDL: true,
+    parallelArrays: ['x', 'x2', 'y'],
+    requireSorting: false,
+    animate: H.seriesTypes.line.prototype.animate,
+        
+        /**
+         * Borrow the column series metrics, but with swapped axes. This gives free access
+         * to features like groupPadding, grouping, pointWidth etc.
+         */
+    getColumnMetrics: function () {
+        var metrics,
+        chart = this.chart;
+        
+        function swapAxes() {
+            each(chart.series, function (s) {
+                var xAxis = s.xAxis;
+                s.xAxis = s.yAxis;
+                s.yAxis = xAxis;
+            });
+        }
+        
+        swapAxes();
+        
+        this.yAxis.closestPointRange = 1;
+        metrics = columnType.prototype.getColumnMetrics.call(this);
+        
+        swapAxes();
+        
+        return metrics;
+    },
+        
+        /**
+         * Override cropData to show a point where x is outside visible range
+         * but x2 is outside.
+         */
+    cropData: function (xData, yData, min, max) {
+        
+        // Replace xData with x2Data to find the appropriate cropStart
+        var crop = Series.prototype.cropData.call(this, this.x2Data, yData, min, max);
+        
+        // Re-insert the cropped xData
+        crop.xData = xData.slice(crop.start, crop.end);
+        
+        return crop;
+    },
+        
+    translate: function () {
+        columnType.prototype.translate.apply(this, arguments);
+        var series = this,
+        xAxis = series.xAxis,
+        metrics = series.columnMetrics,
+        minPointLength = series.options.minPointLength || 0;
+        
+        H.each(series.points, function (point) {
+            var plotX = point.plotX,
+            plotX2 = xAxis.toPixels(H.pick(point.x2, point.x + (point.len || 0)), true),
+            width = plotX2 - plotX,
+            widthDifference;
+            
+            if (minPointLength) {
+                widthDifference = width < minPointLength ? minPointLength - width : 0;
+                plotX -= widthDifference / 2;
+                plotX2 += widthDifference / 2;
+            }
+            
+            plotX = Math.max(plotX, -10);
+            plotX2 = Math.min(Math.max(plotX2, -10), xAxis.len + 10);
+            
+            point.shapeArgs = {
+            x: plotX,
+            y: point.plotY + metrics.offset,
+            width: plotX2 - plotX,
+            height: metrics.width
+            };
+            point.tooltipPos[0] += width / 2;
+            point.tooltipPos[1] -= metrics.width / 2;
+        });
+    }
+    });
+    
+    /**
+     * Max x2 should be considered in xAxis extremes
+     */
+    H.wrap(H.Axis.prototype, 'getSeriesExtremes', function (proceed) {
+        var axis = this,
+        dataMax,
+        modMax;
+        
+        proceed.call(this);
+        if (this.isXAxis) {
+            dataMax = pick(axis.dataMax, Number.MIN_VALUE);
+            each(this.series, function (series) {
+                each(series.x2Data || [], function (val) {
+                    if (val > dataMax) {
+                        dataMax = val;
+                        modMax = true;
+                    }
+                });
+            });
+            if (modMax) {
+                axis.dataMax = dataMax;
+            }
+        }
+    });
+}(Highcharts));
+
+Highcharts.chart('container_chart', {
+    chart: {
+    type: 'xrange'
+    },
+    title: {
+    text: 'Summary'
+    },
+    xAxis: {
+    type: 'linear'
+    },
+    yAxis: {
+    title: {
+    text: ''
+    },
+    categories: [catarr[0], catarr[1], catarr[2], catarr[3], catarr[4], catarr[5], catarr[6], catarr[7], catarr[8]],
+    reversed: true
+    },
+    series: [{
+    name: 'P41250',
+    pointWidth: 20,
+    colorByPoint: true,
+    data: dataarr,
+    point: {
+    events: {
+    }
+    }
+        
+    }]
+    });
+
+
+    });
+
+</script>
+
+
+<p id="demo"></p>
+<p id="demo2"></p>
+
+
+
+<div class="content-body">
+		<div class ="container">
+			<div class="row">
+
+<h2> </h2>
+
+<def tag='general-protein-information'>
+
+	<section class="left">
+	  <section class="block">
+	  
+	    <h1>P41250: Glycine--tRNA ligase</h1>
+	    <table class="protein-summary annotation">
+                <h3> General Information </h3> 
+                
+	      <tr> 
+	        <th>Protein names</th> 
+	        <td><br>
+	        		- Glycine--tRNA ligase<br>
+	        		- 6.1.1.14 {ECO:0000269|PubMed:17544401, ECO:0000269|PubMed:24898252, ECO:0000269|PubMed:28675565}<br>
+	        		- Diadenosine tetraphosphate synthetase {ECO:0000305|PubMed:19710017}<br>
+	        		- Ap4A synthetase {ECO:0000305|PubMed:19710017}<br>
+	        		- 2.7.7.- {ECO:0000269|PubMed:19710017}<br>
+	        		- Glycyl-tRNA synthetase {ECO:0000303|PubMed:19710017}<br>
+	        		- GlyRS {ECO:0000303|PubMed:19710017}<br>
+	        </br></td>
+	      </tr><tr> 
+	        <th>Gene names</th> 
+	        <td>GARS </td>
+	      </tr><tr>
+	        <th>Organism</th>
+	        <td>Homo sapiens</td>
+	      </tr><tr>
+	        <th>Protease Family</th>
+	        <td> 	        	</td>
+	      </tr><tr>
+	        <th>Protease ID</th>
+	        <td>
+	        	</td>
+	      </tr><tr if="&@protein.chromosome.present?">
+	        <th>Chromosome location</th>
+	        <td><a href="/topfind/proteins?query=&chromosome=#{@protein.chromosome}"><view:chromosome/></a> <a href="/proteins/index?query=&chromosome=#{@protein.chromosome}&arm=#{@band.first}&band=#{@band.delete 'pq'}"></a></td>
+	      </tr><tr>
+	      	<th> UniProt ID</th>
+	      	<td><a href="http://www.uniprot.org/uniprot/P41250"> P41250</a></td>
+	      </tr>
+	    </table>
+	  </section>
+	  	  <section class="block">
+	  	  			<div class="row">
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 10</h2>
+    	<h2> N-termini </h2>
+
+   </div>
+  </div>
+
+ 	<div class="column">
+    <div class="card">
+    	
+    	<h2> 2</h2>
+    	<h2> C-termini </h2>
+
+   </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 1</h2>
+    	<h2> Cleavages </h2>
+
+   </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+    	
+    	<h2> 0</h2>
+    	<h2> Substrates </h2>
+
+   </div>
+  </div>
+
+</div>
+
+	    <h3>Sequence</h3> 
+	    	<p class="seq">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60&nbsp;<br/>MPSPRPVLLR&nbsp;GARAALLLLL&nbsp;PPRLLARPSL&nbsp;LLRRSLSAAS&nbsp;CPPISLPAAA&nbsp;SRSSMDGAGA&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120&nbsp;<br/>EEVLAPLRLA&nbsp;VRQQGDLVRK&nbsp;LKEDKAPQVD&nbsp;VDKAVAELKA&nbsp;RKRVLEAKEL&nbsp;ALQPKDDIVD&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180&nbsp;<br/>RAKMEDTLKR&nbsp;RFFYDQAFAI&nbsp;YGGVSGLYDF&nbsp;GPVGCALKNN&nbsp;IIQTWRQHFI&nbsp;QEEQILEIDC&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;210&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;240&nbsp;<br/>TMLTPEPVLK&nbsp;TSGHVDKFAD&nbsp;FMVKDVKNGE&nbsp;CFRADHLLKA&nbsp;HLQKLMSDKK&nbsp;CSVEKKSEME&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;250&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;270&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;280&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;290&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300&nbsp;<br/>SVLAQLDNYG&nbsp;QQELADLFVN&nbsp;YNVKSPITGN&nbsp;DLSPPVSFNL&nbsp;MFKTFIGPGG&nbsp;NMPGYLRPET&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;310&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;330&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;360&nbsp;<br/>AQGIFLNFKR&nbsp;LLEFNQGKLP&nbsp;FAAAQIGNSF&nbsp;RNEISPRSGL&nbsp;IRVREFTMAE&nbsp;IEHFVDPSEK&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;370&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;380&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;390&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;410&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;420&nbsp;<br/>DHPKFQNVAD&nbsp;LHLYLYSAKA&nbsp;QVSGQSARKM&nbsp;RLGDAVEQGV&nbsp;INNTVLGYFI&nbsp;GRIYLYLTKV&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;440&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;450&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;460&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;470&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;480&nbsp;<br/>GISPDKLRFR&nbsp;QHMENEMAHY&nbsp;ACDCWDAESK&nbsp;TSYGWIEIVG&nbsp;CADRSCYDLS&nbsp;CHARATKVPL&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;490&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;510&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;530&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;540&nbsp;<br/>VAEKPLKEPK&nbsp;TVNVVQFEPS&nbsp;KGAIGKAYKK&nbsp;DAKLVMEYLA&nbsp;ICDECYITEM&nbsp;EMLLNEKGEF&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;550&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;560&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;570&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;590&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;600&nbsp;<br/>TIETEGKTFQ&nbsp;LTKDMINVKR&nbsp;FQKTLYVEEV&nbsp;VPNVIEPSFG&nbsp;LGRIMYTVFE&nbsp;HTFHVREGDE&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;610&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;620&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;630&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;640&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;650&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;660&nbsp;<br/>QRTFFSFPAV&nbsp;VAPFKCSVLP&nbsp;LSQNQEFMPF&nbsp;VKELSEALTR&nbsp;HGVSHKVDDS&nbsp;SGSIGRRYAR&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;670&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;690&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;710&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;720&nbsp;<br/>TDEIGVAFGV&nbsp;TIDFDTVNKT&nbsp;PHTATLRDRD&nbsp;SMRQIRAEIS&nbsp;ELPSIVQDLA&nbsp;NGNITWADVE&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;730&nbsp;&nbsp;&nbsp;&nbsp;<br/>ARYPLFEGQE&nbsp;TGKKETIEE<p>
+	  </section>             
+	  <section class="block" if= false>
+	    <h3>Isoforms</h3>
+	  <br>
+      <br>
+	      Sequence View <p class="seq">
+          </p>
+
+	   <br><br>
+	
+     
+	      
+	
+	  </section> 
+	</section>
+
+
+
+	  <section class="right" width="20px">
+
+	  		<center>
+			<form action="/proteins/show/P41250" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="WL0MhbH2NBytLbrDKsLeetbcufLhs7y2dqTSINeoXkOosuE+tWgt6xB++WN4vafw5V1y1YpGeSvk9bgIhU73GA==" />
+				
+				<!-- To go back from dropdown to multiple selection box, type :multiple => true into the last set of {} brackets -->
+
+				<h2>Filter Information:</h2>
+				<br>
+				(<a href="/proteins/show/P41250">REFRESH</a>)
+				<br></br>
+				<h3>Directness: </h3>
+				<select name="directness" id="directness"><option value="unknown">unknown</option>
+<option value="indirect">indirect</option>
+<option value="direct">direct</option></select>
+				<br><h3>Physiological Relevance: </h3>
+				<select name="phys_rel" id="phys_rel"><option value="unknown">unknown</option>
+<option value="yes">yes</option>
+<option value="none">none</option></select>
+				<br><h3>Evidence Codes: </h3>
+				<select name="evidencecodes" id="evidencecodes"><option value="inferred from electronic annotation">inferred from electronic annotation</option>
+<option value="inferred from cleavage">inferred from cleavage</option>
+<option value="inferred from experiment">inferred from experiment</option></select>
+				<br><h3>Methodology: </h3>
+				<select name="methodology" id="methodology"><option value="electronic annotation">electronic annotation</option>
+<option value="unknown">unknown</option>
+<option value="other">other</option>
+<option value="Subtiligase Based Positive Selection">Subtiligase Based Positive Selection</option></select>
+				<br><h3>Perturbation of System: </h3>
+				<select name="perturbations" id="perturbations"><option value=""></option>
+<option value="none">none</option>
+<option value="apoptosis induced by doxorubicin">apoptosis induced by doxorubicin</option>
+<option value="apoptosis induced by etoposide">apoptosis induced by etoposide</option>
+<option value="apoptosis induced by staurosporin">apoptosis induced by staurosporin</option>
+<option value="apoptosis induced by bortezomib">apoptosis induced by bortezomib</option>
+<option value="apoptosis induced by staurosporine, doxorubicin and bortezomib">apoptosis induced by staurosporine, doxorubicin and bortezomib</option></select>
+				<br><h3>Biological System: </h3>
+				<select name="methodsystems" id="methodsystems"><option value="unknown">unknown</option>
+<option value="cell culture">cell culture</option></select>
+				<br><h3>Protease Assignment Confidence: </h3>
+				<select name="proteaseassignmentconfidences" id="proteaseassignmentconfidences"><option value="unknown">unknown</option>
+<option value="III proteolytic system present but impaired">III proteolytic system present but impaired</option></select>
+				<br><h3>Evidence Names: </h3>
+				<select name="evidences" id="evidences"><option value="inferred from uniprot">inferred from uniprot</option>
+<option value="Inferred from cleavage TC11510">Inferred from cleavage TC11510</option>
+<option value="Mahrus S. et al.: nonapototic Jurkat cells, Global Sequencing of Proteolytic Cleavage...">Mahrus S. et al.: nonapototic Jurkat cells, Global Sequencing of Proteolytic Cleavage...</option>
+<option value="Mahrus S. et al.: apototic Jurkat cells, Global Sequencing of Proteolytic Cleavage...">Mahrus S. et al.: apototic Jurkat cells, Global Sequencing of Proteolytic Cleavage...</option>
+<option value="Large_scale_NTA_Human">Large_scale_NTA_Human</option>
+<option value="apoptotic_DB_Doxo">apoptotic_DB_Doxo</option>
+<option value="apoptotic_Jurkat_Etoposide">apoptotic_Jurkat_Etoposide</option>
+<option value="apoptotic_Jurkat_staurotrail">apoptotic_Jurkat_staurotrail</option>
+<option value="apoptotic_MM1s_bort">apoptotic_MM1s_bort</option>
+<option value="apoptotic_MM1SDBJurkat_Mix">apoptotic_MM1SDBJurkat_Mix</option>
+<option value="apoptosis_U266_bortezomib_induced">apoptosis_U266_bortezomib_induced</option>
+<option value="Van Damme P et al.:Complementary positional proteo... (M14.017)">Van Damme P et al.:Complementary positional proteo... (M14.017)</option></select>
+				<br><h3>Database: </h3>
+				<select name="repository" id="repository"><option value=""></option>
+<option value=""></option>
+<option value="http://wellslab.ucsf.edu/degrabase/">http://wellslab.ucsf.edu/degrabase/</option></select>
+				<br><h3>Lab: </h3>
+				<select name="labs" id="labs"><option value=""></option>
+<option value=""></option>
+<option value="CNRS/ISV">CNRS/ISV</option>
+<option value="Wells">Wells</option>
+<option value="Gevaert K">Gevaert K</option></select>
+				<br><br>
+				<input type="submit" name="commit" value="Search" data-disable-with="Search" />
+</form>
+		</center>
+
+	  </section>
+         	
+	
+
+	</section> 	  
+
+</def>
+
+
+
+
+<section class="full category">
+</section>
+<def tag='Protein_Neighborhood'>
+	<a name="Protein_Neighborhood"/>
+	<h2>Protein Neighborhood</h2>
+		<img src="/assets/protein_neighborhood/P41250_pw_graphviz-fbfd550844c8df9015b6deb4a33eb0c115601bb97906ec80e4593cc1952b80bd.svg" />
+</def>
+	
+	        <section class="full category">
+              <pagenav/>
+              <a name="features"/><h2>Domains &amp; Features</h2>
+            </section>
+
+            <h2><center>10 N-termini - 2 C-termini - 1 Cleavages - 0 Substrates</center></h2>
+			
+<!-- N-TERMINI  -->
+
+              <a name="features"/><h2>N-termini</h2></a>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Name</th>
+					<th>Sequence</th>
+					<th>Position</th>
+					<th>Modification</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMID)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td>P41250-1-unknown</td>
+							<td>MPSPRP...</td>
+							<td>1</td>
+							<td></td>
+							<td>inferred from electronic annotation</td>
+							<td>electronic annotation</td>
+							<td><a target="_blank" href="http://www.uniprot.org">UniProtKB</a></td>
+							<td></td>
+							<td><a href="/evidences/show/1">inferred from uniprot</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P41250-36-</td>
+							<td>LSAASC...</td>
+							<td>36</td>
+							<td></td>
+							<td></td>
+							<td>Subtiligase Based Positive Selection</td>
+							<td></td>
+							<td>Wells</td>
+							<td><a href="/evidences/show/146729">apoptotic_DB_Doxo</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23264352">23264352</a>
+							</td>
+							</tr>
+							<tr>
+							<td>P41250-37-unknown</td>
+							<td>SAASCP...</td>
+							<td>37</td>
+							<td></td>
+							<td></td>
+							<td>unknown</td>
+							<td></td>
+							<td></td>
+							<td><a href="/evidences/show/146720">Mahrus S. et al.: nonapototic Jurkat cells, Global Sequencing of Proteolytic Cleavage...</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/18722006">18722006</a>
+							</td>
+							</tr>
+							<tr>
+							<td>P41250-39-unknown</td>
+							<td>ASCPPI...</td>
+							<td>39</td>
+							<td></td>
+							<td></td>
+							<td>unknown</td>
+							<td></td>
+							<td></td>
+							<td><a href="/evidences/show/146720">Mahrus S. et al.: nonapototic Jurkat cells, Global Sequencing of Proteolytic Cleavage...</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/18722006">18722006</a>
+							</td>
+							</tr>
+							<tr>
+							<td>P41250-55-acetylation</td>
+							<td>MDGAGA...</td>
+							<td>55</td>
+							<td>acetylation-</td>
+							<td></td>
+							<td>other</td>
+							<td></td>
+							<td>CNRS/ISV</td>
+							<td><a href="/evidences/show/146726">Large_scale_NTA_Human</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P41250-57-unknown</td>
+							<td>GAGAEE...</td>
+							<td>57</td>
+							<td></td>
+							<td></td>
+							<td>unknown</td>
+							<td></td>
+							<td></td>
+							<td><a href="/evidences/show/146724">Mahrus S. et al.: apototic Jurkat cells, Global Sequencing of Proteolytic Cleavage...</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/18722006">18722006</a>
+							</td>
+							</tr>
+							<tr>
+							<td>P41250-57-</td>
+							<td>GAGAEE...</td>
+							<td>57</td>
+							<td></td>
+							<td></td>
+							<td>Subtiligase Based Positive Selection</td>
+							<td></td>
+							<td>Wells</td>
+							<td><a href="/evidences/show/146729">apoptotic_DB_Doxo</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23264352">23264352</a>
+							</td>
+							</tr>
+							<tr>
+							<td>P41250-57-</td>
+							<td>GAGAEE...</td>
+							<td>57</td>
+							<td></td>
+							<td></td>
+							<td>Subtiligase Based Positive Selection</td>
+							<td></td>
+							<td>Wells</td>
+							<td><a href="/evidences/show/146732">apoptotic_Jurkat_Etoposide</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23264352">23264352</a>
+							</td>
+							</tr>
+							<tr>
+							<td>P41250-57-</td>
+							<td>GAGAEE...</td>
+							<td>57</td>
+							<td></td>
+							<td></td>
+							<td>Subtiligase Based Positive Selection</td>
+							<td></td>
+							<td>Wells</td>
+							<td><a href="/evidences/show/146735">apoptotic_Jurkat_staurotrail</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23264352">23264352</a>
+							</td>
+							</tr>
+							<tr>
+							<td>P41250-57-</td>
+							<td>GAGAEE...</td>
+							<td>57</td>
+							<td></td>
+							<td></td>
+							<td>Subtiligase Based Positive Selection</td>
+							<td></td>
+							<td>Wells</td>
+							<td><a href="/evidences/show/146736">apoptotic_MM1s_bort</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23264352">23264352</a>
+							</td>
+							</tr>
+							<tr>
+							<td>P41250-93-unknown</td>
+							<td>KAVAEL...</td>
+							<td>93</td>
+							<td></td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P41250#TC11510">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/122959">Inferred from cleavage TC11510</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td>P41250-111-</td>
+							<td>ALQPKD...</td>
+							<td>111</td>
+							<td></td>
+							<td></td>
+							<td>Subtiligase Based Positive Selection</td>
+							<td></td>
+							<td>Wells</td>
+							<td><a href="/evidences/show/146735">apoptotic_Jurkat_staurotrail</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23264352">23264352</a>
+							</td>
+							</tr>
+							<tr>
+							<td>P41250-111-</td>
+							<td>ALQPKD...</td>
+							<td>111</td>
+							<td></td>
+							<td></td>
+							<td>Subtiligase Based Positive Selection</td>
+							<td></td>
+							<td>Wells</td>
+							<td><a href="/evidences/show/146738">apoptotic_MM1SDBJurkat_Mix</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23264352">23264352</a>
+							</td>
+							</tr>
+							<tr>
+							<td>P41250-111-</td>
+							<td>ALQPKD...</td>
+							<td>111</td>
+							<td></td>
+							<td></td>
+							<td>Subtiligase Based Positive Selection</td>
+							<td></td>
+							<td>Wells</td>
+							<td><a href="/evidences/show/146742">apoptosis_U266_bortezomib_induced</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23264352">23264352</a>
+							</td>
+							</tr>
+							<tr>
+							<td>P41250-491-</td>
+							<td>TVNVVQ...</td>
+							<td>491</td>
+							<td></td>
+							<td></td>
+							<td>Subtiligase Based Positive Selection</td>
+							<td></td>
+							<td>Wells</td>
+							<td><a href="/evidences/show/146742">apoptosis_U266_bortezomib_induced</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23264352">23264352</a>
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>
+
+
+
+<!-- C-TERMINI  -->
+
+
+              <a name="features"/><h2>C-termini</h2>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Name</th>
+					<th>Sequence</th>
+					<th>Position</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td></td>
+							<td>...QVDVDK </td>
+							<td>92</td>
+							<td>inferred from cleavage</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://clipserve.clip.ubc.ca/topfind/proteins/P41250#TC11510">TopFIND</a></td>
+							<td></td>
+							<td><a href="/evidences/show/122959">Inferred from cleavage TC11510</a></td>
+							<td>
+							</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>...ETIEE </td>
+							<td>739</td>
+							<td>inferred from electronic annotation</td>
+							<td>electronic annotation</td>
+							<td><a target="_blank" href="http://www.uniprot.org">UniProtKB</a></td>
+							<td></td>
+							<td><a href="/evidences/show/1">inferred from uniprot</a></td>
+							<td>
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>
+
+<!-- CLEAVAGES -->
+
+
+              <a name="features"/><h2>Cleavages</h2>
+              <ul id="protshow">
+			  <table id="protshow">
+				<thead>
+					<th>Protease</th>
+					<th>Position</th>
+					<th>Sequence</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+							<tr>
+							<td><a href="/proteins/show/P10144">GRAB_HUMAN</a></td>
+							<td>92</td>
+							<td>DVDK.|.KAVA</td>
+							<td>inferred from experiment</td>
+							<td>unknown</td>
+							<td><a target="_blank" href="http://merops.sanger.ac.uk/">MEROPS</a>
+							<td>Gevaert K</td>
+							<td><a href="/evidences/show/76450">Van Damme P et al.:Complementary positional proteo... (M14.017)</a></td>
+							<td>
+								<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/20526345">20526345</a>,
+							</td>
+							</tr>
+				</tbody>
+			  </table>
+			</ul>
+
+
+<!-- SUBSTRATES -->
+
+              <a name="features"/><h2>Substrates</h2>
+              <ul id="protshow">
+			  <table id="protshow" class="substrates-table">
+				<thead>
+					<th>Substrate</th>
+					<th>Position</th>
+					<th>Sequence</th>
+					<th>Evidence type</th>
+					<th>Method</th>
+					<th>Source (database)</th>
+					<th>Source (Lab)</th>
+					<th>Evidence name</th>
+					<th>Publications (PMIDs)</th>
+				</thead>
+				<tbody>
+				</tbody>
+			  </table>
+			</ul>	
+
+			
+			
+			<section class="full">
+              
+            </section>
+	
+</def>
+
+
+<br>
+<br>
+
+
+</div>
+</div>
+</div>
+
+<footer>
+
+        
+    <div id="publication">
+
+        <div id="pics">
+        <img alt="UBC Logo" src="/assets/UBClogoupdated-76d10b067dddb96b9cf35c63b9db6f8ddd48959cffd588df9598f89d124f7279.png" width="372" height="117" />
+        <a href="http://clip.ubc.ca" target="_blank"><img alt="Lab Logo" src="/assets/Optimized_LabLogo-6b774b6428c587573bbe04397e0d610398524d5693571f497b59df22be3789d1.png" width="400" height="169" /></a>
+        </div>
+    </div>
+
+
+
+<div id="links">
+<br>
+<br>
+<center>
+<a href="/documentations/about">About |</a>
+<a href="/documentations/license">License &amp; Disclaimer |</a>
+<a href="mailto:topfind.clip@gmail.com">Contact |</a>
+<a href="/documentations/download">Download</a> 
+</center>
+
+<br>
+<center>
+        <h3> Developed by: Philipp F. Lange, Nikolaus Fortelny, Simran Rai </h3>
+        <a href="http://nar.oxfordjournals.org/content/early/2014/10/20/nar.gku1012.full" target="_blank">Nikolaus Fortelny, Sharon Yang, Paul Pavlidis, Philipp F. Lange*, Christopher M. Overall*, <b>Nucleic Acids Research</b> doi: 10.1093/nar/gku1012 (2014)</a><a href="http://nar.oxfordjournals.org/content/early/2014/10/20/nar.gku1012.full.pdf+html" target="_blank">[pdf]</a><br>
+        <a href="http://nar.oxfordjournals.org/content/40/D1/D351.full" target="_blank">Philipp F. Lange, Pitter F. Huesgen, Christopher M. Overall, <b>Nucleic Acids Research</b> 40 (D1), D351-D361 (2012)</a> <a href="https://www.researchgate.net/profile/Philipp_Lange/publication/51816705_TopFIND_2.0--linking_protein_termini_with_proteolytic_processing_and_modifications_altering_protein_function/links/0fcfd50574d434aac9000000?ev=pub_int_doc_dl&origin=publication_detail&inViewer=true" target="_blank">[pdf]</a><br>
+        <a href="http://www.nature.com/nmeth/journal/v8/n9/full/nmeth.1669.html" target="_blank">Philipp F. Lange &amp; Christopher M. Overall, <b>Nature Methods</b> 8, 703&minus;704 (2011)</a> <a href="/topfind/downloads/2011-NMeth-Lange_and_Overall.pdf" target="_blank">[pdf]</a>
+    <div class="bottom">&nbsp;</div>
+</center>
+
+</div>
+
+
+    </footer>
+
+
+
+</body>
+
+
+
+
+
+</body>
+</html>

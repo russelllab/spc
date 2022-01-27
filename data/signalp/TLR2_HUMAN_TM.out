@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.217
+  max. Y    19       0.435
+  max. S    16       0.908
+  mean S     1-18    0.877
+       D     1-18    0.612   0.500   YES
+Name=TLR2_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: SLS-KE D=0.612 D-cutoff=0.500 Networks=SignalP-TM

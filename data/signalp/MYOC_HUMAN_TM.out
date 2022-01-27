@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    33       0.616
+  max. Y    33       0.629
+  max. S    16       0.786
+  mean S     1-32    0.652
+       D     1-32    0.638   0.500   YES
+Name=MYOC_HUMAN	SP='YES' Cleavage site between pos. 32 and 33: VGA-RT D=0.638 D-cutoff=0.500 Networks=SignalP-TM

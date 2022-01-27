@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.245
+  max. Y    18       0.477
+  max. S    15       0.962
+  mean S     1-17    0.930
+       D     1-17    0.722   0.450   YES
+Name=PKHD1_HUMAN	SP='YES' Cleavage site between pos. 17 and 18: LLA-VR D=0.722 D-cutoff=0.450 Networks=SignalP-noTM

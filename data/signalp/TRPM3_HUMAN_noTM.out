@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    29       0.240
+  max. Y    29       0.409
+  max. S    18       0.834
+  mean S     1-28    0.693
+       D     1-28    0.562   0.450   YES
+Name=TRPM3_HUMAN	SP='YES' Cleavage site between pos. 28 and 29: LEG-VM D=0.562 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.540
+  max. Y    22       0.515
+  max. S    14       0.646
+  mean S     1-21    0.488
+       D     1-21    0.500   0.450   YES
+Name=CADH6_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: TLS-TP D=0.500 D-cutoff=0.450 Networks=SignalP-noTM

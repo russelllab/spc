@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.298
+  max. Y    21       0.484
+  max. S    16       0.870
+  mean S     1-20    0.777
+       D     1-20    0.601   0.500   YES
+Name=HYAL3_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: GCG-QP D=0.601 D-cutoff=0.500 Networks=SignalP-TM

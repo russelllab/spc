@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    18       0.901
+  max. Y    18       0.916
+  max. S     9       0.961
+  mean S     1-17    0.927
+       D     1-17    0.922   0.450   YES
+Name=PLTP_HUMAN	SP='YES' Cleavage site between pos. 17 and 18: AHA-EF D=0.922 D-cutoff=0.450 Networks=SignalP-noTM

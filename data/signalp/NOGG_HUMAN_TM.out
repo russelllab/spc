@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.444
+  max. Y    28       0.489
+  max. S    17       0.736
+  mean S     1-27    0.548
+       D     1-27    0.512   0.500   YES
+Name=NOGG_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: AGG-QH D=0.512 D-cutoff=0.500 Networks=SignalP-TM

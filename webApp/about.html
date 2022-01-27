@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div class="text-justify" style="font-size:16px">
+  <h3>Introduction</h3>
+  <p>
+  We performed a computational analysis on the first 70 aa at <strong>the N-t (N-terminal analysis)</strong> of the
+  whole proteome or on 70 aa windows starting from all <strong>internal TMDs (Internal TMDs analysis)</strong> to
+  identify potential <kbd>SPC cleavage sites</kbd> not associated with signal peptides (cryptic cleavage sites) by
+  using a pre-existing a signal peptide prediction software (<a href="https://pubmed.ncbi.nlm.nih.gov/21959131/">SignalP</a>) and comparing output of two
+  networks (TM and noTM). Our hits represent membrane protein with a type-II oriented TMD
+  predicted to be cleaved in noTM but not in TM. Moreover, we rank the hits based on the number
+  of disease-linked mutation.
+  </p>
+
+  <h3>Commptational method</h3>
+  <p>
+  We used the command-line version of the <a href="https://services.healthtech.dtu.dk/service.php?SignalP-4.1">SignalP4.1 program</a>. The
+  program takes a sequence (FASTA formatted) of 70 amino acids length as input and predicts the
+  cleavage site and reports the Y-score (combined cleavage site score) in its output. We retrieved all
+  the proteins and their associated feature information from <a href="https://pubmed.ncbi.nlm.nih.gov/14681372/">UniProt/Swiss-Prot</a>. We modified the SignalP command-line version to forced
+  our datasets selectively in <kbd>SignalP_TM</kbd> and <kbd>SignalP_noTM</kbd> version (see methods for details). To
+  investigate the proteins with cryptic cleavage sites, we created two types of peptide sequences
+  (FASTA formatted) with the first 70 amino acids of all the: (i) proteins that lack a canonical signal
+  peptide <strong>N-terminal analysis</strong>, (ii) transmembrane domains of proteins that lack a canonical signal peptide <strong>Internal TMDs analysis</strong>. We
+  predicted the Y-scores of both types of peptide sequences using the SignalP-TM and SignalP-noTM
+  version. A protein/transmembrane domain was considered to have a non-canonical cleavage site if
+  its corresponding peptide’s Y-score in the SignalP-TM output was less than 0.6 and in SignalP-
+  noTM output was more than 0.5. Finally, we assigned mutational information derived from (a)
+  <a href="https://pubmed.ncbi.nlm.nih.gov/14681372/">UniProt</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/30371878/">COSMIC</a>, and <a href="https://pubmed.ncbi.nlm.nih.gov/29165669/">ClinVAR</a>.
+  </p>
+
+  <h3>Validation</h3>
+  <p>
+    Validation of the hits were then performed by ectopically expressing wt and mutant constructs in
+    wt HEK293T cells or lacking the regulatory SPC subunit SPCS1 and cell lysates were then analysed
+    via Western blot to detect possible SPCS1-dependent cleavage fragments (see methods for details).
+  </p>
+  <h3>Contact</h3>
+  <p>
+    Gurdeep Singh: gurdeep.singh@bioquant.uni-heidelberg.de (<a href="russelllab.org">Russell lab</a>, Heidelberg)<br>
+    Andrea Zanotti: a.zanotti@zmbh.uni-heidelberg.de (<a href="https://biochemie-med.uni-koeln.de/en/research/research-groups/lemberg-lab">Lemberg lab</a>, Heidelberg/Cologne)<br>
+    Matthias Feige: matthias.feige@tum.de (<a href="https://www.department.ch.tum.de/cell/home/">CPB lab, Munich)
+  </p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    39       0.302
+  max. Y    39       0.439
+  max. S    16       0.857
+  mean S     1-38    0.672
+       D     1-38    0.565   0.450   YES
+Name=TPBG_HUMAN	SP='YES' Cleavage site between pos. 38 and 39: SSA-SS D=0.565 D-cutoff=0.450 Networks=SignalP-noTM

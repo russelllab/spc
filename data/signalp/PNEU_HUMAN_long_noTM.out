@@ -1,0 +1,20 @@
+# SignalP-4.1 euk predictions
+# Name=PNEU_HUMAN	Length=10	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   A   0.104   0.131   0.117
+    2   G   0.097   0.143   0.113
+    3   E   0.100   0.136   0.115
+    4   P   0.102   0.129   0.116
+    5   K   0.104   0.117   0.117
+    6   L   0.105   0.103   0.117
+    7   D   0.104   0.098   0.116
+    8   A   0.107   0.094   0.117
+    9   G   0.101   0.093   0.113
+   10   V   0.102   0.083   0.113
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C     8       0.107
+  max. Y     1       0.000
+  max. S     2       0.143
+  mean S     1-0     0.000
+       D     1-0     0.000   0.450   NO
+Name=PNEU_HUMAN	SP='NO' D=0.000 D-cutoff=0.450 Networks=SignalP-noTM

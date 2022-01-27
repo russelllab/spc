@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    42       0.455
+  max. Y    42       0.536
+  max. S    34       0.815
+  mean S     1-41    0.457
+       D     1-41    0.504   0.500   YES
+Name=HIPL2_HUMAN	SP='YES' Cleavage site between pos. 41 and 42: LQG-HP D=0.504 D-cutoff=0.500 Networks=SignalP-TM

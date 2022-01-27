@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    19       0.673
+  max. Y    19       0.750
+  max. S    11       0.889
+  mean S     1-18    0.838
+       D     1-18    0.785   0.500   YES
+Name=MUCEN_HUMAN	SP='YES' Cleavage site between pos. 18 and 19: CSS-NS D=0.785 D-cutoff=0.500 Networks=SignalP-TM

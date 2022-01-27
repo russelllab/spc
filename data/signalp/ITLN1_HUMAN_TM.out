@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.575
+  max. Y    17       0.691
+  max. S    12       0.903
+  mean S     1-16    0.836
+       D     1-16    0.749   0.500   YES
+Name=ITLN1_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: TRG-WS D=0.749 D-cutoff=0.500 Networks=SignalP-TM

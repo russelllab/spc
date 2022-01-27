@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.710
+  max. Y    22       0.819
+  max. S    15       0.978
+  mean S     1-21    0.946
+       D     1-21    0.888   0.450   YES
+Name=HAVR2_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: TRS-SE D=0.888 D-cutoff=0.450 Networks=SignalP-noTM

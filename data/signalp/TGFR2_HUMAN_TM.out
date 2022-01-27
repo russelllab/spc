@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.224
+  max. Y    24       0.403
+  max. S    20       0.822
+  mean S     1-23    0.709
+       D     1-23    0.525   0.500   YES
+Name=TGFR2_HUMAN	SP='YES' Cleavage site between pos. 23 and 24: AST-IP D=0.525 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.214
+  max. Y    22       0.448
+  max. S    15       0.980
+  mean S     1-21    0.939
+       D     1-21    0.713   0.450   YES
+Name=SIA10_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: LHC-IL D=0.713 D-cutoff=0.450 Networks=SignalP-noTM

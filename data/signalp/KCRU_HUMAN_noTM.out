@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    40       0.389
+  max. Y    40       0.379
+  max. S     2       0.795
+  mean S     1-39    0.512
+       D     1-39    0.451   0.450   YES
+Name=KCRU_HUMAN	SP='YES' Cleavage site between pos. 39 and 40: VRA-AS D=0.451 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    27       0.650
+  max. Y    27       0.652
+  max. S    10       0.869
+  mean S     1-26    0.735
+       D     1-26    0.685   0.500   YES
+Name=ATL3_HUMAN	SP='YES' Cleavage site between pos. 26 and 27: TTA-EK D=0.685 D-cutoff=0.500 Networks=SignalP-TM

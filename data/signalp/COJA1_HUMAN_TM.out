@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.467
+  max. Y    23       0.659
+  max. S    14       0.969
+  mean S     1-22    0.908
+       D     1-22    0.759   0.500   YES
+Name=COJA1_HUMAN	SP='YES' Cleavage site between pos. 22 and 23: AST-SV D=0.759 D-cutoff=0.500 Networks=SignalP-TM

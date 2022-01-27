@@ -1,0 +1,16 @@
+# SignalP-4.1 euk predictions
+# Name=O10J6_HUMAN_TRANSMEM7	Length=6	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   L   0.101   0.156   0.126
+    2   L   0.103   0.143   0.127
+    3   L   0.102   0.131   0.126
+    4   S   0.106   0.124   0.128
+    5   V   0.101   0.111   0.125
+    6   T   0.107   0.094   0.127
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C     6       0.107
+  max. Y     1       0.000
+  max. S     1       0.156
+  mean S     1-0     0.000
+       D     1-0     0.000   0.450   NO
+Name=O10J6_HUMAN_TRANSMEM7	SP='NO' D=0.000 D-cutoff=0.450 Networks=SignalP-noTM

@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    31       0.879
+  max. Y    31       0.901
+  max. S    24       0.969
+  mean S     1-30    0.873
+       D     1-30    0.890   0.500   YES
+Name=LYPD3_HUMAN	SP='YES' Cleavage site between pos. 30 and 31: AQA-LE D=0.890 D-cutoff=0.500 Networks=SignalP-TM

@@ -1,0 +1,26 @@
+# SignalP-4.1 euk predictions
+# Name=MOTSC_HUMAN	Length=16	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   M   0.101   0.175   0.133
+    2   R   0.103   0.168   0.134
+    3   W   0.105   0.132   0.136
+    4   Q   0.101   0.134   0.132
+    5   E   0.102   0.124   0.132
+    6   M   0.101   0.119   0.131
+    7   G   0.100   0.122   0.129
+    8   Y   0.100   0.121   0.128
+    9   I   0.103   0.112   0.129
+   10   F   0.101   0.100   0.126
+   11   Y   0.104   0.091   0.127
+   12   P   0.100   0.088   0.123
+   13   R   0.104   0.095   0.123
+   14   K   0.109   0.097   0.125
+   15   L   0.104   0.094   0.121
+   16   R   0.101   0.094   0.117
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    14       0.109
+  max. Y    11       0.127
+  max. S     1       0.175
+  mean S     1-10    0.131
+       D     1-10    0.129   0.450   NO
+Name=MOTSC_HUMAN	SP='NO' D=0.129 D-cutoff=0.450 Networks=SignalP-noTM

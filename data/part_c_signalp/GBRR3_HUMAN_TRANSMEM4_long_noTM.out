@@ -1,0 +1,31 @@
+# SignalP-4.1 euk predictions
+# Name=GBRR3_HUMAN_TRANSMEM4	Length=21	Networks=SignalP-noTM
+# pos  aa    C       S       Y
+    1   S   0.101   0.796   0.284
+    2   R   0.100   0.734   0.283
+    3   I   0.105   0.601   0.289
+    4   L   0.100   0.531   0.280
+    5   F   0.101   0.457   0.279
+    6   P   0.102   0.403   0.278
+    7   I   0.107   0.372   0.281
+    8   V   0.104   0.250   0.274
+    9   Y   0.104   0.204   0.269
+   10   I   0.102   0.149   0.261
+   11   L   0.096   0.214   0.247
+   12   F   0.103   0.172   0.251
+   13   N   0.101   0.152   0.243
+   14   L   0.096   0.144   0.231
+   15   F   0.102   0.142   0.232
+   16   Y   0.104   0.138   0.227
+   17   W   0.103   0.160   0.219
+   18   G   0.098   0.131   0.207
+   19   V   0.098   0.115   0.199
+   20   Y   0.100   0.114   0.193
+   21   V   0.096   0.118   0.182
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C     7       0.107
+  max. Y    12       0.251
+  max. S     1       0.796
+  mean S     1-11    0.428
+       D     1-11    0.347   0.450   NO
+Name=GBRR3_HUMAN_TRANSMEM4	SP='NO' D=0.347 D-cutoff=0.450 Networks=SignalP-noTM

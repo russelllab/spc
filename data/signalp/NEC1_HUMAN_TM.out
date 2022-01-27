@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.584
+  max. Y    28       0.584
+  max. S     8       0.837
+  mean S     1-27    0.666
+       D     1-27    0.617   0.500   YES
+Name=NEC1_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: AKA-KR D=0.617 D-cutoff=0.500 Networks=SignalP-TM

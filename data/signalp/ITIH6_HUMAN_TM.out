@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.442
+  max. Y    24       0.611
+  max. S    11       0.942
+  mean S     1-23    0.833
+       D     1-23    0.700   0.500   YES
+Name=ITIH6_HUMAN	SP='YES' Cleavage site between pos. 23 and 24: TYQ-GP D=0.700 D-cutoff=0.500 Networks=SignalP-TM

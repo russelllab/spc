@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.872
+  max. Y    24       0.888
+  max. S    14       0.934
+  mean S     1-23    0.903
+       D     1-23    0.896   0.450   YES
+Name=TENX_HUMAN	SP='YES' Cleavage site between pos. 23 and 24: ARA-GP D=0.896 D-cutoff=0.450 Networks=SignalP-noTM

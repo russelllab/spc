@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    44       0.198
+  max. Y    44       0.368
+  max. S    21       0.951
+  mean S     1-43    0.713
+       D     1-43    0.554   0.450   YES
+Name=AWAT1_HUMAN	SP='YES' Cleavage site between pos. 43 and 44: LWP-LP D=0.554 D-cutoff=0.450 Networks=SignalP-noTM

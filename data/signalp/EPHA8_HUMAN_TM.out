@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.453
+  max. Y    28       0.525
+  max. S    17       0.795
+  mean S     1-27    0.650
+       D     1-27    0.575   0.500   YES
+Name=EPHA8_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: VSA-AR D=0.575 D-cutoff=0.500 Networks=SignalP-TM

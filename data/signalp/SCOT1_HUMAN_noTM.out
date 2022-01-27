@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    23       0.189
+  max. Y    17       0.332
+  max. S     8       0.732
+  mean S     1-16    0.675
+       D     1-16    0.517   0.450   YES
+Name=SCOT1_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: CAS-AR D=0.517 D-cutoff=0.450 Networks=SignalP-noTM

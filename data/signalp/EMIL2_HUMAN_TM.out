@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    31       0.704
+  max. Y    31       0.775
+  max. S    18       0.932
+  mean S     1-30    0.861
+       D     1-30    0.809   0.500   YES
+Name=EMIL2_HUMAN	SP='YES' Cleavage site between pos. 30 and 31: CHA-GP D=0.809 D-cutoff=0.500 Networks=SignalP-TM

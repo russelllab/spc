@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    21       0.904
+  max. Y    21       0.934
+  max. S    12       0.981
+  mean S     1-20    0.960
+       D     1-20    0.944   0.500   YES
+Name=LYNX1_HUMAN	SP='YES' Cleavage site between pos. 20 and 21: AQA-LD D=0.944 D-cutoff=0.500 Networks=SignalP-TM

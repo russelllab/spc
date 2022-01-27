@@ -1,0 +1,20 @@
+# SignalP-4.1 euk predictions
+# Name=GLEM_HUMAN	Length=10	Networks=SignalP-TM
+# pos  aa    C       S       Y
+    1   C   0.102   0.223   0.151
+    2   E   0.102   0.261   0.151
+    3   G   0.103   0.244   0.152
+    4   H   0.099   0.238   0.150
+    5   S   0.105   0.202   0.155
+    6   H   0.099   0.140   0.150
+    7   D   0.103   0.120   0.151
+    8   H   0.100   0.097   0.146
+    9   G   0.105   0.094   0.147
+   10   A   0.102   0.083   0.141
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C     9       0.105
+  max. Y     1       0.000
+  max. S     2       0.261
+  mean S     1-0     0.000
+       D     1-0     0.000   0.500   NO
+Name=GLEM_HUMAN	SP='NO' D=0.000 D-cutoff=0.500 Networks=SignalP-TM

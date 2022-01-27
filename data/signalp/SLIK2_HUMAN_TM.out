@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.312
+  max. Y    22       0.484
+  max. S    14       0.923
+  mean S     1-21    0.784
+       D     1-21    0.604   0.500   YES
+Name=SLIK2_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: TES-RK D=0.604 D-cutoff=0.500 Networks=SignalP-TM

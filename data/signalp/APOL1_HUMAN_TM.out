@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    28       0.636
+  max. Y    28       0.699
+  max. S    18       0.861
+  mean S     1-27    0.748
+       D     1-27    0.719   0.500   YES
+Name=APOL1_HUMAN	SP='YES' Cleavage site between pos. 27 and 28: VRA-EE D=0.719 D-cutoff=0.500 Networks=SignalP-TM

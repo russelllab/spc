@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    34       0.303
+  max. Y    34       0.532
+  max. S    17       0.967
+  mean S     1-33    0.827
+       D     1-33    0.691   0.450   YES
+Name=NTRK1_HUMAN	SP='YES' Cleavage site between pos. 33 and 34: AGA-AP D=0.691 D-cutoff=0.450 Networks=SignalP-noTM

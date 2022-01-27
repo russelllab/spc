@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.585
+  max. Y    20       0.683
+  max. S     4       0.864
+  mean S     1-19    0.809
+       D     1-19    0.733   0.500   YES
+Name=GBRA6_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: ALG-KL D=0.733 D-cutoff=0.500 Networks=SignalP-TM

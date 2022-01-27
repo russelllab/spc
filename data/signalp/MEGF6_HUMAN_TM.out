@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    31       0.624
+  max. Y    31       0.692
+  max. S    28       0.919
+  mean S     1-30    0.706
+       D     1-30    0.698   0.500   YES
+Name=MEGF6_HUMAN	SP='YES' Cleavage site between pos. 30 and 31: VGA-SV D=0.698 D-cutoff=0.500 Networks=SignalP-TM

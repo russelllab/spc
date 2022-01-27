@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    24       0.750
+  max. Y    24       0.643
+  max. S     8       0.893
+  mean S     1-23    0.655
+       D     1-23    0.648   0.500   YES
+Name=CEAS1_HUMAN	SP='YES' Cleavage site between pos. 23 and 24: THA-VN D=0.648 D-cutoff=0.500 Networks=SignalP-TM

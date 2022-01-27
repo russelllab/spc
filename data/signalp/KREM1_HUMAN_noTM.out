@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    20       0.488
+  max. Y    20       0.651
+  max. S    19       0.922
+  mean S     1-19    0.868
+       D     1-19    0.768   0.450   YES
+Name=KREM1_HUMAN	SP='YES' Cleavage site between pos. 19 and 20: TLA-AR D=0.768 D-cutoff=0.450 Networks=SignalP-noTM

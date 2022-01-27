@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    22       0.391
+  max. Y    22       0.580
+  max. S    10       0.927
+  mean S     1-21    0.877
+       D     1-21    0.699   0.500   YES
+Name=EGFL6_HUMAN	SP='YES' Cleavage site between pos. 21 and 22: GFG-NA D=0.699 D-cutoff=0.500 Networks=SignalP-TM

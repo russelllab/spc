@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    32       0.404
+  max. Y    32       0.587
+  max. S    28       0.952
+  mean S     1-31    0.813
+       D     1-31    0.678   0.500   YES
+Name=HTRA4_HUMAN	SP='YES' Cleavage site between pos. 31 and 32: AGA-EK D=0.678 D-cutoff=0.500 Networks=SignalP-TM

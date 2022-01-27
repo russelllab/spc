@@ -1,0 +1,8 @@
+# SignalP-4.1 euk predictions
+# Measure  Position  Value    Cutoff   signal peptide?
+  max. C    17       0.889
+  max. Y    17       0.899
+  max. S    15       0.940
+  mean S     1-16    0.904
+       D     1-16    0.902   0.450   YES
+Name=GPR83_HUMAN	SP='YES' Cleavage site between pos. 16 and 17: VRA-TE D=0.902 D-cutoff=0.450 Networks=SignalP-noTM

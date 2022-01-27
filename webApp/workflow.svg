@@ -16,7 +16,10 @@
    version="1.1"
    id="svg71"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
-   sodipodi:docname="workflow.svg">
+   sodipodi:docname="workflow.svg"
+   inkscape:export-filename="/home/gurdeep/projects/spc/webApp/workflow.png"
+   inkscape:export-xdpi="95.400002"
+   inkscape:export-ydpi="95.400002">
   <defs
      id="defs65">
     <clipPath
@@ -150,7 +153,7 @@
        transform="matrix(0.35277777,0,0,-0.35277777,45.835914,239.65857)"
        id="g12" />
     <g
-       transform="matrix(0.35277777,0,0,-0.35277777,45.835914,239.65857)"
+       transform="matrix(0.35277777,0,0,-0.35277777,45.835914,225.37102)"
        id="g14">
       <g
          id="g16"
@@ -163,7 +166,7 @@
       </g>
     </g>
     <g
-       transform="matrix(0.55748314,0,0,-0.58726464,15.356201,282.89723)"
+       transform="matrix(0.55748314,0,0,-0.58726464,15.356201,268.60968)"
        id="g24-1">
       <g
          id="g26-7"
@@ -189,32 +192,32 @@
     <flowRoot
        xml:space="preserve"
        id="flowRoot137"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.94214058px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.87484495px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;"
        transform="matrix(0.62463152,0,0,0.69963087,-94.34924,-42.980659)"
        inkscape:export-xdpi="95.400002"
        inkscape:export-ydpi="95.400002"><flowRegion
          id="flowRegion139"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.94214058px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"><rect
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.87484495px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr;text-anchor:start;"><rect
            id="rect141"
            width="369.70816"
            height="72.334206"
            x="245.13258"
            y="81.710861"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.94214058px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start" /></flowRegion><flowPara
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.87484495px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr;text-anchor:start;" /></flowRegion><flowPara
          id="flowPara143"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.94214058px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">N-terminal analysis</flowPara></flowRoot>    <flowRoot
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.87484495px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr;text-anchor:start;">N-terminal analysis</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot137-6"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.94214072px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;"
-       transform="matrix(0.62463151,0,0,0.69963088,-99.955544,101.42423)"><flowRegion
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.87484455px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.62463151,0,0,0.69963088,-99.955544,87.136719)"><flowRegion
          id="flowRegion139-5"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.94214072px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr;text-anchor:start;"><rect
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.87484455px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"><rect
            id="rect141-6"
            width="369.70816"
            height="72.334206"
            x="245.13258"
            y="81.710861"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.94214072px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr;text-anchor:start;" /></flowRegion><flowPara
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.87484455px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start" /></flowRegion><flowPara
          id="flowPara143-3"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.94214072px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr;text-anchor:start;">Internal TMDs analysis</flowPara></flowRoot>  </g>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.87484455px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">Internal TMDs analysis</flowPara></flowRoot>  </g>
 </svg>

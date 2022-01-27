@@ -1,29 +1,76 @@
-## Cryptic cleavage sites in membrane proteins
+## SPC as a quality control enzyme
 
-![Workflow](webApp/workflow.svg)
+![Workflow](webApp/workflow.png)
 
-### Part A
-1. Consider the entire human proteome's first 70aa and run [SignalP](https://services.healthtech.dtu.dk/service.php?SignalP-4.1) with **TM** and **noTM** networks
-2. Compare the **Y-score** in both the cases and highlight the proteins (scatter plot) that show a cleavage site in the **noTM** mode but not in the **TM** mode
-3. The hunch is that these **cyptic cleavage sites** are present in proteins but otherwise inaccessible
-4. However, upon a mutation at another site in the same protein, these **cyptic cleavage sites** become accessible (perhaphs due to the protein misfold caused by the mutation)
-5. The revealation of these sites can lead to its post-translational cleavage by SPC (this can be a way of quality control)
-7. For example, Andrea showed that a mutation C201R in Cx32 can lead to revealation of a **cyptic cleavage site** in first 70aa, which was otherwise inaccessible in the WT
+---
 
-### Part B
-1. Same as Part A but rather than taking the first 70 aa, consider all Type II (N-term: Cytoplasmic) TMDs such that 5aa before the TMD + TMD itself + x aa is equal to 70
+### Introduction
 
-### Part C
-1. Same as Part A but rather than taking the first 70 aa, consider all Type II (N-term: Cytoplasmic) TMDs such that the TMD itself + x aa is equal to 70
+We performed a computational analysis on the first 70 aa at **the N-t (N-terminal analysis)** of the
+whole proteome and on 70 aa windows starting from all **internal TMDs (Internal TMDs analysis)** to
+identify **potential SPC cleavage sites** not associated with signal peptides (cryptic cleavage sites) by
+using a pre-existing a signal peptide prediction software [SignalP](https://pubmed.ncbi.nlm.nih.gov/21959131/) and comparing the output of two
+networks (***no-TM*** and ***TM*** modes). Our hits represent membrane protein with type-II oriented TMD
+predicted to be cleaved in ***no-TM network*** mode but not in ***TM network*** mode. Moreover, we rank the hits based on the number
+of disease-linked mutations.
 
-### webApp
-The web application can be accessed [here](http://shiny.russelllab.org/spc/webApp/)
+![webApp](https://github.com/russelllab/spc/blob/main/webApp/webApp.gif)
 
-### To-do (post meeting on Oct 5, 2021) -- check Issues
-1. Look for correlation b/w loop length vs. num of mutations
-2. Look for known cleavage sites in [Topfind4.1](https://topfind.clip.msl.ubc.ca/)
-3. Add more information in the tables (gene and position-level information) for PART B
-4. Color the True Positive cases in the figure (should mostly be in the top-right quadrant)
-5. Web-site development
-6. Workflow figure
-7. Manuscript writing
+Access the Shiny webApp [here](http://shiny.russelllab.org/spc/webApp/)
+
+---
+
+### Computational method
+We used the command-line version of the [SignalP4.1](https://services.healthtech.dtu.dk/service.php?SignalP-4.1) program. The program takes a proteins sequence (FASTA formatted) of 70 amino acids length as input and predicts the
+cleavage site and reports the Y-score (combined cleavage site score) in its output. To extract
+proteins with cryptic cleavage sites, we created two types of peptide sequences by considering the first 70 amino acids of all:
+- proteins that lack a canonical signal peptide (**N-terminal analysis**)
+- transmembrane domains of proteins that lack a canonical signal peptide (**Internal TMDs analysis**)
+
+We predicted the Y-scores of both types of peptide sequences using the SignalP-TM (***TM network*** mode) and SignalP-noTM (***no-TM network*** mode) version (see Methods for details).
+A protein/transmembrane domain was considered to have a non-canonical cleavage site if
+its corresponding peptide’s Y-score in the SignalP-TM output was less than 0.6 and in SignalP-noTM output was more than 0.5. We retrieved all
+the proteins and their associated feature information from [UniProt/Swiss-Prot](https://pubmed.ncbi.nlm.nih.gov/14681372/).
+We assigned mutational information provided in (a)
+[UniProt](https://pubmed.ncbi.nlm.nih.gov/14681372/), [COSMIC](https://pubmed.ncbi.nlm.nih.gov/30371878/), and [ClinVAR](https://pubmed.ncbi.nlm.nih.gov/29165669/) databases.
+
+---
+
+### Validation experiments
+  Validation of the hits (proteins predicted to have non-canonical cleavage sites) were then performed by ectopically expressing the WT (Wild Type) and mutant constructs in
+  WT HEK293T cells or lacking the regulatory SPC subunit SPCS1. Cell lysates were then analyzed
+  via Western blot to detect possible SPCS1-dependent cleavage fragments (see Methods for details).
+
+---
+
+### Contents
+#### N-terminal analysis
+| Location | Description |
+| ------ | ----------- |
+| data/part_a_fasta | directory with peptide FASTA sequences given as input to SignalP. |
+| data/part_a_signalp | output of SignalP peptide sequence prediction. |
+| data/part_a_data.tsv | output of SignalP and protein information in TSV format. |
+
+#### Internal TMDs analysis
+| Location | Description |
+| ------ | ----------- |
+| data/part_c_annotations.tsv | Annotations of TMs in proteins. |
+| data/part_a_fasta | directory with peptide FASTA sequences given as input to SignalP. |
+| data/part_a_signalp | output of SignalP peptide sequence prediction. |
+| data/part_a_data.tsv | output of SignalP and protein information in TSV format. |
+
+#### [webApp](http://spc.russelllab.org)
+| Location | Description |
+| ------ | ----------- |
+| data/server.R | Script to run the Shiny webApp. |
+| data/ui.R | Script to run the Shiny webApp. |
+| data/workflow* | Workflow figure shown in the REAMDE. |
+
+---
+
+## Contact
+  **Gurdeep Singh**: gurdeep.singh@bioquant.uni-heidelberg.de ([Russell lab](russelllab.org), Heidelberg)
+
+  **Andrea Zanotti**: a.zanotti@zmbh.uni-heidelberg.de ([Lemberg lab](https://biochemie-med.uni-koeln.de/en/research/research-groups/lemberg-lab), Heidelberg/Cologne)
+
+  **Matthias Feige**: matthias.feige@tum.de ([CPB lab](https://www.department.ch.tum.de/cell/home/), Munich)

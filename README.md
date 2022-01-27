@@ -54,7 +54,7 @@ We assigned mutational information provided in (a)
 #### Internal TMDs analysis
 | Location | Description |
 | ------ | ----------- |
-| data/part_c_annotations.tsv | Annotations of TMs in proteins. |
+| data/part_c_annotations.tsv | Annotations of TM domains in proteins. |
 | data/part_a_fasta | directory with peptide FASTA sequences given as input to SignalP. |
 | data/part_a_signalp | output of SignalP peptide sequence prediction. |
 | data/part_a_data.tsv | output of SignalP and protein information in TSV format. |

@@ -68,9 +68,10 @@ We assigned mutational information provided in (a)
 
 ---
 
-## Contact
-  **Gurdeep Singh**: gurdeep.singh@bioquant.uni-heidelberg.de ([Russell lab](russelllab.org), Heidelberg)
+## Contacts
 
-  **Andrea Zanotti**: a.zanotti@zmbh.uni-heidelberg.de ([Lemberg lab](https://biochemie-med.uni-koeln.de/en/research/research-groups/lemberg-lab), Heidelberg/Cologne)
+  **Marius Lemberg**: m.lemberg@uni-koeln.de ([Lemberg lab](https://biochemie-med.uni-koeln.de/en/research/research-groups/lemberg-lab), Heidelberg/Cologne)
 
   **Matthias Feige**: matthias.feige@tum.de ([CPB lab](https://www.department.ch.tum.de/cell/home/), Munich)
+
+  **Gurdeep Singh**: gurdeep.singh@bioquant.uni-heidelberg.de ([Russell lab](russelllab.org), Heidelberg)

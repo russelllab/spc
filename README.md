@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/452722626.svg)](https://zenodo.org/badge/latestdoi/452722626)
+
 ## SPC as a quality control enzyme
 
 ![Workflow](webApp/workflow.png)

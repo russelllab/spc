@@ -47,6 +47,8 @@ We assigned mutational information provided in (a)
 #### N-terminal analysis
 | Location | Description |
 | ------ | ----------- |
+| pyScripts/fetch_candidates.py | Script to extract candidates from UniProt/SwissProt's human.dat.gz file and run modified SignalP4.1. |
+| pyScripts/plot_scatter.py | Script to generate and plot the data. |
 | data/part_a_fasta | directory with peptide FASTA sequences given as input to SignalP. |
 | data/part_a_signalp | output of SignalP peptide sequence prediction. |
 | data/part_a_data.tsv | output of SignalP and protein information in TSV format. |
@@ -54,10 +56,22 @@ We assigned mutational information provided in (a)
 #### Internal TMDs analysis
 | Location | Description |
 | ------ | ----------- |
+| pyScripts/fetch_candidates_part_C.py | Script to extract candidates from UniProt/SwissProt's human.dat.gz file and run modified SignalP4.1. |
+| pyScripts/plot_scatter_part_C.py | Script to generate and plot the data. |
 | data/part_c_annotations.tsv | Annotations of TM domains in proteins. |
-| data/part_a_fasta | directory with peptide FASTA sequences given as input to SignalP. |
-| data/part_a_signalp | output of SignalP peptide sequence prediction. |
-| data/part_a_data.tsv | output of SignalP and protein information in TSV format. |
+| data/part_c_fasta | directory with peptide FASTA sequences given as input to SignalP. |
+| data/part_c_signalp | output of SignalP peptide sequence prediction. |
+| data/part_c_data.tsv | output of SignalP and protein information in TSV format. |
+
+#### signalp-4.1
+| Location | Description |
+| ------ | ----------- |
+| signalp-4.1/signalp | Original signalp-4.1 script. |
+| signalp-4.1/signalp_TM | Customized signalp-4.1 script in which the TM_TRESHOLD is set to -1 so that it is always less than TMCount and thus forces the program to run in the TM network mode. |
+| signalp-4.1/signalp_noTM | Customized signalp-4.1 script in which the TM_TRESHOLD is set to 100 so that it is always greater than TMCount and thus forces the program to run in the no-TM network mode. |
+
+
+**Note:** The information about the data downloaded from UniProt, COSMIC and ClinVar can be retrieved from Materials and Methods of the accompanying manuscript.
 
 #### [webApp](http://spc.russelllab.org)
 | Location | Description |

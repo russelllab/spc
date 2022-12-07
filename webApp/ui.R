@@ -8,7 +8,8 @@ library(shinyjs)
 library(shinythemes)
 library(shinyWidgets)
 
-data <- read_tsv("../data/part_a_data.tsv")
+#data <- read_tsv("../data/part_a_data.tsv")
+data <- read_tsv("part_a_data.tsv")
 new_data <- data
 new_data <- data.frame(new_data)
 #headers <- c('GENE', 'ACC', 'Total_MUT', 'UniProt_MUT', 'ClinVar_MUT', 'COSMIC_MUT', 'Position', 'SignalP_TM', 'SignalP_noTM', 'N_terminus', 'Topology')
@@ -17,7 +18,8 @@ headers <- c('GENE', 'Total_MUT', 'UniProt_MUT', 'ClinVar_MUT', 'COSMIC_MUT', 'P
 new_data <- new_data[headers]
 RV <- reactiveValues(data = data.frame(new_data))
 
-data2 <- read_tsv("../data/part_c_data.tsv")
+#data2 <- read_tsv("../data/part_c_data.tsv")
+data2 <- read_tsv("part_c_data.tsv")
 new_data2 <- data2
 new_data2 <- data.frame(new_data2)
 #print (new_data2['N-terminus'])

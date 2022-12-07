@@ -1,0 +1,13 @@
+name: webAppSPC
+title: webAppSPC
+username:
+account: stxbp1-predictor
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7836403
+bundleId: 6604616
+url: https://russelllab.shinyapps.io/webAppSPC/
+when: 1670418892.52595
+lastSyncTime: 1670418892.52598
+asMultiple: FALSE
+asStatic: FALSE

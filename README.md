@@ -18,7 +18,7 @@ of disease-linked mutations.
 
 ![webApp](https://github.com/russelllab/spc/blob/main/webApp/webApp.gif)
 
-Access the Shiny webApp [here](http://shiny.russelllab.org/spc/webApp/)
+Access the Shiny webApp [here](http://spc.russelllab.org)
 
 ---
 
@@ -91,3 +91,11 @@ We assigned mutational information provided in (a)
   **Matthias Feige**: matthias.feige@tum.de ([CPB lab](https://www.department.ch.tum.de/cell/home/), Munich)
 
   **Gurdeep Singh**: gurdeep.singh@bioquant.uni-heidelberg.de ([Russell lab](russelllab.org), Heidelberg)
+
+
+## Cite
+  Zanotti A, Coelho JPL, Kaylani D, Singh G, Tauber M, Hitzenberger M, Avci D, Zacharias M, Russell RB, Lemberg MK, Feige MJ
+  The human signal peptidase complex acts as a quality control enzyme for membrane proteins. ***Science*** (2022).
+  [doi: 10.1126/science.abo5672](https://doi.org/10.1126/science.abo5672)
+  PMID: [36454823](https://pubmed.ncbi.nlm.nih.gov/36454823/)
+  
